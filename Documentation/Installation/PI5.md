@@ -18,10 +18,20 @@ Sélectionner  `Raspeberry PI 5` > `Raspberry PI OS Lite (64 Bit)` > `SD Card`.
 ![image](https://github.com/user-attachments/assets/2038da19-2744-4359-abc3-f29c5c1aeed5)
 
 
+#### C. Gestion des dépôts linux 
+
+#### D. Mise à jour des paquets du Raspberry
+
+#### E. Mise à jour du Raspberry (Noyau, Firmware ...)
+
+
+
 
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### III. Configuration
+#### X. Nommage de la machine
+#### X. Configuration de la Carte-réseau (Ethernet)
 
 
