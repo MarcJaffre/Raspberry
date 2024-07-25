@@ -62,9 +62,9 @@ df -h;
 ```
 
 
-##### D. Vérification du montage
+##### E. Vérification des permissions
 ```bash
 clear;
-df -h;
+ls -lah /mnt/partage;
 ```
 
