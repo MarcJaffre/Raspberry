@@ -24,12 +24,16 @@ mount -t cifs -o username=marc,password=marc,uid=1000,gid=1000,forceuid,forcegid
 clear;
 df -h /mnt/partage;
 ```
-#### 2. Vérification des permissions
+#### 3. Vérification des permissions
 ```bash
 clear;
 ls -lah /mnt/partage;
 ```
-
+#### 4. Démontage
+```bash
+clear;
+umount /mnt/partage;
+```
 
 
 ### C. Montage d'un partage
