@@ -101,18 +101,23 @@ source /etc/os-release;
 if [ $VERSION_CODENAME = bookworm ]; then
 echo "
 ################################################################################################################
+# Generique #
+#############
 deb      http://deb.debian.org/debian           bookworm           main contrib non-free non-free-firmware
 #deb-src http://deb.debian.org/debian           bookworm           main contrib non-free non-free-firmware
 
 ################################################################################################################
+# Security #
+############
 deb      http://deb.debian.org/debian-security/ bookworm-security  main contrib non-free non-free-firmware
 #deb-src http://deb.debian.org/debian-security/ bookworm-security  main contrib non-free non-free-firmware
 
 ################################################################################################################
+# Updates #
+###########
 deb      http://deb.debian.org/debian           bookworm-updates   main contrib non-free non-free-firmware
 #deb-src http://deb.debian.org/debian           bookworm-updates   main contrib non-free non-free-firmware
-################################################################################################################
-"
+################################################################################################################" > /etc/apt/sources.list;
 
 fi
 
