@@ -62,9 +62,14 @@ systemctl restart docker.service;
 systemctl status docker.service
 ```
 
+Commenter les lignes
 ```
 #After=network-online.target docker.socket firewalld.service containerd.service time-set.target
 #Wants=network-online.target containerd.service
+```
+
+Ajouter les montages
+```
 After=network-online.target docker.socket firewalld.service containerd.service time-set.target mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 Wants=network-online.target containerd.service mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 ```
