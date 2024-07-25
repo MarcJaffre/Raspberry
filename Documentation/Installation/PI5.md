@@ -146,10 +146,18 @@ ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
 /usr/sbin/useradd --base-dir /home/${USER_NAME} --comment "${USER_COMMENT}" --home-dir /home/${USER_NAME} --groups users  --create-home --password ${ENCRYPT} --shell ${USER_SHELL}  --uid ${USER_UID}  --no-user-group  ${USER_NAME};
 ```
 
-
-
-
-#### X.
+#### X. Autoriser le SSH (root)
+Modifier la valeur PermitRootLogin. (CTRL + X puis Y puis Entrer)
 ```bash
 clear;
+nano /etc/ssh/sshd_config;
 ```
+```
+PermitRootLogin yes
+```
+
+```bash
+clear;
+systemctl restart ssh;
+```
+
