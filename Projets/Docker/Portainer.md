@@ -2,12 +2,19 @@
 ## <p align='center'> Mise en place du conteneur Portainer </p>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## I. 
+## I. Présentation
+Portainer est une interface Web pour l'administration des conteneurs 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## II. Déploiement
+
+### A. Création du fichier
 ```bash
 clear;
 nano portainer.yml;
 ```
+
+### B. Contenu du fichier
 
 ```yml
 ################
@@ -43,4 +50,10 @@ volumes:                                               #
 ```
 
 
-docker-compose -f portainer.yml up -d
+### C. Démarrage du conteneur (mode détacher)
+docker-compose -f portainer.yml up -d;
+
+### D. Accéder au panel administration
+```
+http://XXX.XXX.XXX.XXX:9000
+```
