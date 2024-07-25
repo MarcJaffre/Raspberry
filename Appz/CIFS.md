@@ -35,9 +35,7 @@ smbclient -L 192.168.0.2 -U marc%admin;
 ```bash
 clear;
 mkdir /mnt/partage;
-mount -t cifs -o username=marc,password=admin,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage
-
-#
+mount -t cifs -o username=marc,password=admin,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage;
 ```
 #### 2. Vérification du montage
 
@@ -56,7 +54,8 @@ clear;
 umount /mnt/partage;
 ```
 
-### D. Montage d'un partage (Permanent
+
+### D. Montage d'un partage (Persistence)
 ##### 1. Editer le FSTAB
 ```bash
 clear;
@@ -64,11 +63,7 @@ nano /etc/fstab;
 ```
 
 ```
-##########################################################################################################
-# Montage du partage #
-######################
 //192.168.0.2/homes  /mnt/partage cifs _netdev,username=marc,password=admin,uid=1000,gid=1000  0 0
-##########################################################################################################
 ```
 ##### 2. Mise à jour de SystemD
 ```bash
@@ -82,16 +77,14 @@ clear;
 mount -a;
 ```
 
-##### D. Vérification du montage
+##### 4. Vérification du montage
 ```bash
 clear;
 df -h;
 ```
 
-
-##### E. Vérification des permissions
+##### 5. Vérification des permissions
 ```bash
 clear;
 ls -lah /mnt/partage;
 ```
-
