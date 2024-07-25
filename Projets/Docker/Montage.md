@@ -2,7 +2,15 @@
 ## <p align='center'> Indiquer à Docker d'attendre le montage des partitions </p>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## I. Présentation
+Le service docker se lance avant le montage et si les conteneurs utilisent les montages, les dossiers dans les conteneurs seront vides.
+
+Pour éviter celà, on indique au système d'attendre les services de montages soit OK pour démarrer docker.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ##
+
 ## Liste les montages
 Pour permettre le montage des partitions, il faut retarder le lancement de Docker
 ```bash
