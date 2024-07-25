@@ -51,7 +51,10 @@ volumes:                                               #
 
 
 ### C. Démarrage du conteneur (mode détacher)
+```bash
+clear;
 docker-compose -f portainer.yml up -d;
+```
 
 ### D. Accéder au panel administration
 ```
