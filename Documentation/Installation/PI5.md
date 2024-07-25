@@ -131,13 +131,22 @@ clear;
 apt upgrade -y;
 ```
 
-
 #### X. Création d'un utilisateur
-L'utilisateur n'aura pas son propre groupe mais il appartiendra à `users`.
+L'utilisateur n'aura pas son propre groupe mais il appartiendra à `users`. On génére le mot de passe crypter puis on crée l'utilisateur
 ```bash
 clear;
-/usr/sbin/useradd --base-dir /home/drthrax74 --comment "Drthrax74" --home-dir /home/drthrax74 --groups users  --create-home --shell /usr/bin/bash --uid 1002  --no-user-group  drthrax74
+USER_UID="1002"
+USER_COMMENT="Drthrax74"
+USER_NAME="drthrax74"
+USER_PASS="admin"
+USER_SHELL="/usr/bin/bash"
+
+ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
+/usr/sbin/userdel -rf ${USER_NAME};
+/usr/sbin/useradd --base-dir /home/${USER_NAME} --comment "${USER_COMMENT}" --home-dir /home/${USER_NAME} --groups users  --create-home --password ${ENCRYPT} --shell ${USER_SHELL}  --uid ${USER_UID}  --no-user-group  ${USER_NAME};
 ```
+
+
 
 
 #### X.
