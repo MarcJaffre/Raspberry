@@ -75,21 +75,44 @@ clear;
 hostnamectl hostname marc;
 ```
 
-
-#### X. Configuration de la Carte-réseau (Ethernet)
+#### X. Configuration de la Carte-réseau (eth0)
 ```bash
 clear;
-ifconfig eth0 down;
-ifconfig eth0 192.168.20.5 netmask 255.255.255.0 broadcast 192.168.20.255;
-route add default gw 192.168.20.1 eth0;
-ifconfig eth0 up;
+echo "#############################################
+# Configuration Eth0 #
+######################
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+  address         192.168.20.3/24
+  gateway         192.168.20.1
+  dns-nameservers 192.168.20.1 8.8.8.8
+#############################################" > /etc/network/interfaces.d/eth0;
+systemctl restart networking;
 ```
 
 
 #### X. Gestion des dépôts linux 
 
 ```bash
+clear;
 source /etc/os-release;
+
+if [ $VERSION_CODENAME = bookworm ]; then
+echo "
+deb      http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb      http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+deb      http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+"
+
+fi
+
+if [ $VERSION_CODENAME = bullseye ]; then
+ echo "ok";
+fi
 ```
  
 #### X. Mise à jour du Raspberry (Boot, Noyau ...)
