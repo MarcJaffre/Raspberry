@@ -135,7 +135,13 @@ apt upgrade -y;
 #### X. Création d'un utilisateur
 ```bash
 clear;
-/usr/sbin/useradd --base-dir /home/drthrax74 -c "Drthrax74" --home-dir /home/drthrax74 --gid 1002
+
+/usr/sbin/groupdel drthrax74
+/usr/sbin/groupadd --gid 1002 drthrax74
+
+--gid drthrax74 --groups users
+
+/usr/sbin/useradd --base-dir /home/drthrax74 -c "Drthrax74" --home-dir /home/drthrax74 --create-home drthrax74
 ```
 
 
