@@ -55,13 +55,11 @@ blkid;
 ```
 
 ```
-/dev/mmcblk0p1: LABEL_FATBOOT="bootfs" LABEL="bootfs" UUID="91FE-7499" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="b9e52d62-01"
-/dev/mmcblk0p2: LABEL="rootfs" UUID="56f80fa2-e005-4cca-86e6-19da1069914d" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="b9e52d62-02"
-/dev/sda1:      LABEL="Media_1" BLOCK_SIZE="512" UUID="527C5B8B7C5B68AD" TYPE="ntfs" PARTUUID="e35f523b-edf0-0d4a-ac2b-dd46e33e82ee"
-/dev/sdb1:      LABEL="Media_2" BLOCK_SIZE="512" UUID="16B2983209BDABAC" TYPE="ntfs" PARTUUID="20144bc2-e8fc-5945-bcc0-9fb1c10303bf"
-/dev/sdc1:      LABEL="Media_3" BLOCK_SIZE="512" UUID="94001B57001B4022" TYPE="ntfs" PARTUUID="7c68d9e6-d528-4b58-8ac1-dcdca5c5a0c3"
-/dev/sdd1:      LABEL="Media_4" BLOCK_SIZE="512" UUID="105A13BF5A13A110" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="f42d79f3-e109-438e-b8fd-29cef83a45f1"
-/dev/sde1:      LABEL="Media_5" BLOCK_SIZE="512" UUID="80667AAF667AA596" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="710204b7-cd31-476e-9803-c1ac3d80ba41"
+/dev/sda1:      LABEL="Media_1"   BLOCK_SIZE="512" UUID="527C5B8B7C5B68AD"   TYPE="ntfs"                                    PARTUUID="e35f523b-edf0-0d4a-ac2b-dd46e33e82ee"
+/dev/sdb1:      LABEL="Media_2"   BLOCK_SIZE="512" UUID="16B2983209BDABAC"   TYPE="ntfs"                                    PARTUUID="20144bc2-e8fc-5945-bcc0-9fb1c10303bf"
+/dev/sdc1:      LABEL="Media_3"   BLOCK_SIZE="512" UUID="94001B57001B4022"   TYPE="ntfs"                                    PARTUUID="7c68d9e6-d528-4b58-8ac1-dcdca5c5a0c3"
+/dev/sdd1:      LABEL="Media_4"   BLOCK_SIZE="512" UUID="105A13BF5A13A110"   TYPE="ntfs"   PARTLABEL="Basic data partition" PARTUUID="f42d79f3-e109-438e-b8fd-29cef83a45f1"
+/dev/sde1:      LABEL="Media_5"   BLOCK_SIZE="512" UUID="80667AAF667AA596"   TYPE="ntfs"   PARTLABEL="Basic data partition" PARTUUID="710204b7-cd31-476e-9803-c1ac3d80ba41"
 ```
 
 #### X. Création de point de montage
