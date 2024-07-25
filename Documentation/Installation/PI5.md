@@ -124,6 +124,7 @@ fi
 ```bash
 clear;
 rpi-update;
+rpi-update rpi-6.6.y;
 echo "yes" | rpi-eeprom-update -d -a;
 reboot;
 ```
