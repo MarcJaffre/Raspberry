@@ -133,15 +133,10 @@ apt upgrade -y;
 
 
 #### X. Création d'un utilisateur
+L'utilisateur n'aura pas son propre groupe mais il appartiendra à `users`.
 ```bash
 clear;
-
-/usr/sbin/groupdel drthrax74
-/usr/sbin/groupadd --gid 1002 drthrax74
-
---gid drthrax74 --groups users
-
-/usr/sbin/useradd --base-dir /home/drthrax74 -c "Drthrax74" --home-dir /home/drthrax74 --create-home drthrax74
+/usr/sbin/useradd --base-dir /home/drthrax74 --comment "Drthrax74" --home-dir /home/drthrax74 --groups users  --create-home --shell /usr/bin/bash --uid 1002  --no-user-group  drthrax74
 ```
 
 
