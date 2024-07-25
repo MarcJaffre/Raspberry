@@ -79,8 +79,10 @@ hostnamectl hostname marc;
 #### X. Configuration de la Carte-réseau (Ethernet)
 ```bash
 clear;
-ifconfig eth0 192.168.20.8 netmask 255.255.255.0 broadcast 192.168.20.255
-
+ifconfig eth0 down;
+ifconfig eth0 192.168.20.5 netmask 255.255.255.0 broadcast 192.168.20.255;
+route add default gw 192.168.20.1 eth0;
+ifconfig eth0 up;
 ```
 
 
