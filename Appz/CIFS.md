@@ -31,6 +31,8 @@ smbclient -L 192.168.0.2 -U marc%admin;
 
 
 ### C. Montage d'un partage (Ponctuellement)
+L'identifiant marc à comme UserID 1000 et à commme GroupID 1000.
+
 #### 1. Montage
 ```bash
 clear;
