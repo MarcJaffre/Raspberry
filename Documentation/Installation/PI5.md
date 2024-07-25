@@ -120,20 +120,18 @@ deb      http://deb.debian.org/debian           $VERSION_CODENAME-updates   main
 fi
 ```
  
-#### X. Mise à jour du Raspberry (Boot, Noyau ...)
+#### X. Mise à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
 ```bash
 clear;
 rpi-update;
 echo "yes" | rpi-eeprom-update -d -a;
 rpi-update rpi-6.6.y;
-reboot;
 ```
 
 #### X. Mise à jour des paquets du Raspberry
 ```bash
 clear;
-apt update;
-apt upgrade;
+apt upgrade -y;
 ```
 
 
