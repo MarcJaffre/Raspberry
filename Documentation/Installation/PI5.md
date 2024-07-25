@@ -99,30 +99,24 @@ clear;
 source /etc/os-release;
 
 if [ $VERSION_CODENAME = bookworm ]; then
-echo "
-################################################################################################################
+echo "################################################################################################################
 # Generique #
 #############
-deb      http://deb.debian.org/debian           bookworm           main contrib non-free non-free-firmware
-#deb-src http://deb.debian.org/debian           bookworm           main contrib non-free non-free-firmware
+deb      http://deb.debian.org/debian           $VERSION_CODENAME           main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian           $VERSION_CODENAME           main contrib non-free non-free-firmware
 
 ################################################################################################################
 # Security #
 ############
-deb      http://deb.debian.org/debian-security/ bookworm-security  main contrib non-free non-free-firmware
-#deb-src http://deb.debian.org/debian-security/ bookworm-security  main contrib non-free non-free-firmware
+deb      http://deb.debian.org/debian-security/ $VERSION_CODENAME-security  main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian-security/ $VERSION_CODENAME-security  main contrib non-free non-free-firmware
 
 ################################################################################################################
 # Updates #
 ###########
-deb      http://deb.debian.org/debian           bookworm-updates   main contrib non-free non-free-firmware
-#deb-src http://deb.debian.org/debian           bookworm-updates   main contrib non-free non-free-firmware
+deb      http://deb.debian.org/debian           $VERSION_CODENAME-updates   main contrib non-free non-free-firmware
+#deb-src http://deb.debian.org/debian           $VERSION_CODENAME-updates   main contrib non-free non-free-firmware
 ################################################################################################################" > /etc/apt/sources.list;
-
-fi
-
-if [ $VERSION_CODENAME = bullseye ]; then
- echo "ok";
 fi
 ```
  
