@@ -84,7 +84,7 @@ nano /etc/fstab;
 /mnt/partage         : Point de montage
 cifs                 : Le type de partition
 _netdev              : Attendre que le réseau soit actif pour lancer le montage
-username             :  Identifiant pour la connexion CIFS
+username             : Identifiant pour la connexion CIFS
 password             : Mot de passe pour la connexion CIFS
 uid                  : Fichier et Dossier appartenant à l'utilisateur XXXX
 gid                  : Fichier et Dossier appartenant au groupe XXXX
