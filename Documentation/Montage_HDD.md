@@ -105,8 +105,15 @@ mount -a;
 ```
 
 
-#### X. Montage
+#### X. Vérification du montage
 ```bash
 clear;
-mount -a;
+df -h | grep "Mounte\|/mnt/Media";
+```
+
+
+#### X. Vérification des permissions
+```bash
+clear;
+ls -lah /mnt/ | grep Media;
 ```
