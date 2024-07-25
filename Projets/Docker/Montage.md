@@ -43,13 +43,13 @@ clear;
 systemctl daemon-reload;
 ```
 
-### D. Relance du service
+### E. Relance du service
 ```bash
 clear;
 systemctl restart docker.service;
 ```
 
-### D. Vérification
+### F. Vérification
 Le service docker ne sera pas démarrer tant que les mounts seront pas OK.
 ```bash
 clear;
