@@ -68,18 +68,18 @@ clear;
 mkdir /mnt/Media_{1,2,3,4,5};
 ```
 
-#### X. Modification du fstab
+#### X. Modification du fstab ([Topic](https://forum.ubuntu-fr.org/viewtopic.php?id=1252901))
 ```bash
 clear;
 nano /etc/fstab;
 ```
 
 ```
-LABEL="Media_1"       /mnt/Media_1    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_2"       /mnt/Media_2    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_3"       /mnt/Media_3    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_4"       /mnt/Media_4    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_5"       /mnt/Media_5    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
 ```
 
 #### X. Demontage
