@@ -37,8 +37,21 @@ clear;
 mkdir /mnt/partage;
 mount -t cifs -o username=marc,password=admin,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage;
 ```
-#### 2. Vérification du montage
+```
+mount   : Programme de montage
+-t cifs : Le type de partition à monté est CIFS
+-o      : Indique une options
+username: Identifiant pour la connexion CIFS
+password: Mot de passe pour la connexion CIFS
+uid     : Fichier et Dossier appartenant à l'utilisateur XXXX
+gid     : Fichier et Dossier appartenant au groupe XXXX
 
+//192.168.0.2/homes  : Chemin de partages
+/mnt/partage         : Point de montage
+```
+
+
+#### 2. Vérification du montage
 ```bash
 clear;
 df -h /mnt/partage;
@@ -65,6 +78,19 @@ nano /etc/fstab;
 ```
 //192.168.0.2/homes  /mnt/partage cifs _netdev,username=marc,password=admin,uid=1000,gid=1000  0 0
 ```
+
+```
+//192.168.0.2/homes  : Chemin de partages
+/mnt/partage         : Point de montage
+cifs                 : Le type de partition
+_netdev              : Attendre que le réseau soit actif pour lancer le montage
+username             :  Identifiant pour la connexion CIFS
+password             : Mot de passe pour la connexion CIFS
+uid                  : Fichier et Dossier appartenant à l'utilisateur XXXX
+gid                  : Fichier et Dossier appartenant au groupe XXXX
+```
+
+
 ##### 2. Mise à jour de SystemD
 ```bash
 clear;
