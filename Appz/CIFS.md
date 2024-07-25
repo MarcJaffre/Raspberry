@@ -28,6 +28,43 @@ clear;
 
 
 ### C. Montage d'un partage
+##### A. Editer le FSTAB
 ```bash
 clear;
+nano /etc/fstab;
 ```
+
+```
+##########################################################################################################
+# Montage du partage #
+######################
+//192.168.0.2/homes  /mnt/partage cifs _netdev,username=marc,password=admin,uid=1000,gid=1000  0 0
+##########################################################################################################
+```
+##### B. Mise à jour de SystemD
+```bash
+clear;
+systemctl daemon-reload;
+```
+
+##### C. Lancer le montage automatique
+```bash
+clear;
+mount -a;
+```
+
+
+
+##### D. Vérification du montage
+```bash
+clear;
+df -h;
+```
+
+
+##### D. Vérification du montage
+```bash
+clear;
+df -h;
+```
+
