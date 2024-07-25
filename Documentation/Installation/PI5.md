@@ -7,8 +7,6 @@
 ```
 ```
 
-
-
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -40,10 +38,43 @@ Le raspberry sera connecter en câble RJ45, il ne sera pas donc nécessaire de l
 [Services]
 - Activer SSH     : Oui (Utiliser un mot de passe pour l'authentification)
 
-
 [Options]
 - Activer la télémétire : Non
 ```
+
+
+
+<br />
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### III. Configuration
+#### X. Information
+La configuration du Raspberry peut se faire dans la console du Rasbperry mais avec le protocole SSH on peut se connecter à distance et le configurer par la même occasion.
+
+#### X. Obtenir l'adresse IP du Raspberry
+```bash
+clear;
+ip address | inet;
+```
+
+#### X. Se connecter en SSH
+La connexion se fait via l'utilisateur car l'accès SSH via le compte root est bloquer par défaut
+```bash
+ssh <USER>@<IP>
+```
+
+#### X. Se connecter en admin
+```bash
+clear;
+sudo -i;
+```
+
+#### X. Nommage de la machine
+
+
+#### X. Configuration de la Carte-réseau (Ethernet)
+
+
 
 #### X. Gestion des dépôts linux 
 
@@ -68,14 +99,3 @@ apt upgrade;
 ```bash
 clear;
 ```
-
-
-
-<br />
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### III. Configuration
-#### X. Nommage de la machine
-#### X. Configuration de la Carte-réseau (Ethernet)
-
-
