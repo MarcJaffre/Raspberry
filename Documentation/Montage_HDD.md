@@ -75,13 +75,22 @@ nano /etc/fstab;
 ```
 
 ```
-LABEL="Media_1"       /mnt/Media_1    ntfs-3g defaults,nofail   0       0
-LABEL="Media_2"       /mnt/Media_2    ntfs-3g defaults,nofail   0       0
-LABEL="Media_3"       /mnt/Media_3    ntfs-3g defaults,nofail   0       0
-LABEL="Media_4"       /mnt/Media_4    ntfs-3g defaults,nofail   0       0
-LABEL="Media_5"       /mnt/Media_5    ntfs-3g defaults,nofail   0       0
+LABEL="Media_1"       /mnt/Media_1    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_2"       /mnt/Media_2    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_3"       /mnt/Media_3    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_4"       /mnt/Media_4    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_5"       /mnt/Media_5    ntfs-3g rw,uid=1000,gid=1000,nofail   0       0
 ```
 
+#### X. Demontage
+```bash
+clear;
+umount /mnt/Media_1;
+umount /mnt/Media_2;
+umount /mnt/Media_3;
+umount /mnt/Media_4;
+umount /mnt/Media_5;
+```
 
 #### X. Mise à jour SystemD
 ```bash
@@ -95,3 +104,9 @@ clear;
 mount -a;
 ```
 
+
+#### X. Montage
+```bash
+clear;
+mount -a;
+```
