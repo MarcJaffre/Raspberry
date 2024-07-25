@@ -27,13 +27,24 @@ Sélectionner  `Raspeberry PI 5` > `Raspberry PI OS Lite (64 Bit)` > `SD Card`.
 ```bash
 source /etc/os-release;
 ```
+ 
+#### D. Mise à jour du Raspberry (Boot, Noyau ...)
+```bash
+clear;
+rpi-update;
+rpi-eeprom-update -d -a;
+```
+#### E. Mise à jour des paquets du Raspberry
+```bash
+clear;
+apt update;
+apt upgrade;
+```
 
 
-
-#### D. Mise à jour des paquets du Raspberry
-
-#### E. Mise à jour du Raspberry (Noyau, Firmware ...)
-
+```bash
+clear;
+```
 
 
 
