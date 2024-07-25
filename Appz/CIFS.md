@@ -12,4 +12,4 @@ clear;
 apt install cifs-utils;
 ```
 
-
+### B. Montage d'un partage ponctuellement
