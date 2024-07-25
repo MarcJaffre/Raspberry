@@ -10,13 +10,24 @@
 ```bash
 clear;
 apt install cifs-utils;
+apt install smbclient;
 ```
+
+### B. Lister les partages
+```bash
+clear;
+smbclient -L 192.168.0.2 -U marc%admin
+```
+
 
 ### B. Montage d'un partage (Ponctuellement)
 #### 1. Montage
 ```bash
 clear;
-mount -t cifs -o username=marc,password=marc,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage
+mkdir /mnt/partage;
+mount -t cifs -o username=marc,password=admin //192.168.0.2/homes /mnt/partage
+
+#,uid=1000,gid=1000,forceuid,forcegid
 ```
 #### 2. Vérification du montage
 
