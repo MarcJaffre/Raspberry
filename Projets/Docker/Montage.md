@@ -9,9 +9,8 @@ Pour éviter celà, on indique au système d'attendre les services de montages s
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-##
-
-## Liste les montages
+## II. Mise en service
+### A. Liste les montages
 Pour permettre le montage des partitions, il faut retarder le lancement de Docker
 ```bash
 clear;
@@ -25,22 +24,36 @@ mnt-Media_4.mount
 mnt-Media_5.mount
 ```
 
+### B. Editer le service
 ```bash
 clear;
 nano /lib/systemd/system/docker.service;
-systemctl daemon-reload;
-systemctl restart docker.service;
-systemctl status docker.service;
 ```
 
-Commenter les lignes
-```
-#After=network-online.target docker.socket firewalld.service containerd.service time-set.target
-#Wants=network-online.target containerd.service
-```
-
-Ajouter les montages
+### C. Ajouter les Units Mounts
+Ajouter à la fin des lignes `After`et `Wants` la listes des Unités de montages (.mount) qu'on à lister avant de manière consécutif avec un espace entre chaque ligne.
 ```
 After=network-online.target docker.socket firewalld.service containerd.service time-set.target mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 Wants=network-online.target containerd.service                                                 mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 ```
+
+### D. Mise à jour SystemD
+```bash
+clear;
+systemctl daemon-reload;
+```
+
+### D. Relance du service
+```bash
+clear;
+systemctl restart docker.service;
+```
+
+### D. Vérification
+Le service docker ne sera pas démarrer tant que les mounts seront pas OK.
+```bash
+clear;
+systemctl status docker.service;
+```
+
+
