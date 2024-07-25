@@ -47,7 +47,7 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
 ```
 
 
-### F. Service Docker
+### F. Service Docker (Expérimental)
 Pour permettre le montage des partitions, il faut retarder le lancement de Docker
 ```bash
 clear;
@@ -59,7 +59,7 @@ clear;
 nano /lib/systemd/system/docker.service;
 systemctl daemon-reload;
 systemctl restart docker.service;
-systemctl status docker.service
+systemctl status docker.service;
 ```
 
 Commenter les lignes
