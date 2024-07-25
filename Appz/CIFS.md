@@ -12,17 +12,22 @@ clear;
 apt install cifs-utils;
 ```
 
-### B. Montage d'un partage (Ponctuellementy
+### B. Montage d'un partage (Ponctuellement)
+#### 1. Montage
 ```bash
 clear;
+mount -t cifs -o username=marc,password=marc,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage
 ```
+#### 2. Vérification du montage
 
 ```bash
 clear;
+df -h /mnt/partage;
 ```
-
+#### 2. Vérification des permissions
 ```bash
 clear;
+ls -lah /mnt/partage;
 ```
 
 
