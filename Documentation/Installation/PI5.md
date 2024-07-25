@@ -54,7 +54,7 @@ La configuration du Raspberry peut se faire dans la console du Rasbperry mais av
 #### X. Obtenir l'adresse IP du Raspberry
 ```bash
 clear;
-ip address | inet;
+ ip add show eth0 | grep "inet " | cut -d "/" -f 1 | cut -d "t" -f 2 | cut -c 2-50
 ```
 
 #### X. Se connecter en SSH
