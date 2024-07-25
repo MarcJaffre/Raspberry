@@ -91,7 +91,6 @@ iface eth0 inet static
 systemctl restart networking;
 ```
 
-
 #### X. Gestion des dépôts linux 
 
 ```bash
@@ -135,6 +134,8 @@ apt upgrade -y;
 ```
 
 
+
+#### X.
 ```bash
 clear;
 ```
