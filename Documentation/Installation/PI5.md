@@ -70,10 +70,19 @@ sudo -i;
 ```
 
 #### X. Nommage de la machine
+```bash
+clear;
+hostnamectl hostname marc;
+```
 
 
 #### X. Configuration de la Carte-réseau (Ethernet)
-
+```bash
+clear;
+ifconfig eth0 192.168.20.5 netmask 255.255.255.0
+route add default gw 192.168.20.1
+ip route add default via 192.168.20.1 dev eth0
+```
 
 
 #### X. Gestion des dépôts linux 
