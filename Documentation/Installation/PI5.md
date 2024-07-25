@@ -124,8 +124,10 @@ fi
 ```bash
 clear;
 rpi-update;
-rpi-eeprom-update -d -a;
+echo "yes" | rpi-eeprom-update -d -a;
+reboot;
 ```
+
 #### X. Mise à jour des paquets du Raspberry
 ```bash
 clear;
