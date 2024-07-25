@@ -39,7 +39,9 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 #### E. Installation de docker-compose
 ```bash
 clear;
-curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose;
+rm  /usr/local/bin/docker-compose /usr/bin/docker-compose 2>/dev/null;
+curl -L https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-aarch64 -o /usr/local/bin/docker-compose;
 chmod +x /usr/local/bin/docker-compose;
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
+/usr/bin/docker-compose;
 ```
