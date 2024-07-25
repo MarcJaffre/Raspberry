@@ -16,18 +16,28 @@ apt install smbclient;
 ### B. Lister les partages
 ```bash
 clear;
-smbclient -L 192.168.0.2 -U marc%admin
+smbclient -L 192.168.0.2 -U marc%admin;
+```
+
+```
+        Sharename       Type      Comment
+        ---------       ----      -------
+        print$          Disk      Printer Drivers
+        SYSTEM          Disk      Acces au dossier root
+        IPC$            IPC       IPC Service (Samba 4.17.12-Debian)
+        marc            Disk      Home Directories
 ```
 
 
-### B. Montage d'un partage (Ponctuellement)
+
+### C. Montage d'un partage (Ponctuellement)
 #### 1. Montage
 ```bash
 clear;
 mkdir /mnt/partage;
-mount -t cifs -o username=marc,password=admin //192.168.0.2/homes /mnt/partage
+mount -t cifs -o username=marc,password=admin,uid=1000,gid=1000,forceuid,forcegid //192.168.0.2/homes /mnt/partage
 
-#,uid=1000,gid=1000,forceuid,forcegid
+#
 ```
 #### 2. Vérification du montage
 
@@ -46,9 +56,8 @@ clear;
 umount /mnt/partage;
 ```
 
-
-### C. Montage d'un partage
-##### A. Editer le FSTAB
+### D. Montage d'un partage (Permanent
+##### 1. Editer le FSTAB
 ```bash
 clear;
 nano /etc/fstab;
@@ -61,19 +70,17 @@ nano /etc/fstab;
 //192.168.0.2/homes  /mnt/partage cifs _netdev,username=marc,password=admin,uid=1000,gid=1000  0 0
 ##########################################################################################################
 ```
-##### B. Mise à jour de SystemD
+##### 2. Mise à jour de SystemD
 ```bash
 clear;
 systemctl daemon-reload;
 ```
 
-##### C. Lancer le montage automatique
+##### 3. Lancer le montage automatique
 ```bash
 clear;
 mount -a;
 ```
-
-
 
 ##### D. Vérification du montage
 ```bash
