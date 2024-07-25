@@ -42,8 +42,6 @@ Le raspberry sera connecter en câble RJ45, il ne sera pas donc nécessaire de l
 - Activer la télémétire : Non
 ```
 
-
-
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,6 +131,12 @@ clear;
 apt upgrade -y;
 ```
 
+
+#### X. Création d'un utilisateur
+```bash
+clear;
+/usr/sbin/useradd --base-dir /home/drthrax74 -c "Drthrax74" --home-dir /home/drthrax74 --gid 1002
+```
 
 
 #### X.
