@@ -3,7 +3,11 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Présentation
-Le guide suivant permet de réaliser la mise en service d'un système d'exploitation Rasbperry PI5 en tant que serveur.
+#### A. Information Système
+```
+```
+
+
 
 <br />
 
