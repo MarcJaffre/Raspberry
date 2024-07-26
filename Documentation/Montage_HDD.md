@@ -117,3 +117,10 @@ df -h | grep "Mounte\|/mnt/Media";
 clear;
 ls -lah /mnt/ | grep Media;
 ```
+
+#### X. Gestion du Cache Disque-Dur
+```bash
+clear;
+apt install -y hdparm;
+hdparm -W 0 /dev/sd{a,b,c,d,e};
+```
