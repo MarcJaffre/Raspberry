@@ -4,6 +4,21 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Matériel
 #### A. Raspberry 5
+##### X.Lister les périphériques
+```bash
+clear;
+v4l2-ctl --list-devices;
+```
+
+```
+rpivid (platform:rpivid):
+ /dev/video19
+ /dev/media2
+```
+
+
+
+        
 ##### X. rpivid
 ```bash
 clear;
