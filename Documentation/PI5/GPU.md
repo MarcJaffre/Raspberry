@@ -15,14 +15,12 @@ rpivid (platform:rpivid):
  /dev/video19
  /dev/media2
 ```
-
-
-
         
 ##### X. rpivid
 ```bash
 clear;
 v4l2-ctl --info --device /dev/video19;
+v4l2-ctl --info --device /dev/media2;
 ```
 
 ##### X. pispbe
