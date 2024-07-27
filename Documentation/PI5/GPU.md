@@ -16,11 +16,18 @@ rpivid (platform:rpivid):
  /dev/media2
 ```
         
-##### X. rpivid
+##### X. V4L2 I/O
 ```bash
 clear;
 v4l2-ctl --info --device /dev/video19;
-v4l2-ctl --info --device /dev/media2;
+v4l2-ctl --info --device /dev/video29;
+v4l2-ctl --info --device /dev/video30;
+v4l2-ctl --info --device /dev/video31;
+v4l2-ctl --info --device /dev/video32;
+v4l2-ctl --info --device /dev/video33;
+v4l2-ctl --info --device /dev/video34;
+v4l2-ctl --info --device /dev/video35;
+v4l2-ctl --info --device /dev/video37;
 ```
 
 ##### X. pispbe
@@ -35,14 +42,7 @@ v4l2-ctl --info --device /dev/video25;
 v4l2-ctl --info --device /dev/video26;
 v4l2-ctl --info --device /dev/video27;
 v4l2-ctl --info --device /dev/video28;
-v4l2-ctl --info --device /dev/video29;
-v4l2-ctl --info --device /dev/video30;
-v4l2-ctl --info --device /dev/video31;
-v4l2-ctl --info --device /dev/video32;
-v4l2-ctl --info --device /dev/video33;
-v4l2-ctl --info --device /dev/video34;
-v4l2-ctl --info --device /dev/video35;
-v4l2-ctl --info --device /dev/video37;
+
 ```
 
 
