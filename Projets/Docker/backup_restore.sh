@@ -1,5 +1,15 @@
 #/usr/bin/bash
 
+##################################################################################################################################################################################
+# Auteur: Marc Jaffre 
+# Description: Sauvegarder / restaurer les volumes Docker de maniere simple
+# Pre-requis: 
+# curl -SL https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot -o /usr/local/bin/docker-volume-snapshot;
+# chmod +x /usr/local/bin/docker-volume-snapshot;
+#
+##################################################################################################################################################################################
+
+
 ##################################################################################################################################
 # Nettoyage de la console #
 ###########################
