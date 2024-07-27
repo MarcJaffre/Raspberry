@@ -460,9 +460,12 @@ services:      #
    DOCKER_MODS: 'ghcr.io/gilbn/theme.park:jellyfin'             #
    TP_THEME: 'dracula'                                          #
   # ----------------------------------------------------------- #
-  devices:                                                      #
-  #- '/dev/dri:/dev/dri'                                        #
-  - '/dev/video19:/dev/video19'                                 #
+  #devices:                                                     #
+  # - '/dev/dri:/dev/dri'                                       #
+  # - '/dev/dri/card0:/dev/dri/card0'                           #
+  # - '/dev/dri/renderD128:/dev/dri/renderD128'                 #
+  # - '/dev/media1:/dev/media1'                                 #
+  # - '/dev/video19:/dev/video19'                               #
   # ----------------------------------------------------------- #
   volumes:                                                      #
    # ---------------------------------------------------------- #
