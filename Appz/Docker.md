@@ -46,6 +46,42 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
 /usr/bin/docker-compose;
 ```
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### II. Migrer les volumes
+#### A. Installation du [Docker Snapshot](https://github.com/junedkhatri31/docker-volume-snapshot)
+```bash
+clear;
+curl -SL https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot -o /usr/local/bin/docker-volume-snapshot;
+chmod +x /usr/local/bin/docker-volume-snapshot;
+```
+#### B. Sauvegarder un volume
+La commande suivante permet de sauvegarder le volume `jellyfin_Data` dans le fichier compresser situer à `/root/jellyfin_Data.tar`
+```
+VOLUME="jellyfin_Data"
+BACKUP_FOLDER="/tmp"
+BACKUP_FILE="jellyfin_Data.tar"
+docker-volume-snapshot create  $VOLUME $BACKUP_FOLDER/$BACKUP_FILE;
+```
+
+#### C. Restauration d'un volume
+```bash
+clear;
+VOLUME="jellyfin_Data"
+BACKUP_FOLDER="/tmp"
+BACKUP_FILE="jellyfin_Data.tar"
+
+docker-volume-snapshot restore $BACKUP_FOLDER/$BACKUP_FILE $VOLUME;
+```
+
+#### E. Syntaxe
+```bash
+docker-volume-snapshot (create|restore) source destination
+  create         create snapshot file from docker volume
+  restore        restore snapshot file to docker volume
+  source         source path
+  destination    destination path
+```
+
 
 
 
