@@ -34,12 +34,6 @@ VOLUME015="warez_Qbittorrent"
 VOLUME016="warez_Qbittorrent_old"
 VOLUME017="warez_Radarr"
 VOLUME018="warez_Sonarr"
-VOLUME019="zabbix-mysql_Data"
-VOLUME020="zabbix-server_export"
-VOLUME021="zabbix-server_snmptraps"
-VOLUME022="zabbix-web_export"
-VOLUME023="zabbix-web_snmptraps"
-
 
 ##################################################################################################################################
 # Check Root #
@@ -49,7 +43,6 @@ if [ $(id -g) = 0 ]; then
 else
  echo "Veuiller lancer le script en root";
 fi
-
 
 ##################################################################################################################################
 # Verification de la variable ACTION #
