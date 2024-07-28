@@ -139,7 +139,7 @@ apt install -y cockpit;
 apt install -y cockpit-storaged;
 apt install -y lvm2;
 apt install -y realmd;
-apt install -y tunes;
+apt install -y tuned;
 apt install -y udisks2-lvm2;
 apt install -f -y;
 
