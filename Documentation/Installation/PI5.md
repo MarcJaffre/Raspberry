@@ -1,7 +1,7 @@
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## <p align='center'> Installation et configuration d'un Raspberry PI 5</p>
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Présentation
 #### A. Information Système
 ```
@@ -9,7 +9,7 @@
 
 <br />
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Installation du système d'exploitation
 #### A. Télécharger Raspberry Pi imager
 Aller sur le site de Raspberry ([ici](https://www.raspberrypi.com/software/)) puis télécharger la version de Raspberry Imager.
@@ -44,7 +44,7 @@ Le raspberry sera connecter en câble RJ45, il ne sera pas donc nécessaire de l
 
 <br />
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### III. Configuration
 #### X. Information
 La configuration du Raspberry peut se faire dans la console du Rasbperry mais avec le protocole SSH on peut se connecter à distance et le configurer par la même occasion.
@@ -67,10 +67,17 @@ clear;
 sudo -i;
 ```
 
-#### X. Nommage de la machine
+#### X. Mot de passe root
 ```bash
 clear;
-hostnamectl hostname marc;
+(echo "root:admin") | chpasswd
+```
+
+#### X. SSH (root)
+```bash
+clear;
+sed -i -e "s/^#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config;
+systemctl restart ssh;
 ```
 
 #### X. Configuration de la Carte-réseau (eth0)
@@ -82,7 +89,7 @@ echo "#############################################
 auto eth0
 allow-hotplug eth0
 iface eth0 inet static
-  address         192.168.20.3/24
+  address         192.168.20.2/24
   gateway         192.168.20.1
   dns-nameservers 192.168.20.1 8.8.8.8
 #############################################" > /etc/network/interfaces.d/eth0;
@@ -115,20 +122,76 @@ deb      http://deb.debian.org/debian           $VERSION_CODENAME-updates   main
 #deb-src http://deb.debian.org/debian           $VERSION_CODENAME-updates   main contrib non-free non-free-firmware
 ################################################################################################################" > /etc/apt/sources.list;
 fi
+
+# Key GPG:
+apt install -y debian-archive-keyring;
+apt update 1>/dev/null;
+
+# apt update --allow-insecure-repositories 1>/dev/null;
+# gpg --recv-keys <the-reported-key>
+# gpg --export <the-reported-key> | apt-key add -
 ```
- 
-#### X. Mise à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
+
+
+
+#### X. Paquets
 ```bash
 clear;
-rpi-update;
-echo "yes" | rpi-eeprom-update -d -a;
-rpi-update rpi-6.6.y;
+apt install -y avahi-daemon;
+apt install -y ca-certificates;
+apt install -y btop;
+apt install -y cifs-utils;
+apt install -y cockpit;
+#apt install -y cockpit-machines;
+#apt install -y cockpit-packagekit;
+#apt install -y cockpit-podman;
+apt install -y cockpit-storaged
+apt install -y curl;
+apt install -y git;
+apt install -y gnupg;
+apt install -y lvm2;
+apt install -y make;
+apt install -y ntfs-3g;
+apt install -y nfs-common;
+apt install -y qrencode;
+apt install -y realmd;
+apt install -y samba samba-common;
+apt install -y smbclient;
+apt install -y tunes;
+apt install -y udisks2-lvm2;
+apt install -y wget;
+apt install -y wsdd;
+
+
+# Cockpit - Explorateur de fichier
+git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
+cd /tmp/cockpit-navigator 1>/dev/null;
+make install;
+
+# Cockpit - Partages
+wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
+dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
+
+# Cockpit - Identities
+wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
+dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
+
+sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
 ```
+
 
 #### X. Mise à jour des paquets du Raspberry
 ```bash
 clear;
 apt upgrade -y;
+```
+
+#### X. Mise à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
+```bash
+clear;
+rpi-update;
+echo "yes" | rpi-eeprom-update -d -a;
+echo "yes" | rpi-update rpi-6.6.y;
 ```
 
 #### X. Création d'un utilisateur
@@ -146,22 +209,15 @@ ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
 /usr/sbin/useradd --base-dir /home/${USER_NAME} --comment "${USER_COMMENT}" --home-dir /home/${USER_NAME} --groups users  --create-home --password ${ENCRYPT} --shell ${USER_SHELL}  --uid ${USER_UID}  --no-user-group  ${USER_NAME};
 ```
 
-#### X. Autoriser le SSH (root)
-Modifier la valeur PermitRootLogin. (CTRL + X puis Y puis Entrer)
+#### X. Services
 ```bash
 clear;
-nano /etc/ssh/sshd_config;
-```
-```
-PermitRootLogin yes
-```
-
-```bash
-clear;
-systemctl restart ssh;
+systemctl enable --now avahi-daemon.service;
+systemctl enable --now cockpit;
+systemctl enable --now wsdd;
 ```
 
-#### X. Check
+#### X. Check Codec 
 ```bash
 clear;
 for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 HEVC ; do echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; done
