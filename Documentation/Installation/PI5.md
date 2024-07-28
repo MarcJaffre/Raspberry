@@ -5,6 +5,7 @@
 ### I. Présentation
 #### A. Information Système
 ```
+Pour lire les médias sur PC, il faut Jellyfin Media Player pour avoir une charge machine faible.
 ```
 
 <br />
