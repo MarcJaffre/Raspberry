@@ -58,12 +58,13 @@ systemctl restart ssh;
 
 echo "# =================================================
 auto $NET_IF
-allow-hotplug $NET_IF
-iface $NET_IF inet static
-  address         $NET_IP
-  gateway         $NET_GW
+#allow-hotplug $NET_IF
+iface $NET_IF inet staic
+  address $NET_IP
+  gateway $NET_GW
   dns-nameservers $NET_DNS1 $NET_DNS2
-# =================================================" > /etc/network/interfaces.d/eth0;
+# =================================================
+" > /etc/network/interfaces.d/eth0;
 systemctl restart networking;
 
 #####################################################################################################################################################################################################################################################################
