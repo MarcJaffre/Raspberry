@@ -62,7 +62,7 @@ iface $NET_IF inet staic
   address $NET_PI5_IP
   gateway $NET_PI5_GW
   dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
-# =================================================" > /etc/network/interfaces.d/$NET_IF;
+# =================================================" > /etc/network/interfaces.d/ethernet;
 fi
 
 if [ $(hostname) = PI5 ]; then
@@ -73,7 +73,7 @@ iface $NET_IF inet staic
   address $NET_PI5_IP
   gateway $NET_PI5_GW
   dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
-# =================================================" > /etc/network/interfaces.d/$NET_IF;
+# =================================================" > /etc/network/interfaces.d/ethernet;
 fi
 systemctl restart networking;
 
