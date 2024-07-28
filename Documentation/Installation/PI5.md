@@ -242,6 +242,8 @@ clear;
 for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 HEVC ; do echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; done
 ```
 
+<br />
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### IV. Samba
 #### A. Sauvegarde du fichier original
@@ -429,9 +431,519 @@ clear;
 smbpasswd -e $(id -u -n 1000);
 ```
 
-
 #### F. Relance du service
 ```bash
 clear;
 systemctl restart smbd;
+```
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### V. Mise en place d'un VPN
+#### A. Déploiement de WIreguard (5 Clients)
+```bash
+######################################################################################################################
+# Interface Physique #
+######################
+NET="eth0"
+IP_NET=$(ip add show $NET | grep "inet " | cut -d "t" -f2 | cut -d "/" -f 1 | cut -c 2-50)
+
+######################################################################################################################
+# Wireguard #
+#############
+WIREGUARD_NETWORK="192.168.100"
+DNS="192.168.0.1"
+MTU="1420"
+
+######################################################################################################################
+# Point de connexion #
+######################
+ENDPOINT="proxmox74.ddns.net"
+PORT="51820"
+
+######################################################################################################################
+# Reseaux Autorises #
+#####################
+ALLOW_NETWORK_1=",192.168.0.0/24"
+ALLOW_NETWORK_2=",192.168.1.0/24"
+ALLOW_NETWORK_3=""
+
+######################################################################################################################
+# Purge Wireguard #
+###################
+apt autoremove --purge -y wireguard 1>/dev/null 2>/dev/null;
+rm -r /etc/wireguard    2>/dev/null;
+systemctl daemon-reload 2>/dev/null;
+
+######################################################################################################################
+# Installation IPTABLES #
+#########################
+apt install -y iptables 1>/dev/null;
+
+######################################################################################################################
+# Installation de Wireguard #
+#############################
+apt install -y wireguard 1>/dev/null;
+mkdir -p /etc/wireguard  2>/dev/null;
+
+######################################################################################################################
+# Generer les Cles #
+####################
+# Serveur
+wg genkey > /tmp/Private; cat /tmp/Private | wg pubkey > /tmp/Public
+SERVER_PRIVATE=$(cat /tmp/Private)
+SERVER_PUBLIC=$(cat /tmp/Public)
+
+# Client 1
+wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
+CLIENT_1_PRIVATE=$(cat /tmp/Private)
+CLIENT_1_PUBLIC=$(cat /tmp/Public)
+CLIENT_1_PRESHARED=$(cat /tmp/Preshared)
+
+# Client 2
+wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
+CLIENT_2_PRIVATE=$(cat /tmp/Private)
+CLIENT_2_PUBLIC=$(cat /tmp/Public)
+CLIENT_2_PRESHARED=$(cat /tmp/Preshared)
+
+# Client 3
+wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
+CLIENT_3_PRIVATE=$(cat /tmp/Private)
+CLIENT_3_PUBLIC=$(cat /tmp/Public)
+CLIENT_3_PRESHARED=$(cat /tmp/Preshared)
+
+# Client 4
+wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
+CLIENT_4_PRIVATE=$(cat /tmp/Private)
+CLIENT_4_PUBLIC=$(cat /tmp/Public)
+CLIENT_4_PRESHARED=$(cat /tmp/Preshared)
+
+
+# Client 5
+wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
+CLIENT_5_PRIVATE=$(cat /tmp/Private)
+CLIENT_5_PUBLIC=$(cat /tmp/Public)
+CLIENT_5_PRESHARED=$(cat /tmp/Preshared)
+
+######################################################################################################################
+# Autoriser le Forwarding #
+###########################
+sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf; /usr/sbin/sysctl -p 1>/dev/null;
+
+######################################################################################################################
+# Configuration de Wireguard #
+##############################
+echo "$SERVER_PUBLIC"  > /etc/wireguard/publickey;
+echo "$SERVER_PRIVATE" > /etc/wireguard/privatekey;
+
+echo "########################################################################################################
+# Serveur #
+###########
+[Interface]
+Address    = ${WIREGUARD_NETWORK}.1/24
+ListenPort = ${PORT}
+PrivateKey = ${SERVER_PRIVATE}
+
+########################################################################################################
+# Pare-Feu #
+############
+PostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o ${NET} -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o ${NET} -j MASQUERADE
+
+########################################################################################################
+# Client 1 #
+############
+[Peer]
+PublicKey    = ${CLIENT_1_PUBLIC}
+PresharedKey = ${CLIENT_1_PRESHARED}
+AllowedIPs   = ${WIREGUARD_NETWORK}.2/32
+
+########################################################################################################
+# Client 2 #
+############
+[Peer]
+PublicKey    = ${CLIENT_2_PUBLIC}
+PresharedKey = ${CLIENT_2_PRESHARED}
+AllowedIPs   = ${WIREGUARD_NETWORK}.3/32
+
+########################################################################################################
+# Client 3 #
+############
+[Peer]
+PublicKey    = ${CLIENT_3_PUBLIC}
+PresharedKey = ${CLIENT_3_PRESHARED}
+AllowedIPs   = ${WIREGUARD_NETWORK}.4/32
+
+########################################################################################################
+# Client 3 #
+############
+[Peer]
+PublicKey    = ${CLIENT_4_PUBLIC}
+PresharedKey = ${CLIENT_4_PRESHARED}
+AllowedIPs   = ${WIREGUARD_NETWORK}.5/32
+
+########################################################################################################
+# Client 3 #
+############
+[Peer]
+PublicKey    = ${CLIENT_5_PUBLIC}
+PresharedKey = ${CLIENT_5_PRESHARED}
+AllowedIPs   = ${WIREGUARD_NETWORK}.6/32
+
+########################################################################################################" > /etc/wireguard/wg0.conf;
+
+######################################################################################################################
+# Permissions #
+###############
+sudo chmod 600 -R /etc/wireguard/;
+
+######################################################################################################################
+# Lancement du service #
+########################
+systemctl start wg-quick@wg0 2>/dev/null;
+systemctl restart wg-quick@wg0;
+systemctl enable wg-quick@wg0;
+
+######################################################################################################################
+# Generation des configurations Clientes #
+##########################################
+# --------------------------------------------------------------------------------------
+echo "[Interface]
+PrivateKey   = ${CLIENT_1_PRIVATE}
+Address      = ${WIREGUARD_NETWORK}.2/32
+DNS          = ${DNS}
+MTU          = ${MTU}
+[Peer]
+PublicKey    = ${SERVER_PUBLIC}
+PresharedKey = ${CLIENT_1_PRESHARED}
+AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-1.txt;
+# --------------------------------------------------------------------------------------
+echo "[Interface]
+PrivateKey   = ${CLIENT_2_PRIVATE}
+Address      = ${WIREGUARD_NETWORK}.3/32
+DNS          = ${DNS}
+MTU          = ${MTU}
+[Peer]
+PublicKey    = ${SERVER_PUBLIC}
+PresharedKey = ${CLIENT_2_PRESHARED}
+AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-2.txt;
+
+# --------------------------------------------------------------------------------------
+echo "[Interface]
+PrivateKey   = ${CLIENT_3_PRIVATE}
+Address      = ${WIREGUARD_NETWORK}.4/32
+DNS          = ${DNS}
+MTU          = ${MTU}
+[Peer]
+PublicKey    = ${SERVER_PUBLIC}
+PresharedKey = ${CLIENT_3_PRESHARED}
+AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-3.txt;
+
+######################################################################################################################
+# Purge #
+#########
+rm /tmp/Private   2>/dev/null;
+rm /tmp/Public    2>/dev/null;
+rm /tmp/Preshared 2>/dev/null;
+
+######################################################################################################################
+# Nettoyage #
+#############
+clear;
+
+######################################################################################################################
+# Afficher configuration des clients #
+######################################
+echo "######################################################################"
+echo "# Client 1 #"
+echo "############"
+cat $HOME/client-1.txt;
+echo ""
+echo ""
+echo "######################################################################"
+echo "# Client 2 #"
+echo "############"
+cat $HOME/client-2.txt;
+echo ""
+echo ""
+echo "######################################################################"
+echo "# Client 3 #"
+echo "############"
+cat $HOME/client-3.txt;
+echo ""
+echo ""
+echo "######################################################################
+```
+
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### VI. Docker, Docker-Compose et Docker volume Snapshot
+
+#### X. Déploiement de Docker
+```bash
+clear;
+install -m 0755 -d /etc/apt/keyrings;
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+chmod a+r /etc/apt/keyrings/docker.gpg;
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update 1>/dev/null;
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+```
+
+#### X. Déploiement de Docker-Compose
+```bash
+clear;
+install -m 0755 -d /etc/apt/keyrings;
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+chmod a+r /etc/apt/keyrings/docker.gpg;
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update 1>/dev/null;
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+```
+
+#### X. Déploiement Docker Volume Snapshot
+```bash
+clear;
+SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
+curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot;
+chmod +x /usr/local/bin/docker-volume-snapshot;
+```
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### VII. Scripts de migrartion
+
+#### X.  Sauvegarde et restauration d'un serveur Docker
+Le paramètre `create` permet de lancer la sauvegarde alors que le paramètre `restore` permet la restauration.
+
+```bash
+clear;
+#/usr/bin/bash
+
+##################################################################################################################################
+# Nettoyage de la console #
+###########################
+clear;
+
+if [ -f /usr/local/bin/docker-volume-snapshot ]; then
+ apt install -y curl 1>/dev/null;
+ curl -SL https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot -o /usr/local/bin/docker-volume-snapshot;
+ chmod +x /usr/local/bin/docker-volume-snapshot;
+fi
+
+##################################################################################################################################
+# create | restore #
+####################
+DESTINATION="/mnt/Media_5/Backup/Docker"
+ACTION="$1"
+
+##################################################################################################################################
+# Nom des volumes #
+###################
+VOLUME001="database_mariadb"
+VOLUME002="filebrowser_Data"
+VOLUME003="jellyfin_Data"
+VOLUME004="outils_adguardhome_conf"
+VOLUME005="outils_adguardhome_work"
+VOLUME006="outils_bitwarden"
+VOLUME007="outils_nginx_certif"
+VOLUME008="outils_nginx_config"
+VOLUME009="outils_nginx_data"
+VOLUME010="root_Data"
+VOLUME011="warez_Jackett"
+VOLUME012="warez_Jellyseerr"
+VOLUME013="warez_Prowlarr"
+VOLUME014="warez_Qbittorrent"
+VOLUME015="warez_Qbittorrent_old"
+VOLUME016="warez_Radarr"
+VOLUME017="warez_Sonarr"
+VOLUME018="zabbix-mysql_Data"
+VOLUME019="zabbix-server_export"
+VOLUME020="zabbix-server_snmptraps"
+VOLUME021="zabbix-web_export"
+VOLUME022="zabbix-web_snmptraps"
+
+##################################################################################################################################
+# Check Root #
+##############
+if [ $(id -g) = 0 ]; then
+ RC=0
+else
+ echo "Veuiller lancer le script en root";
+fi
+
+##################################################################################################################################
+# Verification de la variable ACTION #
+######################################
+if [ -z $ACTION ]; then
+ echo "La valeur Action est NULL, fermeture du script"
+ exit
+fi
+
+##################################################################################################################################
+# Execution du script #
+#######################
+
+if [ $RC = 0 ]; then
+   # ==============================================================================================
+   if   [ $ACTION = create ]; then
+    echo "------------------------------------------------------------------------------";
+    echo "Arret des conteneurs";
+    docker stop $(docker ps -a -q) 2>/dev/null;
+    echo "------------------------------------------------------------------------------";
+    echo "Sauvegardes des volumes";
+    rm $DESTINATION/* 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME001  $DESTINATION/$VOLUME001.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME002  $DESTINATION/$VOLUME002.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME003  $DESTINATION/$VOLUME003.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME004  $DESTINATION/$VOLUME004.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME005  $DESTINATION/$VOLUME005.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME006  $DESTINATION/$VOLUME006.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME007  $DESTINATION/$VOLUME007.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME008  $DESTINATION/$VOLUME008.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME009  $DESTINATION/$VOLUME009.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME010  $DESTINATION/$VOLUME010.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME011  $DESTINATION/$VOLUME011.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME012  $DESTINATION/$VOLUME012.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME013  $DESTINATION/$VOLUME013.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME014  $DESTINATION/$VOLUME014.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME015  $DESTINATION/$VOLUME015.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME016  $DESTINATION/$VOLUME016.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME017  $DESTINATION/$VOLUME017.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME018  $DESTINATION/$VOLUME018.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME019  $DESTINATION/$VOLUME019.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME020  $DESTINATION/$VOLUME020.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME021  $DESTINATION/$VOLUME021.tar 1>/dev/null;
+    docker-volume-snapshot  create  $VOLUME022  $DESTINATION/$VOLUME022.tar 1>/dev/null;
+    echo "Sauvegarde terminé";
+    echo "------------------------------------------------------------------------------";
+    echo "Démarrage de Portainer";
+    docker start Portainer;
+    echo "------------------------------------------------------------------------------";
+   # ==============================================================================================
+   elif [ $ACTION = restore ]; then
+    echo "------------------------------------------------------------------------------";
+    echo "Arret des conteneurs";
+    docker stop $(docker ps -a -q) 2>/dev/null;
+    echo "------------------------------------------------------------------------------";
+    echo "Restauration des volumes";
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME001.tar  $VOLUME001 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME002.tar  $VOLUME002 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME003.tar  $VOLUME003 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME004.tar  $VOLUME004 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME005.tar  $VOLUME005 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME006.tar  $VOLUME006 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME007.tar  $VOLUME007 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME008.tar  $VOLUME008 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME009.tar  $VOLUME009 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME010.tar  $VOLUME010 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME011.tar  $VOLUME011 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME012.tar  $VOLUME012 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME013.tar  $VOLUME013 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME014.tar  $VOLUME014 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME015.tar  $VOLUME015 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME016.tar  $VOLUME016 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME017.tar  $VOLUME017 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME018.tar  $VOLUME018 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME019.tar  $VOLUME019 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME020.tar  $VOLUME020 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME021.tar  $VOLUME021 1>/dev/null;
+    docker-volume-snapshot  restore  $DESTINATION/$VOLUME022.tar  $VOLUME022 1>/dev/null;
+    echo "Restauration terminé";
+    echo "------------------------------------------------------------------------------";
+    echo "Démarrage de Portainer";
+    docker start Portainer;
+    echo "------------------------------------------------------------------------------";
+   else
+    echo "Script en anomalie";
+   fi
+   # ==============================================================================================
+fi
+```
+
+#### X. Sauvegarde et restauration d'un serveur VPN Wireguard
+```bash
+#/usr/bin/bash
+
+################################################################################################################
+# Description: Sauvegarde et restauration de configuration de Wireguard                                        #
+################################################################################################################
+
+################################################################################################################
+# Action #
+##########
+# backup | restore
+ACTION="$1"
+
+################################################################################################################
+# Configuration du Script #
+###########################
+DOSSIER="/mnt/Media_5/Backup/Wireguard"
+FICHIER="backup.tar.gz"
+BACKUP1="/etc/wireguard/"
+BACKUP2="/root/client*"
+
+
+################################################################################################################
+# Sauvegarde #
+##############
+clear;
+
+################################################################################################################
+# Restauration #
+################
+
+if [ ! -z $ACTION ]; then
+# ================================================================================
+
+
+  if [ $ACTION = backup ]; then
+  # ==============================================================================
+   echo "Sauvegarde de Wireguard : $DOSSIER/$FICHIER"
+   rm $DOSSIER/$FICHIER 2>/dev/null;
+   tar -czvf $DOSSIER/$FICHIER $BACKUP1 $BACKUP2 1>/dev/null;
+
+  # ==============================================================================
+  elif [ $ACTION = restore ]; then
+   echo "Restore de Wireguard     : $DOSSIER/$FICHIER";
+   systemctl stop  wg-quick@wg0.service;
+   rm /etc/wireguard/*;
+   rm /root/client-*;
+   tar -xvf /mnt/Media_5/Backup/Wireguard/backup.tar.gz -C /;
+   chmod 700 /etc/wireguard/*
+   systemctl start  wg-quick@wg0.service;
+   systemctl is-enabled  wg-quick@wg0.service;
+   wg;
+  # ==============================================================================
+  else
+   echo "Le script est mal configuré";
+
+  # ==============================================================================
+  fi
+
+# ================================================================================
+fi
+
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
 ```
