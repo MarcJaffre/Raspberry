@@ -18,7 +18,7 @@ apt install -y cockpit 1>/dev/null;
 #### X. Suppléments
 ```bash
 clear;
-apt install -y realmd nfs-common 1>/dev/null;
+apt install -y realmd nfs-common tuned 1>/dev/null;
 ```
 
 #### X. Installation de Cockpit DOC
