@@ -160,3 +160,9 @@ PermitRootLogin yes
 clear;
 systemctl restart ssh;
 ```
+
+#### X. Check
+```bash
+clear;
+for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 HEVC ; do echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; done
+```
