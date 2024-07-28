@@ -55,17 +55,33 @@ systemctl restart ssh;
 #####################################################################################################################################################################################################################################################################
 # Configuration de la carte-reseau #
 ####################################
-
+if [ $(hostname) = PI3 ]; then
 echo "# =================================================
 auto $NET_IF
 #allow-hotplug $NET_IF
 iface $NET_IF inet staic
-  address $NET_IP
-  gateway $NET_GW
-  dns-nameservers $NET_DNS1 $NET_DNS2
-# =================================================
-" > /etc/network/interfaces.d/eth0;
+  address $NET_PI5_IP
+  gateway $NET_PI5_GW
+  dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
+# =================================================" > /etc/network/interfaces.d/eth0;
+fi
+
+if [ $(hostname) = PI5 ]; then
+echo "# =================================================
+auto $NET_IF
+#allow-hotplug $NET_IF
+iface $NET_IF inet staic
+  address $NET_PI5_IP
+  gateway $NET_PI5_GW
+  dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
+# =================================================" > /etc/network/interfaces.d/eth0;
+fi
+
+
+
 systemctl restart networking;
+
+
 
 #####################################################################################################################################################################################################################################################################
 # Dépôts des logiciels #
