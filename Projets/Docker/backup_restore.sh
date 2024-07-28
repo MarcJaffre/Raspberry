@@ -73,46 +73,52 @@ fi
 if [ $RC = 0 ]; then
    # ====================================================================
    if   [ $ACTION = create  ]; then
-    docker-volume-snapshot  create  $VOLUME001  $DOSSIER/$VOLUME001.tar;
-    docker-volume-snapshot  create  $VOLUME002  $DOSSIER/$VOLUME002.tar;
-    docker-volume-snapshot  create  $VOLUME003  $DOSSIER/$VOLUME003.tar;
-    docker-volume-snapshot  create  $VOLUME004  $DOSSIER/$VOLUME004.tar;
-    docker-volume-snapshot  create  $VOLUME005  $DOSSIER/$VOLUME005.tar;
-    docker-volume-snapshot  create  $VOLUME006  $DOSSIER/$VOLUME006.tar;
-    docker-volume-snapshot  create  $VOLUME007  $DOSSIER/$VOLUME007.tar;
-    docker-volume-snapshot  create  $VOLUME008  $DOSSIER/$VOLUME008.tar;
-    docker-volume-snapshot  create  $VOLUME009  $DOSSIER/$VOLUME009.tar;
-    docker-volume-snapshot  create  $VOLUME010  $DOSSIER/$VOLUME010.tar;
-    docker-volume-snapshot  create  $VOLUME011  $DOSSIER/$VOLUME011.tar;
-    docker-volume-snapshot  create  $VOLUME012  $DOSSIER/$VOLUME012.tar;
-    docker-volume-snapshot  create  $VOLUME013  $DOSSIER/$VOLUME013.tar;
-    docker-volume-snapshot  create  $VOLUME014  $DOSSIER/$VOLUME014.tar;
-    docker-volume-snapshot  create  $VOLUME015  $DOSSIER/$VOLUME015.tar;
-    docker-volume-snapshot  create  $VOLUME016  $DOSSIER/$VOLUME016.tar;
-    docker-volume-snapshot  create  $VOLUME017  $DOSSIER/$VOLUME017.tar;
-    docker-volume-snapshot  create  $VOLUME018  $DOSSIER/$VOLUME018.tar;
-
+    systemctl stop docker.socket;
+    systemctl stop docker.service;
+    docker-volume-snapshot  create  $VOLUME001  $DOSSIER/$VOLUME001.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME002  $DOSSIER/$VOLUME002.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME003  $DOSSIER/$VOLUME003.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME004  $DOSSIER/$VOLUME004.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME005  $DOSSIER/$VOLUME005.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME006  $DOSSIER/$VOLUME006.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME007  $DOSSIER/$VOLUME007.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME008  $DOSSIER/$VOLUME008.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME009  $DOSSIER/$VOLUME009.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME010  $DOSSIER/$VOLUME010.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME011  $DOSSIER/$VOLUME011.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME012  $DOSSIER/$VOLUME012.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME013  $DOSSIER/$VOLUME013.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME014  $DOSSIER/$VOLUME014.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME015  $DOSSIER/$VOLUME015.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME016  $DOSSIER/$VOLUME016.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME017  $DOSSIER/$VOLUME017.tar 2>/dev/null;
+    docker-volume-snapshot  create  $VOLUME018  $DOSSIER/$VOLUME018.tar 2>/dev/null;
+    systemctl start docker.socket;
+    systemctl start docker.service;
    # ====================================================================
    elif [ $ACTION = restore ]; then
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME001.tar  $VOLUME001;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME002.tar  $VOLUME002;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME003.tar  $VOLUME003;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME004.tar  $VOLUME004;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME005.tar  $VOLUME005;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME006.tar  $VOLUME006;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME007.tar  $VOLUME007;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME008.tar  $VOLUME008;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME009.tar  $VOLUME009;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME010.tar  $VOLUME010;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME011.tar  $VOLUME011;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME012.tar  $VOLUME012;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME013.tar  $VOLUME013;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME014.tar  $VOLUME014;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME015.tar  $VOLUME015;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME016.tar  $VOLUME016;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME017.tar  $VOLUME017;
-    docker-volume-snapshot  create  $DOSSIER/$VOLUME018.tar  $VOLUME018;
-
+    systemctl stop docker.socket;
+    systemctl stop docker.service;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME001.tar  $VOLUME001 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME002.tar  $VOLUME002 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME003.tar  $VOLUME003 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME004.tar  $VOLUME004 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME005.tar  $VOLUME005 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME006.tar  $VOLUME006 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME007.tar  $VOLUME007 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME008.tar  $VOLUME008 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME009.tar  $VOLUME009 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME010.tar  $VOLUME010 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME011.tar  $VOLUME011 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME012.tar  $VOLUME012 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME013.tar  $VOLUME013 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME014.tar  $VOLUME014 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME015.tar  $VOLUME015 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME016.tar  $VOLUME016 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME017.tar  $VOLUME017 2>/dev/null;
+    docker-volume-snapshot  create  $DOSSIER/$VOLUME018.tar  $VOLUME018 2>/dev/null;
+    systemctl start docker.socket;
+    systemctl start docker.service;
    # ====================================================================
    else
     echo "Script en anomalie";
