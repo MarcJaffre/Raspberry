@@ -22,6 +22,8 @@
 # - Installation de Docker et de ses composants
 # - Installation et configuration du serveur de fichier
 # - Creation du conteneur Portainer
+# 
+# - [FIX] Boot Cgroup (A Checker dans DMESG)
 #
 #####################################################################################################################################################################################################################################################################
 
