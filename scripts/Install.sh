@@ -57,7 +57,7 @@ if [ $(hostname) = PI3 ]; then
 echo "# =================================================
 #auto $NET_IF
 allow-hotplug $NET_IF
-iface $NET_IF inet staic
+iface $NET_IF inet static
   address $NET_PI5_IP
   gateway $NET_PI5_GW
   dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
@@ -68,7 +68,7 @@ if [ $(hostname) = PI5 ]; then
 echo "# =================================================
 #auto $NET_IF
 allow-hotplug $NET_IF
-iface $NET_IF inet staic
+iface $NET_IF inet static
   address $NET_PI5_IP
   gateway $NET_PI5_GW
   dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
@@ -209,6 +209,14 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
 SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
 curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot;
 chmod +x /usr/local/bin/docker-volume-snapshot;
+
+
+#####################################################################################################################################################################################################################################################################
+# Retarder Docker #
+###################
+
+After=network-online.target docker.socket firewalld.service containerd.service time-set.target mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
+Wants=network-online.target containerd.service                                                 mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 
 #####################################################################################################################################################################################################################################################################
 # Serveur de Fichier #
