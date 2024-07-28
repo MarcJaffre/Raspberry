@@ -113,7 +113,6 @@ if [ $RC = 0 ]; then
     docker-volume-snapshot  create  $DOSSIER/$VOLUME017.tar  $VOLUME017;
     docker-volume-snapshot  create  $DOSSIER/$VOLUME018.tar  $VOLUME018;
 
-
    # ====================================================================
    else
     echo "Script en anomalie";
