@@ -26,7 +26,6 @@
 #
 #####################################################################################################################################################################################################################################################################
 
-
 #####################################################################################################################################################################################################################################################################
 # Nettoyage de la console #
 ###########################
@@ -76,12 +75,7 @@ iface $NET_IF inet staic
   dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
 # =================================================" > /etc/network/interfaces.d/$NET_IF;
 fi
-
-
-
 systemctl restart networking;
-
-
 
 #####################################################################################################################################################################################################################################################################
 # Dépôts des logiciels #
@@ -103,7 +97,7 @@ fi
 ###############
 apt update 1>/dev/null;
 apt install -y debian-archive-keyring;
-
+apt install -f -y;
 # apt update --allow-insecure-repositories 1>/dev/null;
 # gpg --recv-keys <the-reported-key>
 # gpg --export <the-reported-key> | apt-key add -
@@ -134,6 +128,7 @@ apt install -y ntfs-3g;
 apt install -y nfs-common;
 apt install -y qrencode;
 apt install -y wget;
+apt install -f -y;
 
 #####################################################################################################################################################################################################################################################################
 # Installation Cockpit #
@@ -147,6 +142,7 @@ apt install -y lvm2;
 apt install -y realmd;
 apt install -y tunes;
 apt install -y udisks2-lvm2;
+apt install -f -y;
 
 # Cockpit - Explorateur de fichier
 git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
