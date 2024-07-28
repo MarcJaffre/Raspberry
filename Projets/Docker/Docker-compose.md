@@ -508,6 +508,7 @@ volumes:                                                        #
 # - https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 # - https://github.com/linuxserver/docker-jellyfin#intel
 # Log: /config/log/
+# Raspberry PI 3 : linuxserver/jellyfin:arm32v7-nightly-version-20230628.10-unstable
 ##########################################################################################################################################
 
 
