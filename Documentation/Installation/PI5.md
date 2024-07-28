@@ -219,8 +219,219 @@ systemctl enable --now cockpit;
 systemctl enable --now wsdd;
 ```
 
+#### X. Montage des disques-dur
+```bash
+clear;
+mkdir /mnt/Media_{1,2,3,4,5};
+echo '# ==================================================================================================
+LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+# ==================================================================================================' >> /etc/fstab;
+systemctl daemon-reload;
+mount -a;
+df -h | grep "Mounte\|/mnt/Media";
+```
+
+
 #### X. Check Codec 
 ```bash
 clear;
 for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 HEVC ; do echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; done
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### IV. Samba
+#### A. Sauvegarde du fichier original
+```bash
+clear;
+mv /etc/samba/smb.conf /etc/samba/smb.conf.old;
+```
+#### B. Création des partages
+```bash
+clear;
+
+cat > /etc/samba/smb.conf << EOF
+
+[global]
+## Browsing/Identification ###
+   workgroup = WORKGROUP
+   client min protocol = SMB2
+   client max protocol = SMB3
+
+#### Networking ####
+
+#### Debugging/Accounting ####
+   log file = /var/log/samba/log.%m
+   max log size = 1000
+   logging = file
+   panic action = /usr/share/samba/panic-action %d
+
+####### Authentication #######
+   server role = standalone server
+   obey pam restrictions = yes
+   unix password sync = yes
+   passwd program = /usr/bin/passwd %u
+   passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+   pam password change = yes
+   map to guest = bad user
+
+# ======================= Share Definitions =======================
+
+# =================================================
+[homes]
+comment                 = Dossier Utilisateurs
+browseable              = no
+read only               = no
+writable                = yes
+create mask             = 0700
+directory mask          = 0700
+guest ok                = no
+valid users             = %S
+vfs object              = recycle
+recycle:repository      = ./Corbeille/%U
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Docker]
+comment                 = Acces au dossier Media 5
+path                    = /var/lib/docker/volumes
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[System]
+comment                 = Acces au dossier root
+path                    = /
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = marc
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Media_1]
+comment                 = Acces au dossier Media 1
+path                    = /mnt/Media_1
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Media_2]
+comment                 = Acces au dossier Media 2
+path                    = /mnt/Media_2
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Media_3]
+comment                 = Acces au dossier Media 3
+path                    = /mnt/Media_3/MyArchive
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Media_4]
+comment                 = Acces au dossier Media 4
+path                    = /mnt/Media_4
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# =================================================
+[Media_5]
+comment                 = Acces au dossier Media 5
+path                    = /mnt/Media_5
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:repository      = ./Corbeille
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:versions        = true
+
+# ======================= END SAMBA ===============================
+EOF
+```
+#### C. Validation de la configuration
+```bash
+clear;
+testparm -s /etc/samba/smb.conf;
+```
+
+#### D. Création de l'utilisateur Samba
+```bash
+clear;
+(echo "admin"; echo "admin") | smbpasswd -a $(id -u -n 1000)
+```
+
+#### E. Adctivation du compte
+```bash
+clear;
+smbpasswd -e $(id -u -n 1000);
+```
+
+
+#### F. Relance du service
+```bash
+clear;
+systemctl restart smbd;
 ```
