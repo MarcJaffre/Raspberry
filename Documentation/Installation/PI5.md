@@ -17,7 +17,9 @@ Aller sur le site de Raspberry ([ici](https://www.raspberrypi.com/software/)) pu
 #### B. Raspberry Pi imager
 Sélectionner  `Raspeberry PI 5` > `Raspberry PI OS Lite (64 Bit)` > `SD Card`.
 
-![image](https://github.com/user-attachments/assets/2038da19-2744-4359-abc3-f29c5c1aeed5)
+
+<p align='center'> <img src='https://github.com/user-attachments/assets/2038da19-2744-4359-abc3-f29c5c1aeed5' /> </p>
+
 
 #### X. Personnalisation de l'OS
 Lors de l'écrasement du système d'exploitation, il existe le menu `Modifer Réglage` qui permet de pré-paramétrer l'OS.
