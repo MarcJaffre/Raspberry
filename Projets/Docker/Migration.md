@@ -5,9 +5,29 @@
 ### I. Présentation
 Les conteneurs Docker utilise les volumes pour les données dynamiques.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### II. Script de sauvegarde / restauration
+#### A. Installation de CURL
+```bash
+clear;
+apt install -y curl;
+```
+#### B. Téléchargement du script
+```bash
+clear;
+curl -SL https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot -o /usr/local/bin/docker-volume-snapshot;
+```
+
+#### B. Modification des permissions
+```bash
+clear;
+chmod +x /usr/local/bin/docker-volume-snapshot;
+```
+
+<br />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### II. Sauvegarder les volumes
+### III. Sauvegarder les volumes
 #### A. Auto-création du fichier de configuration
 ```bash
 clear;
