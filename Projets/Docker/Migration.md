@@ -129,7 +129,6 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
    /usr/local/bin/docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
    echo "Restauration terminée";
    echo "";
-   echo "";
    done
 fi
 #######################################################################################################################
