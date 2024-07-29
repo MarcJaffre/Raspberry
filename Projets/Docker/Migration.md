@@ -8,16 +8,23 @@ Les conteneurs Docker utilise les volumes pour les données dynamiques.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Sauvegarder les volumes
-#### A. Création du fichier de configuration
+#### A. Auto-création du fichier de configuration
 ```bash
 clear;
 cat > settings << EOF
+#######################################################################################################################
+# Dossier de stockage de la sauvegarde #
+########################################
 DATASTORE="/mnt/Media_5/test"
+
+#######################################################################################################################
+# Liste des volumes exclus #
+############################
 EXLUSION="backingFsBlockDev\|.db"
 EOF
 ```
 
-#### B. Création du Script Backup.sh
+#### B. Auto-création du Script Backup.sh
 ```bash
 clear;
 cat > backup.sh << EOF
