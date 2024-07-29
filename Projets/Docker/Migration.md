@@ -92,7 +92,7 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     # Actions par volume
     echo "___________________________________________________________________________________________________________"
     echo "Le volume \$VOLUME est en cours de sauvegarde";
-    /usr/local/bin/docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME.tar" 1>/dev/null;
+    docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME.tar" 1>/dev/null;
     if [ \$? = 0 ]; then echo "Le volume \$VOLUME est sauvegardé"; fi
     echo "";
    done
@@ -107,6 +107,10 @@ EOF
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### IV. Restauration
 Le script `restore.sh` permet la restauration des volumes depuis la sauvegarde.
+
+La journalisation n'est pas présent.
+
+
 
 #### B. Auto-création du fichier de restauration complète
 ```bash
@@ -138,7 +142,7 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
    do
    echo "# --------------------------------------------------------- #"
    echo "Restauration du volume \$VOLUME en cours"
-   /usr/local/bin/docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
+   docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
    echo "Restauration terminée";
    echo "";
    done
@@ -146,7 +150,6 @@ fi
 #######################################################################################################################
 EOF
 ```
-
 
 <br />
 <br />
