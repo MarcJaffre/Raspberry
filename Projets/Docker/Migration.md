@@ -117,8 +117,8 @@ source ./settings;
 read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 
 #######################################################################################################################
-# Bypass #
-##########
+# Restauration #
+################
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
    for VOLUME in \$(ls /mnt/Media_5/test | xargs -n1)
    do
