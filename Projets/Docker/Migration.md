@@ -3,7 +3,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Présentation
-Les conteneurs Docker utilise les volumes pour les données dynamiques et elle sont stockés sur le système.
+Les conteneurs Docker utilise les volumes pour les données dynamiques, pour migré les données il est nécessaire de sauvegarder les volumes.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
