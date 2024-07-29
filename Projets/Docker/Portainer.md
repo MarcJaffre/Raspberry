@@ -8,7 +8,7 @@ Portainer est une interface Web pour l'administration des conteneurs
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Déploiement
 
-### A. Création du fichier
+### A. Création du fichier (Portainer-Ce)
 ```yml
 cat >  portainer.yml << EOF
 ################
@@ -45,12 +45,52 @@ volumes:                                               #
 EOF
 ```
 
+### A. Création du fichier (Portainer-Ee)
+```yml
+cat >  portainer.yml << EOF
+################
+version: '3.9' #
+services:      #
+################
+#
+########################################################
+ Portainer:                                            #
+  image: 'portainer/portainer-ee'                      #
+  container_name: 'Portainer'                          #
+  network_mode: 'bridge'                               #
+  restart: 'always'                                    #
+  hostname: 'Portainer'                                #
+  volumes:                                             #
+   - '/var/run/docker.sock:/var/run/docker.sock'       #
+   - '/etc/localtime:/etc/localtime:ro'                #
+   - 'Data:/data'                                      #
+  ports:                                               #
+   - '8000:8000'                                       #
+   - '9000:9000'                                       #
+   - '9443:9443'                                       #
+  labels:                                              #
+   Cacher: 'Oui'                                       #
+########################################################
+#
+#
+########################################################
+volumes:                                               #
+ Data:                                                 #
+  external: false                                      #
+########################################################
+
+EOF
+```
+
 
 ### C. Démarrage du conteneur (mode détacher)
 ```bash
 clear;
+docker-compose -f portainer.yml down;
 docker-compose -f portainer.yml up -d;
 ```
+
+
 
 ### D. Accéder au panel administration
 ```
