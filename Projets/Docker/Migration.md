@@ -153,6 +153,13 @@ fi
 EOF
 ```
 
+### FIX
+VOlume.tar dans Docker, taper la commande
+```
+docker volume rm  $(ls | grep .tar)
+```
+
+
 <br />
 <br />
 
@@ -187,5 +194,4 @@ docker-volume-snapshot create xyz_volume xyz_volume.tar
 docker-volume-snapshot create xyz_volume xyz_volume.tar.gz
 docker-volume-snapshot restore xyz_volume.tar xyz_volume
 docker-volume-snapshot restore xyz_volume.tar.gz xyz_volume
-
 ```
