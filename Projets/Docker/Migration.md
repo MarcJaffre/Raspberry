@@ -136,13 +136,14 @@ read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 # Restauration #
 ################
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
-   for VOLUME in \$(ls \$DATASTORE | xargs -n1)
+   for TAR in \$(ls \$DATASTORE | xargs -n1)
    do
     # Actions par volume
+    VOLUME=\$(($TAR | cut -d "." -f);
     echo "# --------------------------------------------------------- #";
     echo "Restauration du volume \$VOLUME en cours";
     # ----------------------------------------------------------------------------- #
-    docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
+    docker-volume-snapshot restore \$DATASTORE/\$TAR \$VOLUME 1>/dev/null;
     # ----------------------------------------------------------------------------- #
     echo "Restauration terminée";
     echo "";
