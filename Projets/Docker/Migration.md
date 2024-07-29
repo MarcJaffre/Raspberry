@@ -122,7 +122,7 @@ read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 # Restauration #
 ################
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
-   for VOLUME in \$(ls /mnt/Media_5/test | xargs -n1)
+   for VOLUME in \$(ls \$DATASTORE | xargs -n1)
    do
    echo "# --------------------------------------------------------- #"
    echo "Restauration du volume \$VOLUME en cours"
@@ -135,4 +135,3 @@ fi
 #######################################################################################################################
 EOF
 ```
-
