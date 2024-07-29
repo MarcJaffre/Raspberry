@@ -36,7 +36,7 @@ if [ ! -d \$DATASTORE ];then mkdir \$DATASTORE; fi
 #######################################################################################################################
 # Question #
 ############
-read -p "Souhaitez vous lancer la sauvegarder ?" VALIDATION
+read -p "Souhaitez vous lancer la sauvegarder ? (o|y) " VALIDATION
 #######################################################################################################################
 # Sauvegarde completes des volumes #
 ####################################
