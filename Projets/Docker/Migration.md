@@ -154,9 +154,10 @@ EOF
 ```
 
 ### FIX
-```
+```bash
+clear;
 systemctl restart docker.socket;
-docker volume rm $(ls /var/lib/docker/volumes);
+docker volume rm $(ls /var/lib/docker/volumes | grep -v "backingFsBlockDev\|.db") 2>/dev/null
 ```
 
 
