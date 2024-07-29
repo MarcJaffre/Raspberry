@@ -30,6 +30,12 @@ clear;
 cat > backup.sh << EOF
 
 #!/usr/bin/bash
+
+#######################################################################################################################
+# Nettoyage de la console #
+###########################
+clear;
+
 #######################################################################################################################
 # Chargement du ficher settings #
 #################################
@@ -44,10 +50,10 @@ if [ ! -d \$DATASTORE ];then mkdir \$DATASTORE; fi
 # Question #
 ############
 read -p "Souhaitez vous lancer la sauvegarder ? (o|y) " VALIDATION
+
 #######################################################################################################################
 # Sauvegarde completes des volumes #
 ####################################
-
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
    # Lister les volumes
    for VOLUME in \$(ls /var/lib/docker/volumes | sort -n | grep -v "\$EXLUSION")
@@ -60,6 +66,8 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     echo "";
    done
 fi
+#######################################################################################################################
+
 
 EOF
 ```
