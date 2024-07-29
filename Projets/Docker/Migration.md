@@ -6,7 +6,7 @@
 Les conteneurs Docker utilise les volumes pour les données dynamiques.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### II. Script de sauvegarde / restauration
+### II. Script de sauvegarde et restauration
 #### A. Installation de CURL
 ```bash
 clear;
@@ -53,6 +53,8 @@ nano settings;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### III. Sauvegarder les volumes
+Le script `backup.sh` permet la sauvegarde des volumes dans un dossier. Chaque volume à un fichier tar correspondant.
+
 #### A. Auto-création du fichier de sauvegarde complète
 ```bash
 clear;
@@ -103,6 +105,8 @@ EOF
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### IV. Restauration
+Le script `restore.sh` permet la restauration des volumes depuis la sauvegarde.
+
 #### B. Auto-création du fichier de restauration complète
 ```bash
 clear;
