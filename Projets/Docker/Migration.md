@@ -52,8 +52,10 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     if [ \$? = 0 ]; then echo "Le volume \$VOLUME est sauvegardé"; fi
     echo "";
    done
+fi
+
 EOF
 ```
 
 
-fi
+
