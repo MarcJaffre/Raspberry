@@ -155,4 +155,13 @@ EOF
 ### V. Note de travail
 ```
 L'utilisation de EOF oblige d'utiliser \ devant les variables sinon elle seront purgés.
+
+xargs -n1 permet d'avoir un rendu par ligne.
+
+ls \$DATASTORE
+VOLUME1 VOLUME2 ....
+
+ls \$DATASTORE | xargs -n1
+VOLUME1
+VOLUME2
 ```
