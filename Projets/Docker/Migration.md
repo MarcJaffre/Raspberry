@@ -156,6 +156,7 @@ EOF
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### V. Note de travail
+#### A. Base
 ```
 L'utilisation de EOF oblige d'utiliser \ devant les variables sinon elle seront purgés.
 
@@ -167,4 +168,23 @@ VOLUME1 VOLUME2 ....
 ls \$DATASTORE | xargs -n1
 VOLUME1
 VOLUME2
+```
+
+#### B. Docker Volume Snapshot
+```
+usage: docker-volume-snapshot (create|restore) source destination
+  create         create snapshot file from docker volume
+  restore        restore snapshot file to docker volume
+  source         source path
+  destination    destination path
+
+Tip: Supports tar's compression algorithms automatically
+     based on the file extention, for example .tar.gz
+
+Examples:
+docker-volume-snapshot create xyz_volume xyz_volume.tar
+docker-volume-snapshot create xyz_volume xyz_volume.tar.gz
+docker-volume-snapshot restore xyz_volume.tar xyz_volume
+docker-volume-snapshot restore xyz_volume.tar.gz xyz_volume
+
 ```
