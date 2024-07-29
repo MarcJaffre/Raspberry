@@ -20,7 +20,7 @@ EOF
 #### B. Création du Script Backup.sh
 ```bash
 clear;
-cat > backup2.sh << EOF
+cat > backup.sh << EOF
 
 #!/usr/bin/bash
 #######################################################################################################################
@@ -31,25 +31,29 @@ source ./settings;
 #######################################################################################################################
 # Creation de dossier #
 #######################
-if [ ! -d $DATASTORE ];then mkdir $DATASTORE; fi
+if [ ! -d \$DATASTORE ];then mkdir \$DATASTORE; fi
 
 #######################################################################################################################
 # Question #
 ############
 read -p "Souhaitez vous lancer la sauvegarder ?" VALIDATION
-
 #######################################################################################################################
 # Sauvegarde completes des volumes #
 ####################################
-if [ "$VALIDATION" = y ];then
+
+if (( \$VALIDATION == y || \$VALIDATION == o ));then
    # Lister les volumes
-   for VOLUME in $(ls /var/lib/docker/volumes | sort -n | grep -v "$EXLUSION")
+   for VOLUME in \$(ls /var/lib/docker/volumes | sort -n | grep -v "\$EXLUSION")
    do
     # Actions par volume
     echo "___________________________________________________________________________________________________________"
-    echo "Le volume $VOLUME est en cours de sauvegarde";
-    /usr/local/bin/docker-volume-snapshot create "$VOLUME" $DATASTORE/"$VOLUME".tar 1>/dev/null;
-    if [ $? = 0 ]; then echo "Le volume $VOLUME est sauvegardé"; fi
+    echo "Le volume \$VOLUME est en cours de sauvegarde";
+    /usr/local/bin/docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME".tar 1>/dev/null;
+    if [ \$? = 0 ]; then echo "Le volume \$VOLUME est sauvegardé"; fi
     echo "";
    done
+EOF
 ```
+
+
+fi
