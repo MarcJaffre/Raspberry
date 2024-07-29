@@ -154,9 +154,9 @@ EOF
 ```
 
 ### FIX
-VOlume.tar dans Docker, taper la commande
 ```
-docker volume rm  $(ls | grep .tar)
+systemctl restart docker.socket;
+docker volume rm $(ls /var/lib/docker/volumes);
 ```
 
 
