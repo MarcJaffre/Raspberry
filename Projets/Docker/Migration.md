@@ -44,7 +44,7 @@ EXLUSION="backingFsBlockDev\|.db"
 EOF
 ```
 
-#### B. Auto-création du Script de sauvegarde
+#### B. Auto-création du fichier de sauvegarde
 ```bash
 clear;
 cat > backup.sh << EOF
@@ -81,7 +81,7 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     # Actions par volume
     echo "___________________________________________________________________________________________________________"
     echo "Le volume \$VOLUME est en cours de sauvegarde";
-    /usr/local/bin/docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME".tar 1>/dev/null;
+    /usr/local/bin/docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME.tar" 1>/dev/null;
     if [ \$? = 0 ]; then echo "Le volume \$VOLUME est sauvegardé"; fi
     echo "";
    done
@@ -90,12 +90,27 @@ fi
 EOF
 ```
 
-
 <br />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### IV. Restauration
 #### A. Auto-création du fichier de configuration
+```bash
+clear;
+cat > settings << EOF
+#######################################################################################################################
+# Dossier de stockage de la sauvegarde #
+########################################
+DATASTORE="/mnt/Media_5/test"
+
+#######################################################################################################################
+# Liste des volumes exclus #
+############################
+EXLUSION="backingFsBlockDev\|.db"
+EOF
+```
+
+#### B. Auto-création du fichier de restauration
 ```bash
 clear;
 cat > restore.sh << EOF
@@ -115,15 +130,19 @@ source ./settings;
 #######################################################################################################################
 # Question #
 ############
-read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
+#read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
+
+#Bypass
+VALIDATION=y
 
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
    for VOLUME in \$(ls /mnt/Media_5/test | xargs -n1)
    do
-    echo $VOLUME;
+    echo "/usr/local/bin/docker-volume-snapshot restore \$DATASTORE/\$VOLUME";
    done
 fi
 #######################################################################################################################
 EOF
-
+bash restore.sh;
 ```
+
