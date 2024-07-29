@@ -3,7 +3,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Présentation
-Les conteneurs Docker utilise les volumes pour les données dynamiques, pour migré les données il est nécessaire de sauvegarder les volumes.
+Les conteneurs Docker utilise les volumes pour les données dynamiques.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -21,6 +21,8 @@ EOF
 ```bash
 clear;
 cat > backup2.sh << EOF
+
+#!/usr/bin/bash
 
 #######################################################################################################################
 # Chargement du ficher settings #
