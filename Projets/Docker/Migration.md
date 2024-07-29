@@ -138,7 +138,7 @@ VALIDATION=y
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
    for VOLUME in \$(ls /mnt/Media_5/test | xargs -n1)
    do
-    echo "/usr/local/bin/docker-volume-snapshot restore \$DATASTORE/\$VOLUME";
+    /usr/local/bin/docker-volume-snapshot restore \$DATASTORE/\$VOLUME;
    done
 fi
 #######################################################################################################################
