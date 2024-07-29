@@ -92,7 +92,9 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     # Actions par volume
     echo "___________________________________________________________________________________________________________"
     echo "Le volume \$VOLUME est en cours de sauvegarde";
+    # ----------------------------------------------------------------------------- #
     docker-volume-snapshot create "\$VOLUME" "\$DATASTORE/\$VOLUME.tar" 1>/dev/null;
+    # ----------------------------------------------------------------------------- #
     if [ \$? = 0 ]; then echo "Le volume \$VOLUME est sauvegardé"; fi
     echo "";
    done
@@ -106,11 +108,7 @@ EOF
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### IV. Restauration
-Le script `restore.sh` permet la restauration des volumes depuis la sauvegarde.
-
-La journalisation n'est pas présent.
-
-
+Le script `restore.sh` permet la restauration des volumes depuis la sauvegarde. La journalisation n'est pas présent.
 
 #### B. Auto-création du fichier de restauration complète
 ```bash
@@ -140,11 +138,14 @@ read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
    for VOLUME in \$(ls \$DATASTORE | xargs -n1)
    do
-   echo "# --------------------------------------------------------- #"
-   echo "Restauration du volume \$VOLUME en cours"
-   docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
-   echo "Restauration terminée";
-   echo "";
+    # Actions par volume
+    echo "# --------------------------------------------------------- #";
+    echo "Restauration du volume \$VOLUME en cours";
+    # ----------------------------------------------------------------------------- #
+    docker-volume-snapshot restore \$DATASTORE/\$VOLUME \$VOLUME 1>/dev/null;
+    # ----------------------------------------------------------------------------- #
+    echo "Restauration terminée";
+    echo "";
    done
 fi
 #######################################################################################################################
@@ -178,8 +179,7 @@ usage: docker-volume-snapshot (create|restore) source destination
   source         source path
   destination    destination path
 
-Tip: Supports tar's compression algorithms automatically
-     based on the file extention, for example .tar.gz
+Tip: Supports tar's compression algorithms automatically based on the file extention, for example .tar.gz
 
 Examples:
 docker-volume-snapshot create xyz_volume xyz_volume.tar
