@@ -83,7 +83,10 @@ func_CREATE(){
 #################################################
 func_RESTORE(){
  echo "Restauration du serveur Wireguard";
-  tar -xzf $DOSSIER_BACKUP/$FICHIER -C /
+ rm -r /etc/wireguard/* 2>/dev/null;
+ rm -r /root/client-*   2>/dev/null;
+ tar -xzf $DOSSIER_BACKUP/$FICHIER -C /
+ chmod 600 /etc/wireguard/*:
 }
 
 ##########################################################################################################################################
