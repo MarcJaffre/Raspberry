@@ -52,6 +52,7 @@ ENDPOINT="proxmox74.ddns.net"
 PORT="51820"
 MTU="1420"
 
+# Server DNS client
 DNS="192.168.0.1"
 
 # Network Allow by Client
