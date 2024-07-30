@@ -60,8 +60,8 @@ func_MOUNT_AD()      {
 func_RECAP()         {
 echo "Le serveur à comme IP : $HOST_SERVEUR";
 echo "L'identifiant est     : $HOST_USERNAME";
-echo "Le mode passe est     : $HOST_PASSWORD"
-echo ""
+echo "Le mode passe est     : $HOST_PASSWORD";
+echo "Le partage se nomme   : $HOST_SHARE";
 echo ""
 echo ""
 echo ""
