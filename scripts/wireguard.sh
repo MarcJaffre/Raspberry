@@ -75,26 +75,31 @@ func_SHOW(){
 
 ##########################################################################################################################################
 func_STATUS() {
-systemctl status wg-quick@wg0;
+ echo "Status du service Wireguard";
+ systemctl status wg-quick@wg0;
 }
 
 ##########################################################################################################################################
 func_START() {
-systemctl start wg-quick@wg0;
+ echo "Démarrage du service Wireguard";
+ systemctl start wg-quick@wg0;
 }
 
 ##########################################################################################################################################
 func_STOP() {
+ echo "Arrêt du service Wireguard";
 systemctl stop wg-quick@wg0;
 }
 
 ##########################################################################################################################################
 func_ENABLE() {
+ echo "Activation du service Wireguard";
 systemctl enable wg-quick@wg0;
 }
 
 ##########################################################################################################################################
 func_DISABLE() {
+ echo "Désactivation du service Wireguard";
 systemctl disable wg-quick@wg0;
 }
 
@@ -368,7 +373,7 @@ case $1 in
    echo ""
    echo "Option:"
    echo "";
-   echo "  install : Déploiement de Wireguard"
+   echo "  install : Déploiement de Wireguard";
    echo "  show    : Afficher la configuration des clients";
    echo "  edit    : Edition de la configuration";
    echo "  create  : Creation d'une sauvegarde";
