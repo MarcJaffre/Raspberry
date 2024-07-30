@@ -1029,7 +1029,7 @@ docker volume create --driver local \
 
 #### X. Docker
 ##### 1. Jellyfin
-System.IO.IOException: The configured user limit (31781) on the number of inotify watches has been reached, or the operating system failed to allocate a required resource.
+The configured user limit (XXXXX) on the number of inotify watches has been reached, or the operating system failed to allocate a required resource.
 
 ```bash
 clear;
