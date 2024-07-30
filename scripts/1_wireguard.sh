@@ -2,7 +2,7 @@
 
 ##########################################################################################################################################
 # Auteur      : Marc Jaffre
-# Date        : 30/07/2024 a 21h47
+# Date        : 30/07/2024 a 22h07
 # Desctiption : Automatisation de la configuration de Wireguard (Installation, Configuration, afficher configuration, .....) 
 ##########################################################################################################################################
 
@@ -372,6 +372,10 @@ case $1 in
     func_RESTORE;
    ;;
    # =================================================================
+   qrcode)
+    func_QRCODE;
+   ;;
+   # =================================================================
    show)
     func_SHOW;
    ;;
@@ -397,9 +401,9 @@ case $1 in
    ;;  
    # =================================================================
    *)
-   echo "# =================================================== #";
-   echo "#            Guide d'utilisation du script            #";
-   echo "# =================================================== #";
+   echo "# ============================================================= #";
+   echo "#                 Guide d'utilisation du script                 #";
+   echo "# ============================================================= #";
    echo ""
    echo "# Utilisation: ./backup.sh [OPTION]"
    echo ""
@@ -411,17 +415,18 @@ case $1 in
    echo "  create  : Creation d'une sauvegarde";
    echo "  restore : Restauration de Wireguard";
    echo "";
-   echo "# =================================================== #";
-   echo "#                     Maintenance                     #";
-   echo "# =================================================== #";
+   echo "# ============================================================= #";
+   echo "#                          Maintenance                          #";
+   echo "# ============================================================= #";
    echo "  status  : Status du serveur Wireguard";
    echo "  start   : Arrête du serveur Wireguard";
    echo "  stop    : Arrête du serveur Wireguard";
    echo "  enable  : Désactive le serveur Wireguard";
    echo "  disable : Désactive le serveur Wireguard";
    #echo "  config  : Generation d'une configuration";
+   #echo "  qrcode  :  Afficher la configuration des clients en QrCode";
    echo "";
-   echo "# =================================================== #";
+   echo "# ============================================================= #";
    echo "";
    ;;
    # =================================================================
