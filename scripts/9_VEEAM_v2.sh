@@ -79,6 +79,7 @@ func_HOST_DOMAINE;
 func_HOST_USERNAME;
 func_HOST_PASSWORD;
 func_HOST_PARTAGE;
+func_RECAP;
 
 
 
