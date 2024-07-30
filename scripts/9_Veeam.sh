@@ -22,7 +22,7 @@ MOUNT_LOCAL_SHARE=""
 # Configuration de l-archivage #
 ################################
 RSYNC_OPTION="-avz"
-RSYNC_SIMUL="–dry-run"
+RSYNC_SIMUL="-–dry-run"
 BACKUP_SOURCE_1="/root"
 BACKUP_SOURCE_2=""
 BACKUP_SOURCE_3=""
