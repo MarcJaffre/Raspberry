@@ -34,8 +34,14 @@ func_MKDIR()         {
 }
 ########################################################################################################################################################################################
 func_UMOUNT()        {
-  umount /mnt/backup
+ if [ ! -d /mnt/backup]; then
+   umount /mnt/backup;
+   echo "LE dossier de montage a été crée";
+ else
+   echo "Le dossier de montage existe deja"  
+ fi
 }
+
 ########################################################################################################################################################################################
 func_MOUNT()         {
   mount -t cifs -o domain="$HOST_DOMAINE";username="$HOST_USERNAME",password="$HOST_PASSWORD"
