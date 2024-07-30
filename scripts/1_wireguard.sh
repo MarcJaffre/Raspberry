@@ -38,6 +38,11 @@ clear;
 # echo "Edition de la configuration";
 #}
 
+#func_QRCODE(){
+# echo "Afficher la configuration des clients en QrCode";
+#}
+
+
 
 ##########################################################################################################################################
 # Installation des paquets #
@@ -103,7 +108,6 @@ func_STATUS() {
 ##########################################################################################################################################
 # Demarrer le service Wireguard #
 #################################
-
 func_START() {
  echo "Démarrage du service Wireguard";
  systemctl start wg-quick@wg0;
@@ -132,6 +136,10 @@ func_DISABLE() {
  echo "Désactivation du service Wireguard";
 systemctl disable wg-quick@wg0;
 }
+
+
+
+
 
 ##########################################################################################################################################
 # Auto-configuration du serveur (5 clients / 1 server) #
@@ -336,10 +344,6 @@ Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-5.conf;
  rm /tmp/Public    2>/dev/null;
  rm /tmp/Preshared 2>/dev/null;
 }
-
-
-
-
 
 
 
