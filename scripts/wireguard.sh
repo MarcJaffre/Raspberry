@@ -28,6 +28,58 @@ func_INSTALL(){
  mkdir -p /etc/wireguard  2>/dev/null;
 }
 
+##########################################################################################################################################
+func_CREATE(){
+ echo "Création d'une sauvegarde Wireguard";
+ tar -czf $DOSSIER_BACKUP/$FICHIER /etc/wireguard /root/client-*.conf;
+}
+
+##########################################################################################################################################
+func_RESTORE(){
+ echo "Restauration du serveur Wireguard";
+  tar -xzf $DOSSIER_BACKUP/$FICHIER -C /
+}
+
+##########################################################################################################################################
+func_EDIT(){
+ echo "Edition de la configuration";
+
+}
+
+##########################################################################################################################################
+func_SHOW(){
+ echo "Afficher la configuration des clients Wireguard";
+ echo "";
+ echo "# -------------------------------------------------------------- #"
+ echo "# Client 1";
+ cat $HOME/client-1.conf;
+ echo "";
+ echo "# -------------------------------------------------------------- #"
+ echo "# Client 2";
+ cat $HOME/client-2.conf;
+ echo "";
+ echo "# -------------------------------------------------------------- #"
+ echo "# Client 3";
+ cat $HOME/client-3.conf;
+ echo "";
+ echo "# -------------------------------------------------------------- #"
+ echo "# Client 4";
+ cat $HOME/client-4.conf;
+ echo "";
+ echo "# -------------------------------------------------------------- #"
+ echo "# Client 5";
+ cat $HOME/client-5.conf;
+ echo ""; 
+}
+
+
+
+
+
+
+
+
+##########################################################################################################################################
 func_CONFIG(){
  # =======================================================================================================================
  echo "Generation d'une configuration"
@@ -163,6 +215,7 @@ PrivateKey   = ${CLIENT_1_PRIVATE}
 Address      = ${WIREGUARD_NETWORK}.2/32
 DNS          = ${DNS}
 MTU          = ${MTU}
+
 [Peer]
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_1_PRESHARED}
@@ -175,6 +228,7 @@ PrivateKey   = ${CLIENT_2_PRIVATE}
 Address      = ${WIREGUARD_NETWORK}.3/32
 DNS          = ${DNS}
 MTU          = ${MTU}
+
 [Peer]
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_2_PRESHARED}
@@ -187,6 +241,7 @@ PrivateKey   = ${CLIENT_3_PRIVATE}
 Address      = ${WIREGUARD_NETWORK}.4/32
 DNS          = ${DNS}
 MTU          = ${MTU}
+
 [Peer]
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_3_PRESHARED}
@@ -199,6 +254,7 @@ PrivateKey   = ${CLIENT_4_PRIVATE}
 Address      = ${WIREGUARD_NETWORK}.4/32
 DNS          = ${DNS}
 MTU          = ${MTU}
+
 [Peer]
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_4_PRESHARED}
@@ -211,6 +267,7 @@ PrivateKey   = ${CLIENT_5_PRIVATE}
 Address      = ${WIREGUARD_NETWORK}.4/32
 DNS          = ${DNS}
 MTU          = ${MTU}
+
 [Peer]
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_5_PRESHARED}
@@ -224,37 +281,32 @@ Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-5.conf;
  rm /tmp/Preshared 2>/dev/null;
 }
 
-
-func_EDIT(){
- echo "Edition de la configuration";
-}
-
-func_CREATE(){
- echo "Création d'une sauvegarde Wireguard";
- tar -czf $DOSSIER_BACKUP/$FICHIER /etc/wireguard /root/client-*.conf;
-}
-
-func_RESTORE(){
- echo "Restauration du serveur Wireguard";
-  tar -xzf $DOSSIER_BACKUP/$FICHIER -C /
-}
-
 case $1 in
-   install)
-    func_INSTALL;
-   ;;
+   # =================================================================
    config)
     func_CONFIG;
    ;;
+   # =================================================================
+   create)
+    func_CREATE;
+   ;;
+   # =================================================================
    edit)
     func_EDIT;
    ;;
-   create)
-    func_CREATE;
+   # =================================================================
+   install)
+    func_INSTALL;
+   # =================================================================
    ;;
    restore)
     func_RESTORE;
    ;;
+   # =================================================================
+   show)
+    func_SHOW;
+   ;;
+   # =================================================================
    *)
    echo "# =================================================== #";
    echo "#           Guide d'utilisation du script             #";
@@ -266,6 +318,7 @@ case $1 in
    echo "";
    echo "  install : Déploiement de Wireguard"
    echo "  config  : Generation d'une configuration";
+   echo "  show    : Afficher la configuration des clients";
    echo "  edit    : Edition de la configuration";
    echo "  create  : Creation d'une sauvegarde";
    echo "  restore : Restauration de Wireguard"
@@ -273,6 +326,7 @@ case $1 in
    echo "# =================================================== #";
    echo "";
    ;;
+   # =================================================================
 esac
 
 ##########################################################################################################################################
