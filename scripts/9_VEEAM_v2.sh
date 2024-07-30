@@ -39,8 +39,10 @@ func_MKDIR()         {
  if [ ! -d /mnt/backup ]; then
   mkdir -p /mnt/backup 2>/dev/null;
   echo "Le creation du dossier a ete fait."
+  echo "";
   else
   echo "Le dossier existe deja"
+  echo "";
  fi
 }
 
@@ -48,13 +50,16 @@ func_MKDIR()         {
 func_UMOUNT()        {
  if [ -d /mnt/backup ]; then
    umount /mnt/backup;
-   echo "Le dossier a été démonté";
+  echo "Le dossier a été démonté";
+  echo "";
  fi
 
 
 ########################################################################################################################################################################################
 func_MOUNT()         {
   mount -t cifs -o username="$HOST_USERNAME",password="$HOST_PASSWORD" //$HOST_SERVEUR/$HOST_SHARE /mnt/backup;
+  echo "Le dossier a été monté";
+  echo "";
 }
 ########################################################################################################################################################################################
 func_MOUNT_AD()      {
