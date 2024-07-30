@@ -7,23 +7,20 @@
 ######################################################################################################################################################################################
 
 ######################################################################################################################################################################################
-# Configuration du script #
-###########################
+# Configuration du partage #
+############################
 MOUNT_SHARE_HOST=""
 MOUNT_SHARE_DOMAINE=""
 MOUNT_SHARE_USER=""
 MOUNT_SHARE_PASS=""
 MOUNT_SHARE_FOLDER=""
 MOUNT_LOCAL_SHARE=""
-
-
+MOUNT_LOCAL_SUBF=""
 
 ######################################################################################################################################################################################
 # Configuration de l-archivage #
 ################################
-RSYNC_OPTION="-avz"
-RSYNC_SIMUL="-–dry-run"
-BACKUP_SOURCE_1="/root"
+BACKUP_SOURCE_1=""
 BACKUP_SOURCE_2=""
 BACKUP_SOURCE_3=""
 BACKUP_SOURCE_4=""
@@ -31,7 +28,8 @@ BACKUP_SOURCE_5=""
 BACKUP_SOURCE_6=""
 BACKUP_SOURCE_7=""
 
-
+RSYNC_SIMUL="--dry-run"
+RSYNC_OPTION="-avz"
 
 ######################################################################################################################################################################################
 # Nettoyage console #
@@ -88,11 +86,11 @@ fi
 # Sauvegarde de donnée #
 ########################
 
-# Si la variable BACKUP_SOURCE_1 est pas vide, alors lancer la sauvegarde
+# Si Backup_SOURCE_X n-est pas null alors lancer
 if [ ! -z "${BACKUP_SOURCE_1}" ];then
- echo rsync $RSYNC_OPTION $RSYNC_SIMUL  $BACKUP_SOURCE_1 $MOUNT_LOCAL_SHARE/TEST
+   rsync $RSYNC_OPTION $RSYNC_SIMUL $BACKUP_SOURCE_1 $MOUNT_LOCAL_SHARE/$MOUNT_LOCAL_SUBF;
 fi
 
 if [ ! -z "${BACKUP_SOURCE_2}" ];then
- echo rsync $RSYNC_OPTION $RSYNC_SIMUL $BACKUP_SOURCE_2 $MOUNT_LOCAL_SHARE/TEST
+   rsync $RSYNC_OPTION $RSYNC_SIMUL $BACKUP_SOURCE_2 $MOUNT_LOCAL_SHARE/$MOUNT_LOCAL_SUBF;
 fi
