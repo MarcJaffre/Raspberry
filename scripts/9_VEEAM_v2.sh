@@ -47,7 +47,7 @@ func_MOUNT()         {
   mount -t cifs -o username="$HOST_USERNAME",password="$HOST_PASSWORD" //$HOST_SERVEUR/$HOST_SHARE /mnt/backup;
 }
 ########################################################################################################################################################################################
-func_MOUNT_AD()         {
+func_MOUNT_AD()      {
   mount -t cifs -o domain="$HOST_DOMAINE";username="$HOST_USERNAME",password="$HOST_PASSWORD" //$HOST_SERVEUR/$HOST_SHARE /mnt/backup;
 }
 
@@ -59,11 +59,9 @@ func_HOST_DOMAINE;
 func_HOST_USERNAME;
 func_HOST_PASSWORD;
 func_HOST_PARTAGE;
-
 func_MKDIR;
 func_UMOUNT;
 func_MOUNT;
-
 
 ########################################################################################################################################################################################
 ########################################################################################################################################################################################
