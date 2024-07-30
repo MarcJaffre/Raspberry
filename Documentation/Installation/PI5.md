@@ -1021,6 +1021,151 @@ docker volume create --driver local \
 ####################################################################################################################################
 ```
 
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### VIII. Problème et solution
+
+#### X. Docker
+##### 1. Jellyfin
+System.IO.IOException: The configured user limit (31781) on the number of inotify watches has been reached, or the operating system failed to allocate a required resource.
+
+```bash
+clear;
+sysctl fs.inotify.max_user_watches=524288
+sysctl -p
+echo "fs.inotify.max_user_watches = 524288" >>  /etc/sysctl.conf;
+```
+
+
+
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
+#### X. 
+```bash
+clear;
+```
+
 #### X. 
 ```bash
 clear;
