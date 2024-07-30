@@ -57,6 +57,21 @@ func_MOUNT_AD()      {
 }
 
 ########################################################################################################################################################################################
+func_RECAP()         {
+echo "Le serveur à comme IP : $HOST_SERVEUR";
+echo "L'identifiant est     : $HOST_USERNAME";
+echo "Le mode passe est     : $HOST_PASSWORD"
+echo ""
+echo ""
+echo ""
+echo ""
+}
+
+
+
+
+
+########################################################################################################################################################################################
 # Question #
 ############
 func_HOST_SERVEUR;
@@ -64,6 +79,9 @@ func_HOST_DOMAINE;
 func_HOST_USERNAME;
 func_HOST_PASSWORD;
 func_HOST_PARTAGE;
+
+
+
 #func_MKDIR;
 #func_UMOUNT;
 #func_MOUNT;
