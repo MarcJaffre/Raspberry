@@ -1026,7 +1026,6 @@ docker volume create --driver local \
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### VIII. Problème et solution
-
 #### X. Docker
 ##### 1. Jellyfin
 The configured user limit (XXXXX) on the number of inotify watches has been reached, or the operating system failed to allocate a required resource.
@@ -1047,7 +1046,53 @@ fi
 # sysctl -p
 ```
 
+##### 2a. Available hwaccel types
+```
+- drm
+- opencl
+- rkmpp
+```
 
+##### 2b. Available decoders
+```
+ - libdav1d
+ - av1
+ - av1_rkmp
+ - h264
+ - h264_rkmpp
+ - hevc
+ - hevc_rkmpp
+ - mpeg1_rkmpp
+ - mpeg2video
+ - mpeg2_rkmpp
+ - mpeg4
+ - mpeg4_rkmpp
+ - msmpeg4
+ - vp8
+ - vp8_rkmpp
+ - libvpx
+ - vp9
+ - vp9_rkmpp
+ - libvpx-vp9
+ - aac
+ - ac3
+ - dca
+ - flac
+ - mp3
+ - truehd
+```
+
+##### 2c.Available filters
+```
+- overlay_opencl
+- overlay_rkrga
+- scale_opencl
+- scale_rkrga
+- tonemap_opencl
+- vpp_rkrga
+- zscale
+- alphasrc
+```
 
 
 #### X. 
