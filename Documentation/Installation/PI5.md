@@ -626,7 +626,7 @@ MTU          = ${MTU}
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_1_PRESHARED}
 AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
-Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-1.txt;
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-1.conf;
 # --------------------------------------------------------------------------------------
 echo "[Interface]
 PrivateKey   = ${CLIENT_2_PRIVATE}
@@ -637,7 +637,7 @@ MTU          = ${MTU}
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_2_PRESHARED}
 AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
-Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-2.txt;
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-2.conf;
 
 # --------------------------------------------------------------------------------------
 echo "[Interface]
@@ -649,7 +649,7 @@ MTU          = ${MTU}
 PublicKey    = ${SERVER_PUBLIC}
 PresharedKey = ${CLIENT_3_PRESHARED}
 AllowedIPs   = 0.0.0.0/0 ${ALLOW_NETWORK_1} ${ALLOW_NETWORK_2} ${ALLOW_NETWORK_3}
-Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-3.txt;
+Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-3.conf;
 
 ######################################################################################################################
 # Purge #
@@ -669,19 +669,19 @@ clear;
 echo "######################################################################";
 echo "# Client 1 #";
 echo "############";
-cat $HOME/client-1.txt;
+cat $HOME/client-1.conf;
 echo "";
 echo "";
 echo "######################################################################";
 echo "# Client 2 #";
 echo "############";
-cat $HOME/client-2.txt;
+cat $HOME/client-2.conf;
 echo "";
 echo "";
 echo "######################################################################";
 echo "# Client 3 #";
 echo "############";
-cat $HOME/client-3.txt;
+cat $HOME/client-3.conf;
 echo "";
 echo "";
 echo "######################################################################";
