@@ -1055,35 +1055,36 @@ fi
 
 ##### 2b. Available decoders
 ```
- - libdav1d
+ - aac
+ - ac3
  - av1
  - av1_rkmp
+ - dca
+ - flac
  - h264
  - h264_rkmpp
  - hevc
  - hevc_rkmpp
+ - libdav1d
+ - libvpx
+ - libvpx-vp9
+ - mp3
  - mpeg1_rkmpp
  - mpeg2video
  - mpeg2_rkmpp
  - mpeg4
  - mpeg4_rkmpp
  - msmpeg4
+ - truehd
  - vp8
  - vp8_rkmpp
- - libvpx
  - vp9
  - vp9_rkmpp
- - libvpx-vp9
- - aac
- - ac3
- - dca
- - flac
- - mp3
- - truehd
 ```
 
 ##### 2c. Available filters
 ```
+- alphasrc
 - overlay_opencl
 - overlay_rkrga
 - scale_opencl
@@ -1091,7 +1092,6 @@ fi
 - tonemap_opencl
 - vpp_rkrga
 - zscale
-- alphasrc
 ```
 
 
