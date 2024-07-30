@@ -8,7 +8,7 @@
 #####################################################################################################################################################################################################################################################################
 # Date        : 28-07-2024
 # Auteur      : Marc Jaffre
-# Description : Automatisation de l-installation de la machine Raspberry PI 5
+# Description : Automatisation de l-installation de la machine Raspberry. (Pi5 et pi7)
 #
 # Actions     :
 # - Chargement du fichier de configuration
