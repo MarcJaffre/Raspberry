@@ -24,17 +24,8 @@ HOST_DOM='LAN.LOCAL'
 HOST_USER='marc'
 HOST_PASS='admin'
 
-# PI3.lan = B8:27:EB:09:9B:1A = 192.168.20.2 
-# PI5.lan = D8:3A:DD:A8:8F:1A = 192.168.20.3 
-
-
-
-
-##########################################################################################################################################
-# Configuration de la sauvegarde et Restauration #
-##################################################
-DOSSIER_BACKUP="/mnt/Media_5/Backup/Wireguard"
-FICHIER="Wireguard_backup.tar"
+# PI3.lan = B8:27:EB:09:9B:1A = 192.168.20.2
+# PI5.lan = D8:3A:DD:A8:8F:1A = 192.168.20.3
 
 ##########################################################################################################################################
 # Configuration de Wireguard #
@@ -59,4 +50,3 @@ DNS="192.168.0.1"
 ALLOW_NETWORK_1=",192.168.0.0/24"
 ALLOW_NETWORK_2=",192.168.1.0/24"
 ALLOW_NETWORK_3=""
-
