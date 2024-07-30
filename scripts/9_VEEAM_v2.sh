@@ -32,9 +32,15 @@ func_HOST_PARTAGE()  {
 
 
 ########################################################################################################################################################################################
-func_mkdir()         { mkdir -p /mnt/backup 2>/dev/null                                 }
-func_umount()        { umount /mnt/backup                                               }
-func_mount()         { mount -t cifs -o domain="$HOST_DOMAINE";username="$HOST_USERNAME",password="$HOST_PASSWORD" }
+func_MKDIR()         {
+  mkdir -p /mnt/backup 2>/dev/null
+}
+func_UMOUNT()        {
+  umount /mnt/backup
+}
+func_MOUNT()         {
+  mount -t cifs -o domain="$HOST_DOMAINE";username="$HOST_USERNAME",password="$HOST_PASSWORD"
+}
 
 
 func_HOST_SERVEUR
