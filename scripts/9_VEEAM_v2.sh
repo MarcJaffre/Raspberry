@@ -35,7 +35,7 @@ func_HOST_PARTAGE()  {
 }
 ########################################################################################################################################################################################
 func_MKDIR()         {
-  mkdir -p /mnt/backup 2>/dev/null
+  mkdir -p /mnt/backup 2>/dev/null;
 }
 ########################################################################################################################################################################################
 func_UMOUNT()        {
@@ -43,7 +43,7 @@ func_UMOUNT()        {
    umount /mnt/backup;
    echo "LE dossier de montage a été crée";
  else
-   echo "Le dossier de montage existe deja"  
+   echo "Le dossier de montage existe deja";
  fi
 }
 
