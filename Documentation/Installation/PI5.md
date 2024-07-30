@@ -1033,9 +1033,18 @@ System.IO.IOException: The configured user limit (31781) on the number of inotif
 
 ```bash
 clear;
-sysctl fs.inotify.max_user_watches=524288
-sysctl -p
-echo "fs.inotify.max_user_watches = 524288" >>  /etc/sysctl.conf;
+LAST_LINE=$(tail -n 1 /etc/sysctl.conf)
+
+if [ $LAST_LINE = "#kernel.sysrq=438" 2>/dev/null ];then
+ echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf;
+ sysctl -p 1>/dev/null;
+else
+ sysctl -p 1>/dev/null;
+ echo "OK"
+fi
+
+# sysctl fs.inotify.max_user_watches=524288;
+# sysctl -p
 ```
 
 
