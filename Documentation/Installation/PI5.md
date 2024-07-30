@@ -1082,7 +1082,7 @@ fi
  - truehd
 ```
 
-##### 2c.Available filters
+##### 2c. Available filters
 ```
 - overlay_opencl
 - overlay_rkrga
