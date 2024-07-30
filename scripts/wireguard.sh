@@ -69,7 +69,7 @@ func_SHOW(){
  echo "# -------------------------------------------------------------- #"
  echo "# Client 5";
  cat $HOME/client-5.conf;
- echo ""; 
+ echo "";
 }
 
 
@@ -281,6 +281,13 @@ Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-5.conf;
  rm /tmp/Preshared 2>/dev/null;
 }
 
+
+
+
+
+##########################################################################################################################################
+# Menu de sélection #
+#####################
 case $1 in
    # =================================================================
    config)
@@ -309,7 +316,7 @@ case $1 in
    # =================================================================
    *)
    echo "# =================================================== #";
-   echo "#           Guide d'utilisation du script             #";
+   echo "#            Guide d'utilisation du script            #";
    echo "# =================================================== #";
    echo ""
    echo "# Utilisation: ./backup.sh [OPTION]"
@@ -317,17 +324,29 @@ case $1 in
    echo "Option:"
    echo "";
    echo "  install : Déploiement de Wireguard"
-   echo "  config  : Generation d'une configuration";
    echo "  show    : Afficher la configuration des clients";
    echo "  edit    : Edition de la configuration";
    echo "  create  : Creation d'une sauvegarde";
-   echo "  restore : Restauration de Wireguard"
+   echo "  restore : Restauration de Wireguard";
+   #echo "";
+   #echo "# =================================================== #";
+   #echo "#                     Maintenance                     #";
+   #echo "# =================================================== #";
+   #echo "Fonction non integrés:"
+   #echo "  config  : Generation d'une configuration";
+   #echo "  stop    : Arrête le serveur Wireguard";
+   #echo "  start   : Arrête le serveur Wireguard";
+   #echo "  disable : désactive le serveur Wireguard";
+   #echo "  enable  : désactive le serveur Wireguard";
    echo "";
    echo "# =================================================== #";
    echo "";
    ;;
    # =================================================================
 esac
+
+
+
 
 ##########################################################################################################################################
 # Lancement du service #
