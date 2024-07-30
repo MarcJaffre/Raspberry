@@ -40,6 +40,23 @@ clear;
 
 #func_QRCODE(){
 # echo "Afficher la configuration des clients en QrCode";
+# echo ""
+# echo "------------------------------------------------------------------"
+# qrencode -t ansiutf8 < $HOME/client-1.conf;
+# echo ""
+# echo "------------------------------------------------------------------"
+# qrencode -t ansiutf8 < $HOME/client-2.conf;
+# echo ""
+# echo "------------------------------------------------------------------"
+# qrencode -t ansiutf8 < $HOME/client-3.conf;
+# echo ""
+# echo "------------------------------------------------------------------"
+# qrencode -t ansiutf8 < $HOME/client-4.conf;
+# echo ""
+# echo "------------------------------------------------------------------"
+# qrencode -t ansiutf8 < $HOME/client-5.conf;
+# echo ""
+# echo "------------------------------------------------------------------"
 #}
 
 
