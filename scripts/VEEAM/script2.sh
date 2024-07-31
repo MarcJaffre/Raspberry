@@ -201,10 +201,10 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  # Si fichier présent et pas vide alors poursuivre
  if [[ -s $HOME/rsync.txt || -f $HOME/rsync.txt ]]; then
   # Lecture du fichier rsync par ligne puis verification si le chemin existe, si erreur RC=1. (RC=0)
-  for i in $(cat $HOME/rsync.txt);do 
+  for i in $(cat $HOME/rsync.txt | grep -v "^#");do
    if [ ! -d $i ];then
     echo "-------------------------------------------------------------"
-    echo "[KO] Problème sur la ligne du fichier rsync : $i"; RC=1; fi 
+    echo "[KO] Problème sur la ligne du fichier rsync : $i"; RC=1; fi
   done
   # Si erreur précédemment, le code RC sera sur 1. Sinon RC sera sur 0.
   if [ $RC = 1 ]; then echo; echo "Veuiller aller dans le menu A pour coriger l'erreur"; fi
@@ -238,7 +238,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
      # =========================================================================================================================
       # Vérification des chemins de Rsync
       if [ $RC = 0 ]; then
-       for i in $(cat $HOME/rsync.txt)
+       for i in $(cat $HOME/rsync.txt | grep -v "^#")
         do
          rsync -avz --dry-run $i $HOST_MOUNTPOINT;
         done
