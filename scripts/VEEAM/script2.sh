@@ -1,6 +1,11 @@
 #!/usr/bin/bash
 
 #################################################################################################################################################
+# Nettoyage Console #
+#####################
+clear;
+
+#################################################################################################################################################
 # Bypass #
 ##########
 HOST_SERVEUR="192.168.20.3"
@@ -82,9 +87,6 @@ func_HOST_UMOUNT()   {
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
  #
- # Eviter des problemes de montage
- systemctl daemon-reload;
- #
  # Creation de Variable ponctuellement (Utile lors du montage
  OPTION="username=$HOST_USERNAME,password=$HOST_PASSWORD"
  SOURCE="//$HOST_SERVEUR/$HOST_SHARE"
@@ -92,6 +94,7 @@ func_HOST_UMOUNT()   {
  #
  # Si les variables HOST_MOUNTPOINT et HOST_SERVEUR sont pas nul alors, monter le partage
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
+    systemctl daemon-reload;
     mount -t cifs -o $OPTION $SOURCE $DESTINATION 2>/dev/null;
     echo "> Montage du Lecteur réseau terminé";
  fi
@@ -103,12 +106,9 @@ func_HOST_UMOUNT()   {
 # Menu 8 - Montage du partage (AD) #
 ####################################
 func_HOST_MOUNT2_AD()  {
- # En cas de variable Vide , message retour
+ # En cas de variable Vide, message retour
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
- #
- # Eviter des problemes de montage
- systemctl daemon-reload;
  #
  # Creation de Variable ponctuellement (Utile lors du montage
  OPTION="domain=$HOST_DOMAINE,username=$HOST_USERNAME,password=$HOST_PASSWORD"
@@ -117,10 +117,43 @@ func_HOST_MOUNT2_AD()  {
  #
  # Si les variables HOST_MOUNTPOINT et HOST_SERVEUR sont pas nul alors, monter le partage
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
+    systemctl daemon-reload;
     mount -t cifs -o $OPTION $SOURCE $DESTINATION 2>/dev/null;
     echo "> Montage du Lecteur réseau terminé";
  fi
  #
  # Pause
  read -p "";
+}
+
+####################################################################################################
+# Menu 9 - Verification du montage #
+####################################
+func_HOST_CHECKMOUNT(){
+ # En cas de variable Vide, message retour
+ if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ #
+ # Si la variable est pas null, verification du montage
+ if [ ! -z "${HOST_MOUNTPOINT}" ]; then df -h /$HOST_MOUNTPOINT; fi
+ # Pause
+ read -p "";
+}
+
+####################################################################################################
+# Menu R #
+##########
+func_RECAP()         {
+ clear;
+ echo "# ====================================================== #";
+ echo "#              Resumer de la configuration               #";
+ echo "# ====================================================== #";
+ echo "> Adresse IP     : $HOST_SERVEUR";
+ echo "> Nom de domaine : $HOST_DOMAINE";
+ echo "> Identifiant    : $HOST_USERNAME";
+ echo "> Mot de passe   : $HOST_PASSWORD";
+ echo "> Nom du partage : $HOST_SHARE";
+ echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
+ echo "> Chemin local   : $HOST_MOUNTPOINT"
+ #echo "> Action         : $HOST_ACTION"
+ echo "# ====================================================== #";
 }
