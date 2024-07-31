@@ -250,7 +250,10 @@ func_HOST_ARCHIVAGE_RSYNC(){
        # =================================================================================================================================================================
        if [ $RC = 0 ];then
            if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
-           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do 
+           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do
+            echo "##########################################################################################################################"
+            echo "# Dossier $i en cours de sauvegarde $(date +"%d/%m/%y à %H Heure %M et %S"))                                              "
+            ################################################################################################################################
             echo "##########################################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo "# Debut de l'archivage : $(date +"%d%m%y_%H%M%S") pour le dossier $i                                                      " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                                           >> $HOST_MOUNTPOINT/Journal/$DATE.log;
@@ -260,7 +263,9 @@ func_HOST_ARCHIVAGE_RSYNC(){
             echo "##########################################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                                           >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                                           >> $HOST_MOUNTPOINT/Journal/$DATE.log;
-            echo ""                                                                                                                           >> $HOST_MOUNTPOINT/Journal/$DATE.log;
+            ################################################################################################################################
+            echo "# Dossier $i terminé (Fin: $(date +"%d/%m/%y à %H Heure %M et %S"))                                                       "
+            echo "##########################################################################################################################"
            done;
            else echo "La valeur du Mode Simulation est incorrecte";
            fi
@@ -272,7 +277,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
  #
  # Pause
  echo
- echo "Le fichier log est accesbie au chemin suivant $HOST_MOUNTPOINT/Journal/$DATE.log";
+ echo "Le fichier log est accessible au chemin suivant $HOST_MOUNTPOINT/Journal/$DATE.log";
  echo
  read -p "Veuiller appuyer sur une touche pour continuer";
 }
