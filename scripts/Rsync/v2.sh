@@ -32,6 +32,7 @@ clear;
 ##################################################################################################################################################################################
 
 DATE=$(date +"%d%m%y_%H%M%S")
+AD="0"
 
 ##################################################################################################################################################################################
 # Chargement Configuration #
@@ -343,7 +344,7 @@ HOST_RSYNC_SIM=\"$HOST_RSYNC_SIM\"
 ###################
 func_MENU()          {
 echo "############################################################"
-echo "#          Information pour le montage du partage          #"
+echo "#     Information pour le montage du partage (Etat AD: $AD)  #"
 echo "############################################################"
 echo "Menu 0: Adresse du serveur ($HOST_SERVEUR)"
 echo "Menu 1: Nom du domaine     ($HOST_DOMAINE)"
@@ -372,13 +373,14 @@ echo "Menu R: Résumer des actions"
 echo "Menu T: Sauvegarder la configuration actuelle"
 echo "Menu Q: Quitter le menu"
 echo
+echo
 echo "############################################################"
 echo "                     En Developpement                      #"
 echo "############################################################"
 echo "Menu E: Verifier si un backup est actif"
 echo "Menu F: Tuer Rsync en Urgence";
 echo "Menu I: Information sur le script"
-
+echo
 echo "############################################################"
 echo
 read -p "Indiquer votre choix: " choix
@@ -424,7 +426,14 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  8)
-  func_HOST_MOUNT2; clear;
+  if [ $AD = 0 ];then
+   func_HOST_MOUNT2
+  elif [ $AD = 1 ];then
+   func_HOST_MOUNT2_AD
+  else
+   echo "Menu 8 en anomalie"
+  fi
+  clear;
  ;;
  # ------------------------------------------------------------ #
  9)
