@@ -4,6 +4,7 @@
 # Avancement: Menu 7 en cours 
 ########################################################################################################################################################################################
 
+# ByPass:
 HOST_SERVEUR="192.168.20.3"
 HOST_DOMAINE="Local"
 HOST_USERNAME="marc"
@@ -11,7 +12,6 @@ HOST_PASSWORD="admin"
 HOST_SHARE="marc"
 HOST_MOUNTPOINT="/mnt/backup"
 
- 
 ####################################################################################################
 # Menu 0  Adresse du Serveur de partage #
 #########################################
@@ -89,6 +89,45 @@ func_HOST_UMOUNT()   {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
+  echo
+ fi
+ 
+# [Garde Fou] Si la variable est HOST_SERVEUR est vide :
+ if [ -z "${HOST_SERVEUR}" ];then
+  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
+  echo
+ fi
+
+ # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
+ if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
+ # ====================================================================
+   # Verifier le montage
+   CHECK=$(df -h $HOST_MOUNTPOINT | grep $HOST_SERVEUR)
+   # ================================================================
+   # Si le montage correspond pas a ce qu'on souhaite
+   if [ -z "$CHECK" ];then
+    echo "Le point de montage n'est pas monté";
+   fi
+   # ================================================================
+   if [ ! -z "$CHECK" ];then
+    echo "Le point de montage va être démonté";
+   fi
+   # ================================================================
+ # ====================================================================
+ fi
+ # Pause
+ read -p "";
+
+}
+
+
+####################################################################################################
+# Menu 8 - Montage du partage #
+###############################
+func_HOST_MOUNT2()    {
+# [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
+ if [ -z "${HOST_MOUNTPOINT}" ];then
+  echo "Merci d'aller dans le menu 5 : Point de montage";
  fi
 
  if [ -z "${HOST_SERVEUR}" ];then
@@ -99,33 +138,13 @@ func_HOST_UMOUNT()   {
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
 # ====================================================================
-    # Verifier le montage
-    CHECK=$(df -h $HOST_MOUNTPOINT | grep $HOST_SERVEUR)
-    # ================================================================
-    # Si le montage correspond pas a ce qu'on souhaite
-    if [ -z "$CHECK" ];then
-     echo "Le point de montage n'est pas monté";
-    fi
-    # ================================================================
-    if [ ! -z "$CHECK" ];then
-     echo "Le point de montage va être démonté";
-    fi
-    # ================================================================
+  echo "Menu en creation"
 # ====================================================================
- fi
- 
- # Pause
- read -p "";
-}
-
-####################################################################################################
-# Menu 8 - Montage du partage #
-###############################
-func_HOST_MOUNT2()    {
- echo "TEST"
+fi
 
  # Pause
  read -p "";
+
 }
 
 
@@ -138,7 +157,6 @@ func_HOST_MOUNT2()    {
 # Menu 9 - Verification du montage #
 ####################################
 func_HOST_CHECKMOUNT(){
- echo "TEST"
  # Pause
  read -p "";
 }
@@ -165,21 +183,32 @@ echo ""
 # Contenu du Menu #
 ####################
 func_MENU()          {
-echo "################################################"
+echo "############################################################"
+echo "#          Information pour le montage du partage          #"
+echo "############################################################"
 echo "Menu 0: Adresse du Serveur de partage ($HOST_SERVEUR)"
 echo "Menu 1: Nom du domaine ($HOST_DOMAINE)"
 echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
 echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
 echo "Menu 4: Nom du partage ($HOST_SHARE)"
+echo
+echo "############################################################"
+echo "#          Gestion du montage sur la machine HOTE          #"
+echo "############################################################"
 echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
 echo "Menu 6: Creation du dossier de montage "
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
 echo "Menu 9: Verification du montage"
+echo
+echo "############################################################"
+echo "#          Actions Spécial sur le système                  #"
+echo "############################################################"
 echo "Menu R: Résumer des actions"
+echo "Menu S: Lancer la sauvegargde"
 echo "Menu K: Tuer Rsync (Urgence)"
 echo "Menu Q: Quitter le menu"
-echo "################################################"
+echo "############################################################"
 echo
 read -p "Indiquer votre choix: " choix
 echo
