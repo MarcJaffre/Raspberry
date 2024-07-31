@@ -5,17 +5,27 @@
 #####################
 clear;
 
+
+##################################################################################################################################################################################
+# Chargement Configuration #
+############################
+
+
+settings
+
+
+
 ##################################################################################################################################################################################
 # Bypass #
 ##########
-HOST_SERVEUR="192.168.20.3"
-HOST_DOMAINE="Local"
-HOST_USERNAME="marc"
-HOST_PASSWORD="admin"
-HOST_SHARE="Media_5/TEST"
-HOST_MOUNTPOINT="/mnt/backup"
-HOST_RSYNC_SIM="oui"
-RC=""
+#HOST_SERVEUR="192.168.20.3"
+#HOST_DOMAINE="Local"
+#HOST_USERNAME="marc"
+#HOST_PASSWORD="admin"
+#HOST_SHARE="Media_5/TEST"
+#HOST_MOUNTPOINT="/mnt/backup"
+#HOST_RSYNC_SIM="oui"
+#RC=""
 
 ##################################################################################################################################################################################
 # Menu 0  Adresse du Serveur de partage #
@@ -256,7 +266,24 @@ func_RECAP()         {
 
 ##################################################################################################################################################################################
 func_BACKUP_CONFIG(){
- echo "OK";
+ if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+ if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+ if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+ if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+ if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+ if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ if [ -z $RC               ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
+ if [ -z $HOST_RSYNC_SIM   ];then echo "La valeur Rsync Simulation est NULL"; fi
+
+echo "
+HOST_SERVEUR=\"$HOST_SERVEUR\"
+HOST_DOMAINE=\"$HOST_DOMAINE\"
+HOST_PASSWORD=\"$HOST_PASSWORD\"
+HOST_USERNAME=\"$HOST_USERNAME\"
+HOST_SHARE=\"$HOST_SHARE\"
+HOST_MOUNTPOINT=\"$HOST_MOUNTPOINT\"
+RC=\"$RC\"
+HOST_RSYNC_SIM=\"$HOST_RSYNC_SIM\" > settings"
 }
 
 
@@ -446,36 +473,26 @@ case $choix in
  # ------------------------------------------------------------ #
  esac
 }
+
 ##################################################################################################################################################################################
 # Nettoyage de la console #
 ###########################
 clear;
+
 ##################################################################################################################################################################################
 # Récupération de l'ID en cours #
 #################################
 ID=$(id -u)
+
 ##################################################################################################################################################################################
 # Vérification Root #
 #####################
 if [[ $ID = 0 ]];then MENU=0; else echo "Veuiller lancer le script depuis root"; MENU=1; fi
+
 ##################################################################################################################################################################################
 # Boucle Infinie #
 ##################
 # Si Root, la valeur MENU est sur 0 alors lance le menu
 while [ $MENU = 0 ];do func_MENU; func_CHOIX; done
+
 ##################################################################################################################################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
