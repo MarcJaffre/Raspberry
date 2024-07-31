@@ -106,11 +106,10 @@ func_HOST_UMOUNT()   {
  # Verification si la variable est NULL,un message est envoyé
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
- if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 
  #
- # Demontage
- if [ ! -z "${HOST_SERVEUR}" ] &&  [ ! -z $HOST_SHARE ] & [ ! -z "${HOST_MOUNTPOINT}" ];then umount $HOST_MOUNTPOINT; fi
+ # Si les valeurs sont pas NULL, démonter le point de montage
+ if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];then umount $HOST_MOUNTPOINT; fi
  #
  # Pause
  read -p "";
@@ -122,7 +121,8 @@ func_HOST_MOUNT2()  {
  # En cas de variable Vide, un message est envoyé
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
- 
+  if [ -z $HOST_SHARE      ];then echo "La Valeur Partage NULL"; fi
+
  #
  # Creation de Variable ponctuellement pour la suite des commandes
  OPTION="username=$HOST_USERNAME,password=$HOST_PASSWORD"
