@@ -19,14 +19,22 @@ HOST_MOUNTPOINT="/mnt/backup"
 #################################################################################################################################################
 # Verification #
 ################
+# Si variable NULL, message envoyé
 #if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
 #if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
 #if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
 #if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
 #if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 #if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+
+# Si le fichier est absent
 #if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
+
+# Si le fichier est vide
 #if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
+
+# Si le réperoite n'existe pas
+# if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
 
 #################################################################################################################################################
 # Menu 0  Adresse du Serveur de partage #
@@ -205,8 +213,10 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
  #
  # Lecture du fichier rsync, verification de repertoire. (Lecteur ligne par ligne)
- for i in $(cat $HOME/rsync.txt);do if [ -d $i   ];then echo "[OK] Le répertoire existe : $i"; fi done
+ for i in $(cat $HOME/rsync.txt);do if [   -d $i ];then echo "[OK] Le répertoire existe       : $i"; fi done
  for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+ echo
+ echo "Recommandation: Ne pas lancer la sauvegarde en cas d'erreur";
  #
  # Pause
  read -p "";
