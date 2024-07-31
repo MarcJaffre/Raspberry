@@ -47,7 +47,7 @@ func_HOST_MOUNT1()   {
 ###########################################
 func_HOST_MKDIR()    {
 
-# Si la variable est HOST_MOUNTPOINT est vide :
+# [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
  fi
@@ -61,27 +61,41 @@ func_HOST_MKDIR()    {
      echo "Le dossier de montage a ete cree.";
     fi
     # --------------------------------------------------
-    # Si le point de montage existe pas
+    # Si le point de montage existe deja
     if [ -d $HOST_MOUNTPOINT ];then
-     echo "Le dossier de montage est present.";
+     echo "Le dossier de montage existe déjà.";
     fi
  #======================================================
  fi
+ 
  # Pause
  read -p "";
 }
 
 ########################################################################################################################################################################################
-# Menu 7 - Menu 7: Demontage du partage #
-##########
+# Menu 7 - Demontage du partage #
+#################################
+func_HOST_UMOUNT()   {
+# Si la variable est HOST_MOUNTPOINT est vide :
+ if [ -z "${HOST_MOUNTPOINT}" ];then
+  echo "Merci d'aller dans le menu 5 : Point de montage";
+ fi
+
+ if [ ! -z "${HOST_MOUNTPOINT}" ];then
+  echo "Lancement du demontage";
+ fi
+
+ # Pause
+ read -p "";
+}
 
 ########################################################################################################################################################################################
 # Menu 8 - Montage du partage #
-##########
+###############################
 
 ########################################################################################################################################################################################
-# Menu 9 -Verification du montage #
-##########
+# Menu 9 - Verification du montage #
+####################################
 
 
 
@@ -100,7 +114,7 @@ echo "Mot de passe   : $HOST_PASSWORD";
 echo "Nom du partage : $HOST_SHARE";
 echo "Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
 echo "Chemin local   : $HOST_MOUNTPOINT"
-echo "Action         : $HOST_ACTION"
+#echo "Action         : $HOST_ACTION"
 echo ""
 }
 
@@ -115,11 +129,12 @@ echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
 echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
 echo "Menu 4: Nom du partage ($HOST_SHARE)"
 echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
-echo "Menu 6: Creation du dossier de montage"
-#echo "Menu 7: Demontage du partage"
+echo "Menu 6: Creation du dossier de montage "
+echo "Menu 7: Demontage du partage"
 #echo "Menu 8: Montage du partage"
 #echo "Menu 9: Verification du montage"
 echo "Menu R: Résumer des actions"
+echo "Menu K: Tuer Rsync (Urgence)"
 echo "Menu Q: Quitter le menu"
 echo "################################################"
 echo
@@ -178,21 +193,33 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  7)
- # echo
+  echo
+  func_HOST_UMOUNT;
   clear;
  ;;
  # ------------------------------------------------------------ #
  8)
- # echo
+  echo
   clear;
  ;;
  # ------------------------------------------------------------ #
  9)
- # echo
+  echo
  # echo    "#-------------------------#"
  # echo    "# Bienvenue sur le menu 9 #"
  # echo    "#-------------------------#"
  # read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ k|K)
+  echo
+  func_RECAP;
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu K #"
+  echo    "#-------------------------#"
+  read -p ""
   clear;
  ;;
  # ------------------------------------------------------------ #
