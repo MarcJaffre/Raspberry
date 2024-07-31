@@ -9,31 +9,31 @@ func_SRV_ADRESS()  {
 }
 
 ########################################################################################################################################################################################
-# Menu 1 #
-##########
+# Menu 1 -  Adresse du Serveur de partage #
+###########################################
 func_SRV_DOMAINE()  {
   read -p "Quel est le nom de domaine ? " HOST_DOMAINE
   HOST_DOMAINE=${HOST_DOMAINE:-Local}
 }
 
 ########################################################################################################################################################################################
-# Menu 2 #
-##########
+# Menu 2 - Nom d'utilisateur #
+##############################
 func_SRV_USERNAME() {
   read -p "Quel est le nom de compte utilisateur ? " HOST_USERNAME
   HOST_USERNAME=${HOST_USERNAME:-marc}
 }
 
 ########################################################################################################################################################################################
-# Menu 3 #
-##########
+# Menu 3 - Mot de passe #
+#########################
 func_SRV_PASSWORD() {
   read -p "Quel est le mot de passe du compte utilisateur ? " HOST_PASSWORD
   HOST_PASSWORD=${HOST_PASSWORD:-admin}
 }
 ########################################################################################################################################################################################
-# Menu 4 #
-##########
+# Menu 4 - Nom du partage #
+###########################
 func_SRV_PARTAGE()  {
   read -p "Quel est le nom de partage du serveur ? " HOST_SHARE
   HOST_SHARE=${HOST_SHARE:-marc}
@@ -41,7 +41,7 @@ func_SRV_PARTAGE()  {
 
 ########################################################################################################################################################################################
 # Menu 5 - Point de montage #
-##########
+#############################
 func_HOST_MOUNT1()   {
   read -p "Où souhaitez vous monter le partage sur la machine ? " HOST_MOUNTPOINT
   HOST_MOUNTPOINT=${HOST_MOUNTPOINT:-/mnt/backup}
@@ -49,9 +49,8 @@ func_HOST_MOUNT1()   {
 
 ########################################################################################################################################################################################
 # Menu 6 - Creation du dossier de montage #
-##########
+###########################################
 func_HOST_MKDIR()    {
-
 # Si variable est vide
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
@@ -111,7 +110,7 @@ echo ""
 ####################
 func_MENU()          {
 echo "################################################"
-echo "Menu 0: Serveur de partage ($HOST_SERVEUR)"
+echo "Menu 0: Adresse du Serveur de partage ($HOST_SERVEUR)"
 echo "Menu 1: Nom du domaine ($HOST_DOMAINE)"
 echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
 echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
