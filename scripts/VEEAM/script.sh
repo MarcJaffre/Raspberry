@@ -1,17 +1,14 @@
 #!/usr/bin/bash
 
-########################################################################################################################################################################################
-# Avancement: Menu 8 en cours 
-########################################################################################################################################################################################
-
-# ByPass:
+####################################################################################################
+# ByPass
+####################################################################################################
 HOST_SERVEUR="192.168.20.3"
 HOST_DOMAINE="Local"
 HOST_USERNAME="marc"
 HOST_PASSWORD="admin"
 HOST_SHARE="marc"
 HOST_MOUNTPOINT="/mnt/backup"
-
 ####################################################################################################
 # Menu 0  Adresse du Serveur de partage #
 #########################################
@@ -62,7 +59,6 @@ func_HOST_MKDIR()    {
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "> Merci d'aller dans le menu 5 : Point de montage";
  fi
-
 # Si variable HOST_MOUNTPOINT n'est pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ];then
  #======================================================
@@ -78,7 +74,6 @@ func_HOST_MKDIR()    {
     fi
  #======================================================
  fi
- 
  # Pause
  read -p "";
 }
@@ -91,13 +86,11 @@ func_HOST_UMOUNT()   {
   echo "> Merci d'aller dans le menu 5 : Point de montage";
   echo
  fi
- 
 # [Garde Fou] Si la variable est HOST_SERVEUR est vide :
  if [ -z "${HOST_SERVEUR}" ];then
   echo "> Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
   echo
  fi
-
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
  # ====================================================================
@@ -118,7 +111,6 @@ func_HOST_UMOUNT()   {
  # Pause
  read -p "";
 }
-
 ####################################################################################################
 # Menu 8 - Montage du partage (Local) #
 #######################################
@@ -144,7 +136,6 @@ func_HOST_MOUNT2()    {
  # Pause
  read -p "";
 }
-
 ####################################################################################################
 # Menu 8 - Montage du partage (AD) #
 ####################################
@@ -153,11 +144,9 @@ func_HOST_MOUNT2_AD()  {
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "> Merci d'aller dans le menu 5 : Point de montage";
  fi
-
  if [ -z "${HOST_SERVEUR}" ];then
   echo "> Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
  fi
-
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
  # ====================================================================
@@ -178,11 +167,6 @@ func_HOST_MOUNT2_AD()  {
  # Pause
  read -p "";
 }
-
-
-
-
-
 ####################################################################################################
 # Menu 9 - Verification du montage #
 ####################################
@@ -209,7 +193,6 @@ echo "> Chemin local   : $HOST_MOUNTPOINT"
 #echo "> Action         : $HOST_ACTION"
 echo ""
 }
-
 ####################################################################################################
 # Contenu du Menu #
 ####################
@@ -227,21 +210,24 @@ echo "############################################################"
 echo "#          Gestion du montage sur la machine HOTE          #"
 echo "############################################################"
 echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
-echo "Menu 6: Creation du dossier de montage "
+echo "Menu 6: Creation du dossier de montage"
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
 echo "Menu 9: Verification du montage"
 echo "Menu R: Résumer des actions"
 echo
 echo "############################################################"
-echo "#          Actions Spécial sur le système                  #"
+echo "                     En Developpement                      #"
 echo "############################################################"
 echo "Menu A: Editer le fichier des chemins à sauvegarder"
 echo "Menu B: Vérification des chemins"
 echo "Menu C: Lancer la sauvegarde"
 echo "Menu D: Lancer la sauvegargde"
 echo "Menu E: Tuer Rsync (Urgence)"
-########################################################################
+echo
+echo "############################################################"
+echo "#          Actions Spécial sur le système                  #"
+echo "############################################################"
 echo "Menu Q: Quitter le menu"
 echo "############################################################"
 echo
