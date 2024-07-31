@@ -96,7 +96,7 @@ func_HOST_MKDIR()    {
  if [ ! -z $HOST_MOUNTPOINT   ] && [ -d $HOST_MOUNTPOINT   ];then echo  "> Le dossier de montage existe déjà."; fi
  #
  # Si le point de montage n'existe pas,un message est envoyé
- if [ ! -d $HOST_MOUNTPOINT ];then mkdir -p $HOST_MOUNTPOINT; echo "> Le dossier de montage a ete cree."; fi
+ if [ ! -z $HOST_MOUNTPOINT   ] && [ ! -d $HOST_MOUNTPOINT ];then mkdir -p $HOST_MOUNTPOINT; echo "> Le dossier de montage a ete cree."; fi
  #
  # Pause
  read -p "";
