@@ -184,19 +184,19 @@ func_HOST_EDIT_RSYNC_FILE(){
 func_HOST_CHECK_RSYNC_FOLDER(){
  # Si fichier absent ou vide, message d'erreur.
  if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
- #
  # Création d'une variable servant au check
  RC="0"
- #
  # Si fichier présent et pas vide alors poursuivre
- if [[ -s $HOME/rsync.txt || -f $HOME/rsync.txt ]]; then 
-  #
+ if [[ -s $HOME/rsync.txt || -f $HOME/rsync.txt ]]; then
   # Lecture du fichier rsync par ligne puis verification si le chemin existe, si erreur RC=1. (RC=0)
-  for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; RC=1; fi done
-  #
+  for i in $(cat $HOME/rsync.txt);do 
+   if [ ! -d $i ];then
+    echo "-------------------------------------------------------------"
+    echo "[KO] Problème sur la ligne du fichier rsync : $i"; RC=1; fi 
+  done
   # Si erreur précédemment, le code RC sera sur 1. Sinon RC sera sur 0.
-  if [ $RC = 1 ]; then echo "Merci de corriger l'erreur sur le fichier rsync.txt"; fi
-  if [ $RC = 0 ]; then echo "Aucune erreur présent dans le fichier rsync"; fi
+  if [ $RC = 1 ]; then echo; echo "Veuiller aller dans le menu A pour coriger l'erreur"; fi
+  if [ $RC = 0 ]; then       echo "Aucune erreur présent dans le fichier rsync"; fi
   #
  fi
  # Pause
@@ -230,16 +230,14 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 # for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
 
 
-
-
-
 #################################################################################################################################################
 # Menu C - Lancer la sauvegarde #
 #################################
-func_HOST_ARCHIVAGE_RSYNC(){
- 
- read -p "";
-}
+#func_HOST_ARCHIVAGE_RSYNC(){
+ #if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"
+ #if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
+ #read -p "";
+#}
 
 
 
@@ -293,8 +291,7 @@ func_CHOIX(){
 case $choix in
  # ------------------------------------------------------------ #
  0)
-  func_SRV_ADRESS;
-  clear;
+  func_SRV_ADRESS; clear;
  ;;
  # ------------------------------------------------------------ #
  1)
@@ -334,7 +331,6 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  a|A)
-  echo
   func_HOST_EDIT_RSYNC_FILE; clear;
  ;;
  # ------------------------------------------------------------ #
