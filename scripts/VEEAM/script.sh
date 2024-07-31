@@ -29,47 +29,57 @@ case $choix in
  # --------------- #
  0)
   clear;
+  echo "Menu 0";
  ;;
  # --------------- #
  1)
   clear;
-  func_VM;
+  echo "Menu 1";
  ;;
  # --------------- #
  2)
   clear;
+  echo "Menu 2";
  ;;
  # --------------- #
  3)
   clear;
+  echo "Menu 3";
  ;;
  # --------------- #
  4)
   clear;
+  echo "Menu 4";
  ;;
  # --------------- #
  5)
   clear;
+  echo "Menu 5";
  ;;
  # --------------- #
  6)
   clear;
+  echo "Menu 6";
  ;;
  # --------------- #
  7)
   clear;
+  echo "Menu 7";
  ;;
  # --------------- #
  8)
   clear;
+  echo "Menu 8";
  ;;
  # --------------- #
  9)
   clear;
+  echo "Menu 9";
  ;;
  # --------------- #
  0)
   clear;
+  echo "Menu 0";
  ;;
  # --------------- #
  q|Q)
