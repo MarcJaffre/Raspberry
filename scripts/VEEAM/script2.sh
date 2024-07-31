@@ -195,7 +195,7 @@ func_HOST_CHECKMOUNT(){
 ##############################################
 func_HOST_CHECK_RSYNC_FOLDER(){
  # Si fichier absent ou vide, message d'erreur.
- if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
+ if [[ ! -s $HOME/rsync.txt | grep -v "^#" || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
  # Création d'une variable servant au check
  RC="0"
  # Si fichier présent et pas vide alors poursuivre
