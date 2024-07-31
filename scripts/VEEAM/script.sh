@@ -137,8 +137,12 @@ func_HOST_MOUNT2()    {
 
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
-# ====================================================================
-  echo "Menu en creation"
+# # ====================================================================
+mount   \
+-t cifs \
+-o username="$HOST_USERNAME",password="$HOST_PASSWORD" \
+//$HOST_SERVEUR/$HOST_SHARE \
+$HOST_MOUNTPOINT;
 # ====================================================================
 fi
 
