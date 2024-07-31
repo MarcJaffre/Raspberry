@@ -272,6 +272,8 @@ func_HOST_ARCHIVAGE_RSYNC(){
  #
  # Pause
  echo
+ echo "Le fichier log est accesbie au chemin suivant $HOST_MOUNTPOINT/Journal/$DATE.log";
+ echo
  read -p "Veuiller appuyer sur une touche pour continuer";
 }
 ##################################################################################################################################################################################
