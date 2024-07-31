@@ -221,11 +221,16 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 #################################
 func_HOST_ARCHIVAGE_RSYNC(){
 # Garde Fou
+if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
-
-# Rsync
 if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
+
+
 
 # df -h /mnt/backup/ | tail -n 1 | cut -d " " -f1
 
