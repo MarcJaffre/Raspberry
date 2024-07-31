@@ -28,58 +28,70 @@ func_CHOIX(){
 case $choix in
  # --------------- #
  0)
-  clear;
   echo "Menu 0";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  1)
-  clear;
   echo "Menu 1";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  2)
-  clear;
   echo "Menu 2";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  3)
-  clear;
   echo "Menu 3";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  4)
-  clear;
   echo "Menu 4";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  5)
-  clear;
   echo "Menu 5";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  6)
-  clear;
   echo "Menu 6";
+  read "Revenir au menu de sélection";
+  clear;
+  clear;
  ;;
  # --------------- #
  7)
-  clear;
   echo "Menu 7";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  8)
-  clear;
   echo "Menu 8";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  9)
-  clear;
   echo "Menu 9";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  0)
-  clear;
   echo "Menu 0";
+  read "Revenir au menu de sélection";
+  clear;
  ;;
  # --------------- #
  q|Q)
@@ -88,8 +100,8 @@ case $choix in
  ;;
  # --------------- #
  *)
-  clear;
   echo "Merci d'indiquer un choix parmis ceux disponible."
+  clear;
  ;;
  # --------------- #
  esac
