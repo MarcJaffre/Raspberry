@@ -92,7 +92,7 @@ func_HOST_MKDIR()    {
  # Verification si la variable est NULL,un message est envoyé
  if [ -z $HOST_MOUNTPOINT   ];then echo  "La Valeur Point de montage NULL"; fi
  #
- # Si le point de montage existe deja,un message est envoyé
+ # Si ma valeur est pas NULL et que le dossier MOUNT existe alors un message est envoyé
  if [ ! -z $HOST_MOUNTPOINT   ] && [ -d $HOST_MOUNTPOINT   ];then echo  "> Le dossier de montage existe déjà."; fi
  #
  # Si le point de montage n'existe pas,un message est envoyé
