@@ -231,13 +231,17 @@ echo "Menu 6: Creation du dossier de montage "
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
 echo "Menu 9: Verification du montage"
+echo "Menu R: Résumer des actions"
 echo
 echo "############################################################"
 echo "#          Actions Spécial sur le système                  #"
 echo "############################################################"
-echo "Menu R: Résumer des actions"
-echo "Menu S: Lancer la sauvegargde"
-echo "Menu K: Tuer Rsync (Urgence)"
+echo "Menu A: Editer le fichier des chemins à sauvegarder"
+echo "Menu B: Vérification des chemins"
+echo "Menu C: Lancer la sauvegarde"
+echo "Menu D: Lancer la sauvegargde"
+echo "Menu E: Tuer Rsync (Urgence)"
+########################################################################
 echo "Menu Q: Quitter le menu"
 echo "############################################################"
 echo
@@ -301,17 +305,75 @@ case $choix in
  9)
   func_HOST_CHECKMOUNT;
   clear;
- # echo    "#-------------------------#";
- # echo    "# Bienvenue sur le menu 9 #";
- # echo    "#-------------------------#";
- # read -p "";
  ;;
  # ------------------------------------------------------------ #
- k|K)
-  func_RECAP;
+ a|A)
   echo
   echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu K #"
+  echo    "# Bienvenue sur le menu A #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ b|B)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu B #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ c|C)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu C #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ d|D)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu D #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ e|E)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu E #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ f|F)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu F #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ g|G)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu G #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
+ h|H)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu H #"
   echo    "#-------------------------#"
   read -p ""
   clear;
