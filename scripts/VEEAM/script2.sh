@@ -242,18 +242,18 @@ if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 
 
+if [ ! -z $HOST_MOUNTPOINT ];then
+ MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1)
+fi
+
 if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ]; then
+  
  echo "OK"
 fi
 
 #//$HOST_SERVEUR/$HOST_SHARE
 # //192.168.20.3/Media_5/TEST
-
-# df -h /mnt/backup/ | tail -n 1 | cut -d " " -f1
-
-
-
-
+# 
 # if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
 # if [ ! -z $RC ];then
    # =========================================================================================================================
@@ -264,6 +264,21 @@ fi
  #fi
  read -p "";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #################################################################################################################################################
 # Verification avant Backup #
