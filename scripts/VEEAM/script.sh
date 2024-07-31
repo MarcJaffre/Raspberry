@@ -60,7 +60,7 @@ func_HOST_MOUNT1()   {
 func_HOST_MKDIR()    {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
-  echo "Merci d'aller dans le menu 5 : Point de montage";
+  echo "> Merci d'aller dans le menu 5 : Point de montage";
  fi
 
 # Si variable HOST_MOUNTPOINT n'est pas vide :
@@ -69,12 +69,12 @@ func_HOST_MKDIR()    {
     # Si le point de montage n'existe pas
     if [ ! -d $HOST_MOUNTPOINT ];then
      mkdir -p $HOST_MOUNTPOINT;
-     echo "Le dossier de montage a ete cree.";
+     echo "> Le dossier de montage a ete cree.";
     fi
     # --------------------------------------------------
     # Si le point de montage existe deja
     if [ -d $HOST_MOUNTPOINT ];then
-     echo "Le dossier de montage existe déjà.";
+     echo "> Le dossier de montage existe déjà.";
     fi
  #======================================================
  fi
@@ -88,13 +88,13 @@ func_HOST_MKDIR()    {
 func_HOST_UMOUNT()   {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
-  echo "Merci d'aller dans le menu 5 : Point de montage";
+  echo "> Merci d'aller dans le menu 5 : Point de montage";
   echo
  fi
  
 # [Garde Fou] Si la variable est HOST_SERVEUR est vide :
  if [ -z "${HOST_SERVEUR}" ];then
-  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
+  echo "> Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
   echo
  fi
 
@@ -106,20 +106,17 @@ func_HOST_UMOUNT()   {
    # ================================================================
    # Si le montage correspond pas a ce qu'on souhaite
    if [ -z "$CHECK" ];then
-    echo "Le point de montage n'est pas monté";
+    echo "> Le point de montage n'est pas monté";
    fi
    # ================================================================
    if [ ! -z "$CHECK" ];then
     umount $HOST_MOUNTPOINT;
-    echo
-    df -h /$HOST_MOUNTPOINT;
    fi
    # ================================================================
  # ====================================================================
  fi
  # Pause
  read -p "";
-
 }
 
 ####################################################################################################
@@ -128,10 +125,10 @@ func_HOST_UMOUNT()   {
 func_HOST_MOUNT2()    {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
-  echo "Merci d'aller dans le menu 5 : Point de montage";
+  echo "> Merci d'aller dans le menu 5 : Point de montage";
  fi
  if [ -z "${HOST_SERVEUR}" ];then
-  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
+  echo "> Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
  fi
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
@@ -141,7 +138,7 @@ func_HOST_MOUNT2()    {
   # ===================================================================
   mount -t cifs -o username=$HOST_USERNAME,password=$HOST_PASSWORD //$HOST_SERVEUR/$HOST_SHARE $HOST_MOUNTPOINT 2>/dev/null;
   # ===================================================================
-  echo "Montage du Lecteur réseau terminé";
+  echo "> Montage du Lecteur réseau terminé";
  # ====================================================================
  fi
  # Pause
@@ -154,11 +151,11 @@ func_HOST_MOUNT2()    {
 func_HOST_MOUNT2_AD()  {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
-  echo "Merci d'aller dans le menu 5 : Point de montage";
+  echo "> Merci d'aller dans le menu 5 : Point de montage";
  fi
 
  if [ -z "${HOST_SERVEUR}" ];then
-  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
+  echo "> Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
  fi
 
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
@@ -175,7 +172,7 @@ func_HOST_MOUNT2_AD()  {
  $HOST_MOUNTPOINT            \
  2>/dev/null;
  # ====================================================================
-  echo "Montage du Lecteur réseau terminé";
+  echo "> Montage du Lecteur réseau terminé";
  # ====================================================================
  fi
  # Pause
@@ -202,14 +199,14 @@ clear;
 echo "# ====================================================== #";
 echo "#              Resumer de la configuration               #";
 echo "# ====================================================== #";
-echo "Adresse IP     : $HOST_SERVEUR";
-echo "Nom de domaine : $HOST_DOMAINE";
-echo "Identifiant    : $HOST_USERNAME";
-echo "Mot de passe   : $HOST_PASSWORD";
-echo "Nom du partage : $HOST_SHARE";
-echo "Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
-echo "Chemin local   : $HOST_MOUNTPOINT"
-#echo "Action         : $HOST_ACTION"
+echo "> Adresse IP     : $HOST_SERVEUR";
+echo "> Nom de domaine : $HOST_DOMAINE";
+echo "> Identifiant    : $HOST_USERNAME";
+echo "> Mot de passe   : $HOST_PASSWORD";
+echo "> Nom du partage : $HOST_SHARE";
+echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
+echo "> Chemin local   : $HOST_MOUNTPOINT"
+#echo "> Action         : $HOST_ACTION"
 echo ""
 }
 
@@ -257,43 +254,36 @@ func_CHOIX(){
 case $choix in
  # ------------------------------------------------------------ #
  0)
-  echo
   func_SRV_ADRESS;
   clear;
  ;;
  # ------------------------------------------------------------ #
  1)
-  echo
   func_SRV_DOMAINE;
   clear;
  ;;
  # ------------------------------------------------------------ #
  2)
-  echo
   func_SRV_USERNAME;
   clear;
  ;;
  # ------------------------------------------------------------ #
  3)
-  echo
   func_SRV_PASSWORD;
   clear;
  ;;
  # ------------------------------------------------------------ #
  4)
-  echo
   func_SRV_PARTAGE;
   clear;
  ;;
  # ------------------------------------------------------------ #
  5)
-  echo
   func_HOST_MOUNT1;
   clear;
  ;;
  # ------------------------------------------------------------ #
  6)
-  echo
   func_HOST_MKDIR;
   clear;
  ;;
@@ -318,7 +308,6 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  k|K)
-  echo
   func_RECAP;
   echo
   echo    "#-------------------------#"
@@ -329,7 +318,6 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  r|R)
-  echo
   func_RECAP;
   echo
   echo    "#-------------------------#"
