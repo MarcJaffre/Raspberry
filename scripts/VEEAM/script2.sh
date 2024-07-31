@@ -41,7 +41,12 @@ HOST_MOUNTPOINT="/mnt/backup"
 #if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
 
 # Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
-# for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+#for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+
+# Rsync
+#if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
+#if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
+
 
 #################################################################################################################################################
 # Bypass #
@@ -235,8 +240,6 @@ if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
 if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
 if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
-if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
-if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
 
 
 if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ]; then
