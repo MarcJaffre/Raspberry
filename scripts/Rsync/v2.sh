@@ -30,7 +30,6 @@ clear;
 # - Journal des événements
 ##################################################################################################################################################################################
 
-
 DATE=$(date +"%d%m%y_%H%M%S")
 
 ##################################################################################################################################################################################
@@ -55,7 +54,7 @@ if [ -f settings ]; then source settings; fi
 # Menu 0  Adresse du Serveur de partage #
 #########################################
 func_SRV_ADRESS()  {
- read -p "Quel est l'adresse IP du serveur ? " HOST_SERVEUR; HOST_SERVEUR=${HOST_SERVEUR:-192.168.20.3}
+ read -p "Quel est l'adresse IP du serveur ? " HOST_SERVEUR; HOST_SERVEUR=${HOST_SERVEUR:-192.168.1.101}
 }
 ##################################################################################################################################################################################
 # Menu 1 - Nom du domaine #
@@ -67,19 +66,19 @@ func_SRV_DOMAINE()  {
 # Menu 2 - Nom d'utilisateur #
 ##############################
 func_SRV_USERNAME() {
- read -p "Quel est le nom de compte utilisateur ? " HOST_USERNAME; HOST_USERNAME=${HOST_USERNAME:-marc}
+ read -p "Quel est le nom de compte utilisateur ? " HOST_USERNAME; HOST_USERNAME=${HOST_USERNAME:-Demonstration}
 }
 ##################################################################################################################################################################################
 # Menu 3 - Mot de passe #
 #########################
 func_SRV_PASSWORD() {
- read -p "Quel est le mot de passe du compte utilisateur ? " HOST_PASSWORD; HOST_PASSWORD=${HOST_PASSWORD:-admin}
+ read -p "Quel est le mot de passe du compte utilisateur ? " HOST_PASSWORD; HOST_PASSWORD=${HOST_PASSWORD:-Demonstration74@}
 }
 ##################################################################################################################################################################################
 # Menu 4 - Nom du partage #
 ###########################
 func_SRV_PARTAGE()  {
- read -p "Quel est le nom de partage du serveur ? " HOST_SHARE; HOST_SHARE=${HOST_SHARE:-Media_5/TEST}
+ read -p "Quel est le nom de partage du serveur ? " HOST_SHARE; HOST_SHARE=${HOST_SHARE:-home}
 }
 ##################################################################################################################################################################################
 # Menu 5 - Point de montage #
