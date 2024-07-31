@@ -239,22 +239,15 @@ if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
 
 
-if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ]; then
+if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $RC ]; then
  echo "OK"
 fi
-# //192.168.20.3/Media_5/TEST
-# df -h /mnt/backup/ | tail -n 1 | cut -d " " -f1
-
-
-
-
-
-
-#if [ ];then
-# echo "OK";
-#fi
 
 #//$HOST_SERVEUR/$HOST_SHARE
+# //192.168.20.3/Media_5/TEST
+
+# df -h /mnt/backup/ | tail -n 1 | cut -d " " -f1
+
 
 
 
