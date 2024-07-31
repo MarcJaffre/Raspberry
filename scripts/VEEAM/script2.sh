@@ -239,7 +239,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
 # Menu R #
 ##########
 func_RECAP()         {
- NUMBER_LINE_BACKUP=$(cat rsync.txt | wc -l)
+ NUMBER_LINE_BACKUP=$(cat rsync.txt | grep "^#" | wc -l)
  clear;
  echo "# ====================================================== #";
  echo "#              Resumer de la configuration               #";
@@ -262,22 +262,13 @@ func_RECAP()         {
 
 ##################################################################################################################################################################################
 func_BACKUP_CONFIG(){
- if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
- if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
- if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
- if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
- if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
- if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
- if [ -z $HOST_RSYNC_SIM   ];then echo "La valeur Rsync Simulation est NULL"; fi
 
 echo "######################################
 HOST_SERVEUR=\"$HOST_SERVEUR\"
 HOST_DOMAINE=\"$HOST_DOMAINE\"
-HOST_PASSWORD=\"$HOST_PASSWORD\"
 HOST_USERNAME=\"$HOST_USERNAME\"
 HOST_SHARE=\"$HOST_SHARE\"
 HOST_MOUNTPOINT=\"$HOST_MOUNTPOINT\"
-RC=\"$RC\"
 HOST_RSYNC_SIM=\"$HOST_RSYNC_SIM\"
 ######################################" > settings;
 }
