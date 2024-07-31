@@ -6,7 +6,7 @@
 clear;
 
 #################################################################################################################################################
-# Menu C en cours !!!
+# Menu D en cours !!!
 #################################################################################################################################################
 
 #################################################################################################################################################
@@ -38,12 +38,12 @@ clear;
 #################################################################################################################################################
 # Bypass #
 ##########
-HOST_SERVEUR="192.168.20.3"
-HOST_DOMAINE="Local"
-HOST_USERNAME="marc"
-HOST_PASSWORD="admin"
-HOST_SHARE="Media_5/TEST"
-HOST_MOUNTPOINT="/mnt/backup"
+#HOST_SERVEUR="192.168.20.3"
+#HOST_DOMAINE="Local"
+#HOST_USERNAME="marc"
+#HOST_PASSWORD="admin"
+#HOST_SHARE="Media_5/TEST"
+#HOST_MOUNTPOINT="/mnt/backup"
 RC=""
 
 #################################################################################################################################################
@@ -218,15 +218,15 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 #################################################################################################################################################
 # Menu D - Lancer la sauvegarde #
 #################################
-#func_HOST_ARCHIVAGE_RSYNC(){
+func_HOST_ARCHIVAGE_RSYNC(){
 # Verification Valeur NULL
-#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
-#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
-#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
-#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
-#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
-#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
-#if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
+if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 
 # Si valeur RC = 1
 #if [ ! -z $RC             ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
@@ -239,8 +239,8 @@ func_HOST_CHECK_RSYNC_FOLDER(){
    #if [ $RC = 0 ]; then echo "Tout est OK"; fi
    # =========================================================================================================================
  #fi
- #read -p "";
-#}
+ read -p "";
+}
 
 #################################################################################################################################################
 # Verification avant Backup #
@@ -260,6 +260,7 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 
 # Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
 # for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+
 
 #################################################################################################################################################
 # Menu R #
