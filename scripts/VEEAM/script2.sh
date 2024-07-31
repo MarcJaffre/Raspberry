@@ -239,7 +239,8 @@ if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
 
 
-
+if [ 
+# //192.168.20.3/Media_5/TEST
 # df -h /mnt/backup/ | tail -n 1 | cut -d " " -f1
 
 
