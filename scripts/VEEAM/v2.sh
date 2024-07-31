@@ -275,7 +275,7 @@ func_RECAP()         {
  echo "> Chemin local    : $HOST_MOUNTPOINT"
  echo
  echo "# ====================================================== #";
- echo "#             Information sur la sauvegarde              #";  
+ echo "#             Information sur la sauvegarde              #";
  echo "# ====================================================== #";
  echo "> Etat du mode Simulation      : $HOST_RSYNC_SIM";
  echo "> Nb de dossier à sauvegarder  : $NUMBER_LINE_BACKUP";
