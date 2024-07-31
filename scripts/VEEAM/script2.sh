@@ -213,9 +213,14 @@ func_HOST_ARCHIVAGE_RSYNC(){
     # Comparaison du point de montage avec le montage attendu
     if [ $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
        # =================================================================================================================================================================
-       if  [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
-       if  [ $RC = 0 ] && [ $HOST_RSYNC_SIM = "oui" ]; then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done; fi
-       if  [ $RC = 0 ] && [ $HOST_RSYNC_SIM = "non" ]; then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz           $i $HOST_MOUNTPOINT; done; fi         
+       if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
+       # =================================================================================================================================================================
+       if [ $RC = 0 ];then
+           if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
+           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz $i $HOST_MOUNTPOINT; done;
+           else echo "La valeur du Mode Simulation est incorrecte";
+           fi
+       fi
        # =================================================================================================================================================================
     fi
     # ==============================================================================================================================================================================================
