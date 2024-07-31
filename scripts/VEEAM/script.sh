@@ -7,7 +7,6 @@ func_SRV_ADRESS()  {
   read -p "Quel est l'adresse IP du serveur ? " HOST_SERVEUR
   HOST_SERVEUR=${HOST_SERVEUR:-192.168.20.3}
 }
-
 ########################################################################################################################################################################################
 # Menu 1 - Nom du domaine #
 ###########################
@@ -15,7 +14,6 @@ func_SRV_DOMAINE()  {
   read -p "Quel est le nom de domaine ? " HOST_DOMAINE
   HOST_DOMAINE=${HOST_DOMAINE:-Local}
 }
-
 ########################################################################################################################################################################################
 # Menu 2 - Nom d'utilisateur #
 ##############################
@@ -23,7 +21,6 @@ func_SRV_USERNAME() {
   read -p "Quel est le nom de compte utilisateur ? " HOST_USERNAME
   HOST_USERNAME=${HOST_USERNAME:-marc}
 }
-
 ########################################################################################################################################################################################
 # Menu 3 - Mot de passe #
 #########################
@@ -38,7 +35,6 @@ func_SRV_PARTAGE()  {
   read -p "Quel est le nom de partage du serveur ? " HOST_SHARE
   HOST_SHARE=${HOST_SHARE:-marc}
 }
-
 ########################################################################################################################################################################################
 # Menu 5 - Point de montage #
 #############################
@@ -46,29 +42,32 @@ func_HOST_MOUNT1()   {
   read -p "Où souhaitez vous monter le partage sur la machine ? " HOST_MOUNTPOINT
   HOST_MOUNTPOINT=${HOST_MOUNTPOINT:-/mnt/backup}
 }
-
 ########################################################################################################################################################################################
 # Menu 6 - Creation du dossier de montage #
 ###########################################
 func_HOST_MKDIR()    {
-# Si variable est vide
+
+# Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
  fi
- 
- # Si variable est pas vide
+
+# Si variable HOST_MOUNTPOINT n'est pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ];then
+ #======================================================
+    # Si le point de montage n'existe pas
     if [ ! -d $HOST_MOUNTPOINT ];then
      mkdir -p $HOST_MOUNTPOINT;
      echo "Le dossier de montage a ete cree.";
     fi
+    # --------------------------------------------------
+    # Si le point de montage existe pas
     if [ -d $HOST_MOUNTPOINT ];then
      echo "Le dossier de montage est present.";
     fi
+ #======================================================
  fi
-
-
- # Pause pour voir le resultat
+ # Pause
  read -p "";
 }
 
