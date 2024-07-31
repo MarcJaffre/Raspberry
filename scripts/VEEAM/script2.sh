@@ -12,6 +12,35 @@ clear;
 
 
 #################################################################################################################################################
+# Verification #
+################
+# Si variable est vide alors un message est envoyé
+#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+
+# Si les variables sont vides alors un message est envoyé
+#if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];echo "ERREUR"; fi
+
+# Si le répertoire n'existe pas alors un message est envoyé
+#if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
+
+# Si le fichier est absent alors un message est envoyé
+#if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
+
+# Si le fichier est vide alors un message est envoyé
+#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
+
+# Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
+# for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+
+
+
+
+#################################################################################################################################################
 # Bypass #
 ##########
 HOST_SERVEUR="192.168.20.3"
@@ -208,34 +237,6 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  # Pause
  read -p "";
 }
-
-#################################################################################################################################################
-# Verification #
-################
-# Si variable est vide alors un message est envoyé
-#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
-#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
-#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
-#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
-#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
-#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
-
-# Si les variables sont vides alors un message est envoyé
-#if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];echo "ERREUR"; fi
-
-# Si le répertoire n'existe pas alors un message est envoyé
-#if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
-
-# Si le fichier est absent alors un message est envoyé
-#if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
-
-# Si le fichier est vide alors un message est envoyé
-#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
-
-# Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
-# for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
-
-
 #################################################################################################################################################
 # Menu C - Lancer la sauvegarde #
 #################################
