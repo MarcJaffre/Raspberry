@@ -6,7 +6,7 @@ clear;
 
 ##################################################################################################################################################################################
 # Le script est sur la fonction func_HOST_MOUNT2 (Local), il faudra changer à la fin !
-# Menu A: Code retour à revoir 
+# Menu A: Code retour à revoir
 # Menu E: A crée (Verifier si un backup est actif)
 # Menu F: A crée (Tuer Rsync en urgence)
 # Menu D: Lancer le processus en arrière plan
