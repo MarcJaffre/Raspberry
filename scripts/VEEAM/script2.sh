@@ -239,7 +239,7 @@ if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
 
 
-if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $RC ]; then
+if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ]; then
  echo "OK"
 fi
 
