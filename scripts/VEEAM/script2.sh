@@ -236,37 +236,29 @@ func_HOST_ARCHIVAGE_RSYNC(){
  if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
  if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ if [ -z $RC               ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
 
  # Si la valeur HOST_MOUNTPOINT est pas NULL, création d'une variable MOUNT.
  if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
 
- 
  # Si la valeur Serveur,SHARE et MOUNTPOINT sont pas NULL alors lancer le script
  if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ];then
-    #
+    # =====================================================================================================================================================================
     # Comparaison du point de montage avec le montage attendu
     if [ $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
-       echo "Point de montage disponible";  
+     # =========================================================================================================================
+     if [ $RC = 0 ]; then echo "Tout est OK"; fi
+     if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
+     # =========================================================================================================================
+     
     fi
-    # 
+    # =====================================================================================================================================================================
  fi
-
-
-# if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $MOUNT ]; then
-#    if [ $MOUNT == "//$HOST_SERVEUR/$HOST_SHARE" ];then
-
 #//$HOST_SERVEUR/$HOST_SHARE
 # //192.168.20.3/Media_5/TEST
 
-# 
-# if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
-# if [ ! -z $RC ];then
-   # =========================================================================================================================
-   #if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
-   # =========================================================================================================================   
-   #if [ $RC = 0 ]; then echo "Tout est OK"; fi
-   # =========================================================================================================================
- #fi
+# if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $MOUNT ]; then
+#    if [ $MOUNT == "//$HOST_SERVEUR/$HOST_SHARE" ];then
  read -p "";
 }
 
