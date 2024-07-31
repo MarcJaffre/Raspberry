@@ -14,6 +14,7 @@ HOST_USERNAME="marc"
 HOST_PASSWORD="admin"
 HOST_SHARE="Media_5/TEST"
 HOST_MOUNTPOINT="/mnt/backup"
+RC=""
 
 #################################################################################################################################################
 # Menu 0  Adresse du Serveur de partage #
@@ -181,22 +182,26 @@ func_HOST_EDIT_RSYNC_FILE(){
 # Menu B - Vérification des chemins #
 #####################################
 func_HOST_CHECK_RSYNC_FOLDER(){
+ # Si fichier absent ou vide, message d'erreur.
+ if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
  #
- # Verifier si le fichier n'existe pas, un message est envoyé
- if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
- #
- # Verifier si le fichier est pas vide
- if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
-
- # Lecture du fichier rsync ligne par ligne et affichage des erreurs. (RC = 1 signifie une erreur)
+ # Création d'une variable servant au check
  RC="0"
- for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; RC=1; fi done
- if [ $RC = 1 ]; then echo "Merci de corriger l'erreur sur le fichier rsync.txt"; fi
- if [ $RC = 0 ]; then echo "Aucune erreur présent dans le fichier rsync"; fi 
+ #
+ # Si fichier présent et pas vide alors poursuivre
+ if [[ -s $HOME/rsync.txt || -f $HOME/rsync.txt ]]; then 
+  #
+  # Lecture du fichier rsync par ligne puis verification si le chemin existe, si erreur RC=1. (RC=0)
+  for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; RC=1; fi done
+  #
+  # Si erreur précédemment, le code RC sera sur 1. Sinon RC sera sur 0.
+  if [ $RC = 1 ]; then echo "Merci de corriger l'erreur sur le fichier rsync.txt"; fi
+  if [ $RC = 0 ]; then echo "Aucune erreur présent dans le fichier rsync"; fi
+  #
+ fi
  # Pause
  read -p "";
 }
-
 
 #################################################################################################################################################
 # Verification #
