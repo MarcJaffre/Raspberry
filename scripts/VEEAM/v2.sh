@@ -316,7 +316,7 @@ echo "############################################################"
 echo "Menu 6: Creation du dossier de montage"
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
-echo "Menu 9: Editer le fichier des chemins à sauvegarder "
+echo "Menu 9: Editer le fichier des chemins à sauvegarder"
 echo
 echo "############################################################"
 echo "#          Actions Spécial sur le système                  #"
@@ -404,41 +404,41 @@ case $choix in
  func_HOST_ARCHIVAGE_RSYNC; clear;
  ;;
  # ------------------------------------------------------------ #
- e|E)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu E #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
- ;;
+ #e|E)
+ # echo
+ # echo    "#-------------------------#"
+ # echo    "# Bienvenue sur le menu E #"
+ # echo    "#-------------------------#"
+ # read -p ""
+ # clear;
+ #;;
  # ------------------------------------------------------------ #
- f|F)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu F #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
- ;;
+ #f|F)
+ # echo
+ # echo    "#-------------------------#"
+ # echo    "# Bienvenue sur le menu F #"
+ # echo    "#-------------------------#"
+ # read -p ""
+ # clear;
+ #;;
  # ------------------------------------------------------------ #
- g|G)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu G #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
- ;;
+ #g|G)
+ # echo
+ # echo    "#-------------------------#"
+ # echo    "# Bienvenue sur le menu G #"
+ # echo    "#-------------------------#"
+ # read -p ""
+ # clear;
+ #;;
  # ------------------------------------------------------------ #
- h|H)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu H #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
- ;;
+ #h|H)
+ # echo
+ # echo    "#-------------------------#"
+ # echo    "# Bienvenue sur le menu H #"
+ # echo    "#-------------------------#"
+ # read -p ""
+ # clear;
+ #;;
  # ------------------------------------------------------------ #
  i|I)
   echo
