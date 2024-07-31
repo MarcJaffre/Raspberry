@@ -19,6 +19,7 @@ echo "Menu Q: Quitter le menu"
 echo "################################################"
 echo
 read -p "Indiquer votre choix: " choix
+echo
 }
 
 ##########################################################################################
@@ -26,86 +27,24 @@ read -p "Indiquer votre choix: " choix
 ##################
 func_CHOIX(){
 case $choix in
- # --------------- #
- 0)
-  echo "Menu 0";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 1)
-  echo "Menu 1";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 2)
-  echo "Menu 2";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 3)
-  echo "Menu 3";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 4)
-  echo "Menu 4";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 5)
-  echo "Menu 5";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 6)
-  echo "Menu 6";
-  read "Revenir au menu de sélection";
-  clear;
-  clear;
- ;;
- # --------------- #
- 7)
-  echo "Menu 7";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 8)
-  echo "Menu 8";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 9)
-  echo "Menu 9";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
- 0)
-  echo "Menu 0";
-  read "Revenir au menu de sélection";
-  clear;
- ;;
- # --------------- #
+
+ # ------------------------------------------------------------ #
  q|Q)
   clear;
   exit;
  ;;
- # --------------- #
+ # ------------------------------------------------------------ #
  *)
-  echo "Merci d'indiquer un choix parmis ceux disponible."
+  echo
+  echo    "#--------------------------------------------------#"
+  echo    "# Merci d'indiquer un choix parmis ceux disponible #"
+  read -p "#--------------------------------------------------#"
   clear;
  ;;
- # --------------- #
+ # ------------------------------------------------------------ #
  esac
 }
+
 
 ##########################################################################################
 # Nettoyage de la console #
