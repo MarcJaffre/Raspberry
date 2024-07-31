@@ -312,7 +312,7 @@ func_RECAP()         {
  echo "> Adresse IP      : $HOST_SERVEUR";
  echo "> Nom de domaine  : $HOST_DOMAINE";
  echo "> Identifiant     : $HOST_USERNAME";
- echo "> Mot de passe    : $HOST_PASSWORD";
+# echo "> Mot de passe    : $HOST_PASSWORD";
  echo "> Nom du partage  : $HOST_SHARE";
  echo "> Chemin UNC      : //$HOST_SERVEUR/$HOST_SHARE";
  echo "> Chemin local    : $HOST_MOUNTPOINT"
@@ -345,12 +345,13 @@ func_MENU()          {
 echo "############################################################"
 echo "#          Information pour le montage du partage          #"
 echo "############################################################"
-echo "Menu 0: Adresse du Serveur de partage ($HOST_SERVEUR)"
-echo "Menu 1: Nom du domaine ($HOST_DOMAINE)"
-echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
-echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
-echo "Menu 4: Nom du partage ($HOST_SHARE)"
-echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
+echo "Menu 0: Adresse du serveur ($HOST_SERVEUR)"
+echo "Menu 1: Nom du domaine     ($HOST_DOMAINE)"
+echo "Menu 2: Nom d'utilisateur  ($HOST_USERNAME)"
+echo "Menu 3: Mot de passe"
+#echo "Menu 3: Mot de passe       ($HOST_PASSWORD)"
+echo "Menu 4: Nom du partage     ($HOST_SHARE)"
+echo "Menu 5: Point de montage   ($HOST_MOUNTPOINT)"
 echo
 echo "############################################################"
 echo "#          Gestion du montage sur la machine HOTE          #"
