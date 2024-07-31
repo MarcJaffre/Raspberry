@@ -51,19 +51,24 @@ func_HOST_MOUNT1()   {
 # Menu 6 - Creation du dossier de montage #
 ##########
 func_HOST_MKDIR()    {
- # Si dossier absent
+
+# Si variable est vide
+ if [ -z "${HOST_MOUNTPOINT}" ];then
+  echo "Merci d'aller dans le menu 5 : Point de montage";
+ fi
+ 
+ # Si variable est pas vide
  if [ ! -z "${HOST_MOUNTPOINT}" ];then
     if [ ! -d $HOST_MOUNTPOINT ];then
      mkdir -p $HOST_MOUNTPOINT;
      echo "Le dossier de montage a ete cree.";
-    fi 
+    fi
+    if [ -d $HOST_MOUNTPOINT ];then
+     echo "Le dossier de montage est present.";
+    fi
  fi
- 
- # si dossier present
- if [ -z "${HOST_MOUNTPOINT}" ];then
-  echo "Le dossier de montage est present."
- fi
- 
+
+
  # Pause pour voir le resultat
  read -p "";
 }
