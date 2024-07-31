@@ -50,6 +50,23 @@ func_HOST_MOUNT1()   {
 ########################################################################################################################################################################################
 # Menu 6 - Creation du dossier de montage #
 ##########
+func_HOST_MKDIR()    {
+ # Si dossier absent
+ if [ ! -z "${HOST_MOUNTPOINT}" ];then
+    if [ ! -d $HOST_MOUNTPOINT ];then
+     mkdir -p $HOST_MOUNTPOINT;
+     echo "Le dossier de montage a ete cree.";
+    fi 
+ fi
+ 
+ # si dossier present
+ if [ -z "${HOST_MOUNTPOINT}" ];then
+  echo "Le dossier de montage est present."
+ fi
+ 
+ # Pause pour voir le resultat
+ read -p "";
+}
 
 ########################################################################################################################################################################################
 # Menu 7 - Menu 7: Demontage du partage #
@@ -95,7 +112,7 @@ echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
 echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
 echo "Menu 4: Nom du partage ($HOST_SHARE)"
 echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
-#echo "Menu 6: Creation du dossier de montage"
+echo "Menu 6: Creation du dossier de montage"
 #echo "Menu 7: Demontage du partage"
 #echo "Menu 8: Montage du partage"
 #echo "Menu 9: Verification du montage"
@@ -152,7 +169,8 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  6)
- # echo
+  echo
+  func_HOST_MKDIR;
   clear;
  ;;
  # ------------------------------------------------------------ #
