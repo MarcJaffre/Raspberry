@@ -297,21 +297,23 @@ echo "Menu 8: Montage du partage"
 echo "Menu 9: Editer le fichier des chemins à sauvegarder "
 echo
 echo "############################################################"
-echo "                     En Developpement                      #"
+echo "#          Actions Spécial sur le système                  #"
 echo "############################################################"
 echo "Menu A: Vérification des montages"
 echo "Menu B: Vérification des chemins de Rsync"
 echo "Menu C: Mode Simulation ($HOST_RSYNC_SIM)"
 echo "Menu D: Lancer la sauvegarde"
-echo "Menu E: Tuer Rsync (Urgence)"
-echo "Menu I: Information sur le script"
-echo
-echo "############################################################"
-echo "#          Actions Spécial sur le système                  #"
-echo "############################################################"
 echo "Menu R: Résumer des actions"
 echo "Menu T: Sauvegarder la configuration actuelle"
 echo "Menu Q: Quitter le menu"
+echo
+echo "############################################################"
+echo "                     En Developpement                      #"
+echo "############################################################"
+echo "Menu E: Tuer Rsync (Urgence)"
+echo "Menu F: Verifier si un backup est actif";
+echo "Menu I: Information sur le script"
+
 echo "############################################################"
 echo
 read -p "Indiquer votre choix: " choix
