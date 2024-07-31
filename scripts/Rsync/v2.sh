@@ -268,7 +268,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
             echo "# Lancement   : $(date +"%d/%m/%y à %H:%M")                                                                               "
             echo "# Fichier log : $HOST_MOUNTPOINT/Journal/$DATE.log;                                                                       "
             echo "# Dossier     : $i                                                                                                        "
-            echo "# Taille      : $(du -h -d0 $i | cut -d "." -f 1)                                                                         "
+            echo "# Taille      : $(du -h -d0 $i | cut -d "." -f 1-2 | cut -c 1-10)                                                         "
             ########################################################################################################################################################################################
             echo "##########################################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo "# Debut de l'archivage : $(date +"%d/%m/%y à %H:%M") pour le dossier $i                                                   " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
