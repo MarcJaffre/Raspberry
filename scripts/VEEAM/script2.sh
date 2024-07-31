@@ -216,23 +216,21 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  # Pause
  read -p "";
 }
-
-
 #################################################################################################################################################
 # Menu D - Lancer la sauvegarde #
 #################################
 func_HOST_ARCHIVAGE_RSYNC(){
-# Verification Valeur NULL
-if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
-if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
-if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
-if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
-if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+# Garde Fou
 if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 
-# Si valeur RC = 1
-#if [ ! -z $RC             ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
+# Rsync
+if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
+
+
+#//$HOST_SERVEUR/$HOST_SHARE
+
+
 
 # if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
 # if [ ! -z $RC ];then
