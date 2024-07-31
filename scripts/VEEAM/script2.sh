@@ -177,15 +177,15 @@ func_HOST_MOUNT2_AD()  {
 #################################################################################################################################################
 # Menu 9 - Verification du montage #
 ####################################
-func_HOST_CHECKMOUNT(){
+#func_HOST_CHECKMOUNT(){
  # En cas de variable Vide, un message est envoyé
- if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ #if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
  #
  # Si la variable est pas null, verification du montage
- if [ ! -z "${HOST_MOUNTPOINT}" ]; then df -h /$HOST_MOUNTPOINT; fi
+ #if [ ! -z "${HOST_MOUNTPOINT}" ]; then df -h /$HOST_MOUNTPOINT; fi
  # Pause
- read -p "";
-}
+ #read -p "";
+#}
 
 #################################################################################################################################################
 # Menu R #
@@ -240,13 +240,22 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 #################################################################################################################################################
 # Menu C - Lancer la sauvegarde #
 #################################
-#func_HOST_ARCHIVAGE_RSYNC(){
- #if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"
- #if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
- #read -p "";
-#}
+func_HOST_ARCHIVAGE_RSYNC(){
+ if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
+ if [ ! -z $RC ];then
+   # =========================================================================================================================
+   if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
+   # =========================================================================================================================   
+   if [ $RC = 0 ]; then echo "Tout est OK"; fi
 
 
+
+
+   
+   # =========================================================================================================================
+ fi
+ read -p "";
+}
 
 
 #################################################################################################################################################
@@ -269,7 +278,7 @@ echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
 echo "Menu 6: Creation du dossier de montage"
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
-echo "Menu 9: Verification du montage"
+#echo "Menu 9: Verification du montage"
 echo
 echo "############################################################"
 echo "                     En Developpement                      #"
@@ -333,9 +342,9 @@ case $choix in
   func_HOST_MOUNT2; clear;
  ;;
  # ------------------------------------------------------------ #
- 9)
-  func_HOST_CHECKMOUNT; clear;
- ;;
+ #9)
+ # func_HOST_CHECKMOUNT; clear;
+ #;;
  # ------------------------------------------------------------ #
  a|A)
   func_HOST_EDIT_RSYNC_FILE; clear;
