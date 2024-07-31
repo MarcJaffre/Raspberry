@@ -5,29 +5,23 @@
 #####################
 clear;
 
-
 ##################################################################################################################################################################################
 # Chargement Configuration #
 ############################
-#
-if [ -f settings ]; then
- source settings
-fi
-
-echo "$HOST_SERVEUR"
-
+# Si le fichier existe, le script relance la derniere configuration
+if [ -f settings ]; then source settings; fi
 
 ##################################################################################################################################################################################
 # Bypass #
 ##########
-HOST_SERVEUR="192.168.20.3"
-HOST_DOMAINE="Local"
-HOST_USERNAME="marc"
-HOST_PASSWORD="admin"
-HOST_SHARE="Media_5/TEST"
-HOST_MOUNTPOINT="/mnt/backup"
-HOST_RSYNC_SIM="oui"
-RC=""
+#HOST_SERVEUR="192.168.20.3"
+#HOST_DOMAINE="Local"
+#HOST_USERNAME="marc"
+#HOST_PASSWORD="admin"
+#HOST_SHARE="Media_5/TEST"
+#HOST_MOUNTPOINT="/mnt/backup"
+#HOST_RSYNC_SIM="oui"
+#RC=""
 
 ##################################################################################################################################################################################
 # Menu 0  Adresse du Serveur de partage #
