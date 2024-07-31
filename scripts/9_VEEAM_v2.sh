@@ -55,7 +55,7 @@ func_MKDIR()         {
 ########################################################################################################################################################################################
 func_UMOUNT()        {
  if [ -d /mnt/backup ]; then
-   umount /mnt/backup;
+  umount /mnt/backup;
   echo "Le dossier a été démonté";
   echo "";
  fi
@@ -71,6 +71,16 @@ func_MOUNT()         {
 func_MOUNT_AD()      {
   mount -t cifs -o domain="$HOST_DOMAINE";username="$HOST_USERNAME",password="$HOST_PASSWORD" //$HOST_SERVEUR/$HOST_SHARE /mnt/backup;
 }
+########################################################################################################################################################################################
+func_ACTION()        {
+  read -p "Quel action souhaitez-vous faire ? (archivage, restauration) " HOST_ACTION
+  HOST_ACTION=${HOST_ACTION:-archivage}
+}
+
+
+
+
+
 
 ########################################################################################################################################################################################
 func_RECAP()         {
@@ -85,6 +95,7 @@ echo "Mot de passe   : $HOST_PASSWORD";
 echo "Nom du partage : $HOST_SHARE";
 echo "Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
 echo "Chemin local   : /mnt/backup"
+echo "Action         : $HOST_ACTION"
 echo ""
 }
 
@@ -96,6 +107,9 @@ func_HOST_DOMAINE;
 func_HOST_USERNAME;
 func_HOST_PASSWORD;
 func_HOST_PARTAGE;
+#func_MOUNT_AD;
+func_ACTION;
+
 func_RECAP;
 func_MKDIR;
 func_UMOUNT;
