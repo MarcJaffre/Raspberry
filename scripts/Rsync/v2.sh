@@ -5,7 +5,6 @@
 #####################
 clear;
 
-# DATE=$(date +"%d-%m-%y__%H-%M")
 
 ##################################################################################################################################################################################
 # La fonction "func_HOST_MOUNT2" utilise un compte local. Pour une machine utilisant un domaine remplacer par func_HOST_MOUNT2_AD
@@ -32,6 +31,8 @@ clear;
 # - Journal des événements
 ##################################################################################################################################################################################
 
+
+DATE=$(date +"%d-%m-%y__%H-%M")
 
 ##################################################################################################################################################################################
 # Chargement Configuration #
@@ -250,7 +251,10 @@ func_HOST_ARCHIVAGE_RSYNC(){
        # =================================================================================================================================================================
        if [ $RC = 0 ];then
            if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
-           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz $i $HOST_MOUNTPOINT ; done;
+           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do 
+            echo "######################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
+            echo "# Debut de l'archivage : $(date +"%d-%m-%y__%H-%M")" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
+           done;
            else echo "La valeur du Mode Simulation est incorrecte";
            fi
        fi
@@ -260,7 +264,8 @@ func_HOST_ARCHIVAGE_RSYNC(){
  fi
  #
  # Pause
- read -p "";
+ echo
+ read -p "Veuiller appuyer sur une touche pour continuer";
 }
 ##################################################################################################################################################################################
 # Menu R #
