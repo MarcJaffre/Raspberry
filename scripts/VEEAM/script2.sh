@@ -8,12 +8,13 @@ clear;
 ##################################################################################################################################################################################
 # Bypass #
 ##########
-#HOST_SERVEUR="192.168.20.3"
-#HOST_DOMAINE="Local"
-#HOST_USERNAME="marc"
-#HOST_PASSWORD="admin"
-#HOST_SHARE="Media_5/TEST"
-#HOST_MOUNTPOINT="/mnt/backup"
+HOST_SERVEUR="192.168.20.3"
+HOST_DOMAINE="Local"
+HOST_USERNAME="marc"
+HOST_PASSWORD="admin"
+HOST_SHARE="Media_5/TEST"
+HOST_MOUNTPOINT="/mnt/backup"
+HOST_RSYNC_SIMULATION="oui"
 RC=""
 
 ##################################################################################################################################################################################
@@ -162,7 +163,7 @@ func_HOST_CHECKMOUNT(){
 ##############################################
 func_HOST_CHECK_RSYNC_FOLDER(){
  # Si fichier absent ou vide, message d'erreur.
- if [[ ! -s $HOME/rsync.txt | grep -v "^#" || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
+ if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
  # Création d'une variable servant au check
  RC="0"
  # Si fichier présent et pas vide alors poursuivre
@@ -181,6 +182,14 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  # Pause
  read -p "";
 }
+
+##################################################################################################################################################################################
+# Menu C - Mode Simulation #
+############################
+func_HOST_ARCHIVAGE_RSYNC_SIMU(){
+ read -p "Souhaitez vous activer le mode simulation ? (oui ou non) " HOST_RSYNC_SIM; HOST_RSYNC_SIM=${HOST_RSYNC_SIM:-oui}
+}
+
 ##################################################################################################################################################################################
 # Menu D - Lancer la sauvegarde #
 #################################
@@ -193,22 +202,22 @@ func_HOST_ARCHIVAGE_RSYNC(){
  if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
  if [ -z $RC               ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
+ if [ -z $HOST_RSYNC_SIM   ];then echo "La valeur Rsync Simulation est NULL"; fi
 
  # Si la valeur HOST_MOUNTPOINT est pas NULL, création d'une variable MOUNT.
  if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
 
  # Si la valeur Serveur,SHARE et MOUNTPOINT sont pas NULL alors lancer le script
- if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ];then
+ if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $HOST_RSYNC_SIM ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ];then
     # =====================================================================================================================================================================
     # Comparaison du point de montage avec le montage attendu
     if [ $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
      # =========================================================================================================================
       # Vérification des chemins de Rsync
       if [ $RC = 0 ]; then
-       for i in $(cat $HOME/rsync.txt | grep -v "^#")
-        do
-         rsync -avz --dry-run $i $HOST_MOUNTPOINT;
-        done
+        if [ $HOST_RSYNC_SIM = "oui" ]; then
+         for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done
+         fi
       fi
      if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
      # =========================================================================================================================
@@ -217,9 +226,6 @@ func_HOST_ARCHIVAGE_RSYNC(){
  fi
  read -p "";
 }
-
-
-
 
 
 ##################################################################################################################################################################################
@@ -269,8 +275,9 @@ echo "                     En Developpement                      #"
 echo "############################################################"
 echo "Menu A: Vérification des montages"
 echo "Menu B: Vérification des chemins de Rsync"
-echo "Menu C: Lancer la sauvegarde"
-echo "Menu D: Tuer Rsync (Urgence)"
+echo "Menu C: Mode Simulation"
+echo "Menu D: Lancer la sauvegarde"
+echo "Menu E: Tuer Rsync (Urgence)"
 echo "Menu I: Information sur le script"
 echo
 echo "############################################################"
@@ -338,16 +345,12 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  c|C)
- func_HOST_ARCHIVAGE_RSYNC; clear;
+  func_HOST_ARCHIVAGE_RSYNC_SIMU;
+  clear;
  ;;
  # ------------------------------------------------------------ #
  d|D)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu D #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
+ func_HOST_ARCHIVAGE_RSYNC; clear;
  ;;
  # ------------------------------------------------------------ #
  e|E)
@@ -451,6 +454,10 @@ while [ $MENU = 0 ];do func_MENU; func_CHOIX; done
 #if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
 #if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 #if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+#if [ -z $HOST_RSYNC_SIM   ];then echo "La valeur Rsync Simulation est NULL"; fi
+
+
+
 
 # Si les variables sont vides alors un message est envoyé
 #if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];echo "ERREUR"; fi
