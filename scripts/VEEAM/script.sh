@@ -3,7 +3,7 @@
 ########################################################################################################################################################################################
 # Menu 0 #
 ##########
-func_HOST_SERVEUR()  {
+func_SRV_ADRESS()  {
   read -p "Quel est l'adresse IP du serveur ? " HOST_SERVEUR
   HOST_SERVEUR=${HOST_SERVEUR:-192.168.20.3}
 }
@@ -11,7 +11,7 @@ func_HOST_SERVEUR()  {
 ########################################################################################################################################################################################
 # Menu 1 #
 ##########
-func_HOST_DOMAINE()  {
+func_SRV_DOMAINE()  {
   read -p "Quel est le nom de domaine ? " HOST_DOMAINE
   HOST_DOMAINE=${HOST_DOMAINE:-Local}
 }
@@ -19,7 +19,7 @@ func_HOST_DOMAINE()  {
 ########################################################################################################################################################################################
 # Menu 2 #
 ##########
-func_HOST_USERNAME() {
+func_SRV_USERNAME() {
   read -p "Quel est le nom de compte utilisateur ? " HOST_USERNAME
   HOST_USERNAME=${HOST_USERNAME:-marc}
 }
@@ -27,14 +27,14 @@ func_HOST_USERNAME() {
 ########################################################################################################################################################################################
 # Menu 3 #
 ##########
-func_HOST_PASSWORD() {
+func_SRV_PASSWORD() {
   read -p "Quel est le mot de passe du compte utilisateur ? " HOST_PASSWORD
   HOST_PASSWORD=${HOST_PASSWORD:-admin}
 }
 ########################################################################################################################################################################################
 # Menu 4 #
 ##########
-func_HOST_PARTAGE()  {
+func_SRV_PARTAGE()  {
   read -p "Quel est le nom de partage du serveur ? " HOST_SHARE
   HOST_SHARE=${HOST_SHARE:-marc}
 }
@@ -42,6 +42,10 @@ func_HOST_PARTAGE()  {
 ########################################################################################################################################################################################
 # Menu 5 - Point de montage #
 ##########
+func_HOST_MOUNT1()   {
+  read -p "Où souhaitez vous monter le partage sur la machine ? " HOST_MOUNTPOINT
+  HOST_MOUNTPOINT=${HOST_MOUNTPOINT:-/mnt/backup}
+}
 
 ########################################################################################################################################################################################
 # Menu 6 - Creation du dossier de montage #
@@ -85,12 +89,12 @@ echo ""
 ####################
 func_MENU()          {
 echo "################################################"
-echo "Menu 0: Serveur de partage"
-echo "Menu 1: Nom du domaine"
-echo "Menu 2: Nom d'utilisateur"
-echo "Menu 3: Mot de passe"
-echo "Menu 4: Nom du partage"
-echo "Menu 5: Point de montage"
+echo "Menu 0: Serveur de partage ($HOST_SERVEUR)"
+echo "Menu 1: Nom du domaine ($HOST_DOMAINE)"
+echo "Menu 2: Nom d'utilisateur ($HOST_USERNAME)"
+echo "Menu 3: Mot de passe ($HOST_PASSWORD)"
+echo "Menu 4: Nom du partage ($HOST_SHARE)"
+echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
 #echo "Menu 6: Creation du dossier de montage"
 #echo "Menu 7: Demontage du partage"
 #echo "Menu 8: Montage du partage"
@@ -113,7 +117,8 @@ case $choix in
  # ------------------------------------------------------------ #
  0)
   echo
-  func_HOST_SERVEUR;
+  func_SRV_ADRESS;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu 0 #"
   echo    "#-------------------------#"
@@ -123,7 +128,8 @@ case $choix in
  # ------------------------------------------------------------ #
  1)
   echo
-  func_HOST_DOMAINE;
+  func_SRV_DOMAINE;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu 1 #"
   echo    "#-------------------------#"
@@ -133,7 +139,8 @@ case $choix in
  # ------------------------------------------------------------ #
  2)
   echo
-  func_HOST_USERNAME;
+  func_SRV_USERNAME;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu 2 #"
   echo    "#-------------------------#"
@@ -143,7 +150,8 @@ case $choix in
  # ------------------------------------------------------------ #
  3)
   echo
-  func_HOST_PASSWORD;
+  func_SRV_PASSWORD;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu 3 #"
   echo    "#-------------------------#"
@@ -153,7 +161,8 @@ case $choix in
  # ------------------------------------------------------------ #
  4)
   echo
-  func_HOST_PARTAGE;
+  func_SRV_PARTAGE;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu 4 #"
   echo    "#-------------------------#"
@@ -162,11 +171,13 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  5)
- # echo
- # echo    "#-------------------------#"
- # echo    "# Bienvenue sur le menu 5 #"
- # echo    "#-------------------------#"
- # read -p ""
+  echo
+  func_HOST_MOUNT1;
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu 5 #"
+  echo    "#-------------------------#"
+  read -p ""
   clear;
  ;;
  # ------------------------------------------------------------ #
@@ -210,6 +221,7 @@ case $choix in
  r|R)
   echo
   func_RECAP;
+  echo
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu R #"
   echo    "#-------------------------#"
