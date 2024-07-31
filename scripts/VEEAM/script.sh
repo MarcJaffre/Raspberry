@@ -9,6 +9,19 @@ HOST_USERNAME="marc"
 HOST_PASSWORD="admin"
 HOST_SHARE="Media_5/TEST"
 HOST_MOUNTPOINT="/mnt/backup"
+
+####################################################################################################
+# CHECK #
+#########
+#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+#if [ -z $HOST_DOMAINE     ];then echo "La Valeur Serveur NULL"; fi
+#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
+
 ####################################################################################################
 # Menu 0  Adresse du Serveur de partage #
 #########################################
@@ -226,15 +239,21 @@ func_HOST_CHECK_RSYNC_FOLDER(){
 # Menu C - Lancer la sauvegarde #
 #################################
 func_HOST_ARCHIVAGE_RSYNC(){
+
+
+
+#
+#CHECK=$(mount | grep "//$HOST_SERVEUR/$HOST_SHARE on $HOST_MOUNTPOINT" | xargs -n3 2>/dev/null | head -n1)
+#if [ "$CHECK" == "//$HOST_SERVEUR/$HOST_SHARE on $HOST_MOUNTPOINT" ];then  echo "OK" fi
 # Verifier si le fichier contient du contenu
- if [ -s $HOME/rsync.txt ];then
-   for i in $(cat $HOME/rsync.txt)
-   do
-    rsync -avz $i $HOST_MOUNTPOINT;
-   done
- else
-  echo "Le fichier contenant les chemins à sauvegarder est vide."
- fi
+# if [ -s $HOME/rsync.txt ];then
+#   for i in $(cat $HOME/rsync.txt)
+#   do
+#    rsync -avz $i $HOST_MOUNTPOINT;
+#   done
+# else
+#  echo "Le fichier contenant les chemins à sauvegarder est vide."
+# fi
  read -p "";
 }
 
@@ -250,20 +269,6 @@ func_HOST_ARCHIVAGE_RSYNC(){
 ####################################################################################################
 # Menu I - Information sur le script #
 ######################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -460,13 +465,6 @@ case $choix in
  # ------------------------------------------------------------ #
  esac
 }
-
-
-
-
-
-
-
 
 ####################################################################################################
 # Nettoyage de la console #
