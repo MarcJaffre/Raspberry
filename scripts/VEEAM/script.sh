@@ -110,7 +110,9 @@ func_HOST_UMOUNT()   {
    fi
    # ================================================================
    if [ ! -z "$CHECK" ];then
-    echo "Le point de montage va être démonté";
+    umount $HOST_MOUNTPOINT;
+    echo
+    df -h /$HOST_MOUNTPOINT;
    fi
    # ================================================================
  # ====================================================================
@@ -120,11 +122,36 @@ func_HOST_UMOUNT()   {
 
 }
 
+####################################################################################################
+# Menu 8 - Montage du partage (Local) #
+#######################################
+func_HOST_MOUNT2()    {
+# [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
+ if [ -z "${HOST_MOUNTPOINT}" ];then
+  echo "Merci d'aller dans le menu 5 : Point de montage";
+ fi
+ if [ -z "${HOST_SERVEUR}" ];then
+  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
+ fi
+ # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
+ if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
+ # ====================================================================
+  # ===================================================================
+  systemctl daemon-reload;
+  # ===================================================================
+  mount -t cifs -o username=$HOST_USERNAME,password=$HOST_PASSWORD //$HOST_SERVEUR/$HOST_SHARE $HOST_MOUNTPOINT 2>/dev/null;
+  # ===================================================================
+  echo "Montage du Lecteur réseau terminé";
+ # ====================================================================
+ fi
+ # Pause
+ read -p "";
+}
 
 ####################################################################################################
-# Menu 8 - Montage du partage #
-###############################
-func_HOST_MOUNT2()    {
+# Menu 8 - Montage du partage (AD) #
+####################################
+func_HOST_MOUNT2_AD()  {
 # [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
@@ -134,24 +161,26 @@ func_HOST_MOUNT2()    {
   echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
  fi
 
-
  # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
  if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
-# # ====================================================================
-mount   \
--t cifs \
--o username="$HOST_USERNAME",password="$HOST_PASSWORD" \
-//$HOST_SERVEUR/$HOST_SHARE \
-$HOST_MOUNTPOINT;
-# ====================================================================
-fi
-
+ # ====================================================================
+ systemctl daemon-reload;
+ mount                       \
+ -t cifs                     \
+ -o                          \
+ domain=$HOST_DOMAINE,       \
+ username=$HOST_USERNAME,    \
+ password=$HOST_PASSWORD     \
+ //$HOST_SERVEUR/$HOST_SHARE \
+ $HOST_MOUNTPOINT            \
+ 2>/dev/null;
+ # ====================================================================
+  echo "Montage du Lecteur réseau terminé";
+ # ====================================================================
+ fi
  # Pause
  read -p "";
-
 }
-
-
 
 
 
@@ -161,6 +190,7 @@ fi
 # Menu 9 - Verification du montage #
 ####################################
 func_HOST_CHECKMOUNT(){
+ df -h /$HOST_MOUNTPOINT;
  # Pause
  read -p "";
 }
@@ -275,7 +305,6 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  8)
-  echo
   func_HOST_MOUNT2;
   clear;
  ;;
