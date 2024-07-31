@@ -10,8 +10,9 @@ clear;
 # Chargement Configuration #
 ############################
 
-
-settings
+if [ -f settings ]; then
+ source settings
+fi
 
 
 
