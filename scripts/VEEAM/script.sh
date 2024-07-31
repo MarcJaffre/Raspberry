@@ -79,7 +79,7 @@ echo "Identifiant    : $HOST_USERNAME";
 echo "Mot de passe   : $HOST_PASSWORD";
 echo "Nom du partage : $HOST_SHARE";
 echo "Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
-echo "Chemin local   : /mnt/backup"
+echo "Chemin local   : $HOST_MOUNTPOINT"
 echo "Action         : $HOST_ACTION"
 echo ""
 }
