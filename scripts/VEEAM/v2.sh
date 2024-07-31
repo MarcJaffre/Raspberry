@@ -9,6 +9,7 @@ clear;
 # Menu A: Code retour à revoir 
 # Menu E: A crée (Verifier si un backup est actif)
 # Menu F: A crée (Tuer Rsync en urgence)
+# Menu D: Lancer le processus en arrière plan
 # Menu I: Information sur l'auteur
 ##################################################################################################################################################################################
 
