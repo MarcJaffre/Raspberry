@@ -228,8 +228,10 @@ if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
 if [ ! -z $RC ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
 
 # CHECK
-CHECk=$"df -h /mnt/backup/ | tail -n 1 | cut -d " " -f 1"
+CHECK=$"df -h /mnt/backup/ | tail -n 1 | cut -d " " -f 1"
 
+if [ $(df -h /mnt/backup/ | tail -n 1 | cut -d " " -f 1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
+fi
 
 #//$HOST_SERVEUR/$HOST_SHARE
 
