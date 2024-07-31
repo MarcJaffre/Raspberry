@@ -16,25 +16,8 @@ HOST_SHARE="Media_5/TEST"
 HOST_MOUNTPOINT="/mnt/backup"
 
 
-#################################################################################################################################################
-# Verification #
-################
-# Si variable NULL, message envoyé
-#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
-#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
-#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
-#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
-#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
-#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 
-# Si le fichier est absent
-#if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
 
-# Si le fichier est vide
-#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
-
-# Si le réperoite n'existe pas
-# if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
 
 #################################################################################################################################################
 # Menu 0  Adresse du Serveur de partage #
@@ -211,22 +194,58 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  #
  # Verifier si le fichier est pas vide
  if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
- #
- # Lecture du fichier rsync, verification de repertoire. (Lecteur ligne par ligne)
- for i in $(cat $HOME/rsync.txt);do if [   -d $i ];then echo "[OK] Le répertoire existe       : $i"; fi done
- for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
- echo
- echo "Recommandation: Ne pas lancer la sauvegarde en cas d'erreur";
- #
+
+ # Lecture du fichier rsync ligne par ligne et affichage des erreurs. (RC = 1 signifie une erreur)
+ RC="0"
+ for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; RC=1; fi done
+ if [ $RC = 1 ]; then echo "Merci de corriger l'erreur sur le fichier rsync.txt"; fi
+ if [ $RC = 0 ]; then echo "Aucune erreur présent dans le fichier rsync"; fi 
  # Pause
  read -p "";
 }
+
+
+#################################################################################################################################################
+# Verification #
+################
+# Si variable est vide alors un message est envoyé
+#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+
+# Si les variables sont vides alors un message est envoyé
+#if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];echo "ERREUR"; fi
+
+# Si le répertoire n'existe pas alors un message est envoyé
+#if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
+
+# Si le fichier est absent alors un message est envoyé
+#if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
+
+# Si le fichier est vide alors un message est envoyé
+#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
+
+# Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
+# for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+
+
+
+
+
 #################################################################################################################################################
 # Menu C - Lancer la sauvegarde #
 #################################
 func_HOST_ARCHIVAGE_RSYNC(){
+ 
  read -p "";
 }
+
+
+
+
 #################################################################################################################################################
 # Contenu du Menu #
 ####################
