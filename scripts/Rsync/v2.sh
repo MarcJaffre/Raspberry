@@ -5,6 +5,8 @@
 #####################
 clear;
 
+# DATE=$(date +"%d-%m-%y__%H-%M")
+
 ##################################################################################################################################################################################
 # La fonction "func_HOST_MOUNT2" utilise un compte local. Pour une machine utilisant un domaine remplacer par func_HOST_MOUNT2_AD
 # Menu A: Code retour à revoir
@@ -248,7 +250,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
        # =================================================================================================================================================================
        if [ $RC = 0 ];then
            if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
-           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz $i $HOST_MOUNTPOINT; done;
+           elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz $i $HOST_MOUNTPOINT ; done;
            else echo "La valeur du Mode Simulation est incorrecte";
            fi
        fi
