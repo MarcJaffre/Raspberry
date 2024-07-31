@@ -7,7 +7,7 @@ HOST_SERVEUR="192.168.20.3"
 HOST_DOMAINE="Local"
 HOST_USERNAME="marc"
 HOST_PASSWORD="admin"
-HOST_SHARE="marc"
+HOST_SHARE="Media_5/TEST"
 HOST_MOUNTPOINT="/mnt/backup"
 ####################################################################################################
 # Menu 0  Adresse du Serveur de partage #
@@ -179,20 +179,94 @@ func_HOST_CHECKMOUNT(){
 # Menu R #
 ##########
 func_RECAP()         {
-clear;
-echo "# ====================================================== #";
-echo "#              Resumer de la configuration               #";
-echo "# ====================================================== #";
-echo "> Adresse IP     : $HOST_SERVEUR";
-echo "> Nom de domaine : $HOST_DOMAINE";
-echo "> Identifiant    : $HOST_USERNAME";
-echo "> Mot de passe   : $HOST_PASSWORD";
-echo "> Nom du partage : $HOST_SHARE";
-echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
-echo "> Chemin local   : $HOST_MOUNTPOINT"
-#echo "> Action         : $HOST_ACTION"
-echo ""
+ clear;
+ echo "# ====================================================== #";
+ echo "#              Resumer de la configuration               #";
+ echo "# ====================================================== #";
+ echo "> Adresse IP     : $HOST_SERVEUR";
+ echo "> Nom de domaine : $HOST_DOMAINE";
+ echo "> Identifiant    : $HOST_USERNAME";
+ echo "> Mot de passe   : $HOST_PASSWORD";
+ echo "> Nom du partage : $HOST_SHARE";
+ echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
+ echo "> Chemin local   : $HOST_MOUNTPOINT"
+ #echo "> Action         : $HOST_ACTION"
+ echo ""
 }
+
+
+####################################################################################################
+# Menu A - Editer le fichier des chemins à sauvegarder #
+########################################################
+func_HOST_EDIT_RSYNC_FILE(){
+  nano $HOME/rsync.txt;
+}
+
+####################################################################################################
+# Menu B - Vérification des chemins #
+#####################################
+func_HOST_CHECK_RSYNC_FOLDER(){
+ for i in $(cat $HOME/rsync.txt)
+ do
+  if [ -d $i ];then
+   echo "[OK] Le répertoire existe : $i"
+  fi
+ done
+
+ for i in $(cat $HOME/rsync.txt)
+ do
+  if [ ! -d $i ];then
+   echo "[KO] Le répertoire n'existe pas : $i"
+  fi
+ done
+ read -p "";
+}
+
+####################################################################################################
+# Menu C - Lancer la sauvegarde #
+#################################
+func_HOST_ARCHIVAGE_RSYNC(){
+# Verifier si le fichier contient du contenu
+ if [ -s $HOME/rsync.txt ];then
+   for i in $(cat $HOME/rsync.txt)
+   do
+    rsync -avz $i $HOST_MOUNTPOINT;
+   done
+ else
+  echo "Le fichier contenant les chemins à sauvegarder est vide."
+ fi
+ read -p "";
+}
+
+
+####################################################################################################
+# Menu D - Lancer la sauvegargde #
+##################################
+
+####################################################################################################
+# Menu E - Tuer Rsync (Urgence) #
+#################################
+
+####################################################################################################
+# Menu I - Information sur le script #
+######################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ####################################################################################################
 # Contenu du Menu #
 ####################
@@ -221,8 +295,9 @@ echo "############################################################"
 echo "Menu A: Editer le fichier des chemins à sauvegarder"
 echo "Menu B: Vérification des chemins"
 echo "Menu C: Lancer la sauvegarde"
-echo "Menu D: Lancer la sauvegargde"
+echo "Menu D: "
 echo "Menu E: Tuer Rsync (Urgence)"
+echo "Menu I: Information sur le script"
 echo
 echo "############################################################"
 echo "#          Actions Spécial sur le système                  #"
@@ -234,9 +309,6 @@ echo
 read -p "Indiquer votre choix: " choix
 echo
 }
-
-
-
 ####################################################################################################
 # Action du menu #
 ##################
@@ -295,28 +367,17 @@ case $choix in
  # ------------------------------------------------------------ #
  a|A)
   echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu A #"
-  echo    "#-------------------------#"
-  read -p ""
+  func_HOST_EDIT_RSYNC_FILE;
   clear;
  ;;
  # ------------------------------------------------------------ #
  b|B)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu B #"
-  echo    "#-------------------------#"
-  read -p ""
+  func_HOST_CHECK_RSYNC_FOLDER;
   clear;
  ;;
  # ------------------------------------------------------------ #
  c|C)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu C #"
-  echo    "#-------------------------#"
-  read -p ""
+  func_HOST_ARCHIVAGE_RSYNC;
   clear;
  ;;
  # ------------------------------------------------------------ #
@@ -365,6 +426,15 @@ case $choix in
   clear;
  ;;
  # ------------------------------------------------------------ #
+ i|I)
+  echo
+  echo    "#-------------------------#"
+  echo    "# Bienvenue sur le menu I #"
+  echo    "#-------------------------#"
+  read -p ""
+  clear;
+ ;;
+ # ------------------------------------------------------------ #
  r|R)
   func_RECAP;
   echo
@@ -392,6 +462,12 @@ case $choix in
 }
 
 
+
+
+
+
+
+
 ####################################################################################################
 # Nettoyage de la console #
 ###########################
@@ -401,27 +477,26 @@ clear;
 # Récupération de l'ID en cours #
 #################################
 ID=$(id -u)
-
 ####################################################################################################
 # Vérification Root #
 #####################
-if [[ $ID = 0 ]];
- then
-  MENU=0;
- else
-  echo "Veuiller lancer le script depuis root"
-  MENU=1;
+if [[ $ID = 0 ]];then
+ # =============================================
+ MENU=0;
+ # =============================================
+else
+ # =============================================
+ echo "Veuiller lancer le script depuis root"
+ MENU=1;
+ # =============================================
 fi
-
-
-
 ####################################################################################################
 # Boucle Infinie #
 ##################
-
 # Si le compte est root ($MENU) alors lancer la fonction.
 while [ $MENU = 0 ];
  do
   func_MENU;
   func_CHOIX;
  done
+####################################################################################################
