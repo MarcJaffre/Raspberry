@@ -15,6 +15,7 @@ echo "Menu 6: Creation du dossier de montage"
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
 echo "Menu 9: Verification du montage"
+echo "Menu R: Résumer des actions"
 echo "Menu Q: Quitter le menu"
 echo "################################################"
 echo
