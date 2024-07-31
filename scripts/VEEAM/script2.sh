@@ -236,13 +236,14 @@ func_RECAP()         {
  echo "# ====================================================== #";
  echo "#              Resumer de la configuration               #";
  echo "# ====================================================== #";
- echo "> Adresse IP     : $HOST_SERVEUR";
- echo "> Nom de domaine : $HOST_DOMAINE";
- echo "> Identifiant    : $HOST_USERNAME";
- echo "> Mot de passe   : $HOST_PASSWORD";
- echo "> Nom du partage : $HOST_SHARE";
- echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
- echo "> Chemin local   : $HOST_MOUNTPOINT"
+ echo "> Adresse IP      : $HOST_SERVEUR";
+ echo "> Nom de domaine  : $HOST_DOMAINE";
+ echo "> Identifiant     : $HOST_USERNAME";
+ echo "> Mot de passe    : $HOST_PASSWORD";
+ echo "> Nom du partage  : $HOST_SHARE";
+ echo "> Chemin UNC      : //$HOST_SERVEUR/$HOST_SHARE";
+ echo "> Chemin local    : $HOST_MOUNTPOINT"
+ echo "> Mode Simulation : $HOST_RSYNC_SIM";
  #echo "> Action         : $HOST_ACTION"
  echo "# ====================================================== #";
 }
@@ -275,7 +276,7 @@ echo "                     En Developpement                      #"
 echo "############################################################"
 echo "Menu A: Vérification des montages"
 echo "Menu B: Vérification des chemins de Rsync"
-echo "Menu C: Mode Simulation"
+echo "Menu C: Mode Simulation ($HOST_RSYNC_SIM)"
 echo "Menu D: Lancer la sauvegarde"
 echo "Menu E: Tuer Rsync (Urgence)"
 echo "Menu I: Information sur le script"
