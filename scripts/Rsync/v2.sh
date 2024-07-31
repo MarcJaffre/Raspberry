@@ -504,7 +504,7 @@ case $choix in
  # ------------------------------------------------------------ #
  t|T)
   echo
-  func_BACKUP_CONFIG
+  func_BACKUP_CONFIG;
   echo    "#-------------------------#"
   echo    "# Bienvenue sur le menu T #"
   echo    "#-------------------------#"
