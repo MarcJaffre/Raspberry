@@ -5,7 +5,6 @@
 #####################
 clear;
 
-
 ##################################################################################################################################################################################
 # La fonction "func_HOST_MOUNT2" utilise un compte local. Pour une machine utilisant un domaine remplacer par func_HOST_MOUNT2_AD
 # Menu A: Code retour à revoir
