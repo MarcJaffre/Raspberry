@@ -252,6 +252,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
            if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
            elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do
             ###########################################################################################################################################################################
+            if [ ! -d $HOST_MOUNTPOINT/Journal ];then mkdir $HOST_MOUNTPOINT/Journal; fi            
             echo "##########################################################################################################################"
             echo "# Lancement   : $(date +"%d/%m/%y à %H:%M")                                                                               "
             echo "# Fichier log : $HOST_MOUNTPOINT/Journal/$DATE.log;                                                                       "
@@ -313,7 +314,6 @@ func_RECAP()         {
 
 ##################################################################################################################################################################################
 func_BACKUP_CONFIG(){
-
 echo "######################################
 HOST_SERVEUR=\"$HOST_SERVEUR\"
 HOST_DOMAINE=\"$HOST_DOMAINE\"
