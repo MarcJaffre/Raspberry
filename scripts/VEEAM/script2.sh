@@ -241,15 +241,11 @@ if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
 if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
 if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 
-
-if [ ! -z $HOST_MOUNTPOINT ];then
- MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1)
-fi
-
-if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ]; then
-  
- echo "OK"
-fi
+# Creation d'une variable MOUNT qui servira de comparatif à la prochaine étape
+#if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
+#if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ]; then
+# if [ $MOUNT == "//$HOST_SERVEUR/$HOST_SHARE" ];then echo "OK" fi
+#fi
 
 #//$HOST_SERVEUR/$HOST_SHARE
 # //192.168.20.3/Media_5/TEST
