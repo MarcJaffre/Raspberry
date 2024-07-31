@@ -76,12 +76,6 @@ func_ACTION()        {
   read -p "Quel action souhaitez-vous faire ? (archivage, restauration) " HOST_ACTION
   HOST_ACTION=${HOST_ACTION:-archivage}
 }
-
-
-
-
-
-
 ########################################################################################################################################################################################
 func_RECAP()         {
 clear;
@@ -99,21 +93,43 @@ echo "Action         : $HOST_ACTION"
 echo ""
 }
 
-########################################################################################################################################################################################
-# Question #
-############
-func_HOST_SERVEUR;
-func_HOST_DOMAINE;
-func_HOST_USERNAME;
-func_HOST_PASSWORD;
-func_HOST_PARTAGE;
-#func_MOUNT_AD;
-func_ACTION;
 
-func_RECAP;
-func_MKDIR;
-func_UMOUNT;
-func_MOUNT;
+########################################################################################################################################################################################
+# Menu de Selection #
+#####################
+func_MENU()          {
+echo "################################################"
+echo "Menu L: "
+echo "Menu 1: "
+echo "Menu 2: "
+echo "Menu 3: "
+echo "Menu 4: "
+echo "Menu 5: "
+echo "Menu 6: "
+echo "Menu 7: "
+echo "Menu 8: "
+echo "Menu 9: "
+echo "Menu Q: Quitter le menu"
+echo "################################################"
+echo
+read -p "Indiquer votre choix: " choix
+
+}
+
+
+########################################################################################################################################################################################
+
+#func_HOST_SERVEUR;
+#func_HOST_DOMAINE;
+#func_HOST_USERNAME;
+#func_HOST_PASSWORD;
+#func_HOST_PARTAGE;
+#func_MOUNT_AD;
+#func_ACTION;
+#func_RECAP;
+#func_MKDIR;
+#func_UMOUNT;
+#func_MOUNT;
 
 ########################################################################################################################################################################################
 # Note #
