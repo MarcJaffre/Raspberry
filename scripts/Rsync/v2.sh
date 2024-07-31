@@ -252,11 +252,11 @@ func_HOST_ARCHIVAGE_RSYNC(){
            if   [ $HOST_RSYNC_SIM = "oui" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do rsync -avz --dry-run $i $HOST_MOUNTPOINT; done;
            elif [ $HOST_RSYNC_SIM = "non" ];then for i in $(cat $HOME/rsync.txt | grep -v "^#");do 
             echo "######################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
-            echo "# Debut de l'archivage : $(date +"%d-%m-%y__%H-%M") pour le dossier $i                                " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
+            echo "# Debut de l'archivage : $(date +"%d%m%y_%H%M%S") pour le dossier $i                                  " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                       >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             rsync -avz $i $HOST_MOUNTPOINT                                                                                >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                       >> $HOST_MOUNTPOINT/Journal/$DATE.log;
-            echo "# Fin de l'archivage : $(date +"%d-%m-%y__%H-%M") pour le dossier $i                                  " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
+            echo "# Fin de l'archivage : $(date +"%d%m%y_%H%M%S") pour le dossier $i                                    " >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo "######################################################################################################" >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                       >> $HOST_MOUNTPOINT/Journal/$DATE.log;
             echo ""                                                                                                       >> $HOST_MOUNTPOINT/Journal/$DATE.log;
