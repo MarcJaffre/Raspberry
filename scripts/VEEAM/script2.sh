@@ -236,21 +236,28 @@ func_HOST_ARCHIVAGE_RSYNC(){
 # Garde Fou
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
-if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
-if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
-if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
-if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+ if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+ if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+ if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 
-# Creation d'une variable MOUNT qui servira de comparatif à la prochaine étape
-if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
+ # Creation 
+ if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
 
-if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $MOUNT ]; then
-  if [ $MOUNT == "//$HOST_SERVEUR/$HOST_SHARE" ];then echo "OK"; fi
-fi
+
+ 
+ # Si aucune valeur est NULL, lancer la sauvegarde
+# if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $MOUNT ]; then
+ if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ]; then
+    # Verification du point de montage disponible
+#    if [ $MOUNT == "//$HOST_SERVEUR/$HOST_SHARE" ];then
+    if [ $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
+       echo "Point de montage disponible";  
+    fi
+ fi
 
 #//$HOST_SERVEUR/$HOST_SHARE
 # //192.168.20.3/Media_5/TEST
-
 
 # 
 # if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
