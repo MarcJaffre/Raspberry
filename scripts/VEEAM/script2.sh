@@ -14,7 +14,7 @@ HOST_USERNAME="marc"
 HOST_PASSWORD="admin"
 HOST_SHARE="Media_5/TEST"
 HOST_MOUNTPOINT="/mnt/backup"
-HOST_RSYNC_SIMULATION="oui"
+HOST_RSYNC_SIM="oui"
 RC=""
 
 ##################################################################################################################################################################################
@@ -245,12 +245,12 @@ func_RECAP()         {
  echo "> Nom du partage  : $HOST_SHARE";
  echo "> Chemin UNC      : //$HOST_SERVEUR/$HOST_SHARE";
  echo "> Chemin local    : $HOST_MOUNTPOINT"
+ echo
  echo "# ====================================================== #";
  echo "#             Information sur la sauvegarde              #";  
  echo "# ====================================================== #";
- echo "> Mode Simulation : $HOST_RSYNC_SIM";
- echo "> Nb de dossier   : $NUMBER_LINE_BACKUP";
- #echo "> Action         : $HOST_ACTION"
+ echo "> Etat du mode Simulation      : $HOST_RSYNC_SIM";
+ echo "> Nb de dossier à sauvegarder  : $NUMBER_LINE_BACKUP";
  echo "# ====================================================== #";
 }
 
