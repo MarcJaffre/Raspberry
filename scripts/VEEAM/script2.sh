@@ -237,16 +237,18 @@ func_HOST_ARCHIVAGE_RSYNC(){
  if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
 
- # Creation 
+ # Si la valeur HOST_MOUNTPOINT est pas NULL, création d'une variable MOUNT.
  if [ ! -z $HOST_MOUNTPOINT ];then MOUNT=$(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1); fi
 
  
- # Si la valeur Serveur, nom du partage et le point de montage est pas NULL alors lancer le script
- if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ]; then
+ # Si la valeur Serveur,SHARE et MOUNTPOINT sont pas NULL alors lancer le script
+ if [ ! -z $HOST_SERVEUR ] && [ ! -z $HOST_SHARE ] && [ ! -z $HOST_MOUNTPOINT ] && [ ! -z $RC ] && [ ! -z $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) ];then
+    #
     # Comparaison du point de montage avec le montage attendu
     if [ $(df -h $HOST_MOUNTPOINT | tail -n 1 | cut -d " " -f1) == "//$HOST_SERVEUR/$HOST_SHARE" ];then
        echo "Point de montage disponible";  
     fi
+    # 
  fi
 
 
