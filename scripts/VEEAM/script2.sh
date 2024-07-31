@@ -233,6 +233,7 @@ func_HOST_ARCHIVAGE_RSYNC(){
 # Menu R #
 ##########
 func_RECAP()         {
+ NUMBER_LINE_BACKUP=$(cat rsync.txt | wc -l)
  clear;
  echo "# ====================================================== #";
  echo "#              Resumer de la configuration               #";
@@ -244,7 +245,11 @@ func_RECAP()         {
  echo "> Nom du partage  : $HOST_SHARE";
  echo "> Chemin UNC      : //$HOST_SERVEUR/$HOST_SHARE";
  echo "> Chemin local    : $HOST_MOUNTPOINT"
+ echo "# ====================================================== #";
+ echo "#             Information sur la sauvegarde              #";  
+ echo "# ====================================================== #";
  echo "> Mode Simulation : $HOST_RSYNC_SIM";
+ echo "> Nb de dossier   : $NUMBER_LINE_BACKUP";
  #echo "> Action         : $HOST_ACTION"
  echo "# ====================================================== #";
 }
