@@ -90,7 +90,7 @@ func_HOST_MKDIR()    {
  if [ -z $HOST_MOUNTPOINT   ];then echo  "La Valeur Point de montage NULL"; fi
  #
  # Si le point de montage existe deja,un message est envoyé
- if [ -d $HOST_MOUNTPOINT   ];then echo  "> Le dossier de montage existe déjà."; fi
+ if [ ! -z $HOST_MOUNTPOINT   ] && [ -d $HOST_MOUNTPOINT   ];then echo  "> Le dossier de montage existe déjà."; fi
  #
  # Si le point de montage n'existe pas,un message est envoyé
  if [ ! -d $HOST_MOUNTPOINT ];then mkdir -p $HOST_MOUNTPOINT; echo "> Le dossier de montage a ete cree."; fi
@@ -106,9 +106,11 @@ func_HOST_UMOUNT()   {
  # Verification si la variable est NULL,un message est envoyé
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+
  #
  # Demontage
- if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];then umount $HOST_MOUNTPOINT; fi
+ if [ ! -z "${HOST_SERVEUR}" ] &&  [ ! -z $HOST_SHARE ] & [ ! -z "${HOST_MOUNTPOINT}" ];then umount $HOST_MOUNTPOINT; fi
  #
  # Pause
  read -p "";
@@ -120,6 +122,7 @@ func_HOST_MOUNT2()  {
  # En cas de variable Vide, un message est envoyé
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ 
  #
  # Creation de Variable ponctuellement pour la suite des commandes
  OPTION="username=$HOST_USERNAME,password=$HOST_PASSWORD"
