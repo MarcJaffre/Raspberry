@@ -79,26 +79,37 @@ func_HOST_MKDIR()    {
 # Menu 7 - Demontage du partage #
 #################################
 func_HOST_UMOUNT()   {
- Si la variable est HOST_MOUNTPOINT est vide :
+# [Garde Fou] Si la variable est HOST_MOUNTPOINT est vide :
  if [ -z "${HOST_MOUNTPOINT}" ];then
   echo "Merci d'aller dans le menu 5 : Point de montage";
  fi
- if [ ! -z "${HOST_MOUNTPOINT}" ];then
-    CHECK=$(df -h $HOST_MOUNTPOINT | grep $HOST_SERVEUR)
-    echo "$HOST_MOUNTPOINT $HOST_SERVEUR"
-    if [ -z "$CHECK" ];then
-     echo "Le point de montage est present";
-    fi
+
+ if [ -z "${HOST_SERVEUR}" ];then
+  echo "Merci d'aller dans le menu 0 : Adresse du Serveur de partage";
  fi
+
+
+ # Si variable HOST_MOUNTPOINT et HOST_SERVEUR ne sont pas vide :
+ if [ ! -z "${HOST_MOUNTPOINT}" ] && [ ! -z "${HOST_SERVEUR}" ];then
+# ====================================================================
+    # Verifier le montage
+    CHECK=$(df -h $HOST_MOUNTPOINT | grep $HOST_SERVEUR)
+    # ================================================================
+    # Si le montage correspond pas a ce qu'on souhaite
+    if [ -z "$CHECK" ];then
+     echo "Le point de montage n'est pas monté";
+    fi
+    # ================================================================
+    if [ ! -z "$CHECK" ];then
+     echo "Le point de montage va être démonté";
+    fi
+    # ================================================================
+# ====================================================================
+ fi
+ 
  # Pause
- # read -p "";
-
-#}
-
-
-
-
-
+ read -p "";
+}
 
 
 ########################################################################################################################################################################################
