@@ -14,7 +14,7 @@ clear;
 # Menu I: Information sur l'auteur
 # Autre : DIFF REPERTOIRE pour connaitre le nombre de dossier parent à backupper
 #       : Demonter volume a la fin de la sauvegarde
-#       : Purge de la log
+#       : Purge de la log https://www.nas-forum.com/forum/topic/68267-script-linux-configuration-de-check-de-r%C3%A9tention-de-fichiers-de-backups/
 ##################################################################################################################################################################################
 
 ##################################################################################################################################################################################
