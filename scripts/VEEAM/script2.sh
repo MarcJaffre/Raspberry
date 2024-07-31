@@ -85,7 +85,7 @@ func_HOST_UMOUNT()   {
  if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
  #
  # Si les valeurs sont pas NULL, démonter le point de montage
- if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];then umount -l $HOST_MOUNTPOINT; fi
+ if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];then umount -l $HOST_MOUNTPOINT; echo "> Demontage de la partition $HOST_MOUNTPOINT"; fi
  #
  # Pause
  read -p "";
