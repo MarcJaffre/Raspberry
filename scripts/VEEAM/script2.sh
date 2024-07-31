@@ -9,8 +9,6 @@ clear;
 # Menu C en cours !!!
 #################################################################################################################################################
 
-
-
 #################################################################################################################################################
 # Verification #
 ################
@@ -36,9 +34,6 @@ clear;
 
 # Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
 # for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
-
-
-
 
 #################################################################################################################################################
 # Bypass #
@@ -175,47 +170,28 @@ func_HOST_MOUNT2_AD()  {
 }
 
 #################################################################################################################################################
-# Menu 9 - Verification du montage #
-####################################
-#func_HOST_CHECKMOUNT(){
- # En cas de variable Vide, un message est envoyé
- #if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
- #
- # Si la variable est pas null, verification du montage
- #if [ ! -z "${HOST_MOUNTPOINT}" ]; then df -h /$HOST_MOUNTPOINT; fi
- # Pause
- #read -p "";
-#}
-
-#################################################################################################################################################
-# Menu R #
-##########
-func_RECAP()         {
- clear;
- echo "# ====================================================== #";
- echo "#              Resumer de la configuration               #";
- echo "# ====================================================== #";
- echo "> Adresse IP     : $HOST_SERVEUR";
- echo "> Nom de domaine : $HOST_DOMAINE";
- echo "> Identifiant    : $HOST_USERNAME";
- echo "> Mot de passe   : $HOST_PASSWORD";
- echo "> Nom du partage : $HOST_SHARE";
- echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
- echo "> Chemin local   : $HOST_MOUNTPOINT"
- #echo "> Action         : $HOST_ACTION"
- echo "# ====================================================== #";
-}
-
-#################################################################################################################################################
-# Menu A - Editer le fichier des chemins à sauvegarder #
+# Menu 9 - Editer le fichier des chemins à sauvegarder #
 ########################################################
 func_HOST_EDIT_RSYNC_FILE(){
  nano $HOME/rsync.txt;
 }
 
 #################################################################################################################################################
-# Menu B - Vérification des chemins #
-#####################################
+# Menu A - Verification du montage #
+####################################
+func_HOST_CHECKMOUNT(){
+ # En cas de variable Vide, un message est envoyé
+ if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+ #
+ # Si la variable est pas null, verification du montage
+ if [ ! -z "${HOST_MOUNTPOINT}" ]; then df -h /$HOST_MOUNTPOINT; fi
+ # Pause
+ read -p "";
+}
+
+#################################################################################################################################################
+# Menu B - Vérification des chemins de Rsync #
+##############################################
 func_HOST_CHECK_RSYNC_FOLDER(){
  # Si fichier absent ou vide, message d'erreur.
  if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
@@ -237,24 +213,71 @@ func_HOST_CHECK_RSYNC_FOLDER(){
  # Pause
  read -p "";
 }
+
+
 #################################################################################################################################################
-# Menu C - Lancer la sauvegarde #
+# Menu D - Lancer la sauvegarde #
 #################################
-func_HOST_ARCHIVAGE_RSYNC(){
- if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
- if [ ! -z $RC ];then
+#func_HOST_ARCHIVAGE_RSYNC(){
+# Verification Valeur NULL
+#if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
+#if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
+#if [ -z $HOST_PASSWORD    ];then echo "La Valeur PASSWORD NULL"; fi
+#if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
+#if [ -z $HOST_SHARE       ];then echo "La Valeur Partage NULL"; fi
+#if [ -z $HOST_MOUNTPOINT  ];then echo "La Valeur Point de montage NULL"; fi
+#if [ -z $RC               ];then echo "La variable RC (rsync) est NULL"; fi
+
+# Si valeur RC = 1
+#if [ ! -z $RC             ];then if [ $RC = 1 ];then echo "La valeur RC est en erreur"; fi fi
+
+# if [ -z $RC ];then echo "Merci de lancer la vérification de Rsync via le menu B"; fi
+# if [ ! -z $RC ];then
    # =========================================================================================================================
-   if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
+   #if [ $RC = 1 ]; then echo "La vérification du fichier Rsync est incorrecte, merci de lancer le menu A puis le B"; fi
    # =========================================================================================================================   
-   if [ $RC = 0 ]; then echo "Tout est OK"; fi
-
-
-
-
-   
+   #if [ $RC = 0 ]; then echo "Tout est OK"; fi
    # =========================================================================================================================
- fi
- read -p "";
+ #fi
+ #read -p "";
+#}
+
+#################################################################################################################################################
+# Verification avant Backup #
+#############################
+
+# Si les variables sont vides alors un message est envoyé
+#if [ ! -z "${HOST_SERVEUR}" ] && [ ! -z "${HOST_MOUNTPOINT}" ];echo "ERREUR"; fi
+
+# Si le répertoire n'existe pas alors un message est envoyé
+#if [ ! -d $HOST_MOUNTPOINT ];then echo  "> Le dossier de montage n'existe déjà."; fi
+
+# Si le fichier est absent alors un message est envoyé
+#if [ ! -f $HOME/rsync.txt ];then echo "Le fichier rsync.txt est absent"; fi
+
+# Si le fichier est vide alors un message est envoyé
+#if [ ! -s $HOME/rsync.txt ];then echo "Le fichier rsync.txt est vide"; fi
+
+# Pour chaque ligne du fichier rsync, vérifier si le dossier n'existe pas et indique qu'il existe.
+# for i in $(cat $HOME/rsync.txt);do if [ ! -d $i ];then echo "[KO] Le répertoire n'existe pas : $i"; fi done
+
+#################################################################################################################################################
+# Menu R #
+##########
+func_RECAP()         {
+ clear;
+ echo "# ====================================================== #";
+ echo "#              Resumer de la configuration               #";
+ echo "# ====================================================== #";
+ echo "> Adresse IP     : $HOST_SERVEUR";
+ echo "> Nom de domaine : $HOST_DOMAINE";
+ echo "> Identifiant    : $HOST_USERNAME";
+ echo "> Mot de passe   : $HOST_PASSWORD";
+ echo "> Nom du partage : $HOST_SHARE";
+ echo "> Chemin UNC     : //$HOST_SERVEUR/$HOST_SHARE";
+ echo "> Chemin local   : $HOST_MOUNTPOINT"
+ #echo "> Action         : $HOST_ACTION"
+ echo "# ====================================================== #";
 }
 
 
@@ -278,15 +301,15 @@ echo "Menu 5: Point de montage ($HOST_MOUNTPOINT)"
 echo "Menu 6: Creation du dossier de montage"
 echo "Menu 7: Demontage du partage"
 echo "Menu 8: Montage du partage"
-#echo "Menu 9: Verification du montage"
+echo "Menu 9: Editer le fichier des chemins à sauvegarder "
 echo
 echo "############################################################"
 echo "                     En Developpement                      #"
 echo "############################################################"
-echo "Menu A: Editer le fichier des chemins à sauvegarder"
-echo "Menu B: Vérification des chemins"
-echo "Menu C: Lancer la sauvegarde"
-echo "Menu D: "
+echo "Menu A: Vérification des montages"
+echo "Menu B: Vérification des chemins de Rsync"
+echo "Menu C: "
+echo "Menu D: Lancer la sauvegarde"
 echo "Menu E: Tuer Rsync (Urgence)"
 echo "Menu I: Information sur le script"
 echo
@@ -342,12 +365,12 @@ case $choix in
   func_HOST_MOUNT2; clear;
  ;;
  # ------------------------------------------------------------ #
- #9)
- # func_HOST_CHECKMOUNT; clear;
- #;;
+ 9)
+ func_HOST_EDIT_RSYNC_FILE; clear;
+ ;;
  # ------------------------------------------------------------ #
  a|A)
-  func_HOST_EDIT_RSYNC_FILE; clear;
+  func_HOST_CHECKMOUNT; clear;
  ;;
  # ------------------------------------------------------------ #
  b|B)
@@ -355,16 +378,11 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  c|C)
-  func_HOST_ARCHIVAGE_RSYNC; clear;
+ clear;
  ;;
  # ------------------------------------------------------------ #
  d|D)
-  echo
-  echo    "#-------------------------#"
-  echo    "# Bienvenue sur le menu D #"
-  echo    "#-------------------------#"
-  read -p ""
-  clear;
+  func_HOST_ARCHIVAGE_RSYNC; clear;
  ;;
  # ------------------------------------------------------------ #
  e|E)
