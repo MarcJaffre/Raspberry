@@ -22,8 +22,31 @@ if [ $BYPASS = "ON" ];then
 fi
 
 ####################################################################################################################################################################################################################
-# Fonction X: XXXXXXXXXXXXXXXXXXX #
-###################################
+# Fonction 1: Menu principal #
+##############################
+afficher_menu() {
+     clear
+     echo "================================================="
+     echo "===== Menu Interactif by Marc Jaffre (v0.1) ====="
+     echo "================================================="
+     echo "1. Modifier l'IP ($IP)"
+     echo "2. Modifier le Domaine ($DOMAINE)"
+     echo "3. Modifier le Login ($LOGIN)"
+     echo "4. Modifier le Password"
+     echo "5. Modifier le Nom du Partage ($NOM_PARTAGE)"
+     echo "6. Modifier le Point de Montage ($POINT_MONTAGE)"
+     echo "================================================="
+     echo "7. Monter le partage CIFS"
+     echo "8. Démonter le partage CIFS"
+     echo "9. Vérifier le Point de Montage"
+     echo "================================================="
+     echo "10. Éditer le fichier rsync.txt"
+     echo "11. Vérifier le contenu de rsync.txt"
+     echo "================================================="
+     echo "12. Quitter"
+     echo -n "Choisissez une option: "
+}
+
 
 ####################################################################################################################################################################################################################
 # Fonction X: XXXXXXXXXXXXXXXXXXX #
