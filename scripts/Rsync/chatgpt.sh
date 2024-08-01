@@ -101,20 +101,21 @@ edit_rsync_file() {
 # Fonction pour vérifier le contenu de rsync.txt #
 ##################################################
 check_rsync_content() {
+ # ================================================================================================
  local file="rsync.txt"
- if [ ! -f "$file" ]; then
-  echo "Le fichier $file n'existe pas."
-  return
- fi
-
- while IFS= read -r line; do
+ local rc=0
+ # ================================================================================================
+ if [ -f "$file" ]; then while IFS= read -r line; do
+   # ==============================================================================================
    # Ignorer les lignes commentées
    if [[ ! "$line" =~ ^# ]]; then
-      if [ ! -d "$line" ]; then
-       echo "Erreur: Le chemin '$line' n'existe pas."
-      fi
+      if [ ! -d "$line" ]; then echo "Erreur: Le chemin '$line' n'existe pas."; rc=1 ; fi
    fi
- done < "$file"
+   done < "$file"
+   # ==============================================================================================
+ else echo "Le fichier $file n'existe pas."; rc=1 ; fi
+ # ================================================================================================
+  return $rc
 }
 
 
