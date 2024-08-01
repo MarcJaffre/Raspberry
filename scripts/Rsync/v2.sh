@@ -431,12 +431,9 @@ case $choix in
  ;;
  # ------------------------------------------------------------ #
  8)
-  if [ $AD = 0 ];then
-   func_HOST_MOUNT2
-  elif [ $AD = 1 ];then
-   func_HOST_MOUNT2_AD
-  else
-   echo "Menu 8 en anomalie"
+  if [ $AD = 0 ];then   func_HOST_MOUNT2;
+  elif [ $AD = 1 ];then func_HOST_MOUNT2_AD;
+  else                  echo "Menu 8 en anomalie";
   fi
   clear;
  ;;
@@ -478,6 +475,7 @@ case $choix in
   echo    "#-------------------------#"
   read -p ""
   clear;
+ # ------------------------------------------------------------ #
  ;;
  i|I)
   echo
