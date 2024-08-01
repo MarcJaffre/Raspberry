@@ -6,10 +6,20 @@
 # Vérification que le script est lancé en tant que root
 if [ "$EUID" -ne 0 ]; then echo "Ce script doit être exécuté en tant que root."; exit 1; fi
 
+# Forcer Variable au question 
+BYPASS="ON"
 
 ####################################################################################################################################################################################################################
-# Fonction X: XXXXXXXXXXXXXXXXXXX #
-###################################
+# Bypass - Variables par défaut #
+#################################
+if [ $BYPASS = "ON" ];then
+  IP="192.168.1.1"
+  DOMAINE="example.com"
+  LOGIN="user"
+  PASSWORD="password"
+  NOM_PARTAGE="partage"
+  POINT_MONTAGE="/mnt/partage"
+fi
 
 ####################################################################################################################################################################################################################
 # Fonction X: XXXXXXXXXXXXXXXXXXX #
