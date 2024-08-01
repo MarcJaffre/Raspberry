@@ -52,9 +52,7 @@ configure_variable() {
  local var_name="$1"
  local var_value="$2"
  read -p "Entrez la nouvelle valeur pour $var_name ($var_value): " new_value
- if [ -n "$new_value" ]; then
-   eval "$var_name=\"$new_value\""
- fi
+ if [ -n "$new_value" ]; then eval "$var_name=\"$new_value\"";  fi
 }
 
 ####################################################################################################################################################################################################################
@@ -63,14 +61,9 @@ configure_variable() {
 mount_share() {
  systemctl daemon-reload
  read -p "Voulez-vous monter (m) ou démonter (d) le partage? " action
- if [ "$action" == "m" ]; then
-   mount -t cifs -o username=$LOGIN,password=$PASSWORD //$IP/$SHARE_NAME $MOUNT_POINT
-   echo "Partage monté."
- elif [ "$action" == "d" ]; then
-   umount $MOUNT_POINT
-   echo "Partage démonté."
- else
-   echo "Action non reconnue."
+ if [ "$action" == "m" ]; then  mount -t cifs -o username=$LOGIN,password=$PASSWORD //$IP/$SHARE_NAME $MOUNT_POINT; echo "Partage monté."
+ elif [ "$action" == "d" ]; then umount $MOUNT_POINT; echo "Partage démonté."
+ else echo "Action non reconnue."
  fi
 }
 
@@ -79,10 +72,8 @@ mount_share() {
 # Fonction pour vérifier le point de montage #
 ##############################################
 check_mount_point() {
- if mountpoint -q "$MOUNT_POINT"; then
-   echo "Le point de montage $MOUNT_POINT est actif."
- else
-   echo "Le point de montage $MOUNT_POINT n'est pas actif."
+ if mountpoint -q "$MOUNT_POINT"; then echo "Le point de montage $MOUNT_POINT est actif."
+ else echo "Le point de montage $MOUNT_POINT n'est pas actif."
  fi
 }
 
@@ -91,9 +82,7 @@ check_mount_point() {
 #############################################
 edit_rsync_file() {
  local file="rsync.txt"
- if [ ! -f "$file" ]; then
-   touch "$file"
- fi
+ if [ ! -f "$file" ]; then touch "$file"; fi
   nano "$file"
 }
 
