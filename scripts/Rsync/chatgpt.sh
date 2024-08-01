@@ -156,7 +156,17 @@ main
 
 ####################################################################################################################################################################################################################
 # Prompt:
-#
+# Pourrais tu m'écrire un script bash sous forme de menu interactif en utilisant des fonctions.
+# Etape 0: Vérifier que le script est lancer en root
+# Etape 1: A chaque choix le menu sélectionner, un clear doit être fait
+# Etape 2: Un choix disponible par question dans le menu avec récupération de la question dans une variable (IP, Domaine, login, password, nom du partage, point de montage)
+# Dans le menu on doit voir la valeur actuel de la variable entre parenthèse après le menu (Exemple: Identifiant ($MONUSER))
+# Chaque variable des question auras une valeur prédéfinie sur A.
+# 
+# Etape 3: Un choix qui permet de monter / démonter le partage CIFS utilisant la version 3. La commande systemctl daemon-reload doit être lancer avant chaque action.
+# Etape 4: Un choix qui permet de vérifier en comparant le point de montage actuel avec le montage qu'on veut.
+# Etape 5: Un choix pour éditer un fichier nommer rsync.txt avec vérification de contenu et s'il existe, de plus il doit ignorer les lignes commentaires "#".
+# Etape 6: Un choix qui met à zéro la valeur RC, vérifie le chemin de chaque ligne et un indique un code RC=1 en cas d'erreur
 #
 #
 #
