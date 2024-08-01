@@ -207,19 +207,20 @@ func_HOST_CHECKMOUNT(){
 # Menu B - Vérification des chemins de Rsync #
 ##############################################
 func_HOST_CHECK_RSYNC_FOLDER(){
- # Si fichier absent ou vide, message d'erreur.
+ #  Si le  fichier est vide ou n'existe pas alors message d'erreur.
  if [[ ! -s $HOME/rsync.txt || ! -f $HOME/rsync.txt ]]; then echo "Le fichier rsync.txt est absent ou vide"; fi
  # Création d'une variable servant au check
  RC="0"
- # Si fichier présent et pas vide alors poursuivre
+ # Si le fichier a du contenu et existe alors poursuivre
  if [[ -s $HOME/rsync.txt || -f $HOME/rsync.txt ]]; then
-  # Lecture du fichier rsync par ligne puis verification si le chemin existe, si erreur RC=1. (RC=0)
+  # Lecture du fichier rsync par ligne en excluant les lignes commençant par #.
   for i in $(cat $HOME/rsync.txt | grep -v "^#");do
+   # Verification de l'existance du dossier pour chaque ligne. En cas d'erreur, un message est afficher.
    if [ ! -d $i ];then
     echo "-------------------------------------------------------------"
     echo "[KO] Problème sur la ligne du fichier rsync : $i"; RC=1; fi
   done
-  # Si erreur précédemment, le code RC sera sur 1. Sinon RC sera sur 0.
+  # Selon le code retour (RC = 0 ou 1), un message apparait.
   if [ $RC = 1 ]; then echo; echo "Veuiller aller dans le menu A pour coriger l'erreur"; fi
   if [ $RC = 0 ]; then       echo "Aucune erreur présent dans le fichier rsync"; fi
   #
@@ -239,7 +240,7 @@ func_HOST_ARCHIVAGE_RSYNC_SIMU(){
 # Menu D - Lancer la sauvegarde #
 #################################
 func_HOST_ARCHIVAGE_RSYNC(){
-# Garde Fou
+# Si variable vide, un message est envoyé
  if [ -z $HOST_SERVEUR     ];then echo "La Valeur Serveur NULL"; fi
  if [ -z $HOST_DOMAINE     ];then echo "La Valeur DOMAINE NULL"; fi
  if [ -z $HOST_USERNAME    ];then echo "La Valeur USERNAME NULL"; fi
@@ -337,7 +338,6 @@ HOST_MOUNTPOINT=\"$HOST_MOUNTPOINT\"
 HOST_RSYNC_SIM=\"$HOST_RSYNC_SIM\"
 ######################################" > settings;
 }
-
 
 ##################################################################################################################################################################################
 # Contenu du Menu #
@@ -474,25 +474,6 @@ case $choix in
   read -p ""
   clear;
  ;;
- # ------------------------------------------------------------ #
- #g|G)
- # echo
- # echo    "#-------------------------#"
- # echo    "# Bienvenue sur le menu G #"
- # echo    "#-------------------------#"
- # read -p ""
- # clear;
- #;;
- # ------------------------------------------------------------ #
- #h|H)
- # echo
- # echo    "#-------------------------#"
- # echo    "# Bienvenue sur le menu H #"
- # echo    "#-------------------------#"
- # read -p ""
- # clear;
- #;;
- # ------------------------------------------------------------ #
  i|I)
   echo
   echo    "#-------------------------#"
