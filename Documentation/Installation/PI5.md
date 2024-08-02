@@ -135,8 +135,6 @@ apt update 1>/dev/null;
 # gpg --export <the-reported-key> | apt-key add -
 ```
 
-
-
 #### X. Paquets
 ```bash
 clear;
@@ -237,6 +235,24 @@ mount -a;
 df -h | grep "Mounte\|/mnt/Media";
 ```
 
+#### X. Configuration du SWAP
+```bash
+clear;
+SWAP_OLD=$(grep CONF_SWAPSIZE /etc/dphys-swapfile | cut -d "=" -f2)
+SWAP_NEW=200
+
+# Editer
+sed -i -e "s/$SWAP_OLD/$SWAP_NEW/g" /etc/dphys-swapfile;
+
+# Detruire le Swap
+dphys-swapfile swapoff;
+
+# Creation du Swap
+dphys-swapfile setup 1>/dev/null;
+
+# Activation du Swap
+dphys-swapfile swapon;
+```
 
 #### X. Check Codec 
 ```bash
