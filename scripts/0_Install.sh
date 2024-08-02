@@ -484,9 +484,9 @@ fi
 #####################################################################################################################################################################################################################################################################
 # FIX - CGROUP #
 ################
-if [ $(hostname) = PI5 ]; then
-  sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
-fi
+#if [ $(hostname) = PI5 ]; then
+#  sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+#fi
 
 
 
