@@ -163,11 +163,11 @@ fi
 EOF
 ```
 
-### FIX
+### Purger tout les Volumes
 ```bash
 clear;
 systemctl restart docker.socket;
-docker volume rm $(ls /var/lib/docker/volumes | grep -v "backingFsBlockDev\|.db") 2>/dev/null
+#docker volume rm $(ls /var/lib/docker/volumes | grep -v "backingFsBlockDev\|.db") 2>/dev/null
 ```
 
 
