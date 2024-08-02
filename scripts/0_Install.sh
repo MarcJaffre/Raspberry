@@ -61,9 +61,9 @@ echo "# =================================================
 #auto $NET_IF
 allow-hotplug $NET_IF
 iface $NET_IF inet static
-  address $NET_PI5_IP
-  gateway $NET_PI5_GW
-  dns-nameservers $NET_PI5_DNS1 $NET_PI5_DNS2
+  address $NET_PI3_IP
+  gateway $NET_PI3_GW
+  dns-nameservers $NET_PI3_DNS1 $NET_PI3_DNS2
 # =================================================" > /etc/network/interfaces.d/ethernet;
 fi
 
