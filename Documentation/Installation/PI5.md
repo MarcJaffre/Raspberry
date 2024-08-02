@@ -147,8 +147,9 @@ apt install -y cifs-utils;
 apt install -y cockpit;
 #apt install -y cockpit-machines;
 #apt install -y cockpit-packagekit;
+apt install -y cockpit-pcp;
 #apt install -y cockpit-podman;
-apt install -y cockpit-storaged
+apt install -y cockpit-storaged;
 apt install -y curl;
 apt install -y git;
 apt install -y gnupg;
