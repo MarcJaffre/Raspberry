@@ -126,16 +126,16 @@ echo "yes" | rpi-update rpi-6.6.y;
 # Installation de paquet #
 ##########################
 apt install -y ca-certificates 1>/dev/null;
-apt install -y btop 1>/dev/null;
-apt install -y cifs-utils 1>/dev/null;
-apt install -y curl 1>/dev/null;
-apt install -y git 1>/dev/null;
-apt install -y gnupg 1>/dev/null;
-apt install -y make 1>/dev/null;
-apt install -y ntfs-3g 1>/dev/null;
-apt install -y nfs-common 1>/dev/null;
-apt install -y qrencode 1>/dev/null;
-apt install -y wget 1>/dev/null;
+apt install -y btop            1>/dev/null;
+apt install -y cifs-utils      1>/dev/null;
+apt install -y curl            1>/dev/null;
+apt install -y git             1>/dev/null;
+apt install -y gnupg           1>/dev/null;
+apt install -y make            1>/dev/null;
+apt install -y ntfs-3g         1>/dev/null;
+apt install -y nfs-common      1>/dev/null;
+apt install -y qrencode        1>/dev/null;
+apt install -y wget            1>/dev/null;
 apt install -f -y;
 
 #####################################################################################################################################################################################################################################################################
@@ -143,10 +143,10 @@ apt install -f -y;
 ########################
 if [ ! -Z $COCKPIT ]; then
   if [ $COCKPIT = 1 ]; then 
-    apt install -y cockpit 1>/dev/null;
-    #apt install -y cockpit-machines;
-    #apt install -y cockpit-packagekit;
-    apt install -y cockpit-pcp 1>/dev/null;
+    apt install -y cockpit             1>/dev/null;
+    #apt install -y cockpit-machines   1>/dev/null;
+    #apt install -y cockpit-packagekit 1>/dev/null;
+    apt install -y cockpit-pcp         1>/dev/null;
     #apt install -y cockpit-podman;
     apt install -y cockpit-storaged 1>/dev/null;
     apt install -y lvm2 1>/dev/null;
@@ -186,12 +186,12 @@ if [ $(hostname) = PI5 ]; then
 
   # Ajout de montage
   echo '# ==================================================================================================
-  LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-  LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-  LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-  LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-  LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-  # ==================================================================================================' >> /etc/fstab;
+LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+# ==================================================================================================' >> /etc/fstab;
 
   # Mise a jour SystemD
   systemctl daemon-reload;
