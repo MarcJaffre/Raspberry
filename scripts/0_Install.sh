@@ -136,39 +136,39 @@ apt install -f -y;
 #####################################################################################################################################################################################################################################################################
 # Installation Cockpit #
 ########################
-
-if [ ! -Z $COCKPIT ]; then 
-apt install -y cockpit;
-#apt install -y cockpit-machines;
-#apt install -y cockpit-packagekit;
-apt install -y cockpit-pcp;
-#apt install -y cockpit-podman;
-apt install -y cockpit-storaged;
-apt install -y lvm2;
-apt install -y realmd;
-apt install -y tuned;
-apt install -y udisks2-lvm2;
-apt install -f -y;
-
-# Cockpit - Explorateur de fichier
-git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
-cd /tmp/cockpit-navigator 1>/dev/null;
-make install;
-
-# Cockpit - Partages
-wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
-dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
-
-# Cockpit - Identities
-wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
-dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
-
-# Autoriser Root (Cockpit)
-sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
-
-# Activation du service
-systemctl enable --now cockpit;
-
+if [ ! -Z $COCKPIT ]; then
+  if [ $COCKPIT = 1 ]; then 
+    apt install -y cockpit;
+    #apt install -y cockpit-machines;
+    #apt install -y cockpit-packagekit;
+    apt install -y cockpit-pcp;
+    #apt install -y cockpit-podman;
+    apt install -y cockpit-storaged;
+    apt install -y lvm2;
+    apt install -y realmd;
+    apt install -y tuned;
+    apt install -y udisks2-lvm2;
+    apt install -f -y;
+    
+    # Cockpit - Explorateur de fichier
+    git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
+    cd /tmp/cockpit-navigator 1>/dev/null;
+    make install;
+    
+    # Cockpit - Partages
+    wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
+    dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
+    
+    # Cockpit - Identities
+    wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
+    dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
+    
+    # Autoriser Root (Cockpit)
+    sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
+    
+    # Activation du service
+    systemctl enable --now cockpit;
+  fi
 fi
 
 
@@ -201,13 +201,14 @@ fi
 #####################################################################################################################################################################################################################################################################
 # Docker #
 ##########
-install -m 0755 -d /etc/apt/keyrings;
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
-chmod a+r /etc/apt/keyrings/docker.gpg;
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update 1>/dev/null;
-apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-
+if [ $(hostname) = PI5 ]; then
+  install -m 0755 -d /etc/apt/keyrings;
+  curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+  chmod a+r /etc/apt/keyrings/docker.gpg;
+  echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+  apt update 1>/dev/null;
+  apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+fi
 
 #####################################################################################################################################################################################################################################################################
 # Docker-Compose #
@@ -221,10 +222,11 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
 #####################################################################################################################################################################################################################################################################
 # Docker Volume SnapShot #
 ##########################
-SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
-curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot;
-chmod +x /usr/local/bin/docker-volume-snapshot;
-
+if [ $(hostname) = PI5 ]; then
+  SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
+  curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot;
+  chmod +x /usr/local/bin/docker-volume-snapshot;
+fi
 
 #####################################################################################################################################################################################################################################################################
 # Retarder Docker #
@@ -246,16 +248,14 @@ fi
 # Serveur de Fichier #
 ######################
 if [ $(hostname) = PI5 ]; then
-# =======================================================================================================================================
-apt install -y samba;
-apt install -y samba-common;
-apt install -y smbclient;
-
-# Sauvegarde du fichier de base
-mv /etc/samba/smb.conf /etc/samba/smb.conf.old;
-
-# Partage
-cat > /etc/samba/smb.conf << EOF
+  # =======================================================================================================================================
+  apt install -y samba;
+  apt install -y samba-common;
+  apt install -y smbclient;
+  # Sauvegarde du fichier de base
+  mv /etc/samba/smb.conf /etc/samba/smb.conf.old;
+  # Partage
+  cat > /etc/samba/smb.conf << EOF
 [global]
 ## Browsing/Identification ###
    workgroup = WORKGROUP
@@ -412,19 +412,18 @@ recycle:versions        = true
 # ======================= END SAMBA ===============================
 EOF
 
-# Verification
-testparm -s /etc/samba/smb.conf;
+  # Verification
+  testparm -s /etc/samba/smb.conf;
 
-# Creation de l-access Samba
-(echo "admin"; echo "admin") | smbpasswd -a $(id -u -n 1000)
+  # Creation de l-access Samba
+  (echo "admin"; echo "admin") | smbpasswd -a $(id -u -n 1000)
 
-# Action du compte Samba
-smbpasswd -e $(id -u -n 1000);
+  # Action du compte Samba
+  smbpasswd -e $(id -u -n 1000);
 
-# Relance du service
-systemctl restart smbd;
-
-# =======================================================================================================================================
+  # Relance du service
+  systemctl restart smbd;
+  # =======================================================================================================================================
 fi
 
 
@@ -433,7 +432,6 @@ fi
 #####################
 apt install -y avahi-daemon;
 apt install -y wsdd;
-
 
 #####################################################################################################################################################################################################################################################################
 # Docker - Creation de Portainer #
