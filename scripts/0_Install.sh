@@ -147,12 +147,12 @@ if [ ! -Z $COCKPIT ]; then
     #apt install -y cockpit-machines   1>/dev/null;
     #apt install -y cockpit-packagekit 1>/dev/null;
     apt install -y cockpit-pcp         1>/dev/null;
-    #apt install -y cockpit-podman;
-    apt install -y cockpit-storaged 1>/dev/null;
-    apt install -y lvm2 1>/dev/null;
-    apt install -y realmd 1>/dev/null;
-    apt install -y tuned 1>/dev/null;
-    apt install -y udisks2-lvm2 1>/dev/null;
+    #apt install -y cockpit-podman     1>/dev/null;
+    apt install -y cockpit-storaged    1>/dev/null;
+    apt install -y lvm2                1>/dev/null;
+    apt install -y realmd              1>/dev/null;
+    apt install -y tuned               1>/dev/null;
+    apt install -y udisks2-lvm2        1>/dev/null;
     apt install -f -y;
 
     # Cockpit - Explorateur de fichier
