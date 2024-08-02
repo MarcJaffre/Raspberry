@@ -120,17 +120,17 @@ echo "yes" | rpi-update rpi-6.6.y;
 #####################################################################################################################################################################################################################################################################
 # Installation de paquet #
 ##########################
-apt install -y ca-certificates;
-apt install -y btop;
-apt install -y cifs-utils;
-apt install -y curl;
-apt install -y git;
-apt install -y gnupg;
-apt install -y make;
-apt install -y ntfs-3g;
-apt install -y nfs-common;
-apt install -y qrencode;
-apt install -y wget;
+apt install -y ca-certificates 1>/dev/null;
+apt install -y btop 1>/dev/null;
+apt install -y cifs-utils 1>/dev/null;
+apt install -y curl 1>/dev/null;
+apt install -y git 1>/dev/null;
+apt install -y gnupg 1>/dev/null;
+apt install -y make 1>/dev/null;
+apt install -y ntfs-3g 1>/dev/null;
+apt install -y nfs-common 1>/dev/null;
+apt install -y qrencode 1>/dev/null;
+apt install -y wget 1>/dev/null;
 apt install -f -y;
 
 #####################################################################################################################################################################################################################################################################
@@ -138,34 +138,34 @@ apt install -f -y;
 ########################
 if [ ! -Z $COCKPIT ]; then
   if [ $COCKPIT = 1 ]; then 
-    apt install -y cockpit;
+    apt install -y cockpit 1>/dev/null;
     #apt install -y cockpit-machines;
     #apt install -y cockpit-packagekit;
-    apt install -y cockpit-pcp;
+    apt install -y cockpit-pcp 1>/dev/null;
     #apt install -y cockpit-podman;
-    apt install -y cockpit-storaged;
-    apt install -y lvm2;
-    apt install -y realmd;
-    apt install -y tuned;
-    apt install -y udisks2-lvm2;
+    apt install -y cockpit-storaged 1>/dev/null;
+    apt install -y lvm2 1>/dev/null;
+    apt install -y realmd 1>/dev/null;
+    apt install -y tuned 1>/dev/null;
+    apt install -y udisks2-lvm2 1>/dev/null;
     apt install -f -y;
-    
+
     # Cockpit - Explorateur de fichier
     git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
     cd /tmp/cockpit-navigator 1>/dev/null;
     make install;
-    
+
     # Cockpit - Partages
     wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
     dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
-    
+
     # Cockpit - Identities
     wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
     dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
-    
+
     # Autoriser Root (Cockpit)
     sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
-    
+
     # Activation du service
     systemctl enable --now cockpit;
   fi
