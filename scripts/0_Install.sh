@@ -140,13 +140,13 @@ apt install -y qrencode;
 apt install -y wget;
 apt install -f -y;
 
-
 #####################################################################################################################################################################################################################################################################
 # Installation Cockpit #
 ########################
 apt install -y cockpit;
 #apt install -y cockpit-machines;
 #apt install -y cockpit-packagekit;
+apt install -y cockpit-pcp;
 #apt install -y cockpit-podman;
 apt install -y cockpit-storaged;
 apt install -y lvm2;
