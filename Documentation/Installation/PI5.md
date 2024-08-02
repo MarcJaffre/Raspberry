@@ -164,7 +164,6 @@ apt install -y udisks2-lvm2;
 apt install -y wget;
 apt install -y wsdd;
 
-
 # Cockpit - Explorateur de fichier
 git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
 cd /tmp/cockpit-navigator 1>/dev/null;
@@ -180,6 +179,12 @@ dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
 
 sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
 ```
+
+```
+chown -r cockpit-ws:cockpit-ws /etc/cockpit;
+```
+
+
 
 
 #### X. Mise à jour des paquets du Raspberry
