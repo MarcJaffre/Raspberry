@@ -226,17 +226,31 @@ if [ $(hostname) = PI5 ]; then
   # Niveau de journalisation (ContainerD)
   sed -i -e "s/\#\[debug\]/\[debug\]/g" /etc/containerd/config.toml;
   sed -i -e "s/\#  level \= \"info\"/  level \= \"warn\"/g" /etc/containerd/config.toml;
-  systemctl restart docker.service docker.socket;
+
+  # Daemon.json
+  cat > daemon.json << EOF
+{
+  "data-root":  "/var/lib/docker",
+  "debug":      false,
+  "log-level":  "warn"
+}
+EOF
+
+  # Relance du service:
+  systemctl restart docker.socket;
+  systemctl restart docker.service;
+  
 fi
 
 #####################################################################################################################################################################################################################################################################
 # Docker-Compose #
 ##################
-rm  /usr/local/bin/docker-compose /usr/bin/docker-compose 2>/dev/null;
-curl -L https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-armv7 -o /usr/local/bin/docker-compose 2>/dev/null;
-chmod +x /usr/local/bin/docker-compose;nan  i
-ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
-
+if [ $(hostname) = PI5 ]; then
+  rm  /usr/local/bin/docker-compose /usr/bin/docker-compose 2>/dev/null;
+  curl -L https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-armv7 -o /usr/local/bin/docker-compose 2>/dev/null;
+  chmod +x /usr/local/bin/docker-compose;nan  i
+  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
+fi
 
 #####################################################################################################################################################################################################################################################################
 # Docker Volume SnapShot #
@@ -500,7 +514,9 @@ fi
 #####################################################################################################################################################################################################################################################################
 # Portainer #
 #############
-docker-compose -f /root/portainer.yml up -d;
+if [ $(hostname) = PI5 ]; then
+  docker-compose -f /root/portainer.yml up -d;
+fi
 
 #####################################################################################################################################################################################################################################################################
 # Portainer - Fix #
