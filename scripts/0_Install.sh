@@ -84,7 +84,6 @@ iface $NET_IF inet static
 fi
 systemctl restart networking;
 
-
 #####################################################################################################################################################################################################################################################################
 # Dépôts des logiciels #
 ########################
@@ -202,7 +201,6 @@ LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,n
 fi
 
 
-
 #####################################################################################################################################################################################################################################################################
 # Activation du Control Group #
 ###############################
@@ -212,7 +210,6 @@ if [ $(hostname) = PI5 ]; then
   # cat /proc/cgroups
   # findmnt -lo source,target,fstype,options -t cgroup,cgroup2
 fi
-
 
 #####################################################################################################################################################################################################################################################################
 # Docker #
@@ -233,7 +230,6 @@ rm  /usr/local/bin/docker-compose /usr/bin/docker-compose 2>/dev/null;
 curl -L https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-armv7 -o /usr/local/bin/docker-compose 2>/dev/null;
 chmod +x /usr/local/bin/docker-compose;nan  i
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
-
 
 #####################################################################################################################################################################################################################################################################
 # Docker Volume SnapShot #
@@ -258,10 +254,6 @@ if [ $(hostname) = PI5 ]; then
 fi
 #After=network-online.target docker.socket firewalld.service containerd.service time-set.target mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 #Wants=network-online.target containerd.service                                                 mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
-
-
-
-
 
 #####################################################################################################################################################################################################################################################################
 # Serveur de Fichier #
@@ -503,11 +495,9 @@ fi
 #############
 docker-compose -f /root/portainer.yml up -d;
 
-
-
 #####################################################################################################################################################################################################################################################################
 # Portainer - Fix #
 ###################
 #docker-compose -f /root/portainer.yml down 2>/dev/null;
 #sed -i -e "s/192.168.20.2/192.168.20.3/g" /var/lib/docker/volumes/root_Data/_data/portainer.db;
-#docker-compose -f /root/portainer.yml up -d;
+#docker-compose -f /root/portainer.yml up -d;s
