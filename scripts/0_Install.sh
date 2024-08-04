@@ -1,5 +1,17 @@
 #!/usr/bin/bash
 
+
+#####################################################################################################################################################################################################################################################################
+# Docker - Activation de la limitation materiel #
+#################################################
+if [ $(hostname) = PI5 ]; then
+  #cgroup_enable=memory swapaccount=1cgroup_memory=1 cgroup_enable=cpuset
+  # /proc/cgroups
+  sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1/g" /boot/firmware/cmdline.txt;
+fi
+
+
+
 #####################################################################################################################################################################################################################################################################
 # A FAIRE: Rsync Serveur
 # Docker Restore :  tar - can-t open /source/warez_Qbittorrent.tar : No such file or directory
@@ -247,13 +259,7 @@ fi
 #Wants=network-online.target containerd.service                                                 mnt-Media_1.mount mnt-Media_2.mount mnt-Media_3.mount mnt-Media_4.mount mnt-Media_5.mount
 
 
-#####################################################################################################################################################################################################################################################################
-# Docker - Activation de la limitation materiel #
-#################################################
-if [ $(hostname) = PI5 ]; then
-  #cgroup_enable=memory swapaccount=1cgroup_memory=1 cgroup_enable=cpuset
-  sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1/g" /boot/firmware/cmdline.txt;
-fi
+
 
 
 #####################################################################################################################################################################################################################################################################
