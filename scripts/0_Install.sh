@@ -206,9 +206,10 @@ fi
 ###############################
 # Pour permettre la gestion des ressources, il faut activer les Cgroups (Docker)
 if [ $(hostname) = PI5 ]; then
-  sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0/g" /boot/firmware/cmdline.txt;
+  sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
   # cat /proc/cgroups
   # findmnt -lo source,target,fstype,options -t cgroup,cgroup2
+  # docker info | grep WARNING;
 fi
 
 #####################################################################################################################################################################################################################################################################
