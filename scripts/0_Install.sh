@@ -47,7 +47,7 @@ source settings;
 #########################
 echo "" > /etc/motd;
 
-#####################################################################################################################################################################################################################################################################
+#############################0########################################################################################################################################################################################################################################
 # Autoriser SSH en root #
 #########################
 sed -i -e "s/^#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config;
@@ -222,6 +222,11 @@ if [ $(hostname) = PI5 ]; then
   echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
   apt update 1>/dev/null;
   apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+
+  # Niveau de journalisation (ContainerD)
+  sed -i -e "s/\#\[debug\]/\[debug\]/g" /etc/containerd/config.toml;
+  sed -i -e "s/\#  level \= \"info\"/  level \= \"warn\"/g" /etc/containerd/config.toml;
+  systemctl restart docker.service docker.socket;
 fi
 
 #####################################################################################################################################################################################################################################################################
@@ -231,6 +236,7 @@ rm  /usr/local/bin/docker-compose /usr/bin/docker-compose 2>/dev/null;
 curl -L https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-armv7 -o /usr/local/bin/docker-compose 2>/dev/null;
 chmod +x /usr/local/bin/docker-compose;nan  i
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose;
+
 
 #####################################################################################################################################################################################################################################################################
 # Docker Volume SnapShot #
