@@ -4,12 +4,12 @@
 #####################################################################################################################################################################################################################################################################
 # Docker - Activation de la limitation materiel #
 #################################################
-if [ $(hostname) = PI5 ]; then
+#if [ $(hostname) = PI5 ]; then
   #cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset
   # cat /proc/cgroups
   # findmnt -lo source,target,fstype,options -t cgroup,cgroup2
-  sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
-fi
+  #sed -i -e "s/rootwait/rootwait cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+#fi
 
 
 
