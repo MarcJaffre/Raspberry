@@ -22,7 +22,7 @@
 # - Misea jour de l-eeprom, noyau ...
 # - Installation de logiciel Outils
 # - Installation de Cockpit et de ses extensions
-# - Installation de la decouverte reseau
+# - Installation de la decouverte reseau + FIX (Interface eth0 / ipv4 only)
 # - Montage du stockage sur la machine (NTFS)
 # - Installation de Docker et de ses composants
 # - Installation et configuration du serveur de fichier
