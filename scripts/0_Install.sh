@@ -22,7 +22,7 @@
 # - Misea jour de l-eeprom, noyau ...
 # - Installation de logiciel Outils
 # - Installation de Cockpit et de ses extensions
-# - Installation de la decouverte reseau + FIX (Interface eth0 / ipv4 only)
+# - Installation de la decouverte reseau + Fix
 # - Montage du stockage sur la machine (NTFS)
 # - Installation de Docker et de ses composants
 # - Installation et configuration du serveur de fichier
@@ -473,9 +473,8 @@ fi
 apt install -y avahi-daemon;
 apt install -y wsdd;
 
-# Ecouter que sur eth0 (ipv4) 
-sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4\"/g" /etc/default/wsdd
-
+# Ecouter que sur eth0 et wlan0 en ipv4 uniquement 
+sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4 -i wlan0 -4\"/g" /etc/default/wsdd;
 
 
 #####################################################################################################################################################################################################################################################################
