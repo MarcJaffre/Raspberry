@@ -762,7 +762,7 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 <br />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-### VII. Scripts de migrartion
+### VII. Scripts de migration
 
 #### X.  Sauvegarde et restauration d'un serveur Docker
 Le paramètre `create` permet de lancer la sauvegarde alors que le paramètre `restore` permet la restauration.
