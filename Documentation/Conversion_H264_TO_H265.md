@@ -35,6 +35,19 @@ suivre :
    - `-preset medium` détermine la vitesse de compression (vous pouvez utiliser `slow`, `medium`, ou `fast` selon vos besoins).
    - `-crf 28` est le facteur de qualité (0 est la meilleure qualité, 51 est la pire ; 28 est un bon compromis).
 
+
+```bash
+clear;
+INPUT="/mnt/media/monfilm.mkv"
+OUTPUT="/mnt/media/monfilm_H265.mkv"
+ffmpeg -i "$INPUT";
+ffmpeg -i "$INPUT" -c:v libx265 -preset medium -crf 28 "$OUTPUT"
+``` 
+
+
+
+
+
 ### Étape 3 : Vérifier la conversion
 
 Après la conversion, vous pouvez vérifier que le fichier a bien été converti en H.265 en utilisant la commande suivante :
