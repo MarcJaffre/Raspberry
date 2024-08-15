@@ -111,9 +111,7 @@ if (( $VALIDATION == y || $VALIDATION == o ));then
     echo "";
    done
    # Relances des conteneurs
-   for i in $(docker ps --format '{{.Names}}');do docker start $i; done
-   
-   
+   for i in $(docker ps -a --format '{{.Names}}');do docker start $i; done  
 fi
 #######################################################################################################################
 EOF
