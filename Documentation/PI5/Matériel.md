@@ -16,7 +16,7 @@ rpivid (platform:rpivid):
  /dev/media2
 ```
 
-##### X. 
+##### X. Détails du matériel
 ```bash
 clear;
 for device in $(ls /dev/video* | xargs -n 1); do
@@ -28,7 +28,7 @@ done
 ```
 
 
-### X.
+### X. Format prise en charge
 ```bash
 clear;
 for device in $(ls /dev/video* | xargs -n 1); do
