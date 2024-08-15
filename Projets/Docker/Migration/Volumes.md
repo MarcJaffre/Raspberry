@@ -96,22 +96,28 @@ read -p "Souhaitez vous lancer la sauvegarder ? (o|y) " VALIDATION
 # Sauvegarde completes des volumes #
 ####################################
 if (( $VALIDATION == y || $VALIDATION == o ));then
+   ####################################################################################################################
    # Arret des conteneurs
+   clear;
+   echo "Arrêt des conteneurs pendant la sauvegarde";
    for i in $(docker ps --format '{{.Names}}');do docker stop $i; done
-   # Lister les volumes
-   for VOLUME in $(ls /var/lib/docker/volumes | sort -n | grep -v "$EXLUSION")
-   do
-    # Actions par volume
-    echo "___________________________________________________________________________________________________________"
-    echo "Le volume $VOLUME est en cours de sauvegarde";
-    # ----------------------------------------------------------------------------- #
-    docker-volume-snapshot create "$VOLUME" "$DATASTORE/$VOLUME.tar" 1>/dev/null;
-    # ----------------------------------------------------------------------------- #
-    if [ $? = 0 ]; then echo "Le volume $VOLUME est sauvegardé"; fi
-    echo "";
+   ####################################################################################################################
+   # Realisation de la sauvegarde
+   for VOLUME in $(ls /var/lib/docker/volumes | sort -n | grep -v "$EXLUSION"); do
+     # Actions par volume
+     echo "___________________________________________________________________________________________________________"
+     echo "Le volume $VOLUME est en cours de sauvegarde";
+     # ----------------------------------------------------------------------------- #
+     docker-volume-snapshot create "$VOLUME" "$DATASTORE/$VOLUME.tar" 1>/dev/null;
+     # ----------------------------------------------------------------------------- #
+     if [ $? = 0 ]; then echo "Le volume $VOLUME est sauvegardé"; fi
+     echo "";
    done
-   # Relances des conteneurs
-   for i in $(docker ps -a --format '{{.Names}}');do docker start $i; done  
+   ####################################################################################################################
+   # Relance des conteneurs
+   echo "Démarrage des conteneurs.";
+   for i in $(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
+   ####################################################################################################################
 fi
 #######################################################################################################################
 EOF
@@ -150,25 +156,30 @@ read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 #######################################################################################################################
 # Restauration #
 ################
-if (( \$VALIDATION == y || \$VALIDATION == o ));then
+if (( $VALIDATION == y || $VALIDATION == o ));then
+   ####################################################################################################################
    # Arret des conteneurs
+   clear;
+   echo "Arrêt des conteneurs pendant la sauvegarde";
    for i in $(docker ps --format '{{.Names}}');do docker stop $i; done
-
-   for VOLUME in \$(ls \$DATASTORE | cut -d "." -f1 | xargs -n1)
+   ####################################################################################################################
+   # Restauration des volumes
+   for VOLUME in $(ls $DATASTORE | cut -d "." -f1 | xargs -n1)
    do
-    # Actions par volume
-    echo "# --------------------------------------------------------- #";
-    echo "Restauration du volume \$VOLUME en cours";
-    # ----------------------------------------------------------------------------- #
-    docker-volume-snapshot restore \$DATASTORE/\$VOLUME.tar \$VOLUME 1>/dev/null;
-    # ----------------------------------------------------------------------------- #
-    echo "Restauration terminée";
-    echo "";
+     # Actions par volume
+     echo "___________________________________________________________________________________________________________"
+     echo "Restauration du volume $VOLUME en cours";
+     # ----------------------------------------------------------------------------- #
+     docker-volume-snapshot restore $DATASTORE/$VOLUME.tar $VOLUME 1>/dev/null;
+     # ----------------------------------------------------------------------------- #
+     echo "Restauration du volume $VOLUME terminée";
+     echo "";
    done
-
-   # Relances des conteneurs
-   for i in $(docker ps --format '{{.Names}}');do docker start $i; done
-
+   ####################################################################################################################
+   # Relance des conteneurs
+   echo "Démarrage des conteneurs.";
+   for i in $(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
+   ####################################################################################################################   
 fi
 #######################################################################################################################
 EOF
