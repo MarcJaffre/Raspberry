@@ -117,6 +117,7 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
    # Relance des conteneurs
    echo "Démarrage des conteneurs.";
    for i in \$(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
+   for i in \$(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
    ####################################################################################################################
 fi
 #######################################################################################################################
