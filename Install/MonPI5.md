@@ -241,11 +241,11 @@ df -h | grep "Mounte\|/mnt/Media";
 ```
 
 #### X. Configuration du SWAP
-La valeur du Swap par défaut est de 200.
+La valeur du Swap par défaut est de 200. (Stocké: /var/swap)
 ```bash
 clear;
 SWAP_OLD=$(grep CONF_SWAPSIZE /etc/dphys-swapfile | cut -d "=" -f2)
-SWAP_NEW=221
+SWAP_NEW=512
 
 # Editer
 sed -i -e "s/$SWAP_OLD/$SWAP_NEW/g" /etc/dphys-swapfile;
@@ -262,6 +262,8 @@ dphys-swapfile swapon;
 # Afficher Swap
 echo "####################################################################################"
 free -h | grep -v "Mem";
+echo ""
+ls -lah /var/swap;
 echo "####################################################################################"
 ```
 
