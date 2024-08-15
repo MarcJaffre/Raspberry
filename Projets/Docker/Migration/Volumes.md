@@ -153,6 +153,9 @@ read -p "Souhaitez vous lancer la restauration ? (o|y) " VALIDATION
 # Restauration #
 ################
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
+   # Arret des conteneurs
+   for i in $(docker ps --format '{{.Names}}');do docker stop $i; done
+
    for VOLUME in \$(ls \$DATASTORE | cut -d "." -f1 | xargs -n1)
    do
     # Actions par volume
@@ -164,6 +167,10 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
     echo "Restauration terminée";
     echo "";
    done
+
+   # Relances des conteneurs
+   for i in $(docker ps --format '{{.Names}}');do docker start $i; done
+
 fi
 #######################################################################################################################
 EOF
