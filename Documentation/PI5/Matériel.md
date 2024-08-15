@@ -15,35 +15,30 @@ rpivid (platform:rpivid):
  /dev/video19
  /dev/media2
 ```
-        
-##### X. V4L2 I/O
+
+##### X. 
 ```bash
 clear;
-v4l2-ctl --info --device /dev/video19;
-v4l2-ctl --info --device /dev/video29;
-v4l2-ctl --info --device /dev/video30;
-v4l2-ctl --info --device /dev/video31;
-v4l2-ctl --info --device /dev/video32;
-v4l2-ctl --info --device /dev/video33;
-v4l2-ctl --info --device /dev/video34;
-v4l2-ctl --info --device /dev/video35;
-v4l2-ctl --info --device /dev/video37;
+for device in $(ls /dev/video* | xargs -n 1); do
+ echo "___________________________________________________________________________________________________________________________";
+ v4l2-ctl --info --device $device;
+ echo "";
+ echo "";
+done
 ```
 
-##### X. pispbe
+
+### X.
 ```bash
 clear;
-v4l2-ctl --info --device /dev/video20;
-v4l2-ctl --info --device /dev/video21;
-v4l2-ctl --info --device /dev/video22;
-v4l2-ctl --info --device /dev/video23;
-v4l2-ctl --info --device /dev/video24;
-v4l2-ctl --info --device /dev/video25;
-v4l2-ctl --info --device /dev/video26;
-v4l2-ctl --info --device /dev/video27;
-v4l2-ctl --info --device /dev/video28;
-
-```
+for device in $(ls /dev/video* | xargs -n 1); do
+ echo "___________________________________________________________________________________________________________________________";
+ echo "$device"
+ v4l2-ctl --list-formats-out --device $device;
+ echo "";
+ echo "";
+done
+``` 
 
 ##### X. lshw
 ```bash
