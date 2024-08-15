@@ -41,7 +41,7 @@ clear;
 INPUT="/mnt/media/monfilm.mkv"
 OUTPUT="/mnt/media/monfilm_H265.mkv"
 ffmpeg -i "$INPUT";
-ffmpeg -i "$INPUT" -c:v libx265 -preset medium -crf 28 "$OUTPUT"
+ffmpeg -i "$INPUT" -c:v libx265 -preset medium -crf 28 "$OUTPUT";
 ``` 
 
 
