@@ -43,6 +43,11 @@ done
 ##### X. lshw
 ```bash
 clear;
+apt install -y lshw;
+```
+
+```bash
+clear;
 lshw;
 ```
 
@@ -426,7 +431,6 @@ raspberry-05
 
 
 ```bash
-apt install -y lshw;
 lshw -short;
 ```
 
