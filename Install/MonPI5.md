@@ -740,8 +740,16 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 
 
 
+#### X. Fonctionnalité
+```bash
+clear;
+sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+```
 
 <br />
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ```bash
 #clear;
@@ -770,5 +778,4 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 #
 # Service
 #systemctl enable --now cockpit;
-
 ```
