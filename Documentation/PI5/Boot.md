@@ -19,3 +19,9 @@ vcgencmd get_config int
 clear;
 vcgencmd get_config str;
 ```
+
+### C. Limitation de la longueur de ligne
+Il existe une limite de longueur de ligne de 98 caractères pour les entrées. 
+
+Raspberry Pi OS ignore tous les caractères dépassant cette limite.
+
