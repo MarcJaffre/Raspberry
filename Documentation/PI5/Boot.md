@@ -161,7 +161,7 @@ cat > /boot/firmware/config.txt << EOF
 arm_boost=1
 # ================================
 # +1 = 0.025V
-over_voltage=-
+over_voltage=-6
 #over_voltage_sdram=
 # ================================
 # Temperature (57.614°C)
