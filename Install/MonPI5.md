@@ -161,8 +161,7 @@ apt install -y wsdd;
 ```
 
 ```bash
-clear;
-
+#clear;
 #apt install -y cockpit;
 #apt install -y cockpit-machines;
 #apt install -y cockpit-packagekit;
