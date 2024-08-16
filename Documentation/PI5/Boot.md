@@ -28,7 +28,8 @@ Raspberry Pi OS ignore tous les caractères dépassant cette limite.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Config.txt
 ### A. Par défaut
-```
+```bash
+clear;
 cat > /boot/firmware/config.txt << EOF
 ############################################################################################################################################
 # For more options and information see : http://rptl.io/configtxt
