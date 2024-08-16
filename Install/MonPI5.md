@@ -142,12 +142,6 @@ apt install -y avahi-daemon;
 apt install -y ca-certificates;
 apt install -y btop;
 apt install -y cifs-utils;
-#apt install -y cockpit;
-#apt install -y cockpit-machines;
-#apt install -y cockpit-packagekit;
-#apt install -y cockpit-pcp;
-#apt install -y cockpit-podman;
-#apt install -y cockpit-storaged;
 apt install -y curl;
 apt install -y git;
 apt install -y gnupg;
@@ -157,13 +151,25 @@ apt install -y ntfs-3g;
 apt install -y nfs-common;
 apt install -y qrencode;
 apt install -y realmd;
-apt install -y samba samba-common;
+apt install -y samba;
+apt install -y samba-common;
 apt install -y smbclient;
 apt install -y tunes;
 apt install -y udisks2-lvm2;
 apt install -y wget;
 apt install -y wsdd;
-#
+```
+
+```bash
+clear;
+
+#apt install -y cockpit;
+#apt install -y cockpit-machines;
+#apt install -y cockpit-packagekit;
+#apt install -y cockpit-pcp;
+#apt install -y cockpit-podman;
+#apt install -y cockpit-storaged;
+
 # Cockpit - Explorateur de fichier
 #git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
 #cd /tmp/cockpit-navigator 1>/dev/null;
@@ -178,8 +184,7 @@ apt install -y wsdd;
 #dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
 #
 # Allow Root authentication on Cockpit
-sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
-```
+#sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
 
 
 #### X. Mise à jour des paquets du Raspberry
