@@ -171,10 +171,10 @@ over_voltage=-3
 over_voltage_min=-3
 
 # MEMORY
-over_voltage_sdram=0
-over_voltage_sdram_c=0
-over_voltage_sdram_i=0
-over_voltage_sdram_p=0
+#over_voltage_sdram=0
+#over_voltage_sdram_c=0
+#over_voltage_sdram_i=0
+#over_voltage_sdram_p=0
 
 ####################################################
 # D.O.C.P #
