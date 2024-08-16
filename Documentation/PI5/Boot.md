@@ -117,7 +117,7 @@ EOF
 
 
 ### B. Ma Configuration
-`vcgencmd get_config int | sort -n`
+Les modules sont dans `/boot/overlays/` et le fichier `/boot/overlays/README` permet d'aider à la configuration.
 
 
 Raspberry pi 4: `vcgencmd get_config over_voltage`.
@@ -208,9 +208,18 @@ arm_64bit=1
 auto_initramfs=1
 #
 ####################################################
-# Activatîon des modules #
-##########################
+# Gestions des modules #
+########################
+#
+# Desactivation Bluetooth et WI-FI
+dtoverlay=disable-bt-pi5
+dtoverlay=disable-wifi-pi5.dtbo
+#
+dtoverlay=vc4-fkms-v3d
 dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-kms-v3d-pi5
+
+
 
 ####################################################
 # Desactivation des modules #
