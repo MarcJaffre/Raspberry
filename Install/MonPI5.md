@@ -92,7 +92,7 @@ echo "#############################################
 auto eth0
 allow-hotplug eth0
 iface eth0 inet static
-  address         192.168.20.2/24
+  address         192.168.20.3/24
   gateway         192.168.20.1
   dns-nameservers 192.168.20.1 8.8.8.8
 #############################################" > /etc/network/interfaces.d/eth0;
