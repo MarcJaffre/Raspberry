@@ -241,15 +241,22 @@ echo "##########################################################################
 ```
 
 
-
-
-
-
 #### X. Check Codec 
 ```bash
 clear;
 for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 HEVC ; do echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; done
 ```
+
+```
+H264:   H264=disabled
+MPG2:   MPG2=disabled
+WVC1:   WVC1=disabled
+MPG4:   MPG4=disabled
+MJPG:   MJPG=disabled
+WMV9:   WMV9=disabled
+HEVC:   HEVC=disabled
+```
+
 
 <br />
 
