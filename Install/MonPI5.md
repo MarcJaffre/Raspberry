@@ -194,7 +194,6 @@ ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
 ```bash
 clear;
 systemctl enable --now avahi-daemon.service;
-systemctl enable --now cockpit;
 systemctl enable --now wsdd;
 ```
 
@@ -769,4 +768,8 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 #
 # Allow Root authentication on Cockpit
 #sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
+#
+# Service
+#systemctl enable --now cockpit;
+
 ```
