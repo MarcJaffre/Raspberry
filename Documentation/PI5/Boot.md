@@ -29,7 +29,7 @@ Raspberry Pi OS ignore tous les caractères dépassant cette limite.
 ## II. Config.txt
 ### A. Par défaut
 ```
-echo > /boot/firmware/config.txt << EOF
+cat > /boot/firmware/config.txt << EOF
 ############################################################################################################################################
 # For more options and information see : http://rptl.io/configtxt
 ############################################################################################################################################
@@ -71,7 +71,6 @@ auto_initramfs=1
 # Enable DRM VC4 V3D driver #
 #############################
 dtoverlay=vc4-kms-v3d
-
 max_framebuffers=2
 
 ############################################################################################################################################
@@ -98,8 +97,6 @@ arm_boost=1
 # CM4 #
 #######
 [cm4]
-# Enable host mode on the 2711 built-in XHCI USB controller.
-# This line should be removed if the legacy DWC2 controller is required (e.g. for USB device mode) or if USB support is not required.
 otg_mode=1
 
 ############################################################################################################################################
