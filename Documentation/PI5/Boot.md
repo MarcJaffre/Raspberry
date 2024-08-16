@@ -135,7 +135,15 @@ cat > /boot/firmware/config.txt << EOF
 ####################################################
 # Overclocking #
 ################
+# ================================
+# Activatîon OC
 arm_boost=1
+# ================================
+# Temperature (57.614°C)
+avs_temp=57614
+# ================================
+# Bus Periphérique ARM
+arm_peri_high=1
 # ================================
 arm_freq=2400
 core_freq=910
@@ -149,31 +157,26 @@ gpu_freq_min=500
 isp_freq_min=500
 v3d_freq_min=500
 hevc_freq_min=500
-
-
 # ================================
 # Defaut 0
 sdram_freq=4267
 sdram_freq_min=0
-
-
 # ================================
 vpred_max=8508
 vpred=8508
 # ================================
 over_voltage_avs=0x162b0
-
-
+#
 ####################################################
 # Activation Architecture x64 #
 ###############################
 arm_64bit=1
-
+#
 ####################################################
 # Gestions des modules #
 ########################
 auto_initramfs=1
-
+#
 ####################################################
 # Desactivation de Module #
 ###########################
@@ -181,7 +184,7 @@ disable_commandline_tags=2
 disable_fw_kms_setup=1
 disable_l2cache=1
 disable_overscan=1
-
+#
 ####################################################
 # Affichage #
 #############
@@ -189,31 +192,26 @@ display_auto_detect=0
 display_default_lcd=-1
 display_hdmi_rotate=-1
 display_lcd_rotate=-1
+#
 framebuffer_depth=16
 framebuffer_ignore_alpha=1
 framebuffer_swap=1
+#
 hdmi_enable_4kp60=0
 hdmi_force_cec_address:0=65535
 hdmi_force_cec_address:1=65535
-
-####################################################
-# Camera #
-##########
-camera_auto_detect=0
-
-
+#
 ####################################################
 # Audio #
 #########
 audio_pwm_mode=2
-
-
-
-
-
-
-arm_peri_high=1
-avs_temp=57614
+#
+####################################################
+# Camera #
+##########
+camera_auto_detect=0
+#
+####################################################
 dvfs=4
 enable_gic=1
 enable_uart=-1
@@ -222,12 +220,12 @@ force_pwm_open=1
 ignore_lcd=-1
 init_uart_clock=0x2dc6c00
 mask_gpu_interrupt1=16418
-max_framebuffers=2
+max_framebuffers=1
 pause_burst_frames=1
 pciex4_reset=1
 pmic_turbo_threshold=600
 program_serial_random=1
 total_mem=4096
-
+####################################################
 EOF
 ```
