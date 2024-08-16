@@ -128,7 +128,7 @@ EOF
 `vcgencmd get_config int | sort -n`
 
 
-Raspberry pi 4:
+Raspberry pi 4: `vcgencmd get_config over_voltage`.
 
 | over_voltage | Tension (V) |
 |--------------|-------------|
