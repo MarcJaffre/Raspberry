@@ -21,19 +21,21 @@ rpivid (platform:rpivid):
 clear;
 for device in $(ls /dev/video* | xargs -n 1); do
  echo "___________________________________________________________________________________________________________________________";
+ echo "$device";
+ echo "";
  v4l2-ctl --info --device $device;
  echo "";
  echo "";
 done
 ```
 
-
 ### X. Format prise en charge
 ```bash
 clear;
 for device in $(ls /dev/video* | xargs -n 1); do
  echo "___________________________________________________________________________________________________________________________";
- echo "$device"
+ echo "$device";
+ echo "";
  v4l2-ctl --list-formats-out --device $device;
  echo "";
  echo "";
