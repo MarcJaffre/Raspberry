@@ -726,31 +726,22 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 #### X. Déploiement de Docker-Compose
 ```bash
 clear;
-install -m 0755 -d /etc/apt/keyrings;
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
-chmod a+r /etc/apt/keyrings/docker.gpg;
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update 1>/dev/null;
-apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+wget "https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose 2>/dev/null;
+chmod +x /usr/local/bin/docker-compose;
 ```
 
 #### X. Déploiement Docker Volume Snapshot
 ```bash
 clear;
 SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
-curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot;
+curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot 2>/dev/null;
 chmod +x /usr/local/bin/docker-volume-snapshot;
 ```
 
+
+
+
 <br />
-
-
-
-
-
-
-
-
 
 ```bash
 #clear;
