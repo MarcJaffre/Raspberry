@@ -156,18 +156,25 @@ cat > /boot/firmware/config.txt << EOF
 ####################################################
 # Overclocking #
 ################
-# Forcer Haute-Performance h24
+# Forcer le mode Haute-Performance constamment
+#arm_boost=1
 force_turbo=0
 
 # Frequence horloge inîtiale
 initial_turbo=0
 
-# 0.025V / Pallier
-over_voltage_min=-6
-over_voltage=-2
+# Temp Limit (Defaut: 85°C)
+temp_limit=80
 
-arm_boost=1
+# Vcore (0.025V par pallier)
+over_voltage=-3
+over_voltage_min=-3
 
+# MEMORY
+over_voltage_sdram=0
+over_voltage_sdram_c=0
+over_voltage_sdram_i=0
+over_voltage_sdram_p=0
 
 ####################################################
 # D.O.C.P #
@@ -243,6 +250,7 @@ audio_pwm_mode=2
 camera_auto_detect=0
 #
 ####################################################
+avs_temp=57614
 dvfs=4
 enable_gic=1
 enable_uart=-1
@@ -251,14 +259,13 @@ force_pwm_open=1
 ignore_lcd=-1
 init_uart_clock=0x2dc6c00
 mask_gpu_interrupt1=16418
-max_framebuffers=1
+max_framebuffers=2
 pause_burst_frames=1
 pciex4_reset=1
 pmic_turbo_threshold=600
+program_serial_random=1
 
 # Temperature (57.614°C)
-avs_temp=57614
-program_serial_random=1
 total_mem=4096
 ####################################################
 EOF
