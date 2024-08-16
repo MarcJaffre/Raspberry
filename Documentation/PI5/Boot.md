@@ -116,14 +116,6 @@ EOF
 ```
 
 
-
-
-
-
-
-
-
-
 ### B. Ma Configuration
 `vcgencmd get_config int | sort -n`
 
@@ -216,8 +208,13 @@ arm_64bit=1
 auto_initramfs=1
 #
 ####################################################
-# Desactivation de Module #
-###########################
+# Activatîon des modules #
+##########################
+dtoverlay=vc4-kms-v3d
+
+####################################################
+# Desactivation des modules #
+#############################
 disable_commandline_tags=2
 disable_fw_kms_setup=1
 disable_l2cache=1
