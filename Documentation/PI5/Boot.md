@@ -158,6 +158,7 @@ cat > /boot/firmware/config.txt << EOF
 ################
 # ================================
 # Activatîon OC
+force_turbo=0
 arm_boost=1
 # ================================
 # +1 = 0.025V
