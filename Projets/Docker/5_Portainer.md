@@ -12,7 +12,7 @@ Portainer est une interface Web pour l'administration des conteneurs
 ```yml
 cat >  portainer.yml << EOF
 ################
-version: '3.9' #
+version: '3.8' #
 services:      #
 ################
 #
@@ -49,7 +49,7 @@ EOF
 ```yml
 cat >  portainer.yml << EOF
 ################
-version: '3.9' #
+version: '3.8' #
 services:      #
 ################
 #
