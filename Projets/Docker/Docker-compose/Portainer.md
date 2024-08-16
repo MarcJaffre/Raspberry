@@ -23,6 +23,7 @@ services:      #
   network_mode: 'bridge'                               #
   restart: 'always'                                    #
   hostname: 'Portainer'                                #
+  tty: true                                            #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
    - '/etc/localtime:/etc/localtime:ro'                #
