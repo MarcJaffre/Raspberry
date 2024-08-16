@@ -179,7 +179,7 @@ echo "yes" | rpi-update rpi-6.6.y;
 L'utilisateur n'aura pas son propre groupe mais il appartiendra à `users`. On génére le mot de passe crypter puis on crée l'utilisateur
 ```bash
 clear;
-USER_UID="1002"
+USER_UID="1001"
 USER_COMMENT="Drthrax74"
 USER_NAME="drthrax74"
 USER_PASS="admin"
