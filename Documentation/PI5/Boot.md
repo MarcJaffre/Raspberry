@@ -127,17 +127,38 @@ EOF
 ### B. Ma Configuration
 `vcgencmd get_config int | sort -n`
 
+
+Raspberry pi 4:
+
+| over_voltage | Tension (V) |
+|--------------|-------------|
+| 0            | 1.2         |
+| 1            | 1.225       |
+| 2            | 1.25        |
+| 3            | 1.275       |
+| 4            | 1.3         |
+| 5            | 1.325       |
+| 6            | 1.35        |
+| 7            | 1.375       |
+| 8            | 1.4         |
+| 9            | 1.425       |
+| 10           | 1.45        |
+
+
+
 ```bash
 clear;
 cat > /boot/firmware/config.txt << EOF
-
-
 ####################################################
 # Overclocking #
 ################
 # ================================
 # Activatîon OC
 arm_boost=1
+# ================================
+# +1 = 0.025V
+over_voltage=-
+#over_voltage_sdram=
 # ================================
 # Temperature (57.614°C)
 avs_temp=57614
