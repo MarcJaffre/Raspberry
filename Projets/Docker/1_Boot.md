@@ -25,10 +25,19 @@ Il existe une limite de longueur de ligne de 98 caractères pour les entrées.
 
 Raspberry Pi OS ignore tous les caractères dépassant cette limite.
 
+### D. Modules
+```
+vc4-fkms-v3d     :
+vc4-kms-v3d      : 
+vc4-kms-v3d-pi5  :
+```
 
-### B. Ma Configuration
+<br />
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## II. Ma Configuration
 Les modules sont dans `/boot/overlays/` et le fichier `/boot/overlays/README` permet d'aider à la configuration.
-
 
 Raspberry pi 4: `vcgencmd get_config over_voltage`.
 
@@ -128,8 +137,6 @@ dtoverlay=disable-wifi-pi5.dtbo
 dtoverlay=vc4-fkms-v3d
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-kms-v3d-pi5
-
-
 
 ####################################################
 # Desactivation des modules #
