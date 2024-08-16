@@ -160,31 +160,6 @@ apt install -y wget;
 apt install -y wsdd;
 ```
 
-```bash
-#clear;
-#apt install -y cockpit;
-#apt install -y cockpit-machines;
-#apt install -y cockpit-packagekit;
-#apt install -y cockpit-pcp;
-#apt install -y cockpit-podman;
-#apt install -y cockpit-storaged;
-
-# Cockpit - Explorateur de fichier
-#git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
-#cd /tmp/cockpit-navigator 1>/dev/null;
-#make install;
-#
-# Cockpit - Partages
-#wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
-#dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
-#
-# Cockpit - Identities
-#wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
-#dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
-#
-# Allow Root authentication on Cockpit
-#sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
-
 
 #### X. Mise à jour des paquets du Raspberry
 ```bash
@@ -762,3 +737,36 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 
 <br />
 
+
+
+
+
+
+
+
+
+```bash
+#clear;
+#apt install -y cockpit;
+#apt install -y cockpit-machines;
+#apt install -y cockpit-packagekit;
+#apt install -y cockpit-pcp;
+#apt install -y cockpit-podman;
+#apt install -y cockpit-storaged;
+
+# Cockpit - Explorateur de fichier
+#git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
+#cd /tmp/cockpit-navigator 1>/dev/null;
+#make install;
+#
+# Cockpit - Partages
+#wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
+#dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
+#
+# Cockpit - Identities
+#wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
+#dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
+#
+# Allow Root authentication on Cockpit
+#sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
+```
