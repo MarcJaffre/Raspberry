@@ -156,17 +156,22 @@ cat > /boot/firmware/config.txt << EOF
 ####################################################
 # Overclocking #
 ################
-# ================================
-# Activatîon OC
+# Forcer Haute-Performance h24
 force_turbo=0
+
+# Frequence horloge inîtiale
+initial_turbo=0
+
+# 0.025V / Pallier
+over_voltage_min=-6
+over_voltage=-2
+
 arm_boost=1
-# ================================
-# +1 = 0.025V
-over_voltage=-6
-#over_voltage_sdram=
-# ================================
-# Temperature (57.614°C)
-avs_temp=57614
+
+
+####################################################
+# D.O.C.P #
+###########
 # ================================
 # Bus Periphérique ARM
 arm_peri_high=1
@@ -250,6 +255,9 @@ max_framebuffers=1
 pause_burst_frames=1
 pciex4_reset=1
 pmic_turbo_threshold=600
+
+# Temperature (57.614°C)
+avs_temp=57614
 program_serial_random=1
 total_mem=4096
 ####################################################
