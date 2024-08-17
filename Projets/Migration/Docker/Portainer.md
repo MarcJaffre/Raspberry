@@ -17,6 +17,7 @@ DATA=$(docker inspect $NAME_CONTENEUR | grep "Mounts" -A5 | head -n 5 | grep Sou
 echo "Le nom du volume contenant les données de Portaîner est : $DATA"
 ```
 
+<br />
 
 #### C. Migration de Business vers Community
 On commence par détruire le conteneur Portainer puis on le démarre Portainer avec le paramètre de rollback vers CE. Une fois la migration du volûme, on détruit le conteneur uniquement.
@@ -27,7 +28,9 @@ if [ ! -z $NAME_CONTENEUR ]; docker run -it --name $NAME_CONTENEUR -v $DATA:/dat
 if [ ! -z $NAME_CONTENEUR ]; then docker container rm -f $NAME_CONTENEUR; fi
 ```
 
-### E. Création du Docker-Compose
+<br />
+
+### D. Création du Docker-Compose
 La commande suivante crée le fichier `portainer.yml`, puis lance le conteneur.
 ```yml
 cat >  portainer.yml << EOF
