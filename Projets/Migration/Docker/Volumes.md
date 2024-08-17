@@ -96,13 +96,19 @@ read -p "Souhaitez vous lancer la sauvegarder ? (o|y) " VALIDATION
 # Sauvegarde completes des volumes #
 ####################################
 if (( \$VALIDATION == y || \$VALIDATION == o ));then
+
+
    ####################################################################################################################
-   # Arret des conteneurs
-   clear;
+   # Arret des conteneurs #
+   ########################
    echo "Arrêt des conteneurs pendant la sauvegarde";
    for i in \$(docker ps --format '{{.Names}}');do docker stop \$i; done
    ####################################################################################################################
-   # Realisation de la sauvegarde
+
+
+   ####################################################################################################################
+   # Realisation de la sauvegarde #
+   ################################
    for VOLUME in \$(ls /var/lib/docker/volumes | sort -n | grep -v "\$EXLUSION"); do
      # Actions par volume
      echo "___________________________________________________________________________________________________________"
@@ -114,11 +120,17 @@ if (( \$VALIDATION == y || \$VALIDATION == o ));then
      echo "";
    done
    ####################################################################################################################
-   # Relance des conteneurs
+
+
+   ####################################################################################################################
+   # Relance des conteneurs #
+   ##########################
    echo "Démarrage des conteneurs.";
    for i in \$(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
    for i in \$(docker ps -a --format '{{.Names}}');do docker start $i 2>/dev/null; done
    ####################################################################################################################
+
+
 fi
 #######################################################################################################################
 EOF
