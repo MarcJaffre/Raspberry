@@ -183,7 +183,7 @@ USER_PASS="admin"
 USER_SHELL="/usr/bin/bash"
 
 ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
-/usr/sbin/userdel -rf ${USER_NAME};
+/usr/sbin/userdel -rf ${USER_NAME} 2>/dev/null;
 /usr/sbin/useradd --base-dir /home/${USER_NAME} --comment "${USER_COMMENT}" --home-dir /home/${USER_NAME} --groups users  --create-home --password ${ENCRYPT} --shell ${USER_SHELL}  --uid ${USER_UID}  --no-user-group  ${USER_NAME};
 ```
 
