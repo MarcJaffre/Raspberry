@@ -318,9 +318,10 @@ directory mask          = 0700
 guest ok                = no
 valid users             = %S
 vfs object              = recycle
-recycle:repository      = ./Corbeille/%U
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -334,9 +335,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -350,9 +352,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -366,9 +369,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -382,9 +386,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -398,9 +403,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -414,9 +420,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
@@ -430,9 +437,10 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:repository      = ./Corbeille
+recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
+recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # ======================= END SAMBA ===============================
