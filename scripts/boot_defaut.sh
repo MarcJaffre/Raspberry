@@ -1,4 +1,5 @@
 clear;
+
 cat > /boot/firmware/config.txt << EOF
 ############################################################################################################################################
 # For more options and information see : http://rptl.io/configtxt
