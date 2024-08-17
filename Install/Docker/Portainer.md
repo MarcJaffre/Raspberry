@@ -7,7 +7,6 @@ Portainer est une interface Web pour l'administration des conteneurs
 
 --------------------------------------------------------------------------------------------------------------
 ## II. Déploiement
-Il suffit d'utiliser le même volume pour chaque version pour faire la migration.
 
 ### A. Création du fichier (Portainer-Ce)
 ```yml
