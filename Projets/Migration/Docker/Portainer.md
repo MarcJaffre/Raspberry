@@ -2,11 +2,12 @@
 ## <p align='center'> Migration de Portainer Business Edition vers Community Edition </p>
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I Présentation
+La migration de Portainer EE vers CE se passe en changent de conteneur .
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Migration
 #### A. Sauvegarder les volumes
-La première chose est de sauvegarders les volumes pour permettent leur restauration en cas de problème.
+La première chose est de sauvegarder les volumes pour permettent leur restauration en cas de problème.
 
 #### B. Inspecter le conteneur Portaîner
 Avant de détruire le conteneur, il faut connaitre le nom du volume que Portainer utilise
