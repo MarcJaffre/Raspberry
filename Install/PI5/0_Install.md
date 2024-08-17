@@ -212,6 +212,7 @@ cat > /etc/fstab << EOF
 proc                  /proc           proc      defaults                                0       0
 PARTUUID=$PART_FIRMWARE  /boot/firmware  vfat      defaults                                0       2
 PARTUUID=$PART_ROOT  /               ext4      defaults,noatime                        0       1
+
 ####################################################################################################
 # Disques #
 ###########
@@ -221,28 +222,14 @@ LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,n
 LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
 LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
 # ==================================================================================================
+# Aucune partition swap est dans le FSTAB. Les commandes suivantes sert a le gerer.
+# - dphys-swapfile swap[on|off]
+# ==================================================================================================
 EOF
 systemctl daemon-reload;
 mount -a;
 df -h | grep "Mounte\|/mnt/Media\|p1\|p2";
 ```
-
-
-# ==================================================================================================
-proc                  /proc           proc      defaults                                0       0
-PARTUUID=41fb12a4-01  /boot/firmware  vfat      defaults                                0       2
-PARTUUID=41fb12a4-02  /               ext4      defaults,noatime                        0       1
-# ==================================================================================================
-LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-# ==================================================================================================
-# a swapfile is not a swap partition, no line here
-#   use  dphys-swapfile swap[on|off]  for that
-
-
 
 
 #### X. Configuration du SWAP
