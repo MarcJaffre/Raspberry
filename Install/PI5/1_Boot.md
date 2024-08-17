@@ -71,7 +71,7 @@ force_turbo=0
 initial_turbo=0
 
 # Temp Limit (Defaut: 85°C)
-temp_limit=80
+temp_limit=85
 
 # Vcore (0.025V par pallier)
 over_voltage=-2
