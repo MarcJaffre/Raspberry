@@ -2,7 +2,10 @@
 ## <p align='center'> Migration de Portainer Business Edition vers Community Edition </p>
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I Présentation
-La migration de Portainer EE vers CE se passe en changent de conteneur .
+Migration de Portainer EE vers CE.
+
+<br />
+<br />
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Migration
