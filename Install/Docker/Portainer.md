@@ -26,6 +26,12 @@ services:      #
   # -------------------------------------------------- #
   tty: true                                            #
   # -------------------------------------------------- #
+  deploy:                                              #
+   resources:                                          #
+    limits:                                            #
+     cpus: '1.00'                                      #
+     memory: '200M'                                    #
+  # -------------------------------------------------- #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
    - '/etc/localtime:/etc/localtime:ro'                #
