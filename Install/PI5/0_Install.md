@@ -213,31 +213,41 @@ mount -a;
 df -h | grep "Mounte\|/mnt/Media";
 ```
 
+
+
+
 #### X. Configuration du SWAP
 La valeur du Swap par défaut est de 200. (Stocké: /var/swap)
 ```bash
 clear;
 SWAP_OLD=$(grep CONF_SWAPSIZE /etc/dphys-swapfile | cut -d "=" -f2)
-SWAP_NEW=512
+SWAP_NEW=200
 
 # Editer
 sed -i -e "s/$SWAP_OLD/$SWAP_NEW/g" /etc/dphys-swapfile;
 
 # Detruire le Swap
-dphys-swapfile swapoff;
+dphys-swapfile swapoff  1>/dev/null;
 
 # Creation du Swap
 dphys-swapfile setup 1>/dev/null;
 
 # Activation du Swap
-dphys-swapfile swapon;
+dphys-swapfile swapon 1>/dev/null;
 
-# Afficher Swap
-echo "####################################################################################"
-free -h | grep -v "Mem";
-echo ""
-ls -lah /var/swap;
-echo "####################################################################################"
+
+if [ $SWAP_NEW = "0" ]; then
+  echo "La valeur du Swap est de $SWAP_NEW Mo";
+  systemctl disable --now dphys-swapfile.service 2>/dev/null;
+fi
+
+if [ "$SWAP_NEW" != "0" ]; then
+  systemctl enable --now dphys-swapfile.service 2>/dev/null;
+  echo "####################################################################################";
+  free -h | grep -v "Mem";
+  echo "";
+  echo "####################################################################################";
+fi
 ```
 
 
