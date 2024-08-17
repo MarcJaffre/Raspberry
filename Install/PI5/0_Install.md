@@ -281,10 +281,9 @@ mv /etc/samba/smb.conf /etc/samba/smb.conf.old;
 clear;
 
 cat > /etc/samba/smb.conf << EOF
-
 [global]
 ## Browsing/Identification ###
-   workgroup = WORKGROUP
+   workgroup           = WORKGROUP
    client min protocol = SMB2
    client max protocol = SMB3
 
@@ -293,17 +292,17 @@ cat > /etc/samba/smb.conf << EOF
 #### Debugging/Accounting ####
    log file = /var/log/samba/log.%m
    max log size = 1000
-   logging = file
+   logging      = file
    panic action = /usr/share/samba/panic-action %d
 
 ####### Authentication #######
    server role = standalone server
    obey pam restrictions = yes
-   unix password sync = yes
-   passwd program = /usr/bin/passwd %u
-   passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
-   pam password change = yes
-   map to guest = bad user
+   unix password sync    = yes
+   passwd program        = /usr/bin/passwd %u
+   passwd chat           = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+   pam password change   = yes
+   map to guest          = bad user
 
 # ======================= Share Definitions =======================
 
