@@ -198,11 +198,11 @@ systemctl enable --now wsdd;
 Le FSTAB sera regénéré via ce script.
 ```bash
 clear;
-PART_FIRMWARE=$(blkid  | grep bootfs | xargs -n 1 | grep PART | cut -d "=" -f 2)
-PART_ROOT=$(blkid  | grep rootfs | xargs -n 1 | grep PART | cut -d "=" -f 2)
+PART_FIRM=$(blkid | grep bootfs | xargs -n 1 | grep PART | cut -d "=" -f 2)
+PART_ROOT=$(blkid | grep rootfs | xargs -n 1 | grep PART | cut -d "=" -f 2)
 
 # ========================================================================================================================
-cp /etc/fstab /etc/fstab.old;
+cat /etc/fstab > /etc/fstab.old;
 mkdir /mnt/Media_{1,2,3,4,5} 2>/dev/null;
 # ========================================================================================================================
 cat > /etc/fstab << EOF
@@ -210,7 +210,7 @@ cat > /etc/fstab << EOF
 # Raspberry #
 #############
 proc                  /proc           proc      defaults                                0       0
-PARTUUID=$PART_FIRMWARE  /boot/firmware  vfat      defaults                                0       2
+PARTUUID=$PART_FIRM  /boot/firmware  vfat      defaults                                0       2
 PARTUUID=$PART_ROOT  /               ext4      defaults,noatime                        0       1
 
 ####################################################################################################
@@ -221,13 +221,23 @@ LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,n
 LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
 LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
 LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-# ==================================================================================================
-# Aucune partition swap est dans le FSTAB. Les commandes suivantes sert a le gerer.
-# - dphys-swapfile swap[on|off]
-# ==================================================================================================
+
+####################################################################################################
+# SWAP #
+########
+# Aucune partition Swap est present dans le FSTAB
+# La partition Swap est gere par les commandes : dphys-swapfile swap[on|off]
 EOF
+
 systemctl daemon-reload;
 mount -a;
+
+cat /etc/fstab;
+echo "";
+echo "";
+echo "####################################################################################################";
+echo "# Etat du montage #";
+echo "###################";
 df -h | grep "Mounte\|/mnt/Media\|p1\|p2";
 ```
 
