@@ -43,6 +43,12 @@ volumes:                                               #
   external: false                                      #
 ########################################################
 EOF
+
+# Arret de Docker
+docker-compose -f portainer.yml down;
+
+# Demarrage de Docker
+docker-compose -f portainer.yml up -d;
 ```
 
 ### A. Création du fichier (Portainer-Ee)
@@ -78,21 +84,16 @@ volumes:                                               #
  Data:                                                 #
   external: false                                      #
 ########################################################
-
 EOF
-```
 
-
-### C. Démarrage du conteneur (mode détacher)
-```bash
-clear;
+# Arret de Docker
 docker-compose -f portainer.yml down;
+
+# Demarrage de Docker
 docker-compose -f portainer.yml up -d;
 ```
 
-
-
-### D. Accéder au panel administration
+### C. Accéder au panel administration
 ```
 http://XXX.XXX.XXX.XXX:9000
 ```
