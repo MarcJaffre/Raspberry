@@ -454,7 +454,7 @@ testparm -s /etc/samba/smb.conf;
 #### D. Création de l'utilisateur Samba
 ```bash
 clear;
-(echo "admin"; echo "admin") | smbpasswd -a $(id -u -n 1000)
+(echo "admin"; echo "admin") | smbpasswd -a $(id -u -n 1000);
 ```
 
 #### E. Adctivation du compte
