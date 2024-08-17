@@ -25,12 +25,6 @@ Il existe une limite de longueur de ligne de 98 caractères pour les entrées.
 
 Raspberry Pi OS ignore tous les caractères dépassant cette limite.
 
-### D. Modules
-```
-vc4-fkms-v3d     :
-vc4-kms-v3d      : 
-vc4-kms-v3d-pi5  :
-```
 
 <br />
 
@@ -67,8 +61,10 @@ cat > /boot/firmware/config.txt << EOF
 ####################################################
 # Overclocking #
 ################
+# Activation du Mode Boost
+arm_boost=0
+
 # Forcer le mode Haute-Performance constamment
-#arm_boost=1
 force_turbo=0
 
 # Frequence horloge inîtiale
@@ -125,18 +121,6 @@ arm_64bit=1
 # Gestions des modules #
 ########################
 auto_initramfs=1
-#
-####################################################
-# Gestions des modules #
-########################
-#
-# Desactivation Bluetooth et WI-FI
-dtoverlay=disable-bt-pi5
-dtoverlay=disable-wifi-pi5.dtbo
-#
-dtoverlay=vc4-fkms-v3d
-dtoverlay=vc4-kms-v3d
-dtoverlay=vc4-kms-v3d-pi5
 
 ####################################################
 # Desactivation des modules #
@@ -187,9 +171,16 @@ pause_burst_frames=1
 pciex4_reset=1
 pmic_turbo_threshold=600
 program_serial_random=1
-
-# Temperature (57.614°C)
 total_mem=4096
+
+[ALL]
+dtoverlay=vc4-kms-v3d,nohdmi,noaudio
+dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
+dtoverlay=disable-bt
+dtoverlay=disable-bt-pi5
+dtoverlay=disable-wifi
+dtoverlay=disable-wifi-pi5
+
 ####################################################
 EOF
 ```
