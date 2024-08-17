@@ -9,7 +9,9 @@ Portainer est une interface Web pour l'administration des conteneurs
 ## II. Déploiement
 
 ### A. Création du fichier (Portainer-Ce)
-```yml
+```bash
+clear;
+
 cat >  portainer.yml << EOF
 ################
 version: '3.8' #
