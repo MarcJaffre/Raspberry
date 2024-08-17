@@ -19,7 +19,7 @@ echo "Le nom du volume contenant les données de Portaîner est : $DATA"
 
 
 #### C. Migration de Business vers Community
-On commence par détrûire le conteneur Portainer sans le paramètre de migration puis on le démarre avec le paramètre de migration. Une fois la migration du volûme, on détruit le conteneur.
+On commence par détruire le conteneur Portainer puis on le démarre Portainer avec le paramètre de rollback vers CE. Une fois la migration du volûme, on détruit le conteneur uniquement.
 ```bash
 clear;
 if [ ! -z $NAME_CONTENEUR ]; then docker container rm -f $NAME_CONTENEUR; fi
@@ -28,6 +28,7 @@ if [ ! -z $NAME_CONTENEUR ]; then docker container rm -f $NAME_CONTENEUR; fi
 ```
 
 ### E. Création du Docker-Compose
+La commande suivante crée le fichier `portainer.yml`, puis lance le conteneur.
 ```yml
 cat >  portainer.yml << EOF
 ################
@@ -43,6 +44,8 @@ services:      #
   network_mode: 'bridge'                               #
   restart: 'always'                                    #
   hostname: 'Portainer'                                #
+  # -------------------------------------------------- #
+  tty: true                                            #
   # -------------------------------------------------- #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
@@ -67,12 +70,7 @@ volumes:                                               #
   external: false                                      #
 ########################################################
 EOF
-```
 
-
-### E. Lancement du con^teneur Portainer-CE
-On démarre le conteneur.
-```bash
 docker-compose -f portainer.yml down;
 docker-compose -f portainer.yml up -d;
 ```
