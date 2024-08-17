@@ -472,7 +472,84 @@ systemctl restart smbd;
 <br />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-### V. Mise en place d'un VPN
+### V. Docker, Docker-Compose et Docker volume Snapshot
+
+#### X. Déploiement de Docker
+```bash
+clear;
+install -m 0755 -d /etc/apt/keyrings;
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+chmod a+r /etc/apt/keyrings/docker.gpg;
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update 1>/dev/null;
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+```
+
+#### X. Déploiement de Docker-Compose
+```bash
+clear;
+wget "https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose 2>/dev/null;
+chmod +x /usr/local/bin/docker-compose;
+```
+
+#### X. Déploiement Docker Volume Snapshot
+```bash
+clear;
+SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
+curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot 2>/dev/null;
+chmod +x /usr/local/bin/docker-volume-snapshot;
+```
+
+
+
+#### X. Fonctionnalité
+```bash
+clear;
+sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+```
+
+<br />
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```bash
+#clear;
+#apt install -y cockpit;
+#apt install -y cockpit-machines;
+#apt install -y cockpit-packagekit;
+#apt install -y cockpit-pcp;
+#apt install -y cockpit-podman;
+#apt install -y cockpit-storaged;
+#apt install -y lvm2;
+#apt install -y realmd;
+#apt install -y tunes;
+#apt install -y udisks2-lvm2;
+
+# Cockpit - Explorateur de fichier
+#git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
+#cd /tmp/cockpit-navigator 1>/dev/null;
+#make install;
+#
+# Cockpit - Partages
+#wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
+#dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
+#
+# Cockpit - Identities
+#wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
+#dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
+#
+# Allow Root authentication on Cockpit
+#sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
+#
+# Service
+#systemctl enable --now cockpit;
+```
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### VI. Mise en place d'un VPN (Optionnel)
 #### A. Déploiement de WIreguard (5 Clients)
 ```bash
 #!/usr/bin/bash
@@ -719,82 +796,4 @@ qrencode -t ansiutf8 < $HOME/client-2.conf;
 echo "";
 echo "";
 echo "######################################################################";
-```
-
-
-<br />
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-### VI. Docker, Docker-Compose et Docker volume Snapshot
-
-#### X. Déploiement de Docker
-```bash
-clear;
-install -m 0755 -d /etc/apt/keyrings;
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
-chmod a+r /etc/apt/keyrings/docker.gpg;
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update 1>/dev/null;
-apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-```
-
-#### X. Déploiement de Docker-Compose
-```bash
-clear;
-wget "https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose 2>/dev/null;
-chmod +x /usr/local/bin/docker-compose;
-```
-
-#### X. Déploiement Docker Volume Snapshot
-```bash
-clear;
-SCRIPT="https://raw.githubusercontent.com/junedkhatri31/docker-volume-snapshot/main/docker-volume-snapshot"
-curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot 2>/dev/null;
-chmod +x /usr/local/bin/docker-volume-snapshot;
-```
-
-
-
-#### X. Fonctionnalité
-```bash
-clear;
-sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
-```
-
-<br />
-<br />
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-```bash
-#clear;
-#apt install -y cockpit;
-#apt install -y cockpit-machines;
-#apt install -y cockpit-packagekit;
-#apt install -y cockpit-pcp;
-#apt install -y cockpit-podman;
-#apt install -y cockpit-storaged;
-#apt install -y lvm2;
-#apt install -y realmd;
-#apt install -y tunes;
-#apt install -y udisks2-lvm2;
-
-# Cockpit - Explorateur de fichier
-#git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
-#cd /tmp/cockpit-navigator 1>/dev/null;
-#make install;
-#
-# Cockpit - Partages
-#wget https://github.com/45Drives/cockpit-file-sharing/releases/download/v3.2.9/cockpit-file-sharing_3.2.9-2focal_all.deb -O /tmp/cockpit-file-sharing.deb 2>/dev/null;
-#dpkg -i /tmp/cockpit-file-sharing.deb 1>/dev/null;
-#
-# Cockpit - Identities
-#wget https://github.com/45Drives/cockpit-identities/releases/download/v0.1.12/cockpit-identities_0.1.12-1focal_all.deb -O /tmp/cockpit-identities.deb 2>/dev/null;
-#dpkg -i /tmp/cockpit-identities.deb 1>/dev/null;
-#
-# Allow Root authentication on Cockpit
-#sed -i -e "s/^root/#root/g" /etc/cockpit/disallowed-users;
-#
-# Service
-#systemctl enable --now cockpit;
 ```
