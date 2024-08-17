@@ -57,40 +57,64 @@ Raspberry pi 4: `vcgencmd get_config over_voltage`.
 clear;
 cat > /boot/firmware/config.txt << EOF
 #################################################
-# Parametrage General #
-#######################
-#
-# ===============================================
-dtparam=hdmi=off
-dtparam=act_led_activelow=off
-dtparam=audio=off
-# ===============================================
-dtparam=cooling_fan=on
-dtparam=fan_temp0=50000
-dtparam=fan_temp0_hyst=5000
-dtparam=fan_temp0_speed=75
-dtparam=fan_temp1=60000
-dtparam=fan_temp1_hyst=5000
-dtparam=fan_temp1_speed=125
-dtparam=fan_temp2=67500
-dtparam=fan_temp2_hyst=5000
-dtparam=fan_temp2_speed=175
-dtparam=fan_temp3=75000
-dtparam=fan_temp3_hyst=5000
-dtparam=fan_temp3_speed=250
-# ===============================================
-dtparam=eee=off
-# ===============================================
-dtparam=eth_led0=4
-dtparam=eth_led1=4
-# ===============================================
+# Global #
+##########
+avs_temp=57614
+dvfs=4
+enable_gic=1
+enable_uart=-1
+force_eeprom_read=1
+force_pwm_open=1
+ignore_lcd=-1
+init_uart_clock=0x2dc6c00
+mask_gpu_interrupt1=16418
+max_framebuffers=2
+pause_burst_frames=1
+pciex4_reset=1
+pmic_turbo_threshold=600
+program_serial_random=1
+total_mem=4096
 
-#
+
+#################################################
+# Activation Architecture x64 #
+###############################
+arm_64bit=1
+
+
+#################################################
+# Affichage #
+#############
+# ===============================================
+display_auto_detect=1
+display_default_lcd=-1
+display_hdmi_rotate=-1
+display_lcd_rotate=-1
+
+# ===============================================
+framebuffer_depth=16
+framebuffer_ignore_alpha=1
+framebuffer_swap=1
+
+# ===============================================
+hdmi_enable_4kp60=0
+hdmi_force_cec_address:0=65535
+hdmi_force_cec_address:1=65535
+
+
+#################################################
+# Audio #
+#########
+audio_pwm_mode=2
+
+#################################################
+# Camera #
+##########
+camera_auto_detect=0
+
 #################################################
 # Overclocking #
 ################
-#
-# ===============================================
 # Activation du Mode Boost
 arm_boost=0
 # ===============================================
@@ -112,13 +136,11 @@ over_voltage_min=-2
 #over_voltage_sdram_c=0
 #over_voltage_sdram_i=0
 #over_voltage_sdram_p=0
-# ===============================================
-#
+
+
 #################################################
 # D.O.C.P #
 ###########
-#
-# ===============================================
 # Bus Periphérique ARM
 arm_peri_high=1
 # ===============================================
@@ -143,103 +165,60 @@ vpred_max=8508
 vpred=8508
 # ===============================================
 over_voltage_avs=0x162b0
-# ===============================================
-#
-#################################################
-# Activation Architecture x64 #
-###############################
-#
-# ===============================================
-arm_64bit=1
-# ===============================================
-#
+
 #################################################
 # Gestions des modules #
 ########################
-#
-# ===============================================
 auto_initramfs=1
-# ===============================================
-#
+
 #################################################
 # Desactivation des modules #
 #############################
-#
-# ===============================================
 disable_commandline_tags=2
 disable_fw_kms_setup=1
 disable_l2cache=1
 disable_overscan=1
-# ===============================================
-#
-#################################################
-# Affichage #
-#############
-#
-# ===============================================
-display_auto_detect=1
-display_default_lcd=-1
-display_hdmi_rotate=-1
-display_lcd_rotate=-1
-# ===============================================
-framebuffer_depth=16
-framebuffer_ignore_alpha=1
-framebuffer_swap=1
-# ===============================================
-hdmi_enable_4kp60=0
-hdmi_force_cec_address:0=65535
-hdmi_force_cec_address:1=65535
-# ===============================================
-#
-#################################################
-# Audio #
-#########
-#
-# ===============================================
-audio_pwm_mode=2
-# ===============================================
-#
-#################################################
-# Camera #
-##########
-#
-# ===============================================
-camera_auto_detect=0
-# ===============================================
-#
-#################################################
-#
-# ===============================================
-avs_temp=57614
-dvfs=4
-enable_gic=1
-enable_uart=-1
-force_eeprom_read=1
-force_pwm_open=1
-ignore_lcd=-1
-init_uart_clock=0x2dc6c00
-mask_gpu_interrupt1=16418
-max_framebuffers=2
-pause_burst_frames=1
-pciex4_reset=1
-pmic_turbo_threshold=600
-program_serial_random=1
-total_mem=4096
-# ===============================================
-#
-#################################################
+
+
 [ALL]
-#
 # ===============================================
-#dtoverlay=disable-bt-pi5
-#dtoverlay=disable-wifi-pi5
+dtparam=hdmi=off
+dtparam=act_led_activelow=off
+dtparam=audio=off
+
+# ===============================================
+dtparam=cooling_fan=on
+dtparam=fan_temp0=50000
+dtparam=fan_temp0_hyst=5000
+dtparam=fan_temp0_speed=75
+dtparam=fan_temp1=60000
+dtparam=fan_temp1_hyst=5000
+dtparam=fan_temp1_speed=125
+dtparam=fan_temp2=67500
+dtparam=fan_temp2_hyst=5000
+dtparam=fan_temp2_speed=175
+dtparam=fan_temp3=75000
+dtparam=fan_temp3_hyst=5000
+dtparam=fan_temp3_speed=250
+
+# ===============================================
+dtparam=eee=off
+
+# ===============================================
+dtparam=eth_led0=4
+dtparam=eth_led1=4
+dtparam=eth_max_speed=1000
+
+# ===============================================
+dtoverlay=disable-bt-pi5
+dtoverlay=disable-wifi-pi5
 dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
-# ==========================================
+dtparam=watchdog=off
+# ===============================================
 #dtoverlay=vc4-kms-v3d,nohdmi,noaudio
 #dtoverlay=disable-bt
 #dtoverlay=disable-wifi
-####################################################
-#
+# ===============================================
 EOF
 ```
 
