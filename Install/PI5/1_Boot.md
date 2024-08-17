@@ -173,14 +173,15 @@ pmic_turbo_threshold=600
 program_serial_random=1
 total_mem=4096
 
+####################################################
 [ALL]
-dtoverlay=vc4-kms-v3d,nohdmi,noaudio
-dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
-dtoverlay=disable-bt
 dtoverlay=disable-bt-pi5
-dtoverlay=disable-wifi
 dtoverlay=disable-wifi-pi5
-
+dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
+# ==========================================
+#dtoverlay=vc4-kms-v3d,nohdmi,noaudio
+#dtoverlay=disable-bt
+#dtoverlay=disable-wifi
 ####################################################
 EOF
 ```
