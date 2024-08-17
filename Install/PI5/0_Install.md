@@ -145,20 +145,17 @@ apt install -y cifs-utils;
 apt install -y curl;
 apt install -y git;
 apt install -y gnupg;
-apt install -y lvm2;
 apt install -y make;
 apt install -y ntfs-3g;
 apt install -y nfs-common;
 apt install -y qrencode;
-apt install -y realmd;
 apt install -y samba;
 apt install -y samba-common;
 apt install -y smbclient;
-apt install -y tunes;
-apt install -y udisks2-lvm2;
 apt install -y wget;
 apt install -y wsdd;
 ```
+
 
 
 #### X. Mise à jour des paquets du Raspberry
@@ -770,6 +767,10 @@ sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=
 #apt install -y cockpit-pcp;
 #apt install -y cockpit-podman;
 #apt install -y cockpit-storaged;
+#apt install -y lvm2;
+#apt install -y realmd;
+#apt install -y tunes;
+#apt install -y udisks2-lvm2;
 
 # Cockpit - Explorateur de fichier
 #git clone https://github.com/45Drives/cockpit-navigator.git /tmp/cockpit-navigator 2>/dev/null;
