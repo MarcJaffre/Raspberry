@@ -62,7 +62,7 @@ cat > /boot/firmware/config.txt << EOF
 # Overclocking #
 ################
 # Activation du Mode Boost
-arm_boost=0
+#arm_boost=0
 
 # Forcer le mode Haute-Performance constamment
 force_turbo=0
