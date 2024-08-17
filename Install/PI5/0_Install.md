@@ -505,7 +505,13 @@ chmod +x /usr/local/bin/docker-volume-snapshot;
 #### X. Fonctionnalité
 ```bash
 clear;
-sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+grep cgroup_memory /boot/firmware/cmdline.txt 1>/dev/null;
+
+if [ $? = 1 ];then
+ sed -i -e "s/rootwait/rootwait systemd.unified_cgroup_hierarchy=0 cgroup_enable=memory swapaccount=1 cgroup_memory=1 cgroup_enable=cpuset/g" /boot/firmware/cmdline.txt;
+else
+ echo "Le fichier de configuration est OK";
+fi;
 ```
 
 <br />
