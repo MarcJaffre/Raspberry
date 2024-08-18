@@ -10,6 +10,8 @@ clear;
 ############################
 source ./settings;
 
+DATASTORE="/mnt/Media_5/Backup/Docker"
+
 ########################################################################################################################
 # FONCTIONS #
 #############
@@ -22,12 +24,20 @@ func_check_datastore(){
 }
 
 func_get_container_running(){
- CN_RUNNING=$(docker ps --format '{{.Names}}')
+ docker ps --format '{{.Names}}' | sort -n | xargs -n1 > /tmp/running;
 }
 
+func_get_volumes_container_running(){
+rm /tmp/volumes 2>/dev/null;
+for i in $(cat /tmp/running); do
+ docker inspect $i | grep -i mounts -A20 | grep Source | grep -v "\/" | cut -d ":" -f 2 | cut -d '"' -f 2 >> /tmp/volumes;
+done
+}
 
 func_docker_stop_container(){
- for i in $CN_RUNNING;do echo "docker stop $i"; done
+for i in $(cat /tmp/running); do 
+ echo "docker stop $i";
+done
 }
 
 func_docker_start_container(){
@@ -45,13 +55,11 @@ func_volumes_backup(){
  fi
 }
 
-
 func_volumes_restore(){
  if [ $REPONSE = restore ];then
   echo "Restore";
  fi
 }
-
 
 
 
