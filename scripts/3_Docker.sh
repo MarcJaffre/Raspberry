@@ -30,6 +30,15 @@ func_docker_stop_container(){
  for i in $CN_RUNNING;do echo "docker stop $i"; done
 }
 
+func_docker_start_container(){
+ for i in $CN_RUNNING;do
+  echo "docker stop $i";
+ done
+}
+
+########################################################################################################################
+# EN COURS #
+############
 func_volumes_backup(){
  if [ $REPONSE = backup ];then
   echo "Backup";
@@ -42,12 +51,7 @@ func_volumes_restore(){
  fi
 }
 
-func_docker_start_container(){
- for i in $CN_RUNNING;do
-  echo "docker stop $i";
- done
-}
-
+########################################################################################################################
 
 
 
