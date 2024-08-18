@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Configuration
 ### A. Syntaxe de la commande dtoverlay
-```bash
+```
 Usage:
   dtoverlay <overlay> [<param>=<val>...] Add an overlay (with parameters)
   dtoverlay -D             Dry-run (prepare overlay, but don't apply - save it as dry-run.dtbo)
