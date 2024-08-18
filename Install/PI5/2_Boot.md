@@ -128,15 +128,14 @@ initial_turbo=0
 temp_limit=85
 # ===============================================
 # Vcore (0.025V par pallier)
-over_voltage=-2
-over_voltage_min=-2
+over_voltage=-1
+over_voltage_min=-1
 # ===============================================
 # MEMORY
 #over_voltage_sdram=0
 #over_voltage_sdram_c=0
 #over_voltage_sdram_i=0
 #over_voltage_sdram_p=0
-
 
 #################################################
 # D.O.C.P #
