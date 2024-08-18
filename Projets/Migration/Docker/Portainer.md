@@ -27,7 +27,7 @@ On commence par détruire le conteneur Portainer puis on le démarre Portainer a
 ```bash
 clear;
 if [ ! -z $NAME_CONTENEUR ]; then docker container rm -f $NAME_CONTENEUR; fi
-if [ ! -z $NAME_CONTENEUR ]; docker run -it --name $NAME_CONTENEUR -v $DATA:/data portainer/portainer-ee --rollback-to-ce;
+if [ ! -z $NAME_CONTENEUR ]; then docker run -it --name $NAME_CONTENEUR -v $DATA:/data portainer/portainer-ee --rollback-to-ce; fi
 if [ ! -z $NAME_CONTENEUR ]; then docker container rm -f $NAME_CONTENEUR; fi
 ```
 
