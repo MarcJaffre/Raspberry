@@ -670,7 +670,6 @@ CLIENT_4_PRIVATE=$(cat /tmp/Private)
 CLIENT_4_PUBLIC=$(cat /tmp/Public)
 CLIENT_4_PRESHARED=$(cat /tmp/Preshared)
 
-
 # Client 5
 wg genkey > /tmp/Private; wg genpsk > /tmp/Preshared; cat /tmp/Private | wg pubkey > /tmp/Public
 CLIENT_5_PRIVATE=$(cat /tmp/Private)
