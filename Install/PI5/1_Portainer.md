@@ -107,6 +107,9 @@ volumes:                                               #
 ########################################################
 EOF
 
+# Suppression Conteneur
+docker container rm -f Portainer;
+
 # Arret de Docker
 docker-compose -f portainer.yml down;
 
