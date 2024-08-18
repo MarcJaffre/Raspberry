@@ -25,29 +25,37 @@ func_get_container_running(){
  CN_RUNNING=$(docker ps --format '{{.Names}}')
 }
 
+
 func_docker_stop_container(){
  for i in $CN_RUNNING;do echo "docker stop $i"; done
 }
 
+func_volumes_backup(){
+ if [ $REPONSE = backup ];then
+  echo "Backup";
+ fi
+}
+
+func_volumes_restore(){
+ if [ $REPONSE = restore ];then
+  echo "Restore";
+ fi
+}
+
 func_docker_start_container(){
- for i in $CN_RUNNING;do echo "docker stop $i"; done
+ for i in $CN_RUNNING;do
+  echo "docker stop $i";
+ done
 }
 
-func_backup(){
-if [ $REPONSE = backup ];then
- echo "Backup";
-fi
-}
 
-func_restore(){
-if [ $REPONSE = restore ];then
- echo "Restore";
-fi
-}
+
+
+
 
 func_check_datastore;
 func_get_container_running;
 func_docker_stop_container;
-func_backup;
-func_restore;
+func_volumes_backup;
+func_volumes_restore;
 func_docker_start_container;
