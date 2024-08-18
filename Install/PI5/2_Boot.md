@@ -116,7 +116,7 @@ camera_auto_detect=0
 # Overclocking #
 ################
 # Activation du Mode Boost
-arm_boost=0
+arm_boost=1
 # ===============================================
 # Forcer le mode Haute-Performance constamment
 force_turbo=0
@@ -128,8 +128,8 @@ initial_turbo=0
 temp_limit=85
 # ===============================================
 # Vcore (0.025V par pallier)
-over_voltage=-1
-over_voltage_min=-1
+over_voltage=0
+over_voltage_min=0
 # ===============================================
 # MEMORY
 #over_voltage_sdram=0
