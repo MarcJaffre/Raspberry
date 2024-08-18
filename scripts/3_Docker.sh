@@ -41,6 +41,10 @@ func_docker_start_container(){
 ############
 func_volumes_backup(){
  if [ $REPONSE = backup ];then
+  # Inspecter le conteneur pour trapper les volumes
+  # docker inspect $CN_RUNNING | grep "Mounts" -A5 | head -n 5 | grep Source | cut -d ":" -f 2 | cut -d '"' -f 2
+
+  # Sauvegarder les volumes correspondant
   echo "Backup";
  fi
 }
@@ -50,6 +54,8 @@ func_volumes_restore(){
   echo "Restore";
  fi
 }
+
+
 
 ########################################################################################################################
 
