@@ -187,6 +187,13 @@ ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
 /usr/sbin/useradd --base-dir /home/${USER_NAME} --comment "${USER_COMMENT}" --home-dir /home/${USER_NAME} --groups users  --create-home --password ${ENCRYPT} --shell ${USER_SHELL}  --uid ${USER_UID}  --no-user-group  ${USER_NAME};
 ```
 
+
+#### X. WSDD
+```bash
+clear;
+sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4 -i wlan0 -4\"/g" /etc/default/wsdd;
+```
+
 #### X. Services
 ```bash
 clear;
