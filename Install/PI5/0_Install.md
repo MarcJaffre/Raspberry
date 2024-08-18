@@ -529,6 +529,15 @@ curl -SL $SCRIPT -o /usr/local/bin/docker-volume-snapshot 2>/dev/null;
 chmod +x /usr/local/bin/docker-volume-snapshot;
 ```
 
+#### X. Retarder le service Docker
+```bash
+RETARD=$(systemctl list-unit-files --type=mount --state=generated | grep mnt-Media | cut -c 1-20 | xargs -n10)
+sed -i -e "s/time-set.target/time-set.target $RETARD/g" /lib/systemd/system/docker.service;
+sed -i -e "s/network-online.target containerd.service/network-online.target containerd.service $RETARD/g"  /lib/systemd/system/docker.service;
+systemctl daemon-reload;
+```
+
+
 
 
 #### X. Fonctionnalité
