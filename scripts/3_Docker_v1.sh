@@ -32,15 +32,24 @@ func_volumes_restore(){ for VOLUME in $(ls $DATASTORE | cut -d "." -f1 | xargs -
 ###########################################################################################################################################################################################################################
 # Lancement du script #
 #######################
+echo "-------------------------------------";
 func_question;
+
+echo "-------------------------------------";
 func_check_datastore;
+
+echo "-------------------------------------";
 func_get_container_running;
+
+echo "-------------------------------------";
 func_stop_container;
 
+echo "-------------------------------------";
 if [ $REPONSE = backup ];then 
   func_volumes_backup;
 elif [ $REPONSE = restore ];then
   func_volumes_restore;
 fi
 
+echo "-------------------------------------";
 func_start_container;
