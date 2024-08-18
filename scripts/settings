@@ -86,4 +86,4 @@ NAME_5=""
 # DOCKER - Dossier des sauvegardes #
 ####################################
 DATASTORE="/mnt/Media_5/Backup/Docker"
-EXLUSION="backingFsBlockDev\|.db"
+EXLUSION="backingFsBlockDev\|\.db"
