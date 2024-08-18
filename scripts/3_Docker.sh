@@ -25,11 +25,9 @@ func_get_container_running(){ docker ps --format '{{.Names}}' | sort -n | xargs 
 func_stop_container(){ for  i in $(docker ps -a --format '{{.Names}}' | sort -n | xargs -n1); do $BLANK docker stop $i; done; }
 func_start_container(){ for i in $(cat /tmp/running);do $BLANK docker start $i 1>/dev/null 2>/dev/null; done; }
 #######################################################################################################################################################################################################################
-func_volumes_backup(){ for  VOLUME in $(ls /var/lib/docker/volumes | sort -n | grep -v "backingFsBlockDev\|metadata.db");do $BLANK docker-volume-snapshot create "$VOLUME" "$DATASTORE"/"$VOLUME".tar; done; }
-func_volumes_restore(){ for VOLUME in $(ls $DATASTORE | cut -d "." -f1 | xargs -n1);do $BLANK docker-volume-snapshot restore $DATASTORE/$VOLUME.tar "$VOLUME"; done; }
+func_volumes_backup(){ for  VOLUME in $(ls /var/lib/docker/volumes | sort -n | grep -v "backingFsBlockDev\|metadata.db");do $BLANK docker-volume-snapshot create "$VOLUME" "$DATASTORE"/"$VOLUME".tar 1>/dev/null; done; }
+func_volumes_restore(){ for VOLUME in $(ls $DATASTORE | cut -d "." -f1 | xargs -n1);do $BLANK docker-volume-snapshot restore $DATASTORE/$VOLUME.tar "$VOLUME" 1>/dev/null; done; }
 #######################################################################################################################################################################################################################
-
-
 
 #######################################################################################################################################################################################################################
 # Lancement du script #
@@ -38,5 +36,11 @@ func_question;
 func_check_datastore;
 func_get_container_running;
 func_stop_container;
-if [ $REPONSE = backup ];then func_volumes_backup; elif [ $REPONSE = restore ];then func_volumes_restore; fi
+
+if [ $REPONSE = backup ];then 
+  func_volumes_backup;
+elif [ $REPONSE = restore ];then
+  func_volumes_restore;
+fi
+
 func_start_container;
