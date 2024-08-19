@@ -544,7 +544,20 @@ sed -i -e "s/network-online.target containerd.service/network-online.target cont
 systemctl daemon-reload;
 ```
 
+#### X. Afficher la consommation
+La commande est `stats_docker`
+```bash
+clear;
+cat > /usr/sbin/stats_docker << EOF
+docker stats --format "table {{.Name}}\\t{{.MemUsage}}\\t{{.MemPerc}}\\t{{.CPUPerc}}\\t{{.NetIO}}\\t{{.BlockIO}}" | grep -v 'Portainer'
+EOF
+chmod +x /usr/sbin/stats_docker;
+```
 
+```bash
+clear;
+stats_docker;
+```
 
 
 #### X. Fonctionnalité
