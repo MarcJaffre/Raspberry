@@ -31,8 +31,8 @@ services:      #
   deploy:                                              #
    resources:                                          #
     limits:                                            #
-     cpus: '2.00'                                      #
-     memory: '512M'                                    #
+     cpus: '0.50'                                      #
+     memory: '256M'                                    #
   # -------------------------------------------------- #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
