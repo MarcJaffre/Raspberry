@@ -549,7 +549,7 @@ La commande est `stats_docker`
 ```bash
 clear;
 cat > /usr/sbin/stats_docker << EOF
-docker stats --format "table {{.Name}}\\t{{.MemUsage}}\\t{{.MemPerc}}\\t{{.CPUPerc}}\\t{{.NetIO}}\\t{{.BlockIO}}" | grep -v 'Portainer'
+docker stats --format "table {{.Name}}\\t{{.MemUsage}}\\t{{.MemPerc}}\\t{{.CPUPerc}}\\t{{.NetIO}}\\t{{.BlockIO}}"
 EOF
 chmod +x /usr/sbin/stats_docker;
 ```
