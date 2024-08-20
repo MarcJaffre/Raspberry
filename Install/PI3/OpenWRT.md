@@ -145,3 +145,9 @@ Cliquer sur le bouton `ADD` concernant le point WIFI `802.11b/g/n` puis sur `Sav
   - Isolate client   : Permet de rendre impossible la communication entre client du WIFI. (Exemple: WIFI Public)
   - Interface NAME   : Nommer l'interface WIFI 
 ```
+
+
+Mon pilote pour RJ45 > USB
+```
+kmod-usb-net-asix-ax88179
+```
