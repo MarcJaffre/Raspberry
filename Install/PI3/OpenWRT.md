@@ -54,25 +54,63 @@ Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonct
 >    
 > 2. Taper l'url `http://192.168.1.1`
 
-### B. Création d'un device
+### B. Création d'un Device
 Ouvrir le menu `Network` puis `Interfaces`. Cliquer sur `Device`.
 
 Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les réglages ci-dessosu puis cliquer sur `Save`.
 
 ```
 - Device Type : Bridge device
-- Device Name : LAN
+- Device Name : WAN
 - Bridge Port : Unspecified
+
 ```
 
-### B. Création d'une interface
-Ouvrir le menu `Network` puis `Interfaces`.
+```
+- Device Type : Bridge device
+- Device Name : LAN
+- Bridge Port : Ethernet Adapter "Eth0"
+```
 
-### C. 
+### C. Suppression d'un Device
+Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Devices` puis cliquer sur `Unconfigure` pour le device `br-lan`.
 
 
+### D. Suppression de l'interface par défaut
+Ouvrir le menu `Network` puis `Interface` et cliquer sur `Delete` sur le `LAN`.
 
+### E. Création d'une interface (WAN)
+Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
 
+```
+[General Settings]
+- Name                  : WAN
+- Protocol              : DHCP Client
+- Device                : Bridge WAN
+
+[Firewall Settings]
+ - Assiign Firewall Zone : WAN
+```
+
+### F. Création d'une interface (LAN)
+Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
+
+```
+[General Settings]
+- Name                  : LAN
+- Protocol              : Static address
+- Device                : Bridge LAN
+- IPV4 Address          : 192.168.30.1
+- IPV4 Mask             : 255.255.255.0
+
+[Firewall Settings]
+ - Assiign Firewall Zone : LAN
+
+[DHCP Server] Set up DHCP Server
+ - Start : 2
+ - Limit : 250
+ - Lease : 12h
+```
 
 
 
