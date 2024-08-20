@@ -67,6 +67,8 @@ Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les rég
 
 ### B. Création d'une interface
 Ouvrir le menu `Network` puis `Interfaces`.
+
+
 #### 1. Supprimer l'interface LAN
 Cliquer sur `Delete` sur l'interface `lan` qui est déjà présent. (**NE SURTOUT PAS FAIRE APPLY !!!!**)
 
@@ -79,7 +81,7 @@ Cliquer sur `Add new interface` puis remplir les champs du panneau `Add new inte
 ```
 
 
-#### 2. Création d'une interface (Partie 2)
+#### 3. Création d'une interface (Partie 2)
 Cliquer sur `Add new interface` puis remplir les champs du panneau `Add new interface` puis cliquer sur `Cliquer sur Create interface`.
 ```
 - IPv4 address : 192.168.10.1
@@ -87,8 +89,13 @@ Cliquer sur `Add new interface` puis remplir les champs du panneau `Add new inte
 - IPv4 gateway : NONE
 ```
 
-#### 2. Création d'une interface (Partie 3)
-Dans la partie supérieur de la fenètre, cliquer sur `DHCP Server` puis cliquer sur `Set up DHCP Server` pour activer le DHCP.
+#### 4. Création d'une interface (Partie 3)
+Dans la partie supérieur de la fenètre, cliquer sur `Firewall Settings` puis choisir dans le menu la zone d'assignation `LAN`.
+
+
+#### 5. Création d'une interface (Partie 4)
+
+Dans la partie supérieur de la fenètre, cliquer sur `DHCP Server` puis cliquer sur `Set up DHCP Server` pour activer le DHCP
 
 Le DHCP commence de l'adresse `192.168.10.2` et se termine à `192.168.10.254` avec un bail de 12 Heure. (2 + 252 = 254)
 ```
@@ -96,3 +103,46 @@ Start : 2
 Limit : 252
 Lease : 12h
 ```
+
+#### 6. Création d'une interface (Partie 5)
+Cliquer sur `SAVE`. (**NE SURTOUT PAS FAIRE APPLY !!!!**)
+
+
+### C. Création du Point WIFI
+Ouvrir le menu `Network` puis `Wireless`.
+
+#### 1. WIFI 2.4 GHz
+Cliquer sur le bouton `ADD` concernant le point WIFI `802.11b/g/n` puis sur `Save`.
+```
+[General Setup]
+- Operating Frequency
+  > Mode    : Legacy (2.4 GHz)
+  > Channel : Auto
+
+[Advanced Settings]
+- Country Code          : FR - France
+- Coverage cell density : Very High (24 mbps)
+
+
+[Interface Configuration]
+ [General Setup]
+  - Mode       : Access Point
+  - ESSID      : <NOM DE VOTRE SSID>
+  - Network    : LAN (Le réseau Wifi sera attaché à l'interface LAN qui propose un DHCP)
+  - Hide ESSID : Permet de cacher le réseau WIFI. (Optionnel)
+ 
+ [Wireless Security]
+  - Encryption: WPA2-PSK
+  - KEY       : <CLE WIFI POUR SE CONNECTER> (8 Caractères minimum)
+    
+ [Mac-Filter]
+  - Mac Address Filter : Permet l'activation du filtrage MAC pour se connecter au WIFI (optionel)
+
+ [Advanced Setup]
+  - Multi to Unicast : ???
+  - Isolate client   : Permet de rendre impossible la communication entre client du WIFI. (Exemple: WIFI Public)
+  - Interface NAME   : Nommer l'interface WIFI 
+```
+
+
+#### 2. WIFI 5 GHz
