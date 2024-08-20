@@ -13,6 +13,8 @@ https://openwrt.org/toh/raspberry_pi_foundation/raspberry_pi
 https://firmware-selector.openwrt.org/
 ```
 
+<br />
+
 #### 2. Personnaliser les paquets installés
 Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonctionner l'interface graphique `Luci` si besoin.
 
