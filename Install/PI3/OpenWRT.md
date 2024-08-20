@@ -119,7 +119,7 @@ Cliquer sur le bouton `ADD` concernant le point WIFI `802.11b/g/n` puis sur `Sav
 [General Setup]
 - Operating Frequency
   > Mode    : Legacy (2.4 GHz)
-  > Channel : Auto
+  > Channel : 2.412 GHz
 
 [Advanced Settings]
 - Country Code          : FR - France
