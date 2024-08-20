@@ -107,9 +107,6 @@ Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
  - Assiign Firewall Zone : LAN
 
 [DHCP Server] Set up DHCP Server
- - Start : 2
- - Limit : 250
- - Lease : 12h
 ```
 
 
