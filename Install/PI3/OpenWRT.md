@@ -75,10 +75,7 @@ Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les rég
 Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Devices` puis cliquer sur `Unconfigure` pour le device `br-lan`.
 
 
-### D. Suppression de l'interface par défaut
-Ouvrir le menu `Network` puis `Interface` et cliquer sur `Delete` sur le `LAN`.
-
-### E. Création d'une interface (WAN)
+### D. Création d'une interface (WAN)
 Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Add new interface` puis configurer l'interface et cliquer sur `Save`.
 
 ```
@@ -108,9 +105,12 @@ Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Add new interface` puis 
 [DHCP Server] Set up DHCP Server
 ```
 
+### G. Suppression de l'interface par défaut
+Ouvrir le menu `Network` puis `Interface` et cliquer sur `Delete` sur le `LAN`.
 
 
-### C. Création du Point WIFI
+
+### H. Création du Point WIFI
 Ouvrir le menu `Network` puis `Wireless`.
 
 #### 1. WIFI 2.4 GHz
@@ -145,6 +145,3 @@ Cliquer sur le bouton `ADD` concernant le point WIFI `802.11b/g/n` puis sur `Sav
   - Isolate client   : Permet de rendre impossible la communication entre client du WIFI. (Exemple: WIFI Public)
   - Interface NAME   : Nommer l'interface WIFI 
 ```
-
-
-#### 2. WIFI 5 GHz
