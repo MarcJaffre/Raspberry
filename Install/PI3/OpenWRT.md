@@ -49,22 +49,50 @@ Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonct
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## III. Configuration
-### A. Présentation
-
-### B. Accéder au panel LUCI
+### A. Accéder au panel LUCI
 > 1. Brancher le PC directement sur le Raspberry via le port RJ45
 >    
-> 2. Taper l'url http://openwrt.wrt
+> 2. Taper l'url du routeur en relevant l'adresse de la passerelle.
+
+### B. Création d'un device
+Ouvrir le menu `Network` puis `Interfaces`. Cliquer sur `Device`.
+
+Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les réglages ci-dessosu puis cliquer sur `Save`.
+
+```
+- Device Type : Bridge device
+- Device Name : LAN
+- Bridge Port : Unspecified
+```
+
+### B. Création d'une interface
+Ouvrir le menu `Network` puis `Interfaces`.
+#### 1. Supprimer l'interface LAN
+Cliquer sur `Delete` sur l'interface `lan` qui est déjà présent. (**NE SURTOUT PAS FAIRE APPLY !!!!**)
+
+#### 2. Création d'une interface (Partie 1)
+Cliquer sur `Add new interface` puis remplir les champs du panneau `Add new interface` puis cliquer sur `Cliquer sur Create interface`.
+```
+- Name         : LAN
+- Protocol     : Static IP
+- Device       : Bridge "LAN"
+```
 
 
-### B. Création du Pont
-> 1. Network
->
-> 2. Network
->
-> 3. Devices
->
-> 4. ADD
+#### 2. Création d'une interface (Partie 2)
+Cliquer sur `Add new interface` puis remplir les champs du panneau `Add new interface` puis cliquer sur `Cliquer sur Create interface`.
+```
+- IPv4 address : 192.168.10.1
+- IPv4 Mask    : 255.255.255.0
+- IPv4 gateway : NONE
+```
 
+#### 2. Création d'une interface (Partie 3)
+Dans la partie supérieur de la fenètre, cliquer sur `DHCP Server` puis cliquer sur `Set up DHCP Server` pour activer le DHCP.
 
-
+Le DHCP commence de l'adresse `192.168.10.2` et se termine à `192.168.10.254` avec un bail de 12 Heure. (2 + 252 = 254)
+```
+Start : 2
+Limit : 252
+Lease : 12h
+```
