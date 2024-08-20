@@ -54,7 +54,8 @@ Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonct
 ### B. Accéder au panel LUCI
 > 1. Brancher le PC directement sur le Raspberry via le port RJ45
 >    
-> 2. Relevé l'adresse de la passerelle et taper l'url dans le navigateur
+> 2. Taper l'url http://openwrt.wrt
+
 
 ### B. Création du Pont
 > 1. Network
