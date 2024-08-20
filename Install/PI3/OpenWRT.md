@@ -3,11 +3,14 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## I. Présentation
+> Le routeur disposera d'une interface WAN en mode DHCP client, d'un LAN en mode DHCP et d'un point WIFI qui sera attaché sur le LAN.
 
 <br />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Création de la carte SD OpenWRT 
+
+
 ### A. OpenWRT
 ```
 https://openwrt.org/toh/raspberry_pi_foundation/raspberry_pi
@@ -46,9 +49,21 @@ Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonct
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## III. Configuration
-### A. Accéder au panel LUCI
+### A. Présentation
+
+### B. Accéder au panel LUCI
 > 1. Brancher le PC directement sur le Raspberry via le port RJ45
 >    
 > 2. Relevé l'adresse de la passerelle et taper l'url dans le navigateur
- 
+
+### B. Création du Pont
+> 1. Network
+>
+> 2. Network
+>
+> 3. Devices
+>
+> 4. ADD
+
+
 
