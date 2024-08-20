@@ -18,3 +18,4 @@ https://firmware-selector.openwrt.org/
 #### 2. Personnaliser les paquets installés
 Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonctionner l'interface graphique `Luci` si besoin.
 
+![image](https://github.com/user-attachments/assets/baeda5ca-e305-42f6-9f3c-296e7c180c04)
