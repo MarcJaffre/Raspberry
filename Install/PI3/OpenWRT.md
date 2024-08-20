@@ -83,24 +83,25 @@ Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
 
 ```
 [General Settings]
-- Name                  : WAN
-- Protocol              : DHCP Client
-- Device                : Bridge WAN
+- Name     : WAN
+- Protocol : DHCP Client
+- Device   : Bridge WAN
 
 [Firewall Settings]
  - Assiign Firewall Zone : WAN
 ```
+
 
 ### F. Création d'une interface (LAN)
 Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
 
 ```
 [General Settings]
-- Name                  : LAN
-- Protocol              : Static address
-- Device                : Bridge LAN
-- IPV4 Address          : 192.168.1.1
-- IPV4 Mask             : 255.255.255.0
+- Name         : LAN
+- Protocol     : Static address
+- Device       : Bridge LAN
+- IPV4 Address : 192.168.1.1
+- IPV4 Mask    : 255.255.255.0
 
 [Firewall Settings]
  - Assiign Firewall Zone : LAN
