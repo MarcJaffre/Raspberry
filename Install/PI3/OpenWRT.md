@@ -63,7 +63,6 @@ Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les rég
 - Device Type : Bridge device
 - Device Name : WAN
 - Bridge Port : Unspecified
-
 ```
 
 ```
