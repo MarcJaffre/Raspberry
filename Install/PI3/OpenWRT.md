@@ -100,7 +100,7 @@ Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
 - Name                  : LAN
 - Protocol              : Static address
 - Device                : Bridge LAN
-- IPV4 Address          : 192.168.30.1
+- IPV4 Address          : 192.168.1.1
 - IPV4 Mask             : 255.255.255.0
 
 [Firewall Settings]
