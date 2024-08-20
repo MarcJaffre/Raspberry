@@ -62,13 +62,13 @@ Dans le menu `Device`, cliquer sur `Add device configuration`, indiquer les rég
 ```
 - Device Type : Bridge device
 - Device Name : WAN
-- Bridge Port : Unspecified
+- Bridge Port : Ethernet Adapter "Eth0"
 ```
 
 ```
 - Device Type : Bridge device
 - Device Name : LAN
-- Bridge Port : Ethernet Adapter "Eth0"
+- Bridge Port : Unspecified
 ```
 
 ### C. Suppression d'un Device
@@ -79,7 +79,7 @@ Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Devices` puis cliquer su
 Ouvrir le menu `Network` puis `Interface` et cliquer sur `Delete` sur le `LAN`.
 
 ### E. Création d'une interface (WAN)
-Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
+Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Add new interface` puis configurer l'interface et cliquer sur `Save`.
 
 ```
 [General Settings]
@@ -91,9 +91,8 @@ Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
  - Assiign Firewall Zone : WAN
 ```
 
-
 ### F. Création d'une interface (LAN)
-Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
+Ouvrir le menu `Network` puis `Interface`. Cliquer sur `Add new interface` puis configurer l'interface et cliquer sur `Save`.
 
 ```
 [General Settings]
@@ -109,14 +108,6 @@ Ouvrir le menu `Network` puis `Interface` et cliquer sur `Add new interface`.
 [DHCP Server] Set up DHCP Server
 ```
 
-
-
-
-
-
-
-#### 6. Création d'une interface (Partie 5)
-Cliquer sur `SAVE`. (**NE SURTOUT PAS FAIRE APPLY !!!!**)
 
 
 ### C. Création du Point WIFI
