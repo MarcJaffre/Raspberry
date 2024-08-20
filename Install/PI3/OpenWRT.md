@@ -15,10 +15,19 @@ https://firmware-selector.openwrt.org/
 
 <br />
 
-#### 2. Personnaliser les paquets installés
+#### 2. Choisir l'image
+> Indiquer dans le champs de recherche `Raspberry Pi (3B/3B+/CM3 (32bit)`
+>
+> Télécharger l'image `Factory`.
+>
+> Extraire le fichier compresser jusqu'à obtenir un fichier `img`.
+
+
+#### 3. Flasher
+L'utilitaire `gnome-disks` permet de flasher la carte SD via `Restaurer l'image disque ...` .
+
+
+#### 2. Personnaliser les paquets installés (Optionnel
 Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonctionner l'interface graphique `Luci` si besoin.
-
-brcmfmac-firmware
-
 
 ![image](https://github.com/user-attachments/assets/baeda5ca-e305-42f6-9f3c-296e7c180c04)
