@@ -23,22 +23,9 @@ Ce paquet permettra à Wireguard de générer un QRCode qui sera utiliser par le
 <br />
 
 ### B. Création de l'interface Wireguard
-Ouvrir le menu `Network` puis `Interfaces`. Cliquer sur le bouton `Add new interface...`, réaliser la configuration (voir ci dessous) puîs cliquer sur `Save` et `Save & Apply`.
+Ouvrir le menu `Network` puis `Interfaces`.
 
-```
-Name     : Wireguard
-Protocol : WireGuard VPN
-```
-
-```
-[General Settings]
- - Generate new key pair : Permet de générer une pair de clé pour le serveur
- - Listen Port           : 51820
- - IP Addresses          : Définir une adresse réseau en /32 et cliquer sur le +. (Exemple: 192.168.50.1/32)
-                           - /32 signifie serveur à Client uniquement. (Bloque Client VPN à Client VPN)
-[Firewall settings]
- - Assign firewall-zone  : Indiquer un nom en minuscule pour créer une zone dans le pare-feu (Exemple: vpn) 
-```
+![Capture d'écran 2024-08-21 160933](https://github.com/user-attachments/assets/d5c8a7b6-2766-4517-9260-c741fc4f26de)
 
 
 ### C. Gestions des clîents
@@ -58,6 +45,11 @@ Editer l'interface `wireguard` puis aller dans `Peer` et cliquer sur `Add peer` 
 - Endpoint Host          : Adresse public du VPN. (WAN IP ou DDNS)
 - Endpoint Port          : Port du client pour se connecter au VPN
 ```
+
+![image](https://github.com/user-attachments/assets/d34f92fc-66a5-4d1c-918d-97f7464647dc)
+
+
+
 #### 3. Générer la configuration
 Cliquer sur `Generate configuration`. Configurer le DNS et récupérer le QRCode pour le client.
 
@@ -76,6 +68,8 @@ Allowed IPs         : Adresse réseaux autorisé à accéder depuis le client. (
 DNS Servers         : Serveur DNS que le client utilise (Si c'est un DNS connecté au sein du routeur, penser au parê-feu)
 Addresses           : 192.168.50.2/32
 ```
+
+![image](https://github.com/user-attachments/assets/37e91b99-aa06-4265-af08-b553e31d200c)
 
 
 #### 4. Redémarrer l'interface
