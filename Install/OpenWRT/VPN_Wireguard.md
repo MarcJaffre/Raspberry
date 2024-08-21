@@ -59,7 +59,7 @@ Editer l'interface `wireguard` puis aller dans `Peer` et cliquer sur `Add peer` 
 - Endpoint Port          : Port du client pour se connecter au VPN
 ```
 #### 3. Générer la configuration
-Cliquer sur `Generate configuration`.
+Cliquer sur `Generate configuration`. Configurer le DNS et récupérer le QRCode pour le client.
 
 ```
 Connection endpoint : Sélectionner l'adresse WAN
@@ -94,4 +94,5 @@ Internal IP address : 192.168.50.1
 Internal port       : 51820
 ```
 
+![image](https://github.com/user-attachments/assets/fa678c08-aac9-439f-a8e1-ecc1a3ce4a8f)
 
