@@ -27,6 +27,9 @@ https://firmware-selector.openwrt.org/
 > Sélectionner `SNAPSHOT` puis taper dans le champs recherche `Raspberry PI 5`
 >
 > Cliquer sur `Personnaliser les paquets installés et/ou le script de démarrage` pour personnaliser les paquets de la distribution.
+>
+> Paquet permettant d'avoir OpenWRT en Français: luci-i18n-base-fr
+
 
 #### 3. Activer les modules I2C et SPI
 Il est nécessaire d'ajouter le paquet `kmod-i2c-bcm2835` puis d'éditer le fichier `/boot/config.txt`.
