@@ -55,8 +55,12 @@ kmod-usb-net-asix-ax88179
 ```
 
 ```
-hwclock i2c-tools kmod-i2c-bcm2835 kmod-hwmon-gpiofan kmod-rtc-ds1307 kmod-usb-net-asix kmod-usb-net-asix-ax88179
+hwclock i2c-tools kmod-hwmon-gpiofan kmod-usb-net-asix kmod-usb-net-asix-ax88179
+
+#kmod-i2c-bcm2835
+#kmod-rtc-ds1307
 ```
+
 ```
 dtparam=i2c1=on
 dtparam=i2s=on
