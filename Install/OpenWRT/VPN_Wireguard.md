@@ -85,7 +85,11 @@ Addresses           : 192.168.50.2/32
 ### D. Firewall
 Ouvrir le menu `Network` puis `Firewall`. 
 #### 1. General Settings
+Définir l'ordre des différentes zone puis éditer la zone VPN pour permettre du VPN on puisse accéder au WAN (Internet)
 ![image](https://github.com/user-attachments/assets/14f42330-e955-4d8d-8510-635e9b17f216)
+
+![image](https://github.com/user-attachments/assets/1131375c-2a16-409c-91bb-4c81665556c8)
+
 
 #### 2. Port Forwards
 Le client transmet se connecte sur le port 5810/UDP depuis le WAN du routeur et le routeur transmert à l'interface VPN
