@@ -36,17 +36,26 @@ dtparam=i2s=on
 dtparam=spi=on
 ```
 
-#### 4. Ajouter des Pilotes
+#### 4. Real-Time Clock
+Il est nécessaire d'ajouter le paquet `hwclock`, `i2c-tools` et `kmod-rtc-ds1307` puis d'éditer le fichier `/boot/config.txt`.
+```
+dtoverlay=i2c-rtc,ds1307
+```
+
+#### 5. FAN
+Il est nécessaire d'ajouter le paquet `kmod-hwmon-gpiofan` puis d'éditer le fichier `/boot/config.txt`.
+```
+dtoverlay=gpio-fan,gpiopin=14,temp=80000
+```
+
+#### 7. Ajouter des Pilotes USB
 ```
 kmod-usb-net-asix
 asix-ax88179
 ```
 
-#### 5. Real-Time Clock
-Il est nécessaire d'ajouter le paquet `kmod-rtc-ds1307` puis d'éditer le fichier `/boot/config.txt`.
-```
-dtoverlay=i2c-rtc,ds1307
-```
+
+kmod-hwmon-gpiofan
 
 
 
