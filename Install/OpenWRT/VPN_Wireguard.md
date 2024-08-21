@@ -13,6 +13,8 @@ Remplisser le champ `Filter` par le mot `luci-proto-wireguard`.
 
 Installer le paquet en cliquant sur `Installed` puis sur `Install`.
 
+<br />
+
 ### B. Création de l'interface Wireguard
 Ouvrir le menu `Network` puis `Interfaces`. Cliquer sur le bouton `Add new interface...`, réaliser la configuration (voir ci dessous) puîs cliquer sur `Save` et `Save & Apply`.
 
