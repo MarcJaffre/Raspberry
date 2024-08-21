@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-## <p align='center'> Installation d'un routeur OpenWRT sous Raspberry PI 3B (1 Go) </p>
+## <p align='center'> [Installation d'un routeur OpenWRT sous Raspberry PI 5](https://openwrt.org/toh/raspberry_pi_foundation/raspberry_pi) </p>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## I. Présentation
