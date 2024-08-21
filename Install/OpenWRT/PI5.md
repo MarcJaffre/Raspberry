@@ -51,11 +51,11 @@ dtoverlay=gpio-fan,gpiopin=14,temp=80000
 #### 7. Ajouter des Pilotes USB
 ```
 kmod-usb-net-asix
-asix-ax88179
+kmod-usb-net-asix-ax88179
 ```
 
 ```
-asix-ax88179 hwclock i2c-tools kmod-i2c-bcm2835 kmod-hwmon-gpiofan kmod-rtc-ds1307 kmod-usb-net-asix 
+hwclock i2c-tools kmod-i2c-bcm2835 kmod-hwmon-gpiofan kmod-rtc-ds1307 kmod-usb-net-asix kmod-usb-net-asix-ax88179
 ```
 ```
 dtparam=i2c1=on
