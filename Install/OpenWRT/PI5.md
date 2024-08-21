@@ -68,4 +68,9 @@ dtparam=spi=on
 dtoverlay=i2c-rtc,ds1307
 dtoverlay=gpio-fan,gpiopin=14,temp=80000
 ```
+
+```
+opkg install bcm2712-eeprom
+``` 
+
 <br />
