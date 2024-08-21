@@ -54,9 +54,14 @@ kmod-usb-net-asix
 asix-ax88179
 ```
 
-
-kmod-hwmon-gpiofan
-
-
-
+```
+asix-ax88179 hwclock i2c-tools kmod-i2c-bcm2835 kmod-hwmon-gpiofan kmod-rtc-ds1307 kmod-usb-net-asix 
+```
+```
+dtparam=i2c1=on
+dtparam=i2s=on
+dtparam=spi=on
+dtoverlay=i2c-rtc,ds1307
+dtoverlay=gpio-fan,gpiopin=14,temp=80000
+```
 <br />
