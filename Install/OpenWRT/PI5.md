@@ -73,4 +73,9 @@ dtoverlay=gpio-fan,gpiopin=14,temp=80000
 opkg install bcm2712-eeprom
 ``` 
 
+```
+/etc/init.d/firewall stop
+/etc/init.d/firewall disable
+```
+
 <br />
