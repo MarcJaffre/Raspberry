@@ -76,3 +76,22 @@ Allowed IPs         : Adresse réseaux autorisé à accéder depuis le client. (
 DNS Servers         : Serveur DNS que le client utilise (Si c'est un DNS connecté au sein du routeur, penser au parê-feu)
 Addresses           : 192.168.50.2/32
 ```
+
+### D. Firewall
+Ouvrir le menu `Network` puis `Firewall`. 
+#### 1. General Settings
+![image](https://github.com/user-attachments/assets/14f42330-e955-4d8d-8510-635e9b17f216)
+
+#### 2. Port Forwards
+Le client transmet se connecte sur le port 5810/UDP depuis le WAN du routeur et le routeur transmert à l'interface VPN
+```
+Name                : Wireguard
+Protocol            : UDP
+Source zone         : WAN
+External port       : 51820
+Destination zone    : VPN
+Internal IP address : 192.168.50.1
+Internal port       : 51820
+```
+
+
