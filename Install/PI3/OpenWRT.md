@@ -43,6 +43,13 @@ Ajouter dans la liste des paquets le paquet `luci-ssl` qui permet de faire fonct
 
 ![image](https://github.com/user-attachments/assets/baeda5ca-e305-42f6-9f3c-296e7c180c04)
 
+#### 4. Pilote USB
+Mon matériel utilise le composant `ax88179`. Après installation, j'installe le pilote pour permettrê la gestion de mon adapateur 
+```
+kmod-usb-net-asix-ax88179
+```
+
+
 
 <br />
 <br />
@@ -146,8 +153,3 @@ Cliquer sur le bouton `ADD` concernant le point WIFI `802.11b/g/n` puis sur `Sav
   - Interface NAME   : Nommer l'interface WIFI 
 ```
 
-
-Mon pilote pour RJ45 > USB
-```
-kmod-usb-net-asix-ax88179
-```
