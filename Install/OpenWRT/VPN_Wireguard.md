@@ -77,6 +77,11 @@ DNS Servers         : Serveur DNS que le client utilise (Si c'est un DNS connect
 Addresses           : 192.168.50.2/32
 ```
 
+
+#### 4. Redémarrer l'interface
+![image](https://github.com/user-attachments/assets/c88a7498-e47b-437d-b79a-4e2b3d02f71a)
+
+
 ### D. Firewall
 Ouvrir le menu `Network` puis `Firewall`. 
 #### 1. General Settings
@@ -94,5 +99,7 @@ Internal IP address : 192.168.50.1
 Internal port       : 51820
 ```
 
+### E. Vérification
+Lorsque le client est connecté, des paquets sont visibles.
 ![image](https://github.com/user-attachments/assets/fa678c08-aac9-439f-a8e1-ecc1a3ce4a8f)
 
