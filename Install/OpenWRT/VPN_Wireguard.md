@@ -69,7 +69,7 @@ DNS Servers         : Serveur DNS que le client utilise (Si c'est un DNS connect
 Addresses           : 192.168.50.2/32
 ```
 
-![image](https://github.com/user-attachments/assets/37e91b99-aa06-4265-af08-b553e31d200c)
+![image](https://github.com/user-attachments/assets/6e972011-8e22-4cba-ada3-cc740e665222)
 
 
 #### 4. Redémarrer l'interface
