@@ -15,6 +15,8 @@ La configuration suivante permet unê amélioration de la sécurité.
 <br />
 
 #### C. Autorîser les protocoles
+Le DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
+
 ##### 1a. DHCPv4 (Entrant)
 Le client qui est dans la zone WIFI utilise le port `67/UDP` pour demander une adresse IP.
 
