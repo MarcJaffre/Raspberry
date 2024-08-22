@@ -43,8 +43,19 @@ La requête transmis par le client sur le port `53` (TCP/UDP) à comme destinata
 
 ![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
 
+<br />
+
 ### C. HTTP
 La requête transmis par le client sur le port `80` (TCP) à comme intermédiaire le routeur.
 
+![image](https://github.com/user-attachments/assets/cdd9d874-7bfe-4d1e-958e-81d7041205b0)
+
+
+<br />
+
+### D. HTTPS
+La requête transmis par le client sur le port `443` (TCP) à comme intermédiaire le routeur.
+
+![image](https://github.com/user-attachments/assets/7d03fcbf-27f6-47b3-adf4-9e30ce37ad3c)
 
 
