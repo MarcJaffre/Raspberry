@@ -1,26 +1,27 @@
 ----------------------------------------------------------------------------------------------------------------------------------
 ## <p align='center'> Règle de trafic </p>
 ----------------------------------------------------------------------------------------------------------------------------------
-### I. Présentation
-La configuration suivante permet une amélioration significat de la sécurité en limitant les flux. (Entrant, Sortant, inter-zone)
+### I. Informations Générales
+#### A. Présentation
+Pour permettre une meilleur gestion du trafic réseau et n'autoriser que les flux à passer le pare-feu, il est nécessaire de faire une politique de sécurité.
+
+#### B. Pare-Feu
+Pour définir une polique globale de sécurité, il est nécessaire de modifier les zones.
+
+L'interface WIFI est dans la zone du Pare-Feu `WIFI`.
+
+![image](https://github.com/user-attachments/assets/e0ea28e8-e245-4e0a-9e58-c60aec6b8066)
+
+La politique Globale: 
+
+![image](https://github.com/user-attachments/assets/6e9b7929-d1ce-43ed-806c-4d7f7f7f5cc1)
+
 
 <br />
 <br />
 
 ----------------------------------------------------------------------------------------------------------------------------------
-## II. Pare-feu (Global)
-La Zone WIFI Bloque les flux : Entran^t Sortant et Inter-Zone
-
-La Zone WAN : Sortie autorisé uniquement
-
-![image](https://github.com/user-attachments/assets/67b67988-40e9-4a27-9db7-c609c9bae739)
-
-
-<br />
-<br />
-
-----------------------------------------------------------------------------------------------------------------------------------
-## II. Pare-feu (Protocoles)
+## II. Pare-feu
 ### A. DHCP
 ##### 1. Présentation
 Le DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
