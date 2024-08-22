@@ -8,3 +8,7 @@ La configuration suivante permet unê amélioration de la sécurité.
 La règle globale pour le réseau WIFI :
 
 ![image](https://github.com/user-attachments/assets/392354ef-45b8-4778-ac8d-33d9d36629a7)
+
+#### C. Autorîser les protocoles de base
+##### 1. DHCPv4
+Ouvrir le port `68`.
