@@ -19,10 +19,3 @@ La configuration suivante permet unê amélioration de la sécurité.
 
 ##### 1b. DHCPv4 (Sortant)
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
-
-##### 2. DNS (Entrant)
-La requete est entrante de la zone WIFI et sort depuis la zone WAN.
-
-##### 3. HTTP (Entrant)
-
-##### 4. HTTPS (Entrant)
