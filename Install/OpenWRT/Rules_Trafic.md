@@ -11,6 +11,7 @@ La configuration suivante permet unê amélioration de la sécurité.
 
 ![image](https://github.com/user-attachments/assets/67b67988-40e9-4a27-9db7-c609c9bae739)
 
+<br />
 
 #### C. Autorîser les protocoles
 ##### 1a. DHCPv4 (Entrant)
