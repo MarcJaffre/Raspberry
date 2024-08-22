@@ -27,6 +27,7 @@ Le serveur utilise le port `68/UDP` pour répondre à la demande d'adresse IP qu
 
 <br />
 
-##### 2. DNS
+##### 2. DNS (Entrant)
 La requete DNS est transmise par le client qui est dans la zone WIFI vers le routeur. Le routeur fera la suite.
+
 ![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
