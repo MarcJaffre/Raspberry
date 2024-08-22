@@ -15,6 +15,7 @@ La configuration suivante permet unê amélioration de la sécurité.
 
 #### C. Autorîser les protocoles
 ##### 1a. DHCPv4 (Entrant)
+Le port du Client est 67
 ![image](https://github.com/user-attachments/assets/7c76f1c3-c926-4171-8cdc-bf05486f5c22)
 
 ##### 1b. DHCPv4 (Sortant)
