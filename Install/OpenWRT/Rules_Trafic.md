@@ -16,6 +16,5 @@ La règle globale pour le réseau WIFI
 ##### 1b. DHCPv4 (Sortant)
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
 
-##### 2a. DNS (Entrant)
-
-##### 2b. DNS (Sortant)
+##### 2. DNS (Entrant)
+La requete est entrante de la zone WIFI et ensuite va dans la zone WAN.
