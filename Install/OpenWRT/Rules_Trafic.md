@@ -22,7 +22,7 @@ La politique Globale:
 
 ----------------------------------------------------------------------------------------------------------------------------------
 ## II. Pare-feu
-La zone WIFI n'a actuellement aucun flux autorisé, il est nécessaire de créer des règles pour permet un trafic réseau.
+La zone WIFI n'a actuellement aucun flux autorisé, il est nécessaire de créer des règles pour permettre un trafic réseau.
 
 ### A. DHCP
 ##### 1. Présentation
