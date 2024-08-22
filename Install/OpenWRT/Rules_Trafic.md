@@ -23,3 +23,6 @@ Le client utilise le port `67/UDP` pour demander une adresse IP.
 Le serveur utilise le port `68/UDP` pour répondre à la demande d'adresse IP.
 
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
+
+##### 2. DNS
+Le protocole DNS est transmis par le client vers le routeur et le routeur demande la requete à son voisin.
