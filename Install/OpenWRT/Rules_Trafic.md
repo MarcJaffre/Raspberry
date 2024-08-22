@@ -22,15 +22,15 @@ La Zone WAN : Sortie autorisé uniquement
 --------------------------------------------------------------------------------------------------------------
 ## II. Pare-feu (Protocoles)
 ### A. DHCP
-#### 1. Présentation
+##### 1. Présentation
 Le DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
 
-#### 2. DHCPv4
+##### 2. DHCPv4
 Le client qui est dans la zone WIFI utilise le port `67/UDP` pour demander une adresse IP.
 
 ![image](https://github.com/user-attachments/assets/7c76f1c3-c926-4171-8cdc-bf05486f5c22)
 
-#### 3. DHCPv4
+##### 3. DHCPv4
 Le serveur utilise le port `68/UDP` pour répondre à la demande d'adresse IP qui est dans la zone WIFI.
 
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
@@ -40,7 +40,7 @@ Le serveur utilise le port `68/UDP` pour répondre à la demande d'adresse IP qu
 
 
 
-##### 2. DNS (Entrant)
-La requete DNS est transmise par le client qui est dans la zone WIFI vers le routeur. Le routeur fera la suite.
+### B. DNS
+Le client transmet la requete au routeur donc le flux est entrant et il n'est pas nécessaire d'ouvrir le flux sortant grace à la session.
 
 ![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
