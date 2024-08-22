@@ -20,4 +20,4 @@ La configuration suivante permet unê amélioration de la sécurité.
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
 
 ##### 2. DNS (Entrant)
-La requete est entrante de la zone WIFI et ensuite va dans la zone WAN.
+La requete est entrante de la zone WIFI et sort depuis la zone WAN.
