@@ -40,9 +40,11 @@ La requête transmis par le routeur sur le port `68/UDP` à comme destinataire f
 
 ### B. DNS
 La requête transmis par le client sur le port `53` (TCP/UDP) à comme destinataire finale le routeur.
-![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
 
+![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
 
 ### C. HTTP
 La requête transmis par le client sur le port `80` (TCP) à comme intermédiaire le routeur.
+
+
 
