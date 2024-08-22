@@ -22,9 +22,7 @@ La politique Globale:
 
 ----------------------------------------------------------------------------------------------------------------------------------
 ## II. Pare-feu
-En ayant aucune règle de Pare-feu, aucun flux peux entrée et sortir de la zone WIFI.
-
-Les règles suivantes permets d'avoir le DHCP, DNS et le surf fonctionnelles.
+La zone WIFI n'a actuellement aucun flux autorisé, il est nécessaire de créer des règles pour permet un trafic réseau.
 
 ### A. DHCP
 ##### 1. Présentation
