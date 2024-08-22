@@ -1,26 +1,25 @@
-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## <p align='center'> Règle de trafic </p>
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Informations Générales
 #### A. Présentation
 Les règles de trafic réseau autorisent la circulation des flux.
 
-#### B. Pare-Feu
-Pour définir une polique globale de sécurité, il est nécessaire de modifier les zones.
-
+#### B. Interface
 L'interface WIFI est dans la zone du Pare-Feu `WIFI`.
 
 ![image](https://github.com/user-attachments/assets/e0ea28e8-e245-4e0a-9e58-c60aec6b8066)
 
-La politique Globale: 
+
+#### C. Définir une politique de sécurité globâl
+Pour définir une polique globale de sécurité, il est nécessaire de modifier les zones.
 
 ![image](https://github.com/user-attachments/assets/6e9b7929-d1ce-43ed-806c-4d7f7f7f5cc1)
 
-
 <br />
 <br />
 
-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Pare-feu
 La zone WIFI n'a actuellement aucun flux autorisé, il est nécessaire de créer des règles pour permettre un trafic réseau.
 
@@ -62,4 +61,4 @@ La requête transmis par le client sur le port `443` (TCP) à comme intermédiai
 ![image](https://github.com/user-attachments/assets/7d03fcbf-27f6-47b3-adf4-9e30ce37ad3c)
 
 
-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
