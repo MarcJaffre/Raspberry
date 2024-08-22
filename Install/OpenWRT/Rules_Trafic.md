@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------------------------------------------------------------
 ## <p align='center'> Règle de trafic </p>
-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### I. Informations Générales
 #### A. Présentation
-Pour permettre une meilleur gestion du trafic réseau et n'autoriser que les flux à passer le pare-feu, il est nécessaire de faire une politique de sécurité.
+Les règles de trafic réseau autorisent la circulation des flux.
 
 #### B. Pare-Feu
 Pour définir une polique globale de sécurité, il est nécessaire de modifier les zones.
