@@ -22,3 +22,7 @@ La configuration suivante permet unê amélioration de la sécurité.
 
 ##### 2. DNS (Entrant)
 La requete est entrante de la zone WIFI et sort depuis la zone WAN.
+
+##### 3. HTTP (Entrant)
+
+##### 4. HTTPS (Entrant)
