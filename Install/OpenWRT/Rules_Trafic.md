@@ -5,9 +5,12 @@
 La configuration suivante permet unê amélioration de la sécurité.
 
 #### B. Règle de Pare-feu
-La règle globale pour le réseau WIFI
+> Zone WIFI : Blocage (Entrée, Sortie et Inter^-Zone)
+>
+> Zone WAN : Sortie autorisé uniquement
 
-![image](https://github.com/user-attachments/assets/392354ef-45b8-4778-ac8d-33d9d36629a7)
+![image](https://github.com/user-attachments/assets/67b67988-40e9-4a27-9db7-c609c9bae739)
+
 
 #### C. Autorîser les protocoles
 ##### 1a. DHCPv4 (Entrant)
