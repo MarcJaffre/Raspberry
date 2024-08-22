@@ -25,23 +25,23 @@ La zone WIFI n'a actuellement aucun flux autorisé, il est nécessaire de créer
 
 ### A. DHCP
 ##### 1. Présentation
-Le DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
+Le protocle DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
 
-##### 2. DHCPv4
-La requête transmis par le client (Zone: WIFI) sur le port `67/UDP` à comme destinataire finale le routeur pour obtenir une IPv4.
+##### 2. DHCPv4 (Cliente)
+La requête transmise par le client (depuis la zone WIFI) sur le port `67/UDP` à comme destinataire finale le routeur pour obtenir une IPv4.
 
 ![image](https://github.com/user-attachments/assets/7c76f1c3-c926-4171-8cdc-bf05486f5c22)
 
 
-##### 3. DHCPv4
-La requête transmis par le routeur sur le port `68/UDP` à comme destinataire finale le client (Zone: WIFI) .
+##### 3. DHCPv4 (Serveur)
+La requête transmise par le routeur sur le port `68/UDP` à comme destinataire finale le client (depuis la zone WIFI) .
 
 ![image](https://github.com/user-attachments/assets/12be971e-96f0-4ef1-830a-420adf900f95)
 
 <br />
 
 ### B. DNS
-La requête transmis par le client (Zone: WIFI) sur le port `53` (TCP/UDP) à comme destinataire finale le routeur.
+La requête transmis par le client (depuis la zone WIFI) sur le port `53` (TCP/UDP) à comme destinataire finale le routeur.
 
 ![image](https://github.com/user-attachments/assets/ab5335b1-3527-4bb0-ac61-67ba3ff8a9a9)
 
