@@ -12,3 +12,5 @@ La règle globale pour le réseau WIFI :
 #### C. Autorîser les protocoles de base
 ##### 1. DHCPv4
 Ouvrir le port `68/UDP`.
+
+![image](https://github.com/user-attachments/assets/954957b7-3369-4087-abc7-c1cdd7f2c69a)
