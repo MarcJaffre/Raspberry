@@ -22,6 +22,10 @@ La politique Globale:
 
 ----------------------------------------------------------------------------------------------------------------------------------
 ## II. Pare-feu
+En ayant aucune règle de Pare-feu, aucun flux peux entrée et sortir de la zone WIFI.
+
+Les règles suivantes permets d'avoir le DHCP, DNS et le surf fonctionnelles.
+
 ### A. DHCP
 ##### 1. Présentation
 Le DHCP utilise des ports différents pour communiquer, d'où la nécessiter de réaliser 2 règles.
