@@ -572,6 +572,17 @@ else
 fi;
 ```
 
+
+#### X. Restauration Conteneur
+```bash
+clear;
+cd /mnt/Media_5/Backup/Scripts/;
+bash ./docker_restore.sh;
+```
+
+
+
+
 <br />
 <br />
 
