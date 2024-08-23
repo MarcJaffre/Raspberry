@@ -12,7 +12,7 @@ Portainer est une interface Web pour l'administration des conteneurs
 ```bash
 clear;
 
-cat >  portainer.yml << EOF
+cat > /root/portainer.yml << EOF
 ################
 version: '3.8' #
 services:      #
@@ -57,15 +57,15 @@ volumes:                                               #
 EOF
 
 # Arret de Docker
-docker-compose -f portainer.yml down;
+docker-compose -f /root/portainer.yml down;
 
 # Demarrage de Docker
-docker-compose -f portainer.yml up -d;
+docker-compose -f /root/portainer.yml up -d;
 ```
 
 ### A. Création du fichier (Portainer-Ee)
 ```yml
-cat >  portainer.yml << EOF
+cat > /root/portainer.yml << EOF
 ################
 version: '3.8' #
 services:      #
@@ -111,10 +111,10 @@ EOF
 docker container rm -f Portainer;
 
 # Arret de Docker
-docker-compose -f portainer.yml down;
+docker-compose -f /root/portainer.yml down;
 
 # Demarrage de Docker
-docker-compose -f portainer.yml up -d;
+docker-compose -f /root/portainer.yml up -d;
 ```
 
 ### C. Accéder au panel administration
