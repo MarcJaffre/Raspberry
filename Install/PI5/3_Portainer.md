@@ -32,7 +32,7 @@ services:      #
    resources:                                          #
     limits:                                            #
      cpus: '0.25'                                      #
-     memory: '50M'                                     #
+     memory: '100M'                                    #
   # -------------------------------------------------- #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
