@@ -26,13 +26,13 @@ services:      #
   restart: 'always'                                    #
   hostname: 'Portainer'                                #
   # -------------------------------------------------- #
-  #tty: true                                           #
+  tty: true                                            #
   # -------------------------------------------------- #
-  #deploy:                                             #
-  # resources:                                         #
-  #  limits:                                           #
-  #   cpus: '0.50'                                     #
-  #   memory: '256M'                                   #
+  deploy:                                              #
+   resources:                                          #
+    limits:                                            #
+     cpus: '0.25'                                      #
+     memory: '50M'                                     #
   # -------------------------------------------------- #
   volumes:                                             #
    - '/var/run/docker.sock:/var/run/docker.sock'       #
