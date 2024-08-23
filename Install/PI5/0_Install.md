@@ -254,7 +254,7 @@ La valeur du Swap par défaut est de 201. (Stocké: /var/swap)
 ```bash
 clear;
 SWAP_OLD=$(grep CONF_SWAPSIZE /etc/dphys-swapfile | cut -d "=" -f2)
-SWAP_NEW=201
+SWAP_NEW=301
 
 # Editer
 sed -i -e "s/$SWAP_OLD/$SWAP_NEW/g" /etc/dphys-swapfile;
