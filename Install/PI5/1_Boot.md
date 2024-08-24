@@ -126,7 +126,7 @@ initial_turbo=0
 temp_limit=85
 # ===============================================
 # Vcore (0.025V par pallier)
-over_voltage=0
+over_voltage=5
 over_voltage_min=0
 # ===============================================
 # MEMORY
