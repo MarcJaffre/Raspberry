@@ -5,6 +5,14 @@
 ## I. Présentation
 Portainer est une interface Web pour l'administration des conteneurs 
 
+### B. CORRECTIF
+L'éditeur Gedit qui sert à éditer les fichiers n'a pas indiqué que le fichier est un YAML. 
+
+```
+Error grabbing logs: invalid character '\x00' looking for beginning of value
+```
+
+
 --------------------------------------------------------------------------------------------------------------
 ## II. Déploiement
 
