@@ -719,7 +719,11 @@ CLIENT_5_PRESHARED=$(cat /tmp/Preshared)
 ######################################################################################################################
 # Autoriser le Forwarding #
 ###########################
-sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf; /usr/sbin/sysctl -p 1>/dev/null;
+cat > /etc/sysctl.d/99-custom.conf << EOF
+net.ipv4.ip_forward=1
+fs.inotify.max_user_watches=1048576
+EOF
+/usr/sbin/sysctl -p 1>/dev/null;
 
 ######################################################################################################################
 # Configuration de Wireguard #
