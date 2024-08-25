@@ -187,20 +187,48 @@ dtparam=act_led_activelow=off
 dtparam=audio=off
 
 # ===============================================
+# Fan PWM ...
 dtparam=cooling_fan=on
-dtparam=fan_temp0=50000
-dtparam=fan_temp0_hyst=5000
-dtparam=fan_temp0_speed=75
-dtparam=fan_temp1=60000
-dtparam=fan_temp1_hyst=5000
-dtparam=fan_temp1_speed=125
-dtparam=fan_temp2=67500
-dtparam=fan_temp2_hyst=5000
-dtparam=fan_temp2_speed=175
-dtparam=fan_temp3=75000
-dtparam=fan_temp3_hyst=5000
-dtparam=fan_temp3_speed=250
 
+# 20% ...
+dtparam=fan_temp0=55000
+dtparam=fan_temp0_hyst=2500
+dtparam=fan_temp0_speed=50
+
+# 30% ...
+dtparam=fan_temp1=60000
+dtparam=fan_temp1_hyst=2500
+dtparam=fan_temp1_speed=75
+
+# 40% ...
+dtparam=fan_temp2=62500
+dtparam=fan_temp2_hyst=2500
+dtparam=fan_temp2_speed=100
+
+# 50% ...
+dtparam=fan_temp3=65000
+dtparam=fan_temp3_hyst=2500
+dtparam=fan_temp3_speed=125
+
+# 60% ...
+dtparam=fan_temp4=67500
+dtparam=fan_temp4_hyst=2500
+dtparam=fan_temp4_speed=150
+
+# 70% ...
+dtparam=fan_temp5=70000
+dtparam=fan_temp5_hyst=2500
+dtparam=fan_temp5_speed=175
+
+# 80% ...
+dtparam=fan_temp6=72500
+dtparam=fan_temp6_hyst=2500
+dtparam=fan_temp6_speed=200
+
+# 100% ...
+dtparam=fan_temp7=75000
+dtparam=fan_temp7_hyst=2500
+dtparam=fan_temp7_speed=250
 # ===============================================
 dtparam=eee=off
 
