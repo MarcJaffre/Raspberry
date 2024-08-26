@@ -11,10 +11,11 @@ display_auto_detect=0
 # Audio Jack
 audio_pwm_mode=2
 #
+# Enable InitRamFS
 auto_initramfs=1
 #
+# Disable Splash
 disable_splash=1
-#
 #
 ######################################################################
 # Pilote #
