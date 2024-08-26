@@ -11,11 +11,10 @@ display_auto_detect=0
 # Audio Jack
 audio_pwm_mode=2
 #
-# Enable InitRamFS
 auto_initramfs=1
 #
-# Disable Splash
 disable_splash=1
+#
 #
 ######################################################################
 # Pilote #
@@ -61,12 +60,6 @@ temp_soft_limit=0
 
 [ALL]
 dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
-
-# Turn off LED
-dtparam=pwr_led_trigger=default-on
-dtparam=pwr_led_activelow=off
-dtparam=act_led_trigger=none
-dtparam=act_led_activelow=off
 
 # Ethernet
 dtparam=eth_max_speed=1000
