@@ -519,9 +519,11 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 #### X. Déploiement de Docker-Compose
 ```bash
 clear;
-wget "https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose 2>/dev/null;
+VERSION="2.29.2"
+wget "https://github.com/docker/compose/releases/download/v$VERSION/docker-compose-$(uname -s)-$(uname -m)" -O /usr/local/bin/docker-compose 2>/dev/null;
 chmod +x /usr/local/bin/docker-compose;
 ```
+
 
 #### X. Déploiement Docker Volume Snapshot
 ```bash
