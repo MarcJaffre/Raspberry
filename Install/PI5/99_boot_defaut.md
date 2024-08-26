@@ -1,3 +1,59 @@
+---------------------------------------------------------------------------------------------------------------------------------------
+# <p align='center'> Configuration du démarrage du Raspberry PI 5 (Bookworm) </p>
+
+---------------------------------------------------------------------------------------------------------------------------------------
+## I. Présentation
+### A. config.txt
+Le fichier de configuration sous BookWorm se situe à l'emplacement `/boot/firmware/config.txt` .
+
+### B. Obtenir la configuration actuellement
+Tous les paramètres de configuration ne peuvent pas être récupérés à l'aide de vcgencmd.
+
+#### 1. Afficher les valeurs non null
+```bash
+clear;
+vcgencmd get_config int
+```
+#### 2. Afficher les valeurs null
+```bash
+clear;
+vcgencmd get_config str;
+```
+
+### C. Limitation de la longueur de ligne
+Il existe une limite de longueur de ligne de 98 caractères pour les entrées. 
+
+Raspberry Pi OS ignore tous les caractères dépassant cette limite.
+
+<br />
+
+---------------------------------------------------------------------------------------------------------------------------------------
+## II. Ma Configuration
+Les modules sont dans `/boot/overlays/` et le fichier `/boot/overlays/README` permet d'aider à la configuration.
+
+Raspberry pi 4: `vcgencmd get_config over_voltage`.
+
+| over_voltage | Tension (V) |
+|--------------|-------------|
+| -6           | 0.825       |
+| -5           | 0.850       |
+| -4           | 0.875       |
+| -3           | 0.900       |
+| -2           | 0.925       |
+| -1           | 0.950       |
+| 0            | 1.2         |
+| 1            | 1.225       |
+| 2            | 1.25        |
+| 3            | 1.275       |
+| 4            | 1.3         |
+| 5            | 1.325       |
+| 6            | 1.35        |
+| 7            | 1.375       |
+| 8            | 1.4         |
+| 9            | 1.425       |
+| 10           | 1.45        |
+
+```
 clear;
 
 cat > /boot/firmware/config.txt << EOF
@@ -82,3 +138,4 @@ dtoverlay=dwc2,dr_mode=host
 
 ############################################################################################################################################
 EOF
+```
