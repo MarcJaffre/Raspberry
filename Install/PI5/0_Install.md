@@ -321,8 +321,6 @@ cat > /etc/samba/smb.conf << EOF
 [global]
 ## Browsing/Identification ###
    workgroup           = WORKGROUP
-   client min protocol = SMB2
-   client max protocol = SMB3
 
 #### Networking ####
 
@@ -354,7 +352,6 @@ directory mask          = 0700
 guest ok                = no
 valid users             = %S
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -371,7 +368,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -388,7 +384,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -405,7 +400,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -422,7 +416,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -439,7 +432,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -456,7 +448,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -473,7 +464,6 @@ valid users             = @users
 force user              = root
 guest ok                = no
 vfs object              = recycle
-recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
 recycle:repository      = ./Corbeille
@@ -481,7 +471,11 @@ recycle:versions        = true
 
 # ======================= END SAMBA ===============================
 EOF
+
+# recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
 ```
+
+
 #### C. Validation de la configuration
 ```bash
 clear;
