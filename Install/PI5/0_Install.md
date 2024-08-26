@@ -153,7 +153,8 @@ apt install -y samba;
 apt install -y samba-common;
 apt install -y smbclient;
 apt install -y wget;
-apt install -y wsdd;
+
+#apt install -y wsdd;
 ```
 
 
@@ -190,8 +191,8 @@ ENCRYPT=$(echo $USER_PASS | openssl passwd -6 -stdin)
 
 #### X. WSDD
 ```bash
-clear;
-sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4 -i wlan0 -4\"/g" /etc/default/wsdd;
+#clear;
+#sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4 -i wlan0 -4\"/g" /etc/default/wsdd;
 ```
 
 #### X. Services
