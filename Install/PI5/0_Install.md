@@ -591,6 +591,15 @@ bash ./docker_restore.sh;
 
 
 
+#### X. Restauration Wireguard
+```bash
+clear;
+cd /mnt/Media_5/Backup/Scripts/;
+bash Wireguard.sh install;
+bash Wireguard.sh restore;
+```
+
+
 
 <br />
 <br />
