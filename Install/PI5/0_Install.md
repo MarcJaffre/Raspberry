@@ -18,7 +18,6 @@ Aller sur le site de Raspberry ([ici](https://www.raspberrypi.com/software/)) pu
 #### B. Raspberry Pi imager
 Sélectionner  `Raspeberry PI 5` > `Raspberry PI OS Lite (64 Bit)` > `SD Card`.
 
-
 <p align='center'> <img src='https://github.com/user-attachments/assets/2038da19-2744-4359-abc3-f29c5c1aeed5' /> </p>
 
 
@@ -285,6 +284,19 @@ if [ "$SWAP_NEW" != "0" ]; then
 fi
 ```
 
+#### X. Inotirfy
+```bash
+grep fs.inotify.max_user_watches /etc/sysctl.conf
+if [ $? = 1 ];then
+ clear;
+ echo "fs.inotify.max_user_watches=31805" >>  /etc/sysctl.conf;
+ sysctl -p;
+ echo "Edition du fichier terminé";
+else
+ clear;
+ sysctl -p;
+fi
+```
 
 #### X. Check Codec 
 ```bash
