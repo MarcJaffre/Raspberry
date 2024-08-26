@@ -53,7 +53,7 @@ Raspberry pi 4: `vcgencmd get_config over_voltage`.
 | 9            | 1.425       |
 | 10           | 1.45        |
 
-```
+```bash
 clear;
 
 cat > /boot/firmware/config.txt << EOF
