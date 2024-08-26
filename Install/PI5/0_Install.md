@@ -138,7 +138,7 @@ apt update 1>/dev/null;
 #### X. Paquets
 ```bash
 clear;
-apt install -y avahi-daemon;
+#apt install -y avahi-daemon;
 apt install -y ca-certificates;
 apt install -y btop;
 apt install -y cifs-utils;
@@ -166,10 +166,10 @@ apt upgrade -y;
 
 #### X. Mise à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
 ```bash
-clear;
-rpi-update;
-echo "yes" | rpi-eeprom-update -d -a;
-echo "yes" | rpi-update rpi-6.6.y;
+#clear;
+#rpi-update;
+#echo "yes" | rpi-eeprom-update -d -a;
+#echo "yes" | rpi-update rpi-6.6.y;
 ```
 
 #### X. Création d'un utilisateur
@@ -197,8 +197,8 @@ sed -i -e "s/WSDD_PARAMS\=\"\"/WSDD_PARAMS\=\"-i eth0 -4 -i wlan0 -4\"/g" /etc/d
 #### X. Services
 ```bash
 clear;
-systemctl enable --now avahi-daemon.service;
-systemctl enable --now wsdd;
+#systemctl enable --now avahi-daemon.service;
+#systemctl enable --now wsdd;
 ```
 
 #### X. Montage des disques-dur
