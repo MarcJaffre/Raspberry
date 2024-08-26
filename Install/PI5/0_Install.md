@@ -224,11 +224,11 @@ PARTUUID=$PART_ROOT  /               ext4      defaults,noatime                 
 ####################################################################################################
 # Disques #
 ###########
-LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
-LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,uid=1000,gid=1000,nofail   0       0
+LABEL="Media_1"       /mnt/Media_1    ntfs-3g   rw,user,auto,nofail,uid=1000,gid=1000   0       0
+LABEL="Media_2"       /mnt/Media_2    ntfs-3g   rw,user,auto,nofail,uid=1000,gid=1000   0       0
+LABEL="Media_3"       /mnt/Media_3    ntfs-3g   rw,user,auto,nofail,uid=1000,gid=1000   0       0
+LABEL="Media_4"       /mnt/Media_4    ntfs-3g   rw,user,auto,nofail,uid=1000,gid=1000   0       0
+LABEL="Media_5"       /mnt/Media_5    ntfs-3g   rw,user,auto,nofail,uid=1000,gid=1000   0       0
 
 ####################################################################################################
 # SWAP #
