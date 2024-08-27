@@ -45,6 +45,23 @@ apt install --no-install-recommends -y libcinnamon-desktop-dev;
 apt install --no-install-recommends -y task-cinnamon-desktop;
 ```
 
+### F. XRDP
+#### 1. Installation
+```bash
+clear;
+apt install -y xrdp;
+adduser xrdp ssl-cert;
+```
+#### 2. Cinnamon
+```bash
+clear;
+runuser -l marc -c "cat > .Xclients<< EOF
+cinnamon
+EOF"
+runuser -l marc -c "chmod +x .Xclients";
+runuser -l marc -c "cat .Xclients";
+```
+
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -138,10 +155,20 @@ apt install --no-install-recommends -y xdg-user-dirs;
 # ========================================================================================
 ```
 
+### X.
+```bash
+clear;
+usermod -aG sudo $(id -n -u 1000);
+dpkg-reconfigure keyboard-configuration;
+dpkg-reconfigure tzdata;
+dpkg-reconfigure locales;
+```
 
 ### X.
 ```bash
 clear;
+apt install --no-install-recommends -y gtk2-engines;
+apt install --no-install-recommends -y gtk2-engines-murrine;
 ```
 
 ### X.
@@ -149,13 +176,74 @@ clear;
 clear;
 ```
 
-### X.
-```bash
-clear;
-```
 
 ### X.
 ```bash
 clear;
 ```
 
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
+
+
+### X.
+```bash
+clear;
+```
