@@ -18,7 +18,7 @@ apt upgrade -y;
 ##### 3. Mise à jour du Noyau
 ```bash
 clear;
-rpi-update rpi-6.6.y
+rpi-update rpi-6.6.y;
 ```
 
 
