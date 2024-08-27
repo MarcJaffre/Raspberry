@@ -3,27 +3,39 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ### I. Installation de l'environnement Bureautique
-#### A. Mise à jour
+#### X. Mettre à jour le Raspberry
+##### 1. Recherche les mises à jour
 ```bash
 clear;
-rpi-update rpi-6.6.y
 apt update;
+```
+##### 2. Mise à Niveau des paquets
+```bash
+clear;
 apt upgrade -y;
 ```
 
-#### B. Pilote Vidéo
+##### 3. Mise à jour du Noyau
+```bash
+clear;
+rpi-update rpi-6.6.y
+```
+
+
+#### X. Pilote Vidéo
+Ce pilote permet d'avoir l'affichage graphique
 ```bash
 clear;
 apt install -y gldriver-test;
 ```
 
-#### C. Xorg
+#### X. Xorg
 ```bash
 clear;
 apt install -y xorg;
 ```
 
-#### D. Gestionnaire de Connexion
+#### X. Gestionnaire de Connexion
 ```bash
 clear
 apt install --no-install-recommends -y lightdm;
@@ -31,7 +43,7 @@ mkdir -p /var/lib/lightdm/data;
 chown lightdm:lightdm /var/lib/lightdm/data;
 ```
 
-#### E. Cinnamon
+#### X. Cinnamon
 ```bash
 clear;
 apt install --no-install-recommends -y cinnamon;
@@ -45,7 +57,7 @@ apt install --no-install-recommends -y libcinnamon-desktop-dev;
 apt install --no-install-recommends -y task-cinnamon-desktop;
 ```
 
-#### F. XRDP
+#### X. XRDP
 ##### 1. Installation
 ```bash
 clear;
@@ -62,7 +74,7 @@ runuser -l marc -c "chmod +x .Xclients";
 runuser -l marc -c "cat .Xclients";
 ```
 
-#### G. Raspi-Config
+#### X. Raspi-Config
 ```bash
 clear;
 raspi-config;
