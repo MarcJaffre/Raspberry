@@ -65,7 +65,7 @@ runuser -l marc -c "cat .Xclients";
 ### G. Raspi-Config
 ```bash
 clear;
-raspi-config
+raspi-config;
 ```
 
 
