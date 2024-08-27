@@ -62,6 +62,13 @@ runuser -l marc -c "chmod +x .Xclients";
 runuser -l marc -c "cat .Xclients";
 ```
 
+### G. Raspi-Config
+```bash
+clear;
+raspi-config
+```
+
+
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------
