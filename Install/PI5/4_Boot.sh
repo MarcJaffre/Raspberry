@@ -49,8 +49,8 @@ dtoverlay=vc4-kms-v3d-pi5,nohdmi,noaudio
 
 # Ethernet
 dtparam=eth_max_speed=1000
-dtparam=eth_led0=5
-dtparam=eth_led1=5
+#dtparam=eth_led0=5
+#dtparam=eth_led1=5
 
 hdmi_enable_4kp60=0
 hdmi=0
@@ -66,10 +66,3 @@ dtoverlay=disable-bt-pi5
 dtoverlay=disable-wifi-pi5
 ######################################################################
 EOF
-reboot;
-
-
-
-
-
-# https://forums.raspberrypi.com/viewtopic.php?t=332915
