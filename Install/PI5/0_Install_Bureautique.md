@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------------------------------------------------------------
-# <p align='center'> Installation d'un environnement bureautique sous Raspberry PI 5</p>
+## <p align='center'> Installation d'un environnement bureautique sous Raspberry PI 5</p>
 
 ------------------------------------------------------------------------------------------------------------------------------------
-## I. Installation de l'environnement Bureautique
-### A. Mise à jour
+### I. Installation de l'environnement Bureautique
+#### A. Mise à jour
 ```bash
 clear;
 rpi-update rpi-6.6.y
@@ -11,19 +11,19 @@ apt update;
 apt upgrade -y;
 ```
 
-### B. Pilote Vidéo
+#### B. Pilote Vidéo
 ```bash
 clear;
 apt install -y gldriver-test;
 ```
 
-### C. Xorg
+#### C. Xorg
 ```bash
 clear;
 apt install -y xorg;
 ```
 
-### D. Gestionnaire de Connexion
+#### D. Gestionnaire de Connexion
 ```bash
 clear
 apt install --no-install-recommends -y lightdm;
@@ -31,7 +31,7 @@ mkdir -p /var/lib/lightdm/data;
 chown lightdm:lightdm /var/lib/lightdm/data;
 ```
 
-### E. Cinnamon
+#### E. Cinnamon
 ```bash
 clear;
 apt install --no-install-recommends -y cinnamon;
@@ -45,14 +45,14 @@ apt install --no-install-recommends -y libcinnamon-desktop-dev;
 apt install --no-install-recommends -y task-cinnamon-desktop;
 ```
 
-### F. XRDP
-#### 1. Installation
+#### F. XRDP
+##### 1. Installation
 ```bash
 clear;
 apt install -y xrdp;
 adduser xrdp ssl-cert;
 ```
-#### 2. Cinnamon
+##### 2. Cinnamon
 ```bash
 clear;
 runuser -l marc -c "cat > .Xclients<< EOF
@@ -62,7 +62,7 @@ runuser -l marc -c "chmod +x .Xclients";
 runuser -l marc -c "cat .Xclients";
 ```
 
-### G. Raspi-Config
+#### G. Raspi-Config
 ```bash
 clear;
 raspi-config;
@@ -72,8 +72,8 @@ raspi-config;
 <br />
 
 ------------------------------------------------------------------------------------------------------------------------------------
-## II. Installation des logiciels
-### X.
+### II. Installation des logiciels
+#### X.
 ```bash
 clear;
 # ========================================================================================
@@ -162,7 +162,7 @@ apt install --no-install-recommends -y xdg-user-dirs;
 # ========================================================================================
 ```
 
-### X.
+#### X.
 ```bash
 clear;
 usermod -aG sudo $(id -n -u 1000);
@@ -171,86 +171,64 @@ dpkg-reconfigure tzdata;
 dpkg-reconfigure locales;
 ```
 
-### X.
+#### X.
 ```bash
 clear;
 apt install --no-install-recommends -y gtk2-engines;
 apt install --no-install-recommends -y gtk2-engines-murrine;
 ```
 
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
+#### X.
 ```bash
 clear;
 ```
 
-
-### X.
-```bash
-clear;
-```
-
-
-### X.
-```bash
-clear;
-```
-
-
-### X.
+#### X.
 ```bash
 clear;
 ```
