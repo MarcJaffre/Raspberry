@@ -2,25 +2,11 @@ cat > /boot/firmware/config.txt << EOF
 ######################################################################
 # Fonctionnalites #
 ###################
-# Camera
-camera_auto_detect=0
-#
-# HDMI
-display_auto_detect=0
-#
-# Audio Jack
 audio_pwm_mode=2
-#
 auto_initramfs=1
-#
+camera_auto_detect=0
 disable_splash=1
-#
-#
-######################################################################
-# Pilote #
-##########
-#dtoverlay=mmc
-
+display_auto_detect=0
 
 ######################################################################
 # D.O.C.P #
