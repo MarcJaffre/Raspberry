@@ -37,3 +37,29 @@ clear;
 apt install -y cinnamon;
 apt install -y cinnamon-l10n;
 ```
+
+### X.
+```bash
+clear;
+```
+
+### X.
+```bash
+clear;
+```
+
+### X.
+```bash
+clear;
+```
+
+### X.
+```bash
+clear;
+```
+
+### X.
+```bash
+clear;
+```
+
