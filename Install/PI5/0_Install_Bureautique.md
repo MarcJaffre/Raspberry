@@ -2,7 +2,7 @@
 # <p align='center'> Installation d'un environnement bureautique sous Raspberry PI 5</p>
 
 ------------------------------------------------------------------------------------------------------------------------------------
-## I. Installation de base
+## I. Installation de l'environnement Bureautique
 ### A. Mise à jour
 ```bash
 clear;
@@ -38,6 +38,10 @@ apt install -y cinnamon;
 apt install -y cinnamon-l10n;
 ```
 
+<br />
+
+------------------------------------------------------------------------------------------------------------------------------------
+## II. Installation des logiciels
 ### X.
 ```bash
 clear;
