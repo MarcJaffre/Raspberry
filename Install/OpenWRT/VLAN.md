@@ -70,3 +70,5 @@ Les ports `VIDE` seront pas des ports utilisés.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### III. Routeur
+#### A. Devices
+Dans le menu `Network` puis dans `Interfaces`. Aller dans `Devices`.
