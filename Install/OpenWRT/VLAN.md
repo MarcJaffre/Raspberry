@@ -16,5 +16,12 @@ Aller dans l'onglet `VLAN` puis `802.1Q`. Cliquer sur `Advanced` > `Vlan Configu
 #### C. Création d'un VlanID
 Dans le Champ `VLAN ID`, indiquer un `numéro de vlan` (2-4094) et cliquer sur `ADD`. 
 
+Exemple: 
+
+| VLAN ID | Port Members    |
+| ------- | --------------- |
+| 1       | 1 2 3 4 5 6 7 8 |
+| 2       |                 |
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### III. Routeur
