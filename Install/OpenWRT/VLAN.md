@@ -16,7 +16,6 @@ Aller dans l'onglet `VLAN` puis `802.1Q`. Cliquer sur `Advanced` > `Vlan Configu
 Dans le Champ `VLAN ID`, indiquer un `numéro de vlan` (2-4094) et cliquer sur `ADD`. (Dans mon cas, j'ajoute le VLAN 2)
 
 #### C. VLAN Membership
-**Ne pas toucher au VLAN 1 !** . Sélectionner le VLAN ID `2`.
 
 | VLAN ID | PORTS | TYPE | Observation |
 | ------- | ----- | ---- | ----------- |
@@ -65,10 +64,8 @@ Les ports `VIDE` seront pas des ports utilisés.
 
 | VLAN ID | Port Members    |
 | ------- | --------------- |
-| 1       | 1 2 3 4 5 6 7 8 |
+| 1       | - - - - - - 7 8 |
 | 2       | 1 2 3 4 5 6 - 8 |
-
-
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
