@@ -72,3 +72,15 @@ Les ports `VIDE` seront pas des ports utilisés.
 ### III. Routeur
 #### A. Devices
 Dans le menu `Network` puis dans `Interfaces`. Aller dans `Devices`.
+
+Editer le Pont `LAN` et puis dans `Bridge VLAN Filtering`.
+
+Cocher la case `Enable VLAN Filtering`
+
+Ajouter les VLANID `1` et `2`.
+
+| VLAN ID | Local | Type |
+| ------- | ----- | ---- |
+| 1       | Yes   | U *  |
+| 2       | Yes   | T    |
+
