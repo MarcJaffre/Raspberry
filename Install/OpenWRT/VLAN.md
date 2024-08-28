@@ -84,3 +84,10 @@ Ajouter les VLANID `1` et `2`.
 | 1       | Yes   | U *  |
 | 2       | Yes   | T    |
 
+#### A. Interfaces
+Dans le menu `Network` puis dans `Interfaces`. Aller dans `Interfaces`.
+
+Editer l'interface `LAN` puis rattaché l'interface au `LAN.1`.
+
+Crée une interface `LAN2` puis rattaché l'interface au `LAN.2`.
+
