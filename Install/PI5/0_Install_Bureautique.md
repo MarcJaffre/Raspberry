@@ -54,15 +54,16 @@ chown lightdm:lightdm /var/lib/lightdm/data;
 #### X. Cinnamon
 ```bash
 clear;
-apt install -y cinnamon;
+apt install --no-install-recommends -y cinnamon;
 apt install -y cinnamon-l10n;
-apt install -y cinnamon-control-center-goa;
-apt install -y cinnamon-core;
-apt install -y cinnamon-desktop-environment;
-apt install -y cinnamon-doc;
-apt install -y cinnamon-settings-daemon-dev;
-apt install -y libcinnamon-desktop-dev;
-apt install -y task-cinnamon-desktop;
+
+#apt install -y cinnamon-control-center-goa;
+#apt install -y cinnamon-core;
+#apt install -y cinnamon-desktop-environment;
+#apt install -y cinnamon-doc;
+#apt install -y cinnamon-settings-daemon-dev;
+#apt install -y libcinnamon-desktop-dev;
+#apt install -y task-cinnamon-desktop;
 ```
 
 
