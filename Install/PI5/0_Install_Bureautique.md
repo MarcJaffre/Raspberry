@@ -21,13 +21,6 @@ clear;
 rpi-update rpi-6.6.y;
 ```
 
-
-#### X. Pilote Vidéo
-Ce pilote permet d'avoir l'affichage graphique
-```bash
-clear;
-apt install --no-install-recommends -y gldriver-test;
-```
 #### X. Splash Screen
 ```bash
 clear;
@@ -39,6 +32,14 @@ apt install --no-install-recommends -y rpd-plym-splash;
 clear;
 apt install --no-install-recommends -y xorg;
 ```
+
+#### X. Pilote Vidéo
+Ce pilote permet d'avoir l'affichage graphique
+```bash
+clear;
+apt install --no-install-recommends -y gldriver-test;
+```
+
 
 #### X. Gestionnaire de Connexion
 ```bash
