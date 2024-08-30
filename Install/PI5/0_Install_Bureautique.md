@@ -57,6 +57,13 @@ apt install --no-install-recommends -y libcinnamon-desktop-dev;
 apt install --no-install-recommends -y task-cinnamon-desktop;
 ```
 
+#### X. LightDM 
+```bash
+clear;
+systemctl restart lightdm;
+```
+
+
 #### X. XRDP
 ##### 1. Installation
 ```bash
