@@ -69,13 +69,17 @@ systemctl restart lightdm;
 ```
 
 
-#### X. XRDP
+#### X. XRDP (Instable)
 ##### 1. Installation
 ```bash
-clear;
-apt install -y xrdp;
-adduser xrdp ssl-cert;
+#clear;
+#apt install -y xrdp;
+#apt install -y xorgxrdp;
+#apt install -y xserver-xorg-input-all
+#adduser xrdp ssl-cert;
 ```
+
+
 ##### 2. Cinnamon
 ```bash
 clear;
