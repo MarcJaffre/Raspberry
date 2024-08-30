@@ -34,7 +34,7 @@ apt install --no-install-recommends -y xorg;
 ```
 
 #### X. Pilote Vidéo
-Ce pilote permet d'avoir l'affichage graphique
+Ce pilote permet d'avoir l'affichage graphique. (Installe le pilote Après XORG !)
 ```bash
 clear;
 apt install --no-install-recommends -y gldriver-test;
