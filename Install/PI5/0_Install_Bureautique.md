@@ -139,7 +139,8 @@ apt install --no-install-recommends -y gvfs-daemons;
 apt install --no-install-recommends -y gvfs-fuse;
 apt install --no-install-recommends -y gvfs-libs;
 # ========================================================================================
-apt install --no-install-recommends -y krita krita-l10n;
+apt install --no-install-recommends -y krita;
+apt install --no-install-recommends -y krita-l10n;
 # ========================================================================================
 apt install --no-install-recommends -y locales
 apt install --no-install-recommends -y locales-all;
