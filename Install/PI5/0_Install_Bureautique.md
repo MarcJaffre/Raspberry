@@ -47,6 +47,7 @@ clear
 apt install --no-install-recommends -y lightdm;
 mkdir -p /var/lib/lightdm/data;
 chown lightdm:lightdm /var/lib/lightdm/data;
+apt install --no-install-recommends pi-greeter;
 ```
 
 #### X. Cinnamon
