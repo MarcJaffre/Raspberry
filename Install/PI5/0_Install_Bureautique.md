@@ -7,7 +7,7 @@
 ##### 1. Recherche les mises à jour
 ```bash
 clear;
-apt update;
+apt update 1>/dev/null;
 ```
 ##### 2. Mise à Niveau des paquets
 ```bash
@@ -26,13 +26,13 @@ rpi-update rpi-6.6.y;
 Ce pilote permet d'avoir l'affichage graphique
 ```bash
 clear;
-apt install -y gldriver-test;
+apt install --no-install-recommends -y gldriver-test;
 ```
 
 #### X. Xorg
 ```bash
 clear;
-apt install -y xorg;
+apt install --no-install-recommends -y xorg;
 ```
 
 #### X. Gestionnaire de Connexion
