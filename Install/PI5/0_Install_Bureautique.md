@@ -28,6 +28,11 @@ Ce pilote permet d'avoir l'affichage graphique
 clear;
 apt install --no-install-recommends -y gldriver-test;
 ```
+#### X. Splash Screen
+```bash
+clear;
+apt install --no-install-recommends -y rpd-plym-splash;
+```
 
 #### X. Xorg
 ```bash
