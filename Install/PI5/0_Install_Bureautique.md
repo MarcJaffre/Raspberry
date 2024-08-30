@@ -194,8 +194,8 @@ apt install --no-install-recommends -y xdg-user-dirs;
 clear;
 usermod -aG sudo $(id -n -u 1000);
 dpkg-reconfigure keyboard-configuration;
-dpkg-reconfigure tzdata;
 dpkg-reconfigure locales;
+dpkg-reconfigure tzdata;
 ```
 
 #### X.
