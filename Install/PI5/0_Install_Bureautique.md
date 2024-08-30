@@ -79,18 +79,14 @@ systemctl restart lightdm;
 #apt install -y xorgxrdp;
 #apt install -y xserver-xorg-input-all
 #adduser xrdp ssl-cert;
+
+#runuser -l marc -c "cat > .Xclients<< EOF
+#cinnamon
+#EOF"
+#runuser -l marc -c "chmod +x .Xclients";
+#runuser -l marc -c "cat .Xclients";
 ```
 
-
-##### 2. Cinnamon
-```bash
-clear;
-runuser -l marc -c "cat > .Xclients<< EOF
-cinnamon
-EOF"
-runuser -l marc -c "chmod +x .Xclients";
-runuser -l marc -c "cat .Xclients";
-```
 
 #### X. Raspi-Config
 ```bash
