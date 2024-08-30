@@ -5,16 +5,6 @@
 ### I. Présentation
 Les conteneurs Docker utilise les volumes pour les données dynamiques. Les scripts suivant permet de créer une sauvegarde complète des volumes et de restaurer.
 
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### AMELIORATION
-#### A. P1
-```
-- KILL    des CONTENEURS !
-- RELANCE des CONTENEURS !
-```
-
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Script de sauvegarde et restauration
 #### A. Installation de CURL
