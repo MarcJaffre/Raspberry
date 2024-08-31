@@ -14,6 +14,7 @@ apt update 1>/dev/null;
 ```bash
 clear;
 apt install --no-install-recommends -y xorg;
+apt install --no-install-recommends -y gldriver-test;
 ```
 
 ### C. LightDM
