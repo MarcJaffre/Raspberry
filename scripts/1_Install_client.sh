@@ -64,6 +64,7 @@ apt install --no-install-recommends -y gparted;
 apt install --no-install-recommends -y gtk2-engines;
 apt install --no-install-recommends -y gtk2-engines-murrine;
 apt install --no-install-recommends -y gvfs;
+apt install --no-install-recommends -y gvfs-backends;
 apt install --no-install-recommends -y gvfs-common;
 apt install --no-install-recommends -y gvfs-daemons;
 apt install --no-install-recommends -y gvfs-fuse;
