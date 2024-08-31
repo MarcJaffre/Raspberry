@@ -18,15 +18,13 @@ clear;
 apt update 1>/dev/null;
 apt upgrade -y;
 
-########################################################################################################################
-# Kernel Upgrade #
-##################
-rpi-update rpi-6.6.y;
 
 ########################################################################################################################
-# User root Group #
-###################
-usermod -aG sudo $(id -n -u 1000);
+# Display #
+###########
+apt install --no-install-recommends -y x11-xserver-utils;
+apt install --no-install-recommends -y xinit;
+apt install --no-install-recommends -y xserver-xorg;
 
 ########################################################################################################################
 # Install Packages #
@@ -118,16 +116,15 @@ apt install --no-install-recommends -y xcursor-themes;
 apt install --no-install-recommends -y xdg-user-dirs;
 
 ########################################################################################################################
-# Display #
-###########
-apt install --no-install-recommends -y xorg;
-apt install --no-install-recommends -y gldriver-test; # Installer Apres XORG
-
-########################################################################################################################
 # Fix Error #
 #############
 mkdir -p /var/lib/lightdm/data;
 chown lightdm:lightdm /var/lib/lightdm/data;
+
+########################################################################################################################
+# User root Group #
+###################
+usermod -aG sudo $(id -n -u 1000);
 
 ########################################################################################################################
 # Wallpaper #
@@ -175,3 +172,6 @@ dpkg-reconfigure locales;
 dpkg-reconfigure tzdata;
 
 ########################################################################################################################
+#apt install --no-install-recommends -y xorg;
+#apt install --no-install-recommends -y gldriver-test
+#rpi-update rpi-6.6.y;
