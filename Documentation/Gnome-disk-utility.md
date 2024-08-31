@@ -13,6 +13,8 @@
 #### 1. Montage
 ```bash
 clear;
+FILE="/Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img"
+
 losetup -f;
 losetup -Pf /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
 losetup;
@@ -35,7 +37,8 @@ losetup;
 On prend la fin du secteur de la second partition et on fait +1 et on multiplie par 512.
 ```bash
 clear;
-fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2;
+
+fdisk -l $FILE | grep img2;
 ```
 
 ```
@@ -46,6 +49,6 @@ Périphérique                                    Amorçage   Début      Fin Se
 
 ```bash
 clear;
-SIZE=$(fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2  | awk '{print $3 }')
-truncate --size=$[($SIZE+1)*512] /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
+SIZE=$(fdisk -l $FILE | grep img2  | awk '{print $3 }')
+truncate --size=$[($SIZE+1)*512] $FILE;
 ```
