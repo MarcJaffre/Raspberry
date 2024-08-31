@@ -49,3 +49,5 @@ apt install lightdm;
 https://forums.raspberrypi.com/viewtopic.php?t=285906
 
 [Guide GUI](https://forums.raspberrypi.com/viewtopic.php?t=133691)
+
+[Adding a GUI to a Raspberry Pi running Raspberry Pi OS Lite](https://gijs-de-jong.nl/posts/adding-a-gui-to-a-raspberry-pi-with-vnc/)
