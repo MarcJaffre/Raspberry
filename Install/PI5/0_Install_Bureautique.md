@@ -136,6 +136,7 @@ apt install --no-install-recommends -y gnupg2;
 apt install --no-install-recommends -y gparted;
 # ========================================================================================
 apt install --no-install-recommends -y gvfs;
+apt install --no-install-recommends -y gvfs-backends;
 apt install --no-install-recommends -y gvfs-common;
 apt install --no-install-recommends -y gvfs-daemons;
 apt install --no-install-recommends -y gvfs-fuse;
