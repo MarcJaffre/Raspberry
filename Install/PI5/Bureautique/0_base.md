@@ -13,8 +13,8 @@ apt update 1>/dev/null;
 ### B. Xorg
 ```bash
 clear;
-apt install --no-install-recommends -y xorg;
-apt install --no-install-recommends -y gldriver-test;
+apt install --no-install-recommends xserver-xorg;
+apt install --no-install-recommends xinit;
 ```
 
 ### C. LightDM
