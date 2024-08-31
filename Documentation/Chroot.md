@@ -6,9 +6,8 @@
 ### A. Raspberry
 ```bash
 clear;
-lsblk;
+df -h;
 ```
-
 ```
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdb2        20G   14G  5.5G  71% /
@@ -23,6 +22,7 @@ tmpfs           3.2G  3.3M  3.2G   1% /run
 ```bash
 clear;
 lsblk;
+df -h;
 ```
 
 ```
@@ -39,7 +39,19 @@ sda                 8:0    1   1,8T  0 disk
 sdb                 8:16   1 119,1G  0 disk 
 ├─sdb1              8:17   1   512M  0 part 
 ├─sdb2              8:18   1    20G  0 part 
-└─sdb3              8:19   1  98,6G  0 part 
+└─sdb3              8:19   1  98,6G  0 part
+
+Sys. de fichiers       Taille Utilisé Dispo Uti% Monté sur
+udev                      16G       0   16G   0% /dev
+tmpfs                    3,2G    3,3M  3,2G   1% /run
+/dev/mapper/vg0-SYSTEM    30G     16G   13G  57% /
+tmpfs                     16G    297M   16G   2% /dev/shm
+tmpfs                    5,0M       0  5,0M   0% /run/lock
+tmpfs                    4,0M       0  4,0M   0% /sys/fs/cgroup
+/dev/mapper/vg0-HOME     190G    148G   33G  82% /home
+/dev/mapper/vg0-DATA     916G    537G  333G  62% /Data
+/dev/sda1                487M    7,4M  479M   2% /boot/efi
+tmpfs                    3,2G    108K  3,2G   1% /run/user/1000
 ```
 
 ### B. Préparation de l'environnement
@@ -51,25 +63,33 @@ mkdir -p /mnt/linux/home;
 
 ### C. Montage des partitions
 ```bash
-clear
-mount /dev/sdb2    /mnt/linux/
-mount /dev/sdb3    /mnt/linux/home/
-mount --bind /dev  /mnt/linux/dev
-mount --bind /proc /mnt/linux/proc
-mount --bind /sys  /mnt/linux/sys
-mount --bind /run  /mnt/linux/run/
+clear;
+mount /dev/sdb2    /mnt/linux;
+mount /dev/sdb3    /mnt/linux/home;
+mount --bind /dev  /mnt/linux/dev;
+mount --bind /proc /mnt/linux/proc;
+mount --bind /sys  /mnt/linux/sys;
+mount --bind /run  /mnt/linux/run;
 ```
 
 ### D. Chroot
 ```bash
-clear
+clear;
 chroot /mnt/linux /bin/bash;
 ```
 
 ### E. Vérification
 ```bash
 clear;
-lsblk;
+df -h;
+```
+
+```
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb2        20G   14G  5.5G  71% /
+/dev/sdb3        97G   24K   92G   1% /home
+udev             16G     0   16G   0% /dev
+tmpfs           3.2G  3.3M  3.2G   1% /run
 ```
 
 
