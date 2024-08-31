@@ -27,17 +27,21 @@ systemctl restart lightdm;
 systemctl set-default graphical.target;
 ```
 
+
 #### D. [ArmBian](https://www.armbian.com/rpi5b/)
 ```bash
 clear;
 apt install -y mesa-utils;
 ```
 
-
 <br />
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## III. Environnement Bureautique
+
+
+
+
 
 
 
