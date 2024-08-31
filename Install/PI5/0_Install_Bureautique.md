@@ -194,6 +194,24 @@ apt install --no-install-recommends -y xdg-user-dirs;
 # ========================================================================================
 ```
 
+
+#### X. Discord
+```bash
+clear;
+VERSION=4.9.2
+wget https://github.com/SpacingBat3/WebCord/releases/download/v${VERSION}/webcord_${VERSION}_arm64.deb -O /tmp/webcord.deb
+dpkg -i /tmp/webcord.deb 
+```
+
+#### X. Pi-Apps
+```bash
+clear;
+wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
+```
+
+
+
+
 #### X.
 ```bash
 clear;
@@ -251,12 +269,6 @@ apt install --no-install-recommends -y librsvg2-bin;
 apt install --no-install-recommends -y qtbase5-dev-tools;
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-smplayer-theme/master/install.sh | sh
 ```
-
-#### X.
-```bash
-clear;
-```
-
 #### X.
 ```bash
 clear;
