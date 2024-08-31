@@ -4,18 +4,23 @@ contient des outils qui vous permettent de vérifier et de tester l'accélérati
 Voici comment vous pouvez l'installer :
 
 1. Ouvrez un terminal.
-2. Mettez à jour la liste des paquets :
-   ```bash
-   sudo apt update
-   ```
+   
+3. Mettez à jour la liste des paquets :
+```bash
+clear;
+apt update;
+```
+
 3. Installez `mesa-utils` :
-   ```bash
-   sudo apt install mesa-utils
-   ```
+```bash
+clear;
+sudo apt install mesa-utils;
+```
+
 
 Après l'installation, vous pouvez vérifier si l'accélération graphique fonctionne correctement en exécutant la commande suivante :
-
 ```bash
+clear;
 glxinfo | grep "OpenGL renderer"
 ```
 
