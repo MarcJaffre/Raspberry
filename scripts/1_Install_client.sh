@@ -146,8 +146,8 @@ apt install --no-install-recommends -y xdg-user-dirs;
 ########################################################################################################################
 # Fix - keymap #
 ################
-wget https://mirrors.edge.kernel.org/pub/linux/utils/kbd/kbd-2.6.4.tar.gz -O /tmp/kbd-2.6.4.tar.gz;
-tar xzf /tmp/kbd-2.6.4.tar.gz;
+wget https://mirrors.edge.kernel.org/pub/linux/utils/kbd/kbd-2.6.4.tar.gz -O /tmp/kbd-2.6.4.tar.gz 2>/dev/null;
+tar xzf /tmp/kbd-2.6.4.tar.gz -C  /tmp/;
 cp -Rp /tmp/kbd-*/data/keymaps/* /usr/share/keymaps/;
 
 ########################################################################################################################
