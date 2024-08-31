@@ -18,7 +18,6 @@ clear;
 apt update 1>/dev/null;
 apt upgrade -y;
 
-
 ########################################################################################################################
 # Display #
 ###########
@@ -155,16 +154,6 @@ mv /usr/share/themes/gtk-master /usr/share/themes/Dracula;
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-smplayer-theme/master/install.sh | sh
 
 ########################################################################################################################
-# Root #
-########
-(echo "root:admin") | chpasswd
-
-########################################################################################################################
-# MotD #
-########
-echo "" > /etc /motd;
-
-########################################################################################################################
 # Configuration Environment #
 #############################
 dpkg-reconfigure keyboard-configuration;
@@ -172,6 +161,20 @@ dpkg-reconfigure locales;
 dpkg-reconfigure tzdata;
 
 ########################################################################################################################
-#apt install --no-install-recommends -y xorg;
-#apt install --no-install-recommends -y gldriver-test
-#rpi-update rpi-6.6.y;
+# MotD #
+########
+echo "" > /etc /motd;
+
+########################################################################################################################
+# Root #
+########
+(echo "root:admin") | chpasswd
+
+########################################################################################################################
+# Complementaire #
+##################
+
+# Potentiellement problematique:
+# - apt install --no-install-recommends -y xorg;
+# - apt install --no-install-recommends -y gldriver-test
+# - rpi-update rpi-6.6.y;
