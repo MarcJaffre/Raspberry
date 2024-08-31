@@ -64,6 +64,7 @@ mkdir -p /mnt/linux/home;
 ### C. Montage des partitions
 ```bash
 clear;
+mount /dev/sdb1    /mnt/linux/boot;
 mount /dev/sdb2    /mnt/linux;
 mount /dev/sdb3    /mnt/linux/home;
 mount --bind /dev  /mnt/linux/dev;
