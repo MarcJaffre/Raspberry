@@ -6,7 +6,6 @@
 ### A. Mise à jour du système
 ```bash
 clear;
-clear;
 apt update 1>/dev/null;
 ```
 
