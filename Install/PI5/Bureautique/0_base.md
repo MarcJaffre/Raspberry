@@ -46,7 +46,6 @@ Reboot the system.
 ```bash
 clear;
 apt install xfce4 xfce4-terminal;
-apt install lightdm;
 ```
 
 
