@@ -44,7 +44,8 @@ Périphérique                                    Amorçage   Début      Fin Se
 /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img2             1056768   42999807     41943040    20G 83 Linux
 ```
 
-```
+```bash
+clear;
 SIZE=$(fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2  | awk '{print $3 }')
 truncate --size=$[($SIZE+1)*512] /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
 ```
