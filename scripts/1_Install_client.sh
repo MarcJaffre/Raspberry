@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
 ########################################################################################################################
-# Auteur   : Marc Jaffre
-# Version  : 1.0
-# Objectif : Automatisation de deploiement de l-environnement linux
+# Auteur      : Marc Jaffre
+# Version     : 1.0
+# Objectif    : Automatisation de deploiement de l-environnement linux
+# Observation : Decouverte Reseau fonctionnelle
 ########################################################################################################################
 
 ########################################################################################################################
