@@ -70,7 +70,8 @@ umount -lR /mnt/linux/*/*;
 
 mount /dev/sdb2    /mnt/linux;
 mount /dev/sdb3    /mnt/linux/home;
-mount /dev/sdb1    /mnt/linux/boot/firmware;
+mount /dev/sdb1    /mnt/linux/boot/firmware 2>/dev/null;
+
 mount --bind /dev  /mnt/linux/dev;
 mount --bind /proc /mnt/linux/proc;
 mount --bind /sys  /mnt/linux/sys;
