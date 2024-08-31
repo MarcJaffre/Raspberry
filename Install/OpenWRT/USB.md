@@ -5,10 +5,11 @@
 ## I. Installation des paquets
 ### A. Package
 ```
-block-mount
-e2fsprogs
-kmod-usb-storage-uas
-kmod-usb3
-luci-app-hd-idle
-kmod-fs-ext4
+block-mount           : Block device mounting and checking	
+e2fsprogs             : 
+kmod-usb-storage-uas  : Include support for USB Attached SCSI (UAS/UASP), a higher performance protocol available on many newer USB.
+kmod-usb3             : Kernel support for USB3 (XHCI) controllers	
+kmod-fs-ext4          : Kernel module for EXT4 filesystem support	
+luci-app-hd-idle      : Hard Disk Idle Spin-Down module	
+luci-i18n-hd-idle-fr	: Translation for luci-app-hd-idle - Français (French)	
 ```
