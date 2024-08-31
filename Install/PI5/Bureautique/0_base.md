@@ -47,3 +47,5 @@ apt install lightdm;
 [XFCE4](https://www.pragmaticlinux.com/2020/11/install-the-xfce-desktop-on-your-raspberry-pi/?utm_content=cmp-true)
 
 https://forums.raspberrypi.com/viewtopic.php?t=285906
+
+[Guide GUI](https://forums.raspberrypi.com/viewtopic.php?t=133691)
