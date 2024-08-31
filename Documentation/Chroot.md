@@ -57,7 +57,8 @@ tmpfs                    3,2G    108K  3,2G   1% /run/user/1000
 ### B. Préparation de l'environnement
 ```bash
 clear;
-mkdir -p /mnt/linux/home;
+mkdir -p /mnt/linux/{boot,home};
+
 ```
 
 
