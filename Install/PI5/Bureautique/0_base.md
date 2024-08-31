@@ -45,8 +45,6 @@ Reboot the system.
 ### A. XFCE
 ```bash
 clear;
-apt install --no-install-recommends xserver-xorg;
-apt install --no-install-recommends xinit;
 apt install xfce4 xfce4-terminal;
 apt install lightdm;
 ```
