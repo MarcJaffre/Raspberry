@@ -14,6 +14,6 @@ kmod-fs-ext4          : Kernel module for EXT4 filesystem support
 luci-app-hd-idle      : Hard Disk Idle Spin-Down module	
 luci-app-samba4	      : Network Shares - Samba 4 SMB/CIFS fileserver	
 
-luci-i18n-hd-idle-fr	: Translation for luci-app-hd-idle - Français (French)
-uci-i18n-samba4-fr	  : Translation for luci-app-samba4 - Français (French)
+luci-i18n-hd-idle-fr  : Translation for luci-app-hd-idle - Français (French)
+uci-i18n-samba4-fr    : Translation for luci-app-samba4 - Français (French)
 ```
