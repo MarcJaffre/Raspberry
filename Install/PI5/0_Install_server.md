@@ -284,7 +284,7 @@ if [ "$SWAP_NEW" != "0" ]; then
 fi
 ```
 
-#### X. Inotirfy
+#### X. Inotify
 ```bash
 grep fs.inotify.max_user_watches /etc/sysctl.conf
 if [ $? = 1 ];then
@@ -297,6 +297,7 @@ else
  sysctl -p;
 fi
 ```
+
 
 #### X. Check Codec 
 ```bash
