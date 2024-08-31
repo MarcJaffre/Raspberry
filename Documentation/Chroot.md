@@ -108,8 +108,5 @@ exit;
 clear;
 umount -lR /mnt/chroot/;
 umount -lR /mnt/chroot/*/*;
+rm -r /mnt/chroot/;
 ```
-
-
-
-
