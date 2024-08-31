@@ -42,6 +42,7 @@ apt install --no-install-recommends -y gldriver-test;
 
 
 #### X. Gestionnaire de Connexion
+Si le service plante, éditer `/etc/lightdm/lightdm.conf` .
 ```bash
 clear
 apt install --no-install-recommends -y lightdm;
