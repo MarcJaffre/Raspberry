@@ -34,18 +34,10 @@ apt install -y mesa-utils;
 ```
 
 
-
-
 <br />
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## III. Environnement Bureautique
-### A. XFCE
-```bash
-clear;
-apt install xfce4 xfce4-terminal;
-```
-
 
 
 
@@ -53,7 +45,7 @@ apt install xfce4 xfce4-terminal;
 
 [XFCE4](https://www.pragmaticlinux.com/2020/11/install-the-xfce-desktop-on-your-raspberry-pi/?utm_content=cmp-true)
 
-https://forums.raspberrypi.com/viewtopic.php?t=285906
+[TOPIC](https://forums.raspberrypi.com/viewtopic.php?t=285906)
 
 [Guide GUI](https://forums.raspberrypi.com/viewtopic.php?t=133691)
 
