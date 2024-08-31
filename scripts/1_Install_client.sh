@@ -156,9 +156,25 @@ wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-smpla
 ########################################################################################################################
 # Configuration Environment #
 #############################
-dpkg-reconfigure keyboard-configuration;
-dpkg-reconfigure locales;
-dpkg-reconfigure tzdata;
+# dpkg-reconfigure locales;
+#dpkg-reconfigure keyboard-configuration;
+#dpkg-reconfigure tzdata;
+
+
+#apt install console-data -y
+#localectl set-locale fr_FR.UTF-8
+#echo "fr_FR.UTF-8 UTF-8" >  /etc/locale.gen;
+#locale-gen
+
+#localectl set-keymap fr
+#localectl set-x11-keymap fr
+
+
+#System Locale: LANG=fr_FR.UTF-8
+#    VC Keymap: (unset)                
+#   X11 Layout: fr
+#    X11 Model: pc105
+#  X11 Options: terminate:ctrl_alt_bksp
 
 ########################################################################################################################
 # MotD #
