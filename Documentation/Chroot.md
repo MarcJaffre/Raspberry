@@ -68,9 +68,9 @@ clear;
 umount -lR /mnt/linux/;
 umount -lR /mnt/linux/*/*;
 
-mount /dev/sdb1    /mnt/linux/boot/firmware;
 mount /dev/sdb2    /mnt/linux;
 mount /dev/sdb3    /mnt/linux/home;
+mount /dev/sdb1    /mnt/linux/boot/firmware;
 mount --bind /dev  /mnt/linux/dev;
 mount --bind /proc /mnt/linux/proc;
 mount --bind /sys  /mnt/linux/sys;
