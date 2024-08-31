@@ -22,9 +22,10 @@ apt upgrade -y;
 ########################################################################################################################
 # Display #
 ###########
-apt install --no-install-recommends -y x11-xserver-utils;
-apt install --no-install-recommends -y xinit;
-apt install --no-install-recommends -y xserver-xorg;
+apt install -y x11-xserver-utils;
+apt install -y xinit;
+apt install -y xserver-xorg;
+# Dependance required !
 
 ########################################################################################################################
 # Install Packages #
