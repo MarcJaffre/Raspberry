@@ -57,14 +57,14 @@ tmpfs                    3,2G    108K  3,2G   1% /run/user/1000
 ### B. Préparation de l'environnement
 ```bash
 clear;
-mkdir -p /mnt/linux/boot/firmware;
-mkdir -p /mnt/linux/home;
+mkdir -p /mnt/chroot/boot/firmware;
+mkdir -p /mnt/chroot/home;
 ```
 
 
 ### C. Montage des partitions
 ```bash
-
+clear;
 mount /dev/sdb2    /mnt/chroot;
 mount /dev/sdb3    /mnt/chroot/home;
 mount /dev/sdb1    /mnt/chroot/boot/firmware 2>/dev/null;
