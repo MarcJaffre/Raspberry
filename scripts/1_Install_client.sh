@@ -5,6 +5,7 @@
 # Version     : 1.0
 # Objectif    : Automatisation de deploiement de l-environnement linux
 # Observation : Decouverte Reseau fonctionnelle
+# Source      : https://dustinpfister.github.io/2020/03/27/linux-raspbian-lite-xserver-xorg/
 ########################################################################################################################
 
 ########################################################################################################################
