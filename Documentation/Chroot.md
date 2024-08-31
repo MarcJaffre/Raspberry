@@ -64,24 +64,21 @@ mkdir -p /mnt/linux/home;
 
 ### C. Montage des partitions
 ```bash
-clear;
-umount -lR /mnt/linux/;
-umount -lR /mnt/linux/*/*;
 
-mount /dev/sdb2    /mnt/linux;
-mount /dev/sdb3    /mnt/linux/home;
-mount /dev/sdb1    /mnt/linux/boot/firmware 2>/dev/null;
+mount /dev/sdb2    /mnt/chroot;
+mount /dev/sdb3    /mnt/chroot/home;
+mount /dev/sdb1    /mnt/chroot/boot/firmware 2>/dev/null;
 
-mount --bind /dev  /mnt/linux/dev;
-mount --bind /proc /mnt/linux/proc;
-mount --bind /sys  /mnt/linux/sys;
-mount --bind /run  /mnt/linux/run;
+mount --bind /dev  /mnt/chroot/dev;
+mount --bind /proc /mnt/chroot/proc;
+mount --bind /sys  /mnt/chroot/sys;
+mount --bind /run  /mnt/chroot/run;
 ```
 
 ### D. Chroot
 ```bash
 clear;
-chroot /mnt/linux /bin/bash;
+chroot /mnt/chroot /bin/bash;
 ```
 
 ### E. Vérification
@@ -97,5 +94,22 @@ Filesystem      Size  Used Avail Use% Mounted on
 udev             16G     0   16G   0% /dev
 tmpfs           3.2G  3.3M  3.2G   1% /run
 ```
+
+
+### F. Quitter Chroot
+```bash
+clear;
+exit;
+```
+
+### H. Démonter
+
+```bash
+clear;
+umount -lR /mnt/chroot/;
+umount -lR /mnt/chroot/*/*;
+```
+
+
 
 
