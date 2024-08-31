@@ -16,7 +16,7 @@ clear;
 FILE="/Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img"
 
 losetup -f;
-losetup -Pf /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
+losetup -Pf $FILE;
 losetup;
 ```
 
