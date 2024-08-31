@@ -12,8 +12,9 @@ apt update 1>/dev/null;
 ### B. Xorg
 ```bash
 clear;
-apt install --no-install-recommends xserver-xorg;
-apt install --no-install-recommends xinit;
+apt install -y xserver-xorg;
+apt install -y xinit;
+apt install -y x11-xserver-utils;
 ```
 
 ### C. LightDM
@@ -23,16 +24,13 @@ apt install --no-install-recommends -y lightdm;
 mkdir -p /var/lib/lightdm/data;
 chown lightdm:lightdm /var/lib/lightdm/data;
 systemctl restart lightdm;
+systemctl set-default graphical.target;
 ```
 
 #### D. [ArmBian](https://www.armbian.com/rpi5b/)
-```
-GPU acceleration only works with MESA v23.2. In order to get them to work (Bookworm):
-
-Add ‘deb https://deb.debian.org/debian unstable main’ to the sources.list
-sudo apt update && sudo apt -t unstable install libegl-mesa0 libgl1-mesa-dri mesa-utils mesa-utils-bin
-Remove the line added in sources.list, then sudo apt update
-Reboot the system.
+```bash
+clear;
+apt install -y mesa-utils;
 ```
 
 
