@@ -5,3 +5,4 @@
 ### I. Présentation
 
 https://www.pragmaticlinux.com/2020/11/install-the-xfce-desktop-on-your-raspberry-pi/?utm_content=cmp-true
+https://forums.raspberrypi.com/viewtopic.php?t=285906
