@@ -35,12 +35,10 @@ losetup;
 ```bash
 clear;
 fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2;
+SIZE=$(fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2  | awk '{print $3 }')
+truncate --size=$[($SIZE+1)*512] /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
 ```
 
 Périphérique                                    Amorçage   Début      Fin Secteurs Taille   Id Type
 /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img1             8192      1056767      1048576   512M  c W95 FAT32 (LBA)
 /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img2             1056768   42999807     41943040    20G 83 Linux
-
-SIZE=$(fdisk -l /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img | grep img2  | awk '{print $3 }')
-truncate --size=$[($SIZE+1)*512] /Data/Raspberry/Backup/Raspbian_SRV_DOCKER.img;
-```
