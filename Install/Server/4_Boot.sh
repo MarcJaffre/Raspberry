@@ -8,9 +8,6 @@ camera_auto_detect=0
 disable_splash=1
 display_auto_detect=0
 
-
-
-
 ######################################################################
 # D.O.C.P #
 ###########
