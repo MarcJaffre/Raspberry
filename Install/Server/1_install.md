@@ -152,11 +152,14 @@ apt install -y samba;
 apt install -y samba-common;
 apt install -y smbclient;
 apt install -y wget;
-
 #apt install -y wsdd;
 ```
 
-
+#### X . Rpi-Monitor
+Interface Web qui permet de surveiller le raspberry.
+```
+apt install -y rpi-monitor;
+```
 
 #### X. Mise à jour des paquets du Raspberry
 ```bash
