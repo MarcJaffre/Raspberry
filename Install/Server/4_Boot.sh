@@ -8,6 +8,9 @@ camera_auto_detect=0
 disable_splash=1
 display_auto_detect=0
 
+
+
+
 ######################################################################
 # D.O.C.P #
 ###########
@@ -64,5 +67,57 @@ watchdog=on
 [pi5]
 dtoverlay=disable-bt-pi5
 dtoverlay=disable-wifi-pi5
+
+
+######################################################################
+# Fan - LEVEL 0 #
+#################
+# Seuil de demrrage : 60°C
+dtparam=fan_temp0=60000
+#
+# Seuil arret (fan_temp0 - fan_temp0_hyst)
+dtparam=fan_temp0_hyst=5000
+#
+# Vitesse du FAN (0-255) : 25%
+dtparam=fan_temp0_speed=85
+#
+######################################################################
+# Fan - LEVEL 1 #
+#################
+#
+# Seuil de demrrage : 65°C
+dtparam=fan_temp1=65000
+#
+# Seuil arret (fan_temp0 - fan_temp0_hyst)
+dtparam=fan_temp1_hyst=5000
+#
+# Vitesse du FAN (0-255) : 50%
+dtparam=fan_temp1_speed=128
+#
+######################################################################
+# Fan - LEVEL 2 #
+#################
+#
+# Seuil de demrrage : 70°C
+dtparam=fan_temp2=70000
+#
+# Seuil arret (fan_temp0 - fan_temp0_hyst)
+dtparam=fan_temp2_hyst=5000
+#
+# Vitesse du FAN (0-255) : 75%
+dtparam=fan_temp2_speed=192
+#
+######################################################################
+# Fan - LEVEL 3 #
+#################
+#
+# Seuil de demrrage : 75 °C
+dtparam=fan_temp3=75000
+#
+# Seuil arret (fan_temp0 - fan_temp0_hyst)
+dtparam=fan_temp3_hyst=5000
+# Vitesse du FAN (0-255) : 100%
+dtparam=fan_temp3_speed=255
+#
 ######################################################################
 EOF
