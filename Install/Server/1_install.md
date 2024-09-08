@@ -167,13 +167,17 @@ clear;
 apt upgrade -y;
 ```
 
-#### X. Mise à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
+
+#### X. Mettre à jour du Raspberry (Boot, [Noyau](https://github.com/raspberrypi/linux) ...)
 ```bash
-#clear;
-#rpi-update;
-#echo "yes" | rpi-eeprom-update -d -a;
+clear;
+rpi-eeprom-update -a;
+echo "yes" | rpi-update;
+
 #echo "yes" | rpi-update rpi-6.6.y;
 ```
+
+
 
 #### X. Création d'un utilisateur
 L'utilisateur n'aura pas son propre groupe mais il appartiendra à `users`. On génére le mot de passe crypter puis on crée l'utilisateur
