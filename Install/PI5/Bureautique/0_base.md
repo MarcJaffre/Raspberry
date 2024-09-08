@@ -7,6 +7,7 @@
 ```bash
 clear;
 apt update 1>/dev/null;
+rpi-eeprom-update -a;
 ```
 
 ### B. Xorg
