@@ -296,7 +296,7 @@ fi
 grep fs.inotify.max_user_watches /etc/sysctl.conf
 if [ $? = 1 ];then
  clear;
- echo "fs.inotify.max_user_watches=31805" >>  /etc/sysctl.conf;
+ echo "fs.inotify.max_user_watches=524288" >>  /etc/sysctl.conf;
  sysctl -p;
  echo "Edition du fichier terminé";
 else
