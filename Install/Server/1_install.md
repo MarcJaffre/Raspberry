@@ -334,6 +334,8 @@ clear;
 mv /etc/samba/smb.conf /etc/samba/smb.conf.old;
 ```
 #### B. Création des partages
+Mon utilisateur doit faire partie du groupe `users` . 
+
 ```bash
 clear;
 
