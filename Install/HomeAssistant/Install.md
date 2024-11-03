@@ -8,6 +8,10 @@
 https://www.home-assistant.io/installation/raspberrypi/#downloading-the-home-assistant-image
 ```
 
+### B. Création de la carte SD
+
+<p align='center'> <img src='https://github.com/user-attachments/assets/e4739526-2690-41a2-9fc4-dc2c2ee4a011' /> </p>
+
 
 ### X. Accéder à l'URL
 ```
