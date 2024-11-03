@@ -5,7 +5,7 @@
 ## I. Installation de Home Assistant sur un Raspberry PI
 ### A. Téléchargement de l'image ISO
 ```
-https://www.home-assistant.io/installation/raspberrypi/
+https://www.home-assistant.io/installation/raspberrypi/#downloading-the-home-assistant-image
 ```
 
 
