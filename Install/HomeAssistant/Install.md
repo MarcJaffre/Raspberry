@@ -27,6 +27,11 @@ http://X.X.X.X:8123/
 ### A. Modules complémentaires
 Paramètres > Modules complémentaires
 ```
-- Advanced SSH & Web Terminal 
+- Advanced SSH & Web Terminal
 - File editor
 ```
+
+### B. Advanced SSH & Web Terminal
+
+<p align='center'> <img src='https://github.com/user-attachments/assets/8b3037d5-f2f2-4c88-8e87-58355a8d6986' /> </p>
+
