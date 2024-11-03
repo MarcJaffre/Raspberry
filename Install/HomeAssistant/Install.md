@@ -25,7 +25,7 @@ http://X.X.X.X:8123/
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## II. Configuration
 ### A. Modules complémentaires
-Paramètres > 
+Paramètres > Modules complémentaires
 ```
 - File editor : Editeur de fichier
 ```
