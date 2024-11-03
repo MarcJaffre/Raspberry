@@ -29,6 +29,7 @@ Paramètres > Modules complémentaires
 ```
 - Advanced SSH & Web Terminal
 - File editor
+- Terminal & SSH
 ```
 
 ### B. Advanced SSH & Web Terminal
