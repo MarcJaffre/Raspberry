@@ -27,5 +27,6 @@ http://X.X.X.X:8123/
 ### A. Modules complémentaires
 Paramètres > Modules complémentaires
 ```
+- Advanced SSH & Web Terminal :
 - File editor : Editeur de fichier
 ```
