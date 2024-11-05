@@ -7,3 +7,5 @@ device_tracker:
     username: root
     password: admin
 ```
+
+TEST
