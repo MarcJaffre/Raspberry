@@ -136,7 +136,7 @@ func_START() {
 ################################
 func_STOP() {
  echo "Arrêt du service Wireguard";
-systemctl stop wg-quick@wg0;
+ systemctl stop wg-quick@wg0;
 }
 
 ##########################################################################################################################################
@@ -144,7 +144,7 @@ systemctl stop wg-quick@wg0;
 ################################
 func_ENABLE() {
  echo "Activation du service Wireguard";
-systemctl enable wg-quick@wg0;
+ systemctl enable wg-quick@wg0;
 }
 
 ##########################################################################################################################################
@@ -152,7 +152,7 @@ systemctl enable wg-quick@wg0;
 ###################################
 func_DISABLE() {
  echo "Désactivation du service Wireguard";
-systemctl disable wg-quick@wg0;
+ systemctl disable wg-quick@wg0;
 }
 
 
@@ -226,7 +226,7 @@ func_CONFIG(){
 
  # =======================================================================================================================
 
- cat > /etc/wireguard/wg0.conf << EOF
+cat > /etc/wireguard/wg0.conf << EOF
 ####################################################################################################################
 # Serveur #
 ###########
@@ -360,7 +360,6 @@ Endpoint     = ${ENDPOINT}:${PORT}" > $HOME/client-5.conf;
  rm /tmp/Public    2>/dev/null;
  rm /tmp/Preshared 2>/dev/null;
 }
-
 
 
 ##########################################################################################################################################
