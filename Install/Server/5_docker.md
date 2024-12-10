@@ -18,7 +18,7 @@ systemctl disable --now docker.socket docker.service;
 
 ### D. Synchronisation du dossier Docker 
 ```bash
-rsync -ap --progress /var/lib/docker/ /Data/docker
+rsync -ap --progress /var/lib/docker/ /Data/docker;
 ```
 
 ### E. Configuration de Docker
@@ -40,20 +40,20 @@ systemctl restart docker.socket;
 systemctl restart docker.service;
 ```
 
-### B. Activation des services Docker 
+### B. Vérification du fonctionnement
+```bash
+docker info -f '{{ .DockerRootDir}}';
+```
+
+### C. Activation des services Docker 
 ```bash
 systemctl enable --now docker.socket docker.service;
 ```
 
-### C. Vérification du fonctionnement
-```bash
-docker info -f '{{ .DockerRootDir}}'
-```
-
 ### D. Lancer les conteneurs inactifs
 ```bash
-docker start $(docker ps -a -q)
-docker ps -a
+docker start $(docker ps -a -q);
+docker ps -a;
 ```
 
 
@@ -63,7 +63,7 @@ docker ps -a
 ## III. Purge des anciennes données
 ```bash
 clear;
-rm -r /var/lib/docker/*;
+rm -r /var/lib/docker/* 2>/dev/null;
 ```
 
 <br />
@@ -85,7 +85,7 @@ systemctl stop docker.service;
 
 ### C. Synchronisation du dossier Docker 
 ```bash
-rsync -ap --progress /Data/docker/ /var/lib/docker
+rsync -ap --progress /Data/docker/ /var/lib/docker;
 ```
 
 ### E. Configuration de Docker
@@ -105,12 +105,11 @@ systemctl start docker.service;
 
 ### G. Vérification du fonctionnement
 ```bash
-docker info -f '{{ .DockerRootDir}}'
+docker info -f '{{ .DockerRootDir}}';
 ```
 
 ### H. Lancer les conteneurs inactifs
 ```bash
-docker start $(docker ps -a -q)
-docker ps -a
+docker start $(docker ps -a -q);
+docker ps -a;
 ```
-
