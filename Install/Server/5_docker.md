@@ -48,6 +48,7 @@ systemctl enable --now docker.socket docker.service;
 ### C. Vérification du fonctionnement
 ```bash
 docker info -f '{{ .DockerRootDir}}'
+```
 
 ### D. Lancer les conteneurs inactifs
 ```bash
