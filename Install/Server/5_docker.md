@@ -105,8 +105,9 @@ systemctl start docker.service;
 ### G. Vérification du fonctionnement
 ```bash
 docker info -f '{{ .DockerRootDir}}'
+```
 
-### D. Lancer les conteneurs inactifs
+### H. Lancer les conteneurs inactifs
 ```bash
 docker start $(docker ps -a -q)
 docker ps -a
