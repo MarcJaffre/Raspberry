@@ -18,7 +18,7 @@ systemctl disable --now docker.socket docker.service;
 
 ### D. Synchronisation du dossier Docker 
 ```bash
-rsync -avp --progress /var/lib/docker/ /Data
+rsync -ap --progress /var/lib/docker/ /Data
 ```
 
 ### E. Configuration de Docker
@@ -80,7 +80,7 @@ systemctl stop docker.service;
 
 ### C. Synchronisation du dossier Docker 
 ```bash
-rsync -avp --progress /Data/ /var/lib/docker
+rsync -ap --progress /Data/ /var/lib/docker
 ```
 
 ### E. Configuration de Docker
