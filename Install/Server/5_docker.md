@@ -48,9 +48,13 @@ systemctl enable --now docker.socket docker.service;
 ### C. Vérification du fonctionnement
 ```bash
 docker info -f '{{ .DockerRootDir}}'
+
+### D. Lancer les conteneurs inactifs
+```bash
 docker start $(docker ps -a -q)
 docker ps -a
 ```
+
 
 <br />
 
@@ -92,8 +96,19 @@ cat > /etc/docker/daemon.json << EOF
 EOF
 ```
 
-### E. Démarrage de Docker
+### F. Démarrage de Docker
 ```bash
 systemctl start docker.socket;
 systemctl start docker.service;
 ```
+
+### G. Vérification du fonctionnement
+```bash
+docker info -f '{{ .DockerRootDir}}'
+
+### D. Lancer les conteneurs inactifs
+```bash
+docker start $(docker ps -a -q)
+docker ps -a
+```
+
