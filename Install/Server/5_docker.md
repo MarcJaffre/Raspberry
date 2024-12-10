@@ -1,25 +1,27 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
-<p align='center'> Déplacer les Data de Docker </p>
+# <p align='center'> Déplacer les Data de Docker </p>
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## I. Mise en maintenance de Docker
-Les données seront stockés dans `/Data/docker`
+### A. Présentation
+Les données stockées par Docker sont stocker das `/var/lib/docker` et on va les déplacer dans `/Data/docker`.
 
-### A. Arrêt des conteneurs actifs
+### B. Arrêt des conteneurs actifs
 ```bash
 docker stop $(docker ps -a -q);
 ```
-### B. Désactivation des services Docker
+
+### C. Désactivation des services Docker
 ```bash
 systemctl disable --now docker.socket docker.service;
 ```
 
-### C. Synchronisation du dossier Docker 
+### D. Synchronisation du dossier Docker 
 ```bash
 rsync -avp --progress /var/lib/docker/ /Data
 ```
 
-### D. Configuration de Docker
+### E. Configuration de Docker
 ```bash
 cat > /etc/docker/daemon.json << EOF
 {
@@ -29,7 +31,6 @@ EOF
 ```
 
 <br />
-
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## II. Mise en service de Docker
@@ -50,3 +51,14 @@ docker info -f '{{ .DockerRootDir}}'
 docker start $(docker ps -a -q)
 docker ps -a
 ```
+
+<br />
+
+----------------------------------------------------------------------------------------------------------------------------------------
+## III. Purge des anciennes données
+```bash
+clear;
+rm -r /var/lib/docker/*;
+```
+
+
