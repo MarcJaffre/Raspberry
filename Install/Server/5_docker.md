@@ -3,6 +3,8 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## I. Mise en maintenance de Docker
+Les données seront stockés dans `/Data/docker`
+
 ### A. Arrêt des conteneurs actifs
 ```bash
 docker stop $(docker ps -a -q);
