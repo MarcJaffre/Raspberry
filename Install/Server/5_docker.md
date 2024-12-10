@@ -61,4 +61,37 @@ clear;
 rm -r /var/lib/docker/*;
 ```
 
+<br />
 
+----------------------------------------------------------------------------------------------------------------------------------------
+## IV. Retour en arrière
+### A. Arrêt des conteneurs actifs
+```bash
+docker stop $(docker ps -a -q);
+```
+
+### B. Arrêt de Docker
+```bash
+systemctl stop docker.socket;
+systemctl stop docker.service;
+```
+
+### C. Synchronisation du dossier Docker 
+```bash
+rsync -avp --progress /Data/ /var/lib/docker
+```
+
+### E. Configuration de Docker
+```bash
+cat > /etc/docker/daemon.json << EOF
+{
+  "data-root": "/var/lib/docker"
+}
+EOF
+```
+
+### E. Démarrage de Docker
+```bash
+systemctl start docker.socket;
+systemctl start docker.service;
+```
