@@ -8,13 +8,13 @@ clear;
 curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ```
 
+
 <br />
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Lecture
-
 ### A. Hardware Acceleration
-Le Raspberry 5 supportes les accélérations matériels suivants:
+Le Raspberry 5 supportes les accélérations matériels suivants.
 ```
 - []  drm
 - []  opencl
@@ -105,4 +105,9 @@ overlay_vaapi with option Action to take when encountering EOF from secondary in
 overlay_vulkan with option Action to take when encountering EOF from secondary input is not available
 scale_cuda with option Output format (default "same")  is not available
 tonemap_cuda with option GPU accelerated HDR to SDR tonemapping is not available
+```
+
+### D. Vérification
+```
+- Lecteur en Direct: Sans transcodage
 ```
