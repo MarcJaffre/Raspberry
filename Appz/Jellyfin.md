@@ -22,6 +22,7 @@ Le Raspberry 5 supportes les accélérations matériels suivants.
 ```
 
 ### A. Decodage
+Le Raspberry Pi 5 dispose d'un décodeur HEVC matériel, mais n'a pas d'encodeur matériel.
 #### 1. Base
 ```
 - ac3
