@@ -33,7 +33,6 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - mp3
 - truehd
 
-- av1_rkmpp
 - h264_rkmpp
 - hevc_rkmpp
 - mpeg1_rkmpp
@@ -41,6 +40,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - mpeg4_rkmpp
 - vp8_rkmpp
 - vp9_rkmpp
+- av1_rkmpp
 ```
 
 
