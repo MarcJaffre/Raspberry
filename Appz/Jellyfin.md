@@ -15,9 +15,9 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 ### A. Hardware Acceleration
 ```
-- drm
-- opencl
-- rkmpp
+- []  drm
+- []  opencl
+- [x] rkmpp
 ```
 
 ### A. Decodage
@@ -43,14 +43,14 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ```
 #### 2. Rockchip-MPP
 ```
-- h264_rkmpp
-- hevc_rkmpp
-- mpeg1_rkmpp
-- mpeg2_rkmpp
-- mpeg4_rkmpp
-- vp8_rkmpp
-- vp9_rkmpp
-- av1_rkmpp
+- [-] h264_rkmpp
+- [x] hevc_rkmpp
+- [-] mpeg1_rkmpp
+- [-] mpeg2_rkmpp
+- [-] mpeg4_rkmpp
+- [-] vp8_rkmpp
+- [-] vp9_rkmpp
+- [-] av1_rkmpp
 ```
 
 
@@ -82,9 +82,9 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 #### 2. Rockchip-MPP
 ```
-- h264_v4l2m2m
-- h264_rkmpp
-- hevc_rkmpp
+- [-] h264_v4l2m2m
+- [-] h264_rkmpp
+- [-] hevc_rkmpp
 ```
 
 <br />
