@@ -34,7 +34,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - mp3
 - truehd
 ```
-#### B. RKMPP
+#### B. Rockchip-MPP
 ```
 - h264_rkmpp
 - hevc_rkmpp
@@ -73,7 +73,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - truehd
 ```
 
-#### B. RKMPP
+#### B. Rockchip-MPP
 ```
 - h264_v4l2m2m
 - h264_rkmpp
