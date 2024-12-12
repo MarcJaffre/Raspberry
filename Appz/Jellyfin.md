@@ -8,18 +8,20 @@ clear;
 curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ```
 
+<br />
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Lecture
 
-### Hardware Acceleration
+### A. Hardware Acceleration
 ```
 - drm
 - opencl
 - rkmpp
 ```
 
-### Decodage
-#### A. Base
+### A. Decodage
+#### 1. Base
 ```
 - ac3
 - aac
@@ -39,7 +41,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - mp3
 - truehd
 ```
-#### B. Rockchip-MPP
+#### 2. Rockchip-MPP
 ```
 - h264_rkmpp
 - hevc_rkmpp
@@ -54,8 +56,8 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 <br />
 
-### Encodage
-#### A. Base
+### B. Encodage
+#### 1. Base
 ```
 - aac
 - ac3
@@ -78,7 +80,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - truehd
 ```
 
-#### B. Rockchip-MPP
+#### 2. Rockchip-MPP
 ```
 - h264_v4l2m2m
 - h264_rkmpp
@@ -87,7 +89,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 <br />
 
-### filters
+### C. filters
 ```
 alphasrc
 overlay_opencl
