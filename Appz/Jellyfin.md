@@ -14,6 +14,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ```
 
 ### Decodage
+#### A. Base
 ```
 - ac3
 - aac
@@ -32,7 +33,9 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - vp9
 - mp3
 - truehd
-
+```
+#### B. RKMPP
+```
 - h264_rkmpp
 - hevc_rkmpp
 - mpeg1_rkmpp
@@ -44,16 +47,17 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ```
 
 
+<br />
+
 ### Encodage
+#### A. Base
 ```
 - aac
 - ac3
 - alac
 - dca
 - flac
-- h264_rkmpp
-- h264_v4l2m2m
-- hevc_rkmpp
+
 - libfdk_aac
 - libmp3lame
 - libopus
@@ -69,6 +73,14 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - truehd
 ```
 
+#### B. RKMPP
+```
+- h264_v4l2m2m
+- h264_rkmpp
+- hevc_rkmpp
+```
+
+<br />
 
 ### filters
 ```
@@ -86,4 +98,3 @@ overlay_vulkan with option Action to take when encountering EOF from secondary i
 scale_cuda with option Output format (default "same")  is not available
 tonemap_cuda with option GPU accelerated HDR to SDR tonemapping is not available
 ```
-
