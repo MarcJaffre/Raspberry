@@ -109,5 +109,5 @@ tonemap_cuda with option GPU accelerated HDR to SDR tonemapping is not available
 
 ### D. Vérification
 ```
-- Lecteur en Direct: Sans transcodage
+- Lecture directe: Sans transcodage
 ```
