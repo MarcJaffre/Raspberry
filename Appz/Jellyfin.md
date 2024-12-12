@@ -13,32 +13,6 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - rkmpp
 ```
 
-### Encodage
-```
-- aac
-- ac3
-- alac
-- dca
-- flac
-- h264_rkmpp
-- h264_v4l2m2m
-- hevc_rkmpp
-- libfdk_aac
-- libmp3lame
-- libopus
-- libsvtav1
-- libvorbis
-- libvpx
-- libvpx-vp9
-- libx264
-- libx265
-- mpeg4
-- msmpeg4
-- srt
-- truehd
-```
-
-
 ### Decodage
 ```
 - ac3
@@ -68,6 +42,33 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 - vp8_rkmpp
 - vp9_rkmpp
 ```
+
+
+### Encodage
+```
+- aac
+- ac3
+- alac
+- dca
+- flac
+- h264_rkmpp
+- h264_v4l2m2m
+- hevc_rkmpp
+- libfdk_aac
+- libmp3lame
+- libopus
+- libsvtav1
+- libvorbis
+- libvpx
+- libvpx-vp9
+- libx264
+- libx265
+- mpeg4
+- msmpeg4
+- srt
+- truehd
+```
+
 
 ### filters
 ```
