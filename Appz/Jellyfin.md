@@ -14,6 +14,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ### II. Lecture
 
 ### A. Hardware Acceleration
+Le Raspberry 5 supportes les accélérations matériels suivants:
 ```
 - []  drm
 - []  opencl
