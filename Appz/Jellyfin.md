@@ -20,23 +20,24 @@ Sélectionner `Video4Linux2 (V4L2)`.
 
 ### B. Activer le décodage matériel pour
 Forcer le décodage matériel côté client, ne rien cocher !
-
 #### 1. H264
 Ne pas cocher.
 
 <br />
 
 ### C. Options d'encodage matériel
-Ne pas cocher `Activer l'encodage matériel`. Ceci force l'encodage côté client.
+Forcer l'encodage matériel côté client, ne rien cocher !
+#### 1. Activer l'encodage matériel
+Ne pas cocher.
 
 <br />
 
 ### D. Options de format d'encodage
+Forcer l'encodage matériel côté client, ne rien cocher !
 #### 1. Autoriser l'encodage au format HEVC
-Ne pas cocher, ceci force l'encodage côté client.
-
+Ne pas cocher
 #### 2. Autoriser l'encodage au format AV1
-Ne pas cocher, ceci force l'encodage côté client.
+Ne pas cocher
 
 <br />
 
