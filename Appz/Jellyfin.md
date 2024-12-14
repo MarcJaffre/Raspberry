@@ -40,44 +40,58 @@ Ce réglage force l'encodage matériel côté client au lieu du serveur. Ne pas 
 <br />
 
 ### E. Nombre de threads de transcodage
-Sélectionner `Auto`.
+Sélectionner la valeur sur  `Auto`. (Défaut)
 
 <br />
 
 ### F. Chemin du dossier de secours des polices
 #### 1. Activer les polices de secours
-Ne pas cocher
+Ne pas cocher. (Défaut)
+
 #### 2. Activer l’encodage audio VBR
-Ne pas cocher
+Ne pas cocher. (Défaut)
 
 <br />
 
 ### G. Algorithme de rééchantillonnage en stéréo
-
+Sélectionner la valeur sur  `Aucun`. (Défaut)
 <br />
 
 ### H. Taille maximale de la queue de multiplexage
-
+Définir la valeur sur `2048` (Mo). (Test: 128 Mo)
 <br />
 
 ### I. Profil d'encodage
+Sélectionner la valeur sur `Ultrafast`.
+
 #### 1. CRF d'encodage H.265
+Définir la valeur sur `20`.
+
 #### 2. CRF d'encodage H.264
+Définir la valeur sur `22`.
 
 <br />
 
 ### J. Méthode de désentrelacement
+Définir la valeur sur `YADIF`. (Défaut)
 #### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
-#### 2. Autoriser l'extraction des sous-titres à la volée 
+Ne pas cocher la case.
+
+#### 2. Autoriser l'extraction des sous-titres à la volée
+Ne pas cocher la case.
+
 #### 3. Adapter la vitesse du transcodage
+Ne pas cocher la case.
+
 #### 4. Supprimer les segments
+Ne pas cocher la case.
 
 <br />
 
 ### K. Ajuster la vitesse après
-
+Indiquer la valeur `180`. (Défaut)
 <br />
 
 ### L. Durée de conservation des segments
-
+Indiquer la valeur `720`. (Défaut)
 <br />
