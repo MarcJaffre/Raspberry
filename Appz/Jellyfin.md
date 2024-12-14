@@ -31,13 +31,19 @@ Ne pas cocher `Autoriser l'encodage au format HEVC` et `Autoriser l'encodage au 
 Sélectionner `Auto`.
 
 #### F. Activer les polices de secours
+
 #### G. Activer l’encodage audio VBR
+
 #### H. Algorithme de rééchantillonnage en stéréo
+
 #### I. Taille maximale de la queue de multiplexage
+
 #### J. Profil d'encodage
 
 #### K. CRF d'encodage H.265
+
 #### L. CRF d'encodage H.264
+
 #### M. Méthode de désentrelacement
 ##### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
 #### N. Autoriser l'extraction des sous-titres à la volée 
