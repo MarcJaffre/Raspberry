@@ -15,17 +15,22 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 ## II. Lecture
 ### A. Accélération matérielle
 Sélectionner `Video4Linux2 (V4L2)`.
+
 ### B. Activer le décodage matériel pour
 Forcer le décodage matériel côté client, ne rien cocher !
-```
-- [] H264
-```
+
+#### 1. H264
+Ne pas cocher.
 
 ### C. Options d'encodage matériel
 Ne pas cocher `Activer l'encodage matériel`. Ceci force l'encodage côté client.
 
 ### D. Options de format d'encodage
-Ne pas cocher `Autoriser l'encodage au format HEVC` et `Autoriser l'encodage au format AV1`. Ceci force l'encodage côté client.
+#### 1. Autoriser l'encodage au format HEVC
+Ne pas cocher, ceci force l'encodage côté client.
+
+#### 2. Autoriser l'encodage au format AV1
+Ne pas cocher, ceci force l'encodage côté client.
 
 ### E. Nombre de threads de transcodage
 Sélectionner `Auto`.
