@@ -22,16 +22,19 @@ apt install -f;
 clear;
 PASSWORD=admin
 echo "$PASSWORD"  | anydesk --set-password
+echo "$PASSWORD" > $HOME/.anydesk.psw
 ```
 
 ### D. Information ID
 ```bash
 clear;
+PASSOWRD=$(cat $HOME/.anydesk.psw)
 ANYDESK_ID=$(anydesk --get-id)
 ANYDESK_STATUT=$(anydesk --get-status)
 ANYDESK_VERSION=$(anydesk --version)
 echo "Information Anydesk"
-echo " - Identifiant: $ANYDESK_ID "
-echo " - Statut     : $ANYDESK_STATUT"
-echo " - Version    : $ANYDESK_VERSION"
+echo " - Identifiant  : $ANYDESK_ID"
+echo " - Mot de passe : $PASSWORD
+echo " - Statut       : $ANYDESK_STATUT"
+echo " - Version      : $ANYDESK_VERSION"
 ```
