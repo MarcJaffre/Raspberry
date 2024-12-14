@@ -17,7 +17,7 @@ dpkg -i /tmp/anydesk.deb
 apt install -f;
 ```
 
-### C. Configurer Anydesk
+### C. Configurer Anydesk ([Doc](https://support.anydesk.com/fr/knowledge/command-line-interface-for-linux))
 ```bash
 clear;
 PASSWORD=admin
