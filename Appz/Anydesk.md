@@ -16,3 +16,22 @@ clear;
 dpkg -i /tmp/anydesk.deb
 apt install -f;
 ```
+
+### C. Configurer Anydesk
+```bash
+clear;
+PASSWORD=admin
+echo "$PASSWORD"  | anydesk --set-password
+```
+
+### D. Information ID
+```bash
+clear;
+ANYDESK_ID=$(anydesk --get-id)
+ANYDESK_STATUT=$(anydesk --get-status)
+ANYDESK_VERSION=$(anydesk --version)
+echo "Information Anydesk"
+echo " - Identifiant: $ANYDESK_ID "
+echo " - Statut     : $ANYDESK_STATUT"
+echo " - Version    : $ANYDESK_VERSION"
+```
