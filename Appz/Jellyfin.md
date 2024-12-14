@@ -12,7 +12,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 <br />
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## II. Lecture
+## II. Configuration de Jellyfin
 ### A. Accélération matérielle
 Sélectionner `Video4Linux2 (V4L2)`.
 
@@ -21,11 +21,13 @@ Sélectionner `Video4Linux2 (V4L2)`.
 ### B. Activer le décodage matériel pour
 Ce réglage force le décodage matériel côté client au lieu du serveur.
 #### 1. H264
-Le raspberry PI 5 n'a pas de décodage matériel, il faut donc ``. (Test: décocher)
+Le raspberry PI 5 n'a pas de décodage matériel, il faut donc `XXX`. (Test: décocher)
+
 <br />
 
 ### C. Options d'encodage matériel
 Ce réglage force le décodage matériel côté client au lieu du serveur.
+
 #### 1. Activer l'encodage matériel
 Ne pas cocher.
 
