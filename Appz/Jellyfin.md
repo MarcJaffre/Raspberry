@@ -21,8 +21,7 @@ Sélectionner `Video4Linux2 (V4L2)`.
 ### B. Activer le décodage matériel pour
 Ce réglage force le décodage matériel côté client au lieu du serveur.
 #### 1. H264
-Ne pas cocher.
-
+Le raspberry PI 5 n'a pas de décodage matériel, il faut donc `COCHER la case`.
 <br />
 
 ### C. Options d'encodage matériel
