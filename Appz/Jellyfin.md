@@ -13,102 +13,34 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### II. Lecture
-### A. Hardware Acceleration
-Le Raspberry 5 supportes les accélérations matériels suivants.
+#### A. Accélération matérielle
+Sélectionner `Video4Linux2 (V4L2)`.
+#### B. Activer le décodage matériel pour
+Forcer le décodage matériel côté client, ne rien cocher !
 ```
-- []  drm
-- []  opencl
-- [] rkmpp
-```
-
-### A. Decodage
-Le Raspberry Pi 5 dispose d'un décodeur HEVC matériel, mais n'a pas d'encodeur matériel.
-#### 1. Base
-```
-- ac3
-- aac
-- av1
-- dca
-- flac
-- h264
-- hevc
-- libdav1d
-- libvpx
-- libvpx-vp9
-- mpeg2video
-- mpeg4
-- msmpeg4
-- vp8
-- vp9
-- mp3
-- truehd
-```
-#### 2. Rockchip-MPP
-```
-- [-] h264_rkmpp
-- [x] hevc_rkmpp
-- [-] mpeg1_rkmpp
-- [-] mpeg2_rkmpp
-- [-] mpeg4_rkmpp
-- [-] vp8_rkmpp
-- [-] vp9_rkmpp
-- [-] av1_rkmpp
+- [] H264
 ```
 
+#### C. Options d'encodage matériel
+Ne pas cocher `Activer l'encodage matériel`. Ceci force l'encodage côté client.
 
-<br />
+#### D. Options de format d'encodage
+Ne pas cocher `Autoriser l'encodage au format HEVC` et `Autoriser l'encodage au format AV1`. Ceci force l'encodage côté client.
 
-### B. Encodage
-#### 1. Base
-```
-- aac
-- ac3
-- alac
-- dca
-- flac
+#### E. Nombre de threads de transcodage
+Sélectionner `Auto`.
 
-- libfdk_aac
-- libmp3lame
-- libopus
-- libsvtav1
-- libvorbis
-- libvpx
-- libvpx-vp9
-- libx264
-- libx265
-- mpeg4
-- msmpeg4
-- srt
-- truehd
-```
+#### F. Activer les polices de secours
+#### G. Activer l’encodage audio VBR
+#### H. Algorithme de rééchantillonnage en stéréo
+#### I. Taille maximale de la queue de multiplexage
+#### J. Profil d'encodage
 
-#### 2. Rockchip-MPP
-```
-- [-] h264_v4l2m2m
-- [-] h264_rkmpp
-- [-] hevc_rkmpp
-```
+#### K. CRF d'encodage H.265
+#### L. CRF d'encodage H.264
+#### M. Méthode de désentrelacement
+##### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
+#### N. Autoriser l'extraction des sous-titres à la volée 
+#### O.
 
-<br />
-
-### C. filters
-```
-alphasrc
-overlay_opencl
-overlay_rkrga
-scale_opencl
-scale_rkrga
-tonemap_opencl
-vpp_rkrga
-zscale
-
-overlay_vaapi with option Action to take when encountering EOF from secondary input is not available
-overlay_vulkan with option Action to take when encountering EOF from secondary input is not available
-scale_cuda with option Output format (default "same")  is not available
-tonemap_cuda with option GPU accelerated HDR to SDR tonemapping is not available
-```
-
-### D. Vérification
-```
-- Lecture directe: Sans transcodage
-```
+#### P. 
