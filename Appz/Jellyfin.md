@@ -46,7 +46,9 @@ Sélectionner `Auto`.
 
 #### M. Méthode de désentrelacement
 ##### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
-#### N. Autoriser l'extraction des sous-titres à la volée 
+##### 2. Autoriser l'extraction des sous-titres à la volée 
+
+#### N.
 #### O.
 
 #### P. 
