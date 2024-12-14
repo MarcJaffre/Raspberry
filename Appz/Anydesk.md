@@ -34,7 +34,7 @@ ANYDESK_STATUT=$(anydesk --get-status)
 ANYDESK_VERSION=$(anydesk --version)
 echo "Information Anydesk"
 echo " - Identifiant  : $ANYDESK_ID"
-echo " - Mot de passe : $PASSWORD
+echo " - Mot de passe : $PASSWORD"
 echo " - Statut       : $ANYDESK_STATUT"
 echo " - Version      : $ANYDESK_VERSION"
 ```
