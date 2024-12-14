@@ -18,7 +18,7 @@ Le Raspberry 5 supportes les accélérations matériels suivants.
 ```
 - []  drm
 - []  opencl
-- [x] rkmpp
+- [] rkmpp
 ```
 
 ### A. Decodage
