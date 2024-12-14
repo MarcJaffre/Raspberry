@@ -54,34 +54,36 @@ Ne pas cocher
 
 <br />
 
-### G.
+### G. Algorithme de rééchantillonnage en stéréo
 
 <br />
 
-### H. Algorithme de rééchantillonnage en stéréo
+### H. Taille maximale de la queue de multiplexage
 
 <br />
 
-### I. Taille maximale de la queue de multiplexage
+### I. Profil d'encodage
+#### 1. CRF d'encodage H.265
+#### 2. CRF d'encodage H.264
 
 <br />
 
-### J. Profil d'encodage
-
-<br />
-
-### K. CRF d'encodage H.265
-
-<br />
-
-### L. CRF d'encodage H.264
-
-<br />
-
-### M. Méthode de désentrelacement
+### J. Méthode de désentrelacement
 #### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
 #### 2. Autoriser l'extraction des sous-titres à la volée 
 
+
+<br />
+
+### K.
+
+<br />
+
+### L.
+
+<br />
+
+### M. 
 <br />
 
 
