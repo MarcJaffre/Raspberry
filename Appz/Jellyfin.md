@@ -71,22 +71,15 @@ Ne pas cocher
 ### J. Méthode de désentrelacement
 #### 1. Multiplier par deux la fréquence d'images lors du désentrelacement
 #### 2. Autoriser l'extraction des sous-titres à la volée 
-
-
-<br />
-
-### K.
+#### 3. Adapter la vitesse du transcodage
+#### 4. Supprimer les segments
 
 <br />
 
-### L.
+### K. Ajuster la vitesse après
 
 <br />
 
-### M. 
+### L. Durée de conservation des segments
+
 <br />
-
-
-### N.
-### O.
-### P. 
