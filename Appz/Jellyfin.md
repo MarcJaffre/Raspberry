@@ -10,7 +10,7 @@ curl -s https://repo.jellyfin.org/install-debuntu.sh | bash
 
 ### B. Installation via Docker
 Une image `armv8` est nécessaire pour le RaspberryPI 5.
-```
+```yml
 ################
 services:      #
 ################
