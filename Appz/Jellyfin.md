@@ -26,19 +26,16 @@ Le raspberry PI 5 n'a pas de décodage matériel, il faut donc `XXX`. (Test: dé
 <br />
 
 ### C. Options d'encodage matériel
-Ce réglage force le décodage matériel côté client au lieu du serveur.
-
 #### 1. Activer l'encodage matériel
-Ne pas cocher.
+Ce réglage force le décodage matériel côté client au lieu du serveur. Ne pas cocher.
 
 <br />
 
 ### D. Options de format d'encodage
-Ce réglage force le décodage matériel côté client au lieu du serveur.
 #### 1. Autoriser l'encodage au format HEVC
-Ne pas cocher
+Ce réglage force l'encodage matériel côté client au lieu du serveur. Ne pas cocher.
 #### 2. Autoriser l'encodage au format AV1
-Ne pas cocher
+Ce réglage force l'encodage matériel côté client au lieu du serveur. Ne pas cocher.
 
 <br />
 
