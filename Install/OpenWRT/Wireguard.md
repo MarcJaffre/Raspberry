@@ -86,7 +86,7 @@ Définir l'ordre des différentes zone puis éditer la zone VPN pour permettre d
 
 
 #### 2. Port Forwards
-Le client transmet se connecte sur le port 5810/UDP depuis le WAN du routeur et le routeur transmert à l'interface VPN
+Le client transmet se connecte sur le port 58120/UDP depuis le WAN du routeur et le routeur transmert à l'interface VPN
 ```
 Name                : Wireguard
 Protocol            : UDP
