@@ -13,7 +13,7 @@ Une image `Arm64` en `V8` est nécessaire pour le RaspberryPI 5
 
 ```
 - CPU: 1 Core
-- RAM: 915 Mo en lecture réel
+- RAM: 1024Mo
 ```
 
 ```yml
