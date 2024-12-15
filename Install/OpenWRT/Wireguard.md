@@ -113,7 +113,8 @@ Source IP address   : 192.168.50.2
 
 
 ### F. Règles de trafic
-![image](https://github.com/user-attachments/assets/0637fe52-9f02-4cce-beac-578530abcccc)
+Les requêtes vers le routeur doit être envoyé vers le Device puis on sélection l'ip du LAN.
+![image](https://github.com/user-attachments/assets/185f0ccb-c489-4d81-9460-374d2f40132b)
 
 
 ### G. Vérification
