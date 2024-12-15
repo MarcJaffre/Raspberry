@@ -101,3 +101,13 @@ Internal port       : 51820
 Lorsque le client est connecté, des paquets sont visibles.
 ![image](https://github.com/user-attachments/assets/fa678c08-aac9-439f-a8e1-ecc1a3ce4a8f)
 
+### F. Accéder au routeur depuis le VPN
+```
+Name                : VPN vers routeur
+Protocol            : TCP
+Source zone         : VPN
+External port       : 80
+Destination zone    : LAN
+Internal IP address : 192.168.0.1
+Internal port       : 80
+```
