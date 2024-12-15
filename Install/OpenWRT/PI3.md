@@ -25,7 +25,7 @@ https://firmware-selector.openwrt.org/
 <br />
 
 #### 2. Choisir l'image
-> Indiquer dans le champs de recherche `Raspberry Pi (3B/3B+/CM3 (32bit)`
+> Indiquer dans le champs de recherche `Raspberry Pi 3B/3B+/CM3 (32bit)`
 >
 > Télécharger l'image `Factory`.
 >
