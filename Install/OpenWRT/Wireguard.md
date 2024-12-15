@@ -102,6 +102,7 @@ Lorsque le client est connecté, des paquets sont visibles.
 ![image](https://github.com/user-attachments/assets/fa678c08-aac9-439f-a8e1-ecc1a3ce4a8f)
 
 ### F. Accéder au routeur depuis le VPN
+L'adresse IP 192.168.50.2 (client VPN) pourras accéder au routeur (http://192.168.50.1)
 ```
 Name                : VPN vers routeur
 Protocol            : TCP
@@ -110,4 +111,5 @@ External port       : 80
 Destination zone    : LAN
 Internal IP address : 192.168.0.1
 Internal port       : 80
+Source IP address   : 192.168.50.2
 ```
