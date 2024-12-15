@@ -37,7 +37,7 @@ services:      #
    resources:                                             #
     limits:                                               #
      cpus: '2.00'                                         #
-     memory: '2048M'                                      #
+     memory: '1280M'                                      #
    # ---------------------------------------------------- #
     reservations:                                         #
      cpus: '0.02'                                         #
