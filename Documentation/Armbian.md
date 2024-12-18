@@ -20,7 +20,6 @@ Le mot de passe par défaut du compte `root` est `1234`.
 - armbian-add-overlay :
 - armbian-config      :
 - armbian-install     :
-- armbianmonitor      :
 - armbian-upgrade     :
 ```
 
