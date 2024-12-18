@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <!-- Configuration version -->
+  <version>0.1</version>
+  <!-- System configuration - Do not add any configuration here -->
+  <system>
+    <apt>
+      <distribution>
+        <proposed>0</proposed>
+        <partner>1</partner>
+      </distribution>
+      <sources>
+        <item>
+          <uuid>9fb280f6-c5ff-45f2-8892-3f1d7e803391</uuid>
+          <enable>0</enable>
+          <types>deb</types>
+          <uris>https://deb.debian.org/debian</uris>
+          <suites>bookworm-backports</suites>
+          <components>main contrib non-free non-free-firmware</components>
+          <signedby>-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+NlB2T6bKGcYGqL7L
+=UUyy
+-----END PGP PUBLIC KEY BLOCK-----</signedby>
+          <comment>Bookworm, Backports</comment>
+        </item>
+      </sources>
+    </apt>
+    <powermanagement>
+      <cpufreq>1</cpufreq>
+      <powerbtn>shutdown</powerbtn>
+      <standbymode>poweroff</standbymode>
+    </powermanagement>
+    <monitoring>
+      <perfstats>
+        <!--
+				<enable>0|1</enable>
+				-->
+        <enable>1</enable>
+      </perfstats>
+    </monitoring>
+    <time>
+      <timezone>Europe/Paris</timezone>
+      <ntp>
+        <enable>1</enable>
+        <timeservers>pool.ntp.org</timeservers>
+        <clients></clients>
+      </ntp>
+    </time>
+    <email>
+      <!--
+			<enable>0|1</enable>
+			<tls>none|ssl|startssl|auto</tls>
+			-->
+      <enable>0</enable>
+      <server></server>
+      <port>25</port>
+      <tls>none</tls>
+      <sender></sender>
+      <authentication>
+        <!--
+				<enable>0|1</enable>
+				-->
+        <enable>0</enable>
+        <username></username>
+        <password></password>
+      </authentication>
+      <primaryemail></primaryemail>
+      <secondaryemail></secondaryemail>
+    </email>
+    <notification>
+      <notifications>
+        <!--
+				<notification>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<id>xxx</id>
+					<enable>0|1</enable>
+				</notification>
+				-->
+        <notification>
+          <uuid>c1cd54af-660d-4311-8e21-2a19420355bb</uuid>
+          <id>monitprocevents</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>8deb96bd-10d6-4eb8-9e3d-0938f2bcbb30</uuid>
+          <id>monitloadavg</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>03dc067d-1310-45b5-899f-b471a0ae9233</uuid>
+          <id>monitmemoryusage</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>fbf7973e-57a6-4c4a-8b7d-353653b596a5</uuid>
+          <id>monitcpuusage</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>d1ce47d1-d8d5-4f43-9f5c-36a30d818734</uuid>
+          <id>monitfilesystems</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>bd784490-a15c-47a9-9930-9f5897804654</uuid>
+          <id>smartmontools</id>
+          <enable>1</enable>
+        </notification>
+        <notification>
+          <uuid>5334afb5-b66d-4719-a3ce-6a6a2d574816</uuid>
+          <id>apt</id>
+          <enable>1</enable>
+        </notification>
+      </notifications>
+    </notification>
+    <certificates>
+      <!--
+			<sslcertificate>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<certificate>xxx</certificate>
+				<privatekey>xxx</privatekey>
+				<comment>xxx</comment>
+			</sslcertificate>
+			<sshcertificate>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<publickey>xxx</publickey>
+				<privatekey>xxx</privatekey>
+				<comment>xxx</comment>
+			</sshcertificate>
+			-->
+    </certificates>
+    <network>
+      <dns>
+        <hostname>openmediavault</hostname>
+        <domainname></domainname>
+      </dns>
+      <interfaces>
+        <!--
+				<interface>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<type>ethernet|bond|vlan|wifi|bridge</type>
+					<devicename>xxx</devicename>
+					<method>dhcp|static|manual</method>
+					<address>xxx.xxx.xxx.xxx</address>
+					<netmask>xxx.xxx.xxx.xxx</netmask>
+					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<routemetric>0-65535</routemetric>
+					<method6>auto|dhcp|static|manual</method6>
+					<address6>xxxx:xxxx:...:xxxx</address6>
+					<netmask6>0-128</netmask6>
+					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<routemetric6>0-65535</routemetric6>
+					<dnsnameservers>xxx yyy zzz</dnsnameservers>
+					<dnssearch></dnssearch>
+					<mtu>0...n</mtu>
+					<wol>0|1</wol>
+					<comment>xxx</comment>
+					# Optional arguments by type:
+					# - bridge | ethernet | wifi | vlan
+					<altmacaddress>|xx:xx:xx:xx:xx:xx</altmacaddress>
+					# - bond
+					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
+					<bondprimary>(eth|wlan)\d+</bondprimary>
+					<bondmode>0|1|2|3|4|5|6</bondmode>
+					<bondmiimon>0</bondmiimon>
+					<bonddowndelay>0</bonddowndelay>
+					<bondupdelay>0</bondupdelay>
+					<bondupdelay>0</bondupdelay>
+					<bondtransmithashpolicy>layer2|layer2+3|layer3+4|encap2+3|encap3+4</bondtransmithashpolicy>
+					# - vlan
+					<vlanid>1-4095</vlanid>
+					<vlanrawdevice>xxx</vlanrawdevice>
+					# - wifi
+					<wpassid>xxx</wpassid>
+					<wpapsk>xxx</wpapsk>
+					<keymanagement>psk|sae</keymanagement>
+					<hidden>0|1</hidden>
+					# - bridge
+					<slaves>(((eth|venet|wlan)\d+|(en|veth|wl)\S+),)*((eth|venet|wlan)\d+|(en|veth|wl)\S+)</slaves>
+				</interface>
+				-->
+        <interface>
+          <uuid>b9f490b9-054b-4da2-b337-acc8c5e74d07</uuid>
+          <type>ethernet</type>
+          <devicename>end0</devicename>
+          <method>static</method>
+          <address>192.168.20.3</address>
+          <netmask>255.255.255.0</netmask>
+          <gateway>192.168.20.1</gateway>
+          <routemetric>0</routemetric>
+          <method6>manual</method6>
+          <address6></address6>
+          <netmask6>64</netmask6>
+          <gateway6></gateway6>
+          <routemetric6>1</routemetric6>
+          <dnsnameservers>192.168.20.1 8.8.8.8</dnsnameservers>
+          <dnssearch>lan.local</dnssearch>
+          <mtu>0</mtu>
+          <wol>1</wol>
+          <comment></comment>
+          <altmacaddress></altmacaddress>
+          <slaves></slaves>
+          <bondprimary></bondprimary>
+          <bondmode>1</bondmode>
+          <bondmiimon>0</bondmiimon>
+          <bonddowndelay>0</bonddowndelay>
+          <bondupdelay>0</bondupdelay>
+          <bondtransmithashpolicy>layer2</bondtransmithashpolicy>
+          <vlanid>1</vlanid>
+          <vlanrawdevice></vlanrawdevice>
+          <wpassid></wpassid>
+          <wpapsk></wpapsk>
+          <keymanagement>psk</keymanagement>
+          <hidden>0</hidden>
+        </interface>
+      </interfaces>
+      <iptables>
+        <!--
+				<rule>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<family>inet|inet6</family>
+					<rulenum>1...x</rulenum>
+					<chain>INPUT|OUTPUT</chain>
+					<action>ACCEPT|REJECT|DROP|LOG|</action>
+					<source>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</source>
+					<sport>xxx|xxx-yyy</sport>
+					<destination>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</destination>
+					<dport>xxx|xxx-yyy</dport>
+					<protocol>[!]?(tcp|udp|icmp|icmpv6)|all</protocol>
+					<extraoptions>xxx</extraoptions>
+					<comment>xxx</comment>
+				</rule>
+				-->
+        <rule>
+          <uuid>d96ee263-9978-45ca-b88b-f1d70e5fafd7</uuid>
+          <family>inet</family>
+          <rulenum>0</rulenum>
+          <chain>INPUT</chain>
+          <action>ACCEPT</action>
+          <source></source>
+          <sport></sport>
+          <destination></destination>
+          <dport></dport>
+          <protocol>all</protocol>
+          <extraoptions></extraoptions>
+          <comment></comment>
+        </rule>
+        <rule>
+          <uuid>86f31be3-4338-4afc-87fb-f7a779a30a34</uuid>
+          <family>inet</family>
+          <rulenum>1</rulenum>
+          <chain>OUTPUT</chain>
+          <action>ACCEPT</action>
+          <source></source>
+          <sport></sport>
+          <destination></destination>
+          <dport></dport>
+          <protocol>all</protocol>
+          <extraoptions></extraoptions>
+          <comment></comment>
+        </rule>
+      </iptables>
+      <proxy>
+        <http>
+          <enable>0</enable>
+          <host></host>
+          <port>8080</port>
+          <username></username>
+          <password></password>
+        </http>
+        <https>
+          <enable>0</enable>
+          <host></host>
+          <port>4443</port>
+          <username></username>
+          <password></password>
+        </https>
+        <ftp>
+          <enable>0</enable>
+          <host></host>
+          <port>2121</port>
+          <username></username>
+          <password></password>
+        </ftp>
+      </proxy>
+    </network>
+    <usermanagement>
+      <homedirectory>
+        <enable>0</enable>
+        <sharedfolderref></sharedfolderref>
+      </homedirectory>
+      <users>
+        <!--
+				<user>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<name>xxx</name>
+					<email>xxx</email>
+					<disallowusermod>0</disallowusermod>
+					<sshpubkeys>
+						<sshpubkey>|xxx</sshpubkey>
+					</sshpubkeys>
+				</user>
+				-->
+        <user>
+          <uuid>2fd12a10-e7e7-4813-b1ee-8f9c28529655</uuid>
+          <name>marc</name>
+          <email></email>
+          <disallowusermod>0</disallowusermod>
+          <sshpubkeys></sshpubkeys>
+        </user>
+      </users>
+      <groups>
+        <!--
+				<group>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<name>xxx</name>
+					<comment>xxx</comment>
+				</group>
+				-->
+        <group>
+          <uuid>f0730aa1-9b75-4256-a551-f67ec71e4880</uuid>
+          <name>GRP-Media-1-RW</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>99f2fccc-342e-43df-ac6c-fb1dfaf4a575</uuid>
+          <name>GRP-Media-1-RO</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>54179a18-dd0b-428a-8b75-c87d41a0c4ec</uuid>
+          <name>GRP-Media-2-RO</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>33fecab3-3f58-47c9-a9b7-475dd2d9ccb9</uuid>
+          <name>GRP-Media-3-RO</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>5167b8f9-f6db-45d6-929f-877a7851eed3</uuid>
+          <name>GRP-Media-4-RO</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>a7d56ed9-6788-4dad-a8bb-75d33903347d</uuid>
+          <name>GRP-Media-5-RO</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>caaf69be-a67f-4026-992c-dce0c5c465d3</uuid>
+          <name>GRP-Media-2-RW</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>b484f25a-7836-463f-8d95-e4573572051f</uuid>
+          <name>GRP-Media-3-RW</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>7cae0ce0-9d14-45ab-be41-8cf8ba52441c</uuid>
+          <name>GRP-Media-4-RW</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>d6ca5907-9f82-4bde-b044-6d039132003c</uuid>
+          <name>GRP-Media-5-RW</name>
+          <comment></comment>
+        </group>
+        <group>
+          <uuid>f9735bdd-370d-4208-9a2f-bd8de08e2c63</uuid>
+          <name>GRP-Backup-RO</name>
+          <comment></comment>
+        </group>
+      </groups>
+    </usermanagement>
+    <crontab>
+      <!--
+			<job>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<enable>0|1</enable>
+				<execution>exactly|hourly|daily|weekly|monthly|yearly|reboot</execution>
+				<sendemail>0|1<sendemail>
+				<type>reboot|shutdown|standby|userdefined</type>
+				<comment>xxx</comment>
+				<minute>[00-59|*]</minute>
+				<everynminute>0|1</everynminute>
+				<hour>[00-23|*]</hour>
+				<everynhour>0|1</everynhour>
+				<dayofmonth>[01-31|*]</dayofmonth>
+				<everyndayofmonth>0|1</everyndayofmonth>
+				<month>[01-12|*]</month>
+				<dayofweek>[1-7|*]</dayofweek>
+				<username>xxx</username>
+				<command>xxx</command>
+			</job>
+			-->
+      <job>
+        <uuid>c191a590-9eb8-4dfb-b7fa-602ca028c748</uuid>
+        <enable>1</enable>
+        <execution>exactly</execution>
+        <sendemail>0</sendemail>
+        <comment>Sauvegarde configuration</comment>
+        <type>userdefined</type>
+        <minute>59</minute>
+        <everynminute>0</everynminute>
+        <hour>23</hour>
+        <everynhour>0</everynhour>
+        <month>*</month>
+        <dayofmonth>*</dayofmonth>
+        <everyndayofmonth>0</everyndayofmonth>
+        <dayofweek>7</dayofweek>
+        <username>root</username>
+        <command>/usr/bin/cp /etc/openmediavault/config.xml /srv/dev-disk-by-uuid-80667AAF667AA596/Backup/OMV/config_$(date +"%d-%m-%y-%HH%M").xml</command>
+      </job>
+    </crontab>
+    <syslog>
+      <remote>
+        <!--
+				<protocol>udp|tcp</protocol>
+				-->
+        <enable>0</enable>
+        <host></host>
+        <port>514</port>
+        <protocol>udp</protocol>
+      </remote>
+    </syslog>
+    <storage>
+      <!--
+			<hdparm>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<devicefile>/dev/xxx</devicefile>
+				<apm>0 = disable|1-255<apm>
+				<aam>0|128|254</aam>
+				<spindowntime>0 = disabled|1-254</spindowntime>
+				<writecache>0|1</writecache>
+			</hdparm>
+			-->
+      <filesystem>
+        <!--
+				<quota>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
+					<usrquota>
+						<name>xxx</name>
+						<bsoftlimit>0</bsoftlimit>
+						<bhardlimit>xxx</bhardlimit>
+						<isoftlimit>0</isoftlimit>
+						<ihardlimit>0</ihardlimit>
+					</usrquota>
+					<usrquota>
+						...
+					</usrquota>
+					<grpquota>
+						<name>xxx</name>
+						<bsoftlimit>0</bsoftlimit>
+						<bhardlimit>xxx</bhardlimit>
+						<isoftlimit>0</isoftlimit>
+						<ihardlimit>0</ihardlimit>
+					</grpquota>
+					<grpquota>
+						...
+					</grpquota>
+				</quota>
+				<quota>
+					...
+				</quota>
+				-->
+      </filesystem>
+      <hdparm>
+        <uuid>bdb1af4e-420d-4a90-9031-4d7d2b0bf8ae</uuid>
+        <devicefile>/dev/disk/by-id/usb-External_USB3.0_DISK00_WCT3E94P-0:0</devicefile>
+        <apm>0</apm>
+        <aam>0</aam>
+        <spindowntime>0</spindowntime>
+        <writecache>0</writecache>
+      </hdparm>
+      <hdparm>
+        <uuid>f53d3167-963f-4264-a81f-541913dbaf6b</uuid>
+        <devicefile>/dev/disk/by-id/usb-External_USB3.0_DISK03_WD-WCC4M2APAS66-0:3</devicefile>
+        <apm>0</apm>
+        <aam>0</aam>
+        <spindowntime>0</spindowntime>
+        <writecache>0</writecache>
+      </hdparm>
+    </storage>
+    <fstab>
+      <!--
+			<mntent>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<fsname>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx|/dev/xxx</fsname>
+				<dir>/xxx/yyy/zzz</dir>
+				<type>none|ext2|ext3|ext4|xfs|jfs|iso9660|udf|...</type>
+				<opts></opts>
+				<freq>0</freq>
+				<passno>0|1|2</passno>
+				<hidden>0|1</hidden>
+				<usagewarnthreshold>xxx</usagewarnthreshold>
+				<comment>xxx</comment>
+			</mntent>
+			-->
+      <mntent>
+        <uuid>3d2288ab-95d1-4c33-9c48-40b35129e9b0</uuid>
+        <fsname>/dev/disk/by-uuid/527C5B8B7C5B68AD</fsname>
+        <dir>/srv/dev-disk-by-uuid-527C5B8B7C5B68AD</dir>
+        <type>ntfs</type>
+        <opts>defaults,nofail,big_writes</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+        <usagewarnthreshold>85</usagewarnthreshold>
+        <comment></comment>
+      </mntent>
+      <mntent>
+        <uuid>778d74e6-a04c-4730-b005-668247fc2136</uuid>
+        <fsname>/dev/disk/by-uuid/105A13BF5A13A110</fsname>
+        <dir>/srv/dev-disk-by-uuid-105A13BF5A13A110</dir>
+        <type>ntfs</type>
+        <opts>defaults,nofail,big_writes</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+        <usagewarnthreshold>85</usagewarnthreshold>
+        <comment></comment>
+      </mntent>
+      <mntent>
+        <uuid>6d9f237a-2d90-4b8b-9679-0aeaa4ab3b3f</uuid>
+        <fsname>/dev/disk/by-uuid/16B2983209BDABAC</fsname>
+        <dir>/srv/dev-disk-by-uuid-16B2983209BDABAC</dir>
+        <type>ntfs</type>
+        <opts>defaults,nofail,big_writes</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+        <usagewarnthreshold>85</usagewarnthreshold>
+        <comment></comment>
+      </mntent>
+      <mntent>
+        <uuid>abdb5a22-7af6-44b5-b693-1d4796c542c7</uuid>
+        <fsname>/dev/disk/by-uuid/80667AAF667AA596</fsname>
+        <dir>/srv/dev-disk-by-uuid-80667AAF667AA596</dir>
+        <type>ntfs</type>
+        <opts>defaults,nofail,big_writes</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+        <usagewarnthreshold>85</usagewarnthreshold>
+        <comment></comment>
+      </mntent>
+      <mntent>
+        <uuid>1ddbc6d1-5bc9-4fa9-9778-ae65866d9e07</uuid>
+        <fsname>/dev/disk/by-uuid/94001B57001B4022</fsname>
+        <dir>/srv/dev-disk-by-uuid-94001B57001B4022</dir>
+        <type>ntfs</type>
+        <opts>defaults,nofail,big_writes</opts>
+        <freq>0</freq>
+        <passno>2</passno>
+        <hidden>0</hidden>
+        <usagewarnthreshold>85</usagewarnthreshold>
+        <comment></comment>
+      </mntent>
+    </fstab>
+    <shares>
+      <!--
+			<sharedfolder>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<name>xxx</name>
+				<comment>xxx</comment>
+				<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
+				<reldirpath>xxx</reldirpath>
+				<privileges>
+					<privilege>
+						<type>user|group</type>
+						<name>xxx</name>
+						<perms>0 = no permission|5 = read and execute|7 = read, write and execute</perms>
+					</privilege>
+				</privileges>
+			</sharedfolder>
+			-->
+      <sharedfolder>
+        <uuid>2fd9d941-222a-495b-93e1-a31e6d682ecb</uuid>
+        <name>Media_1</name>
+        <comment></comment>
+        <mntentref>3d2288ab-95d1-4c33-9c48-40b35129e9b0</mntentref>
+        <reldirpath>/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-1-RW</name>
+            <perms>7</perms>
+          </privilege>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-1-RO</name>
+            <perms>5</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>daa2a6c8-1c3e-4170-996c-b4f5f0c54315</uuid>
+        <name>Media_2</name>
+        <comment></comment>
+        <mntentref>6d9f237a-2d90-4b8b-9679-0aeaa4ab3b3f</mntentref>
+        <reldirpath>/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-2-RO</name>
+            <perms>5</perms>
+          </privilege>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-2-RW</name>
+            <perms>7</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>17c77eb0-1932-4ef8-a33a-131f15459b62</uuid>
+        <name>Media_3</name>
+        <comment></comment>
+        <mntentref>1ddbc6d1-5bc9-4fa9-9778-ae65866d9e07</mntentref>
+        <reldirpath>MyArchive/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-3-RO</name>
+            <perms>5</perms>
+          </privilege>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-3-RW</name>
+            <perms>7</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>8904a762-c02f-4973-941d-60806218fdb9</uuid>
+        <name>Media_4</name>
+        <comment></comment>
+        <mntentref>778d74e6-a04c-4730-b005-668247fc2136</mntentref>
+        <reldirpath>/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-4-RO</name>
+            <perms>5</perms>
+          </privilege>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-4-RW</name>
+            <perms>7</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>d72dbdc9-090c-4649-b4fb-9a7d02b59309</uuid>
+        <name>Media_5</name>
+        <comment></comment>
+        <mntentref>abdb5a22-7af6-44b5-b693-1d4796c542c7</mntentref>
+        <reldirpath>/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-5-RO</name>
+            <perms>5</perms>
+          </privilege>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Media-5-RW</name>
+            <perms>7</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+      <sharedfolder>
+        <uuid>bff509ee-6d2d-437d-b1e3-7f595b6c1467</uuid>
+        <name>Backup_OMV</name>
+        <comment>Backup_OMV</comment>
+        <mntentref>abdb5a22-7af6-44b5-b693-1d4796c542c7</mntentref>
+        <reldirpath>Backup/OMV/</reldirpath>
+        <privileges>
+          <privilege>
+            <type>group</type>
+            <name>GRP-Backup-RO</name>
+            <perms>5</perms>
+          </privilege>
+        </privileges>
+      </sharedfolder>
+    </shares>
+    <sharedfoldersnapshotlifecycle>
+      <enable>1</enable>
+      <retentionperiod>1800</retentionperiod>
+      <limitcustom>10</limitcustom>
+      <limithourly>24</limithourly>
+      <limitdaily>7</limitdaily>
+      <limitweekly>4</limitweekly>
+      <limitmonthly>12</limitmonthly>
+      <limityearly>1</limityearly>
+    </sharedfoldersnapshotlifecycle>
+  </system>
+  <!-- Web control panel configuration - Do not add any configuration here -->
+  <webadmin>
+    <port>80</port>
+    <enablessl>0</enablessl>
+    <sslport>443</sslport>
+    <forcesslonly>0</forcesslonly>
+    <sslcertificateref></sslcertificateref>
+    <timeout>0</timeout>
+  </webadmin>
+  <!-- Plugin configuration area -->
+  <services>
+    <ssh>
+      <enable>1</enable>
+      <port>22</port>
+      <extraoptions></extraoptions>
+      <passwordauthentication>1</passwordauthentication>
+      <pubkeyauthentication>1</pubkeyauthentication>
+      <permitrootlogin>1</permitrootlogin>
+      <tcpforwarding>0</tcpforwarding>
+      <compression>0</compression>
+    </ssh>
+    <nfs>
+      <enable>0</enable>
+      <versions>3,4,4.1,4.2</versions>
+      <shares>
+        <!--
+				<share>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+					<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
+					<client>xxx.xxx.xxx.xxx/xx|xxxxxxxxx</client>
+					<options>xxx,xxx,xxx</options>
+					<extraoptions></extraoptions>
+					<comment>xxx</comment>
+				</share>
+				-->
+      </shares>
+    </nfs>
+    <smart>
+      <enable>1</enable>
+      <interval>1800</interval>
+      <powermode>never</powermode>
+      <tempdiff>0</tempdiff>
+      <tempmax>0</tempmax>
+      <monitor>
+        <device>
+          <uuid>cf4905d1-1d18-47a1-b2fc-942ad3e875ff</uuid>
+          <enable>0</enable>
+          <devicefile>/dev/disk/by-id/usb-External_USB3.0_DISK00_WCT3E94P-0:0</devicefile>
+          <devicetype></devicetype>
+          <tempdiff>2</tempdiff>
+          <tempmax>25</tempmax>
+        </device>
+      </monitor>
+      <scheduledtests></scheduledtests>
+    </smart>
+    <smb>
+      <enable>1</enable>
+      <workgroup>WORKGROUP</workgroup>
+      <serverstring>%h server</serverstring>
+      <loglevel>0</loglevel>
+      <usesendfile>1</usesendfile>
+      <aio>1</aio>
+      <timeserver>0</timeserver>
+      <winssupport>0</winssupport>
+      <winsserver></winsserver>
+      <homesenable>0</homesenable>
+      <homesbrowseable>1</homesbrowseable>
+      <homesrecyclebin>1</homesrecyclebin>
+      <homesinheritacls>1</homesinheritacls>
+      <homesinheritpermissions>1</homesinheritpermissions>
+      <homesextraoptions></homesextraoptions>
+      <netbios>0</netbios>
+      <minprotocol>SMB3</minprotocol>
+      <extraoptions></extraoptions>
+      <shares>
+        <share>
+          <uuid>7d9eb07d-e4cd-4487-bb8a-93e6714c9ce9</uuid>
+          <enable>1</enable>
+          <sharedfolderref>2fd9d941-222a-495b-93e1-a31e6d682ecb</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+        <share>
+          <uuid>4b0d0d49-3b14-42bb-b774-491d8b5145ed</uuid>
+          <enable>1</enable>
+          <sharedfolderref>daa2a6c8-1c3e-4170-996c-b4f5f0c54315</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+        <share>
+          <uuid>04cc133e-b00e-4b55-aa1c-d373f9d3f6dd</uuid>
+          <enable>1</enable>
+          <sharedfolderref>17c77eb0-1932-4ef8-a33a-131f15459b62</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+        <share>
+          <uuid>6bba43e6-de11-418c-a6b5-f86809aa2bff</uuid>
+          <enable>1</enable>
+          <sharedfolderref>8904a762-c02f-4973-941d-60806218fdb9</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+        <share>
+          <uuid>6432b83a-fb08-4280-a908-17ac0bf5d08d</uuid>
+          <enable>1</enable>
+          <sharedfolderref>d72dbdc9-090c-4649-b4fb-9a7d02b59309</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+        <share>
+          <uuid>97caf7fb-2605-49c5-ae6a-1512cbb174fd</uuid>
+          <enable>1</enable>
+          <sharedfolderref>bff509ee-6d2d-437d-b1e3-7f595b6c1467</sharedfolderref>
+          <comment></comment>
+          <guest>no</guest>
+          <readonly>0</readonly>
+          <browseable>1</browseable>
+          <recyclebin>0</recyclebin>
+          <recyclemaxsize>0</recyclemaxsize>
+          <recyclemaxage>0</recyclemaxage>
+          <hidedotfiles>1</hidedotfiles>
+          <inheritacls>0</inheritacls>
+          <inheritpermissions>0</inheritpermissions>
+          <easupport>0</easupport>
+          <storedosattributes>0</storedosattributes>
+          <hostsallow></hostsallow>
+          <hostsdeny></hostsdeny>
+          <audit>0</audit>
+          <timemachine>0</timemachine>
+          <transportencryption>0</transportencryption>
+          <extraoptions></extraoptions>
+        </share>
+      </shares>
+    </smb>
+    <rsync>
+      <server>
+        <enable>0</enable>
+        <port>873</port>
+        <extraoptions></extraoptions>
+        <modules>
+          <!--
+					<module>
+						<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+						<enable>0|1</enable>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uid>xxx</uid>
+						<gid>xxx</gid>
+						<name>xxx</name>
+						<comment>xxx</comment>
+						<readonly>0</readonly>
+						<writeonly>0</writeonly>
+						<maxconnections>0</maxconnections>
+						<list>1</list>
+						<hostsallow></hostsallow>
+						<hostsdeny></hostsdeny>
+						<extraoptions></extraoptions>
+						<authusers>0|1</authusers>
+						<usechroot>0|1</usechroot>
+						<users>
+							<user>
+								<name>xxx</name>
+								<password>xxx</password>
+							<user>
+						<users>
+					</module>
+					-->
+        </modules>
+      </server>
+      <jobs>
+        <!--
+				<job>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
+					<sendemail>0|1<sendemail>
+					<quiet>0</quiet>
+					<comment>xxx</comment>
+					<type>local|remote</type>
+					<src>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uri>xxx</uri>
+					</src>
+					<dest>
+						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uri>xxx</uri>
+					</dest>
+					<minute>[00-59|*]</minute>
+					<everynminute>0|1</everynminute>
+					<hour>[00-23|*]</hour>
+					<everynhour>0|1</everynhour>
+					<dayofmonth>[01-31|*]</dayofmonth>
+					<everyndayofmonth>0|1</everyndayofmonth>
+					<month>[01-12|*]</month>
+					<dayofweek>[1-7|*]</dayofweek>
+					<optionrecursive>1</optionrecursive>
+					<optiontimes>1</optiontimes>
+					<optiongroup>1</optiongroup>
+					<optionowner>1</optionowner>
+					<optioncompress>0</optioncompress>
+					<optionarchive>1</optionarchive>
+					<optiondelete>0</optiondelete>
+					<optionperms>1</optionperms>
+					<optionacls>1</optionacls>
+					<optionxattrs>0</optionxattrs>
+					<optiondryrun>0</optiondryrun>
+					<optionpartial>0</optionpartial>
+					<extraoptions></extraoptions>
+					// remote
+					<mode>push|pull</mode>
+					<authentication>password|pubkey</authentication>
+					<password>xxx</password>
+					<sshcertificateref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sshcertificateref>
+					<sshport>22</sshport>
+				</job>
+				-->
+      </jobs>
+    </rsync>
+    <usbbackup>
+      <jobs></jobs>
+    </usbbackup>
+  </services>
+</config>
