@@ -313,8 +313,8 @@ NlB2T6bKGcYGqL7L
     </certificates>
     <network>
       <dns>
-        <hostname>openmediavault</hostname>
-        <domainname></domainname>
+        <hostname>pi5</hostname>
+        <domainname>lan.local</domainname>
       </dns>
       <interfaces>
         <!--
