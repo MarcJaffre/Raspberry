@@ -364,22 +364,6 @@ cat > /etc/samba/smb.conf << EOF
 # ======================= Share Definitions =======================
 
 # =================================================
-[homes]
-comment                 = Dossier Utilisateurs
-browseable              = no
-read only               = no
-writable                = yes
-create mask             = 0700
-directory mask          = 0700
-guest ok                = no
-valid users             = %S
-vfs object              = recycle
-recycle:exclude_dir     = Corbeille
-recycle:keeptree        = true
-recycle:repository      = ./Corbeille
-recycle:versions        = true
-
-# =================================================
 [Docker]
 comment                 = Acces au dossier Media 5
 path                    = /var/lib/docker/volumes
@@ -396,15 +380,15 @@ recycle:repository      = ./Corbeille
 recycle:versions        = true
 
 # =================================================
-[System]
-comment                 = Acces au dossier root
-path                    = /
-browseable              = yes
-writable                = yes
+[homes]
+comment                 = Dossier Utilisateurs
+browseable              = no
 read only               = no
-valid users             = @users
-force user              = root
+writable                = yes
+create mask             = 0700
+directory mask          = 0700
 guest ok                = no
+valid users             = %S
 vfs object              = recycle
 recycle:exclude_dir     = Corbeille
 recycle:keeptree        = true
@@ -491,10 +475,25 @@ recycle:keeptree        = true
 recycle:repository      = ./Corbeille
 recycle:versions        = true
 
-# ======================= END SAMBA ===============================
-EOF
+# =================================================
+[System]
+comment                 = Acces au dossier root
+path                    = /
+browseable              = yes
+writable                = yes
+read only               = no
+valid users             = @users
+force user              = root
+guest ok                = no
+vfs object              = recycle
+recycle:exclude_dir     = Corbeille
+recycle:keeptree        = true
+recycle:repository      = ./Corbeille
+recycle:versions        = true
 
 # recycle:exclude         = *.TMP *.tmp *.temp ~$* *.log
+# ======================= END SAMBA ===============================
+EOF
 ```
 
 
