@@ -38,7 +38,7 @@ func_SRV_ADRESS()  {
 ###########################
 func_SRV_DOMAINE()  {
   read -p "Quel est le nom de domaine ? " HOST_DOMAINE
-  HOST_DOMAINE=${HOST_DOMAINE:-Local}
+  #HOST_DOMAINE=${HOST_DOMAINE:-Local}
 }
 ####################################################################################################
 # Menu 2 - Nom d'utilisateur #
@@ -59,7 +59,7 @@ func_SRV_PASSWORD() {
 ###########################
 func_SRV_PARTAGE()  {
   read -p "Quel est le nom de partage du serveur ? " HOST_SHARE
-  HOST_SHARE=${HOST_SHARE:-marc}
+  HOST_SHARE=${HOST_SHARE:-Media_1}
 }
 ####################################################################################################
 # Menu 5 - Point de montage #
